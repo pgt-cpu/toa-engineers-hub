@@ -121,6 +121,22 @@ h1 span{color:var(--r)}
 .sh{background:#111;color:#fff;width:100%;max-width:640px;margin:0 auto;border-radius:26px 26px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px));border-top:7px solid var(--y)}
 .sh h3{margin:0 0 12px;color:#fff;font-size:18px}.sh .d{font-size:12px;color:#bbb}
 .sh textarea{width:100%;min-height:100px;background:#2b2b2b;border:0;border-radius:12px;color:#fff;padding:12px;font:500 14px Poppins,sans-serif;margin:10px 0;outline:none;resize:vertical}
+
+#cheer{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.6);z-index:300;pointer-events:none;opacity:0;text-align:center;background:var(--k);color:#fff;border:4px solid var(--y);border-radius:26px;padding:18px 26px;box-shadow:0 10px 0 rgba(0,0,0,.25);max-width:86vw;min-width:200px}
+#cheer.sad{border-color:#FF8A00}
+#cheer.on{animation:chr 1.8s ease both}
+#cheer .e{font-size:56px;line-height:1}#cheer b{display:block;font-size:20px;color:var(--y);margin-top:8px}#cheer span{font-size:13px;color:#ddd}
+@keyframes chr{0%{opacity:0;transform:translate(-50%,-50%) scale(.5) rotate(-6deg)}14%{opacity:1;transform:translate(-50%,-50%) scale(1.1) rotate(2deg)}24%{transform:translate(-50%,-50%) scale(1) rotate(0)}80%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-64%) scale(.95)}}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mc{aspect-ratio:1;border:0;border-radius:14px;background:#2b2b2b;color:#888;font-size:28px;cursor:pointer;font-family:Poppins,sans-serif;font-weight:800}
+.mc.up{background:var(--y);color:#111}.mc.done{background:#2a9d3f;color:#fff}
+#snk{background:#1f1f1f;border-radius:14px;width:100%;max-width:300px;display:block;margin:0 auto 6px;touch-action:none}
+.dp{display:grid;grid-template-columns:repeat(3,64px);gap:8px;justify-content:center;margin-top:8px}
+.dp .btn{padding:14px 0;font-size:16px}
+.rtb{height:150px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;text-align:center;cursor:pointer;background:#2F6BFF;color:#fff;user-select:none;padding:10px}
+.scr{font-size:30px;font-weight:800;letter-spacing:6px;color:var(--y);text-align:center;margin:6px 0 4px;word-break:break-all}
+.gq{font-size:17px;font-weight:700;margin:4px 0 12px;line-height:1.7}
+.xq{color:var(--y);font-size:13px;line-height:1.5;margin:10px 0 0}
 </style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FB0FF"/><stop offset="1" stop-color="#2F6BFF"/></linearGradient><linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6BEBA9"/><stop offset="1" stop-color="#19B36B"/></linearGradient><linearGradient id="gP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B79BFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><linearGradient id="gO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient><linearGradient id="gK" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FBF"/><stop offset="1" stop-color="#FF3D8B"/></linearGradient><linearGradient id="gR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD000"/><stop offset=".45" stop-color="#FF8A00"/><stop offset="1" stop-color="#F43F3F"/></linearGradient><linearGradient id="gY" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF08A"/><stop offset="1" stop-color="#FFC400"/></linearGradient><symbol id="i-book" viewBox="0 0 64 64"><rect x="6" y="42" width="52" height="14" rx="5" fill="#1B47C4"/><rect x="6" y="38" width="52" height="14" rx="5" fill="url(#gB)"/><rect x="12" y="26" width="44" height="14" rx="5" fill="#0E7A49"/><rect x="12" y="22" width="44" height="14" rx="5" fill="url(#gG)"/><rect x="8" y="10" width="40" height="14" rx="5" fill="#C21E66"/><rect x="8" y="6" width="40" height="14" rx="5" fill="url(#gK)"/><rect x="14" y="42" width="30" height="3" rx="1.5" fill="#fff" opacity=".55"/><rect x="20" y="26" width="24" height="3" rx="1.5" fill="#fff" opacity=".55"/></symbol>
 <symbol id="i-calc" viewBox="0 0 64 64"><rect x="10" y="9" width="44" height="52" rx="9" fill="#0E7A49"/><rect x="10" y="3" width="44" height="52" rx="9" fill="url(#gG)"/><rect x="16" y="9" width="32" height="13" rx="4" fill="#0b3d2a"/><rect x="19" y="12" width="14" height="3" rx="1.5" fill="#6BEBA9"/><g fill="#fff" opacity=".9"><circle cx="21" cy="32" r="3.5"/><circle cx="32" cy="32" r="3.5"/><circle cx="43" cy="32" r="3.5"/><circle cx="21" cy="42" r="3.5"/><circle cx="32" cy="42" r="3.5"/><circle cx="43" cy="42" r="3.5"/></g><circle cx="43" cy="49" r="3.5" fill="#FFD000"/></symbol>
 <symbol id="i-cal" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="46" rx="9" fill="#5B34C4"/><rect x="6" y="10" width="52" height="46" rx="9" fill="#fff"/><rect x="6" y="10" width="52" height="17" rx="9" fill="url(#gP)"/><rect x="6" y="20" width="52" height="7" fill="url(#gP)"/><rect x="17" y="3" width="6" height="14" rx="3" fill="#2a1666"/><rect x="41" y="3" width="6" height="14" rx="3" fill="#2a1666"/><g fill="#8B5CF6"><circle cx="19" cy="37" r="3.5"/><circle cx="32" cy="37" r="3.5"/><circle cx="45" cy="37" r="3.5"/><circle cx="19" cy="48" r="3.5"/><circle cx="32" cy="48" r="3.5"/></g><circle cx="45" cy="48" r="4" fill="#FF8A00"/></symbol>
@@ -133,7 +149,7 @@ h1 span{color:var(--r)}
  <h1>YOUR TIMETABLES.<br>PAST QUESTIONS.<br><span>STUDY MATERIALS.</span></h1>
 <i class="ball" style="--b:#2F6BFF;width:54px;height:54px;left:6%;bottom:8px"></i><i class="ball" style="--b:#FF3D8B;width:32px;height:32px;left:24%;bottom:34px;animation-delay:-2s"></i><i class="ball" style="--b:#19B36B;width:44px;height:44px;right:9%;bottom:12px;animation-delay:-4s"></i><i class="ball" style="--b:#8B5CF6;width:26px;height:26px;right:28%;bottom:40px;animation-delay:-3s"></i></div></div>
 <div class="hm"><div class="tc" id="day"></div><div class="tc" id="nt" style="display:none"></div><div class="bt"><button class="btn" id="shw" type="button">Share on WhatsApp</button><button class="btn g" id="rq2" type="button">Send or request a resource</button></div></div>
-<div class="tiles"><button class="tile" data-p="res" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></span><b>Class resources</b><i>Timetables, past questions, study materials</i></button><button class="tile" data-p="tools" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></span><b>Study tools</b><i>CWA calculator, timer, exam countdown</i></button><button class="tile" data-p="plan" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></span><b>My planner</b><i>Classes, assignments, flashcards</i></button><button class="tile" data-p="kit" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></span><b>Engineer's toolkit</b><i>Number bases, Ohm's law, resistor codes, dBm</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></span><b>Quiz and games</b><i>Engineering quiz, binary challenge</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-fire"/></svg></span><b>Study streak</b><i>Build a daily study habit</i></button></div></div>
+<div class="tiles"><button class="tile" data-p="res" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></span><b>Class resources</b><i>Timetables, past questions, study materials</i></button><button class="tile" data-p="tools" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></span><b>Study tools</b><i>CWA calculator, timer, exam countdown</i></button><button class="tile" data-p="plan" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></span><b>My planner</b><i>Classes, assignments, flashcards</i></button><button class="tile" data-p="kit" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></span><b>Engineer's toolkit</b><i>Number bases, Ohm's law, resistor codes, dBm</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></span><b>Quiz and games</b><i>Big quiz, 6 games, rank points</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-fire"/></svg></span><b>Study streak</b><i>Build a daily study habit</i></button></div></div>
 <div class="pg" id="p-res"><div class="ph"><div><div class="k">CLASS RESOURCES</div><h2>Find your class</h2><p>Timetables, past questions and study materials. Free for every student.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></div></div><div class="dark">
  <p class="free">FREE. IN ONE PLACE.</p>
  <p class="sub">Find your class resources in 3 quick steps.</p>
@@ -160,14 +176,22 @@ h1 span{color:var(--r)}
 <div class="tc"><h3>Resistor colour code</h3><p class="d">Choose the four bands to read the value.</p><div class="rw"><select id="b1"></select><select id="b2"></select></div><div class="rw"><select id="bm"></select><select id="bt"></select></div><div class="sw" id="sw"></div><div class="res" id="ro"></div></div>
 <div class="tc"><h3>dBm and milliwatts</h3><p class="d">Handy for telecom. Fill either box.</p><div class="rw"><input id="dm" type="number" inputmode="decimal" placeholder="dBm"><input id="mw" type="number" inputmode="decimal" placeholder="mW"></div><div class="res" id="dmo" style="font-size:14px"></div></div></div></div>
 <div class="pg" id="p-fun"><div class="ph"><div><div class="k">QUIZ AND GAMES</div><h2>Take a break</h2><p>Test yourself, beat your streak, stay sharp.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></div></div><div class="tools"><h2>Quiz and games</h2><p class="tl">Quick challenges and habits to keep you sharp.</p>
+<div class="tc"><h3>Your engineer rank</h3><div class="big2" id="xpr"></div><div class="d" id="xpd"></div><div style="height:10px;background:#2b2b2b;border-radius:6px;overflow:hidden"><div id="xpb" style="height:100%;width:0;background:var(--c);transition:width .5s"></div></div><p class="d" style="margin-top:10px">Earn points from quizzes, games and your study streak to level up.</p></div>
 <div class="tc"><h3>Study streak</h3><p class="d">Tap once on each day you study. Keep the chain going.</p><div class="big2" id="sk">0 days</div><div class="d" id="skd"></div><div class="bt"><button class="btn" id="skb" type="button">I studied today</button></div></div>
-<div class="tc"><h3>Engineering quick quiz</h3><p class="d" id="qs">10 questions. Beat your best score.</p><p id="qq" style="font-weight:700;margin:0 0 6px"></p><div id="qo"></div><div class="bt"><button class="btn" id="qn" type="button">Start quiz</button></div></div>
-<div class="tc"><h3>Binary challenge</h3><p class="d">Convert the number to binary. How long can you keep your streak?</p><div class="big2" id="bn"></div><div class="rw"><input id="ba" type="text" inputmode="numeric" placeholder="Answer in binary"><button class="btn" id="bc" type="button">Check</button></div><div class="res" id="bo" style="font-size:14px"></div></div></div></div>
+<div class="tc"><h3>Engineering quick quiz</h3><p class="d" id="qs">10 questions. Beat your best score.</p><p id="qq" style="font-weight:700;margin:0 0 6px"></p><div id="qo"></div><p class="xq" id="qx"></p><div class="bt"><button class="btn" id="qn" type="button">Start quiz</button></div></div>
+<div class="tc"><h3>Binary challenge</h3><p class="d">Convert the number to binary. How long can you keep your streak?</p><div class="big2" id="bn"></div><div class="rw"><input id="ba" type="text" inputmode="numeric" placeholder="Answer in binary"><button class="btn" id="bc" type="button">Check</button></div><div class="res" id="bo" style="font-size:14px"></div></div>
+<div class="tc"><h3>Memory match</h3><p class="d">Flip two cards at a time and find all 8 pairs in as few moves as you can.</p><div class="mg" id="mg"></div><p class="d" id="mst" style="margin-top:10px"></p><div class="bt"><button class="btn g" id="mnew" type="button">New game</button></div></div>
+<div class="tc"><h3>Snake</h3><p class="d">Eat the pink dots and grow. Swipe on the board, use the arrow buttons or your keyboard. Do not hit the walls or yourself.</p><canvas id="snk"></canvas><p class="d" id="sst" style="text-align:center"></p><div class="dp"><span></span><button class="btn g" id="sU" type="button">&#9650;</button><span></span><button class="btn g" id="sL" type="button">&#9664;</button><button class="btn g" id="sD" type="button">&#9660;</button><button class="btn g" id="sR" type="button">&#9654;</button></div><div class="bt" style="justify-content:center"><button class="btn" id="snkgo" type="button">Start</button></div></div>
+<div class="tc"><h3>Word scramble</h3><p class="d">Unscramble the engineering word. Use the hint if you are stuck.</p><div class="scr" id="wq"></div><p class="d" id="wh" style="text-align:center"></p><div class="rw"><input id="wi" type="text" autocomplete="off" autocapitalize="characters" placeholder="Your answer"><button class="btn" id="wc" type="button">Check</button></div><div class="bt"><button class="btn g" id="wsk" type="button">Skip</button></div><p class="xq" id="wo"></p></div>
+<div class="tc"><h3>Logic gate challenge</h3><p class="d">Work out the output of the gate. How long can your streak go?</p><div class="gq" id="lgq"></div><div class="bt"><button class="btn" id="lg0" type="button" style="min-width:90px">0</button><button class="btn" id="lg1" type="button" style="min-width:90px">1</button></div><p class="xq" id="lgo"></p></div>
+<div class="tc"><h3>Reaction test</h3><p class="d">Tap the box as soon as it turns green. Do not tap early.</p><div class="rtb" id="rtb"></div><p class="xq" id="rto"></p></div>
+<div class="tc"><h3>30-second maths sprint</h3><p class="d">Solve as many as you can before time runs out. Answers submit by themselves when correct. Press Enter to skip a hard one.</p><div class="gq" id="mpt">Time: 30 &nbsp; Score: 0</div><div class="big2" id="mq" style="font-size:28px">Ready?</div><div class="rw"><input id="mi" type="number" inputmode="numeric" placeholder="Answer" disabled></div><div class="bt"><button class="btn" id="mgo" type="button">Start</button></div><p class="xq" id="mo"></p></div>
+</div></div>
 <div class="foot"><div class="me"><img src="badge.png" alt="Thomas Osei Adjei"><div class="t"><p class="big">Built by an engineering student, for every engineering student.</p></div></div>
 <p class="small">A student-run initiative, not an official GESA channel.</p></div>
 <nav class="bn"><button data-p="home" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-home"/></svg></span>Home</button><button data-p="res" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></span>Resources</button><button data-p="tools" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></span>Tools</button><button data-p="plan" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></span>Planner</button><button data-p="kit" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></span>Toolkit</button><button data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></span>Fun</button></nav>
 <div class="sheet" id="sheet" hidden><div class="sh"><h3>Send or request a resource</h3><div class="bt"><button class="btn" id="sq" type="button">I want to request</button><button class="btn g" id="ss" type="button">I want to send</button></div><p class="d" id="sctx" style="margin:12px 0 0"></p><textarea id="sd" placeholder="Tell me what you need or what you are sending. Example: EE 251 Circuit Theory past questions 2023, or paste a Google Drive link."></textarea><div class="bt"><button class="btn" id="sgo" type="button">Open WhatsApp</button><button class="btn g" id="sx" type="button">Cancel</button></div></div></div>
-<button id="snd" type="button" aria-label="Sound on or off"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path id="sw" d="M15 8.5a5 5 0 0 1 0 7M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path id="sl" d="M4 4l16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"/></svg></button>
+<button id="snd" type="button" aria-label="Sound on or off"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path id="sndw" d="M15 8.5a5 5 0 0 1 0 7M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path id="sl" d="M4 4l16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"/></svg></button>
 <script src="config.js"></script>
 <script>
 var P=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
@@ -286,7 +310,7 @@ function good(){[523,659,784].forEach(function(f,i){tone(f,i*.1,.18,"triangle",.
 function bad(){tone(180,0,.22,"sawtooth",.1);tone(140,.12,.28,"sawtooth",.1);buzz([80,40,80])}
 function win(){[523,659,784,1047,1319].forEach(function(f,i){tone(f,i*.09,.22,"triangle",.18)});buzz([40,30,80]);confetti(120)}
 function confetti(n){if(!SND&&false)return;if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;var c=document.getElementById("cf");if(!c){c=document.createElement("canvas");c.id="cf";c.style.cssText="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:200";document.body.appendChild(c)}c.width=innerWidth;c.height=innerHeight;var x=c.getContext("2d"),cols=["#FFD000","#2F6BFF","#FF3D8B","#19B36B","#8B5CF6","#FF8A00","#ffffff"],Q=[];for(var i=0;i<n;i++)Q.push({x:innerWidth/2,y:innerHeight*.55,vx:(Math.random()-.5)*14,vy:-Math.random()*13-4,s:4+Math.random()*6,c:cols[i%cols.length],r:Math.random()*6,vr:(Math.random()-.5)*.4});var t0=Date.now();(function f(){x.clearRect(0,0,c.width,c.height);Q.forEach(function(p){p.vy+=.45;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore()});if(Date.now()-t0<1600)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
-function sndIcon(){$("sw").style.display=SND?"":"none";$("sl").style.display=SND?"none":"";$("snd").setAttribute("aria-pressed",SND?"true":"false")}
+function sndIcon(){$("sndw").style.display=SND?"":"none";$("sl").style.display=SND?"none":"";$("snd").setAttribute("aria-pressed",SND?"true":"false")}
 $("snd").onclick=function(){SND=!SND;try{localStorage.setItem("snd",SND?"on":"off")}catch(e){}sndIcon();if(SND)pop()};sndIcon();
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("button");if(!b||b.id==="snd"||b.classList.contains("opt"))return;tap()});
 function p2(n){return("0"+n).slice(-2)}
@@ -307,5 +331,204 @@ function qm(t){var S=t.replace(/\s+/g," ").match(/[^.!?]+[.!?]?/g)||[],out=[];S.
 $("qmf").onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){$("qmt").value=String(r.result).slice(0,60000)};r.readAsText(f)};
 $("qmb").onclick=function(){qres=qm($("qmt").value);$("qma").style.display=qres.length?"inline-block":"none";$("qmo").innerHTML=qres.length?qres.map(function(x,i){return '<div class="it" style="flex-wrap:wrap"><span style="flex:1 1 100%">'+esc(x.q)+'</span><button class="btn g sa" data-i="'+i+'" type="button" style="padding:6px 12px;font-size:11px">Show answer</button><span class="ans" style="display:none;flex:1 1 100%;color:var(--y)"></span></div>'}).join(""):'<p class="d" style="margin-top:10px">I could not find enough clear sentences. Paste more notes written in full sentences.</p>';[].forEach.call($("qmo").querySelectorAll(".sa"),function(b){b.onclick=function(){var a=b.nextSibling;a.textContent=qres[+b.dataset.i].a;a.style.display="block";b.style.display="none"}})};
 $("qma").onclick=function(){pop();qres.forEach(function(x){fc.push({q:x.q,a:x.a})});sv("fc",fc);fi=fc.length-1;ff=false;rFc();$("qma").textContent="Added to flashcards"};
+</script>
+
+<script>
+/* ===== FUN PAGE UPGRADE: celebrations, rank points, big quiz, six games ===== */
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+var PR=["Correct! Brilliant!","Yes! You nailed it!","Spot on, engineer!","Genius move!","Excellent work!","You are on fire!","That is right! Keep going!","Sharp mind!","Boom! Another one!","Top marks for that!"];
+var PE=["🎉","🌟","💡","🔥","🏆","⚡","🚀","👏"];
+function cheer(t,s,e,sad){var c=$("cheer");if(!c){c=document.createElement("div");c.id="cheer";document.body.appendChild(c)}c.className="";c.innerHTML='<div class="e">'+e+"</div><b>"+esc(t)+"</b><span>"+esc(s||"")+"</span>";void c.offsetWidth;c.className="on"+(sad?" sad":"")}
+
+/* ---- rank points ---- */
+var RANKS=[[0,"Rookie","🔰"],[50,"Technician","🔧"],[150,"Junior Engineer","⚡"],[350,"Engineer","⚙️"],[700,"Senior Engineer","🚀"],[1200,"Chief Engineer","🏆"],[2000,"Legend","👑"]];
+function xp(){try{return +localStorage.getItem("hubxp")||0}catch(e){return 0}}
+function rankOf(p){var r=RANKS[0];RANKS.forEach(function(x){if(p>=x[0])r=x});return r}
+function nextRank(p){for(var i=0;i<RANKS.length;i++)if(RANKS[i][0]>p)return RANKS[i];return null}
+function drawXP(){var p=xp(),r=rankOf(p),n=nextRank(p);$("xpr").textContent=r[2]+" "+r[1];$("xpd").textContent=p+" points"+(n?" · "+(n[0]-p)+" more to become "+n[1]:" · Top rank reached!");$("xpb").style.width=(n?Math.round((p-r[0])/(n[0]-r[0])*100):100)+"%"}
+function award(n){var o=xp(),p=o+n;try{localStorage.setItem("hubxp",p)}catch(e){}drawXP();var a=rankOf(o),b=rankOf(p);if(a[1]!==b[1]){setTimeout(function(){win();cheer("LEVEL UP!","You are now a "+b[1],b[2])},1900)}}
+drawXP();
+
+/* ---- study streak and binary: add celebrations ---- */
+$("skb").onclick=function(){var k=dk(new Date());if(stk.indexOf(k)<0){stk.push(k);sv("stk",stk);rSk();win();award(5);cheer("Streak kept!",$("sk").textContent+" in a row. +5 points","🔥")}else{rSk();cheer("Already done today","Come back tomorrow to grow your streak","✅")}};
+$("bc").onclick=function(){var a=$("ba").value.trim();if(!a)return;if(/^[01]+$/.test(a)&&parseInt(a,2)===bv){good();award(2);bst++;if(bst>bb){bb=bst;try{localStorage.setItem("bbest",bb)}catch(e){}}$("bo").textContent="Correct! Streak: "+bst+". Best: "+bb;if(bst%5===0){cheer(bst+" in a row!","Binary master in the making","🧠")}else{cheer(pick(PR),"+2 points",pick(PE))}}else{$("bo").textContent="Not quite. "+bv+" is "+bv.toString(2)+" in binary. Streak reset.";bad();bst=0}bnew()};
+
+/* ---- quiz bank ---- */
+function Q(t,c,w,e){QZ.push([t,[c].concat(w),e||""])}
+Q("What does LED stand for?","Light Emitting Diode",["Low Energy Diode","Light Electric Device","Linear Emission Diode"],"A diode that gives off light when current flows through it.");
+Q("Which component blocks DC but lets AC pass?","Capacitor",["Resistor","Diode","Fuse"],"Once charged, a capacitor blocks steady DC but passes changing AC.");
+Q("What is the SI unit of capacitance?","Farad",["Henry","Tesla","Siemens"]);
+Q("What is the SI unit of inductance?","Henry",["Farad","Ohm","Coulomb"]);
+Q("Two 10 ohm resistors in series give a total of?","20 ohms",["5 ohms","10 ohms","100 ohms"],"Series resistances add up: 10 + 10 = 20.");
+Q("Two 10 ohm resistors in parallel give a total of?","5 ohms",["20 ohms","10 ohms","2 ohms"],"Two equal resistors in parallel give half of one: 5 ohms.");
+Q("Which formula gives electrical power?","P = V x I",["P = V / I","P = I / V","P = V + I"]);
+Q("A rectifier is used to convert...","AC to DC",["DC to AC","High voltage to low","Light to sound"]);
+Q("An inverter converts...","DC to AC",["AC to DC","Heat to light","Sound to current"]);
+Q("A transformer works on the principle of?","Electromagnetic induction",["Electrolysis","Photoelectric effect","Thermal expansion"]);
+Q("What is the standard mains frequency in Ghana?","50 Hz",["60 Hz","100 Hz","25 Hz"]);
+Q("Roughly what is the standard household mains voltage in Ghana?","230 V",["110 V","12 V","24 V"]);
+Q("What is the SI unit of electric current?","Ampere",["Volt","Coulomb","Watt"]);
+Q("Kirchhoff's current law says that at a node...","Current in equals current out",["Voltage is always zero","Resistance adds up","Power is constant"]);
+Q("Which material is most used to make computer chips?","Silicon",["Copper","Iron","Gold"]);
+Q("A diode mainly allows current to flow...","In one direction only",["In both directions equally","Only when hot","Only as AC"]);
+Q("What is the SI unit of magnetic flux density?","Tesla",["Weber","Henry","Gauss"]);
+Q("What is the SI unit of conductance?","Siemens",["Ohm","Farad","Henry"]);
+Q("Which metal has the highest electrical conductivity?","Silver",["Copper","Gold","Aluminium"]);
+Q("In the resistor colour code, which colour stands for 5?","Green",["Blue","Yellow","Orange"],"Black 0, Brown 1, Red 2, Orange 3, Yellow 4, Green 5, Blue 6, Violet 7, Grey 8, White 9.");
+Q("A short circuit is a path with...","Very low resistance",["Very high resistance","No current source","A broken wire"],"Almost no resistance lets a huge current flow, which can cause damage.");
+Q("What does a fuse do?","Breaks the circuit when current is too high",["Stores charge","Boosts voltage","Converts AC to DC"]);
+Q("What does an ammeter measure?","Current",["Voltage","Resistance","Power"]);
+Q("A voltmeter is connected...","In parallel",["In series","Behind the battery only","Inside the resistor"]);
+Q("An ammeter is connected...","In series",["In parallel","Across the supply","Anywhere"]);
+Q("What is binary 1111 in decimal?","15",["16","14","8"]);
+Q("What is hexadecimal A in decimal?","10",["11","12","9"]);
+Q("How many bits are in one byte?","8",["4","16","2"]);
+Q("An AND gate outputs 1 when...","Both inputs are 1",["Either input is 1","Both inputs are 0","The inputs differ"]);
+Q("An OR gate outputs 0 only when...","Both inputs are 0",["Both inputs are 1","The inputs differ","Either input is 1"]);
+Q("What does a NOT gate do?","Inverts its input",["Adds two inputs","Stores a bit","Doubles the input"]);
+Q("An XOR gate outputs 1 when...","The inputs are different",["Both inputs are 1","Both inputs are 0","The inputs are equal"]);
+Q("What is decimal 5 in binary?","101",["110","11","1001"]);
+Q("What is decimal 10 in binary?","1010",["1001","1100","1110"]);
+Q("What is binary 1000 in decimal?","8",["10","4","16"]);
+Q("What is decimal 255 in hexadecimal?","FF",["EE","F0","1F"]);
+Q("Which gate is called a universal gate?","NAND",["AND","OR","XOR"],"Any other gate can be built from NAND gates alone.");
+Q("How many bits are in 2 bytes?","16",["8","32","4"]);
+Q("A flip-flop is a circuit that stores...","One bit",["One byte of text","A whole file","Only decimal numbers"]);
+Q("What does HTML stand for?","HyperText Markup Language",["High Text Machine Language","Hyper Transfer Markup Logic","Home Tool Markup Language"]);
+Q("Which language runs inside every web browser?","JavaScript",["COBOL","Fortran","Pascal"]);
+Q("What does a loop do in programming?","Repeats a block of code",["Deletes a file","Stops the computer","Draws a picture only"]);
+Q("What is an algorithm?","A step-by-step method to solve a problem",["A type of battery","A computer virus","A kind of cable"]);
+Q("RAM is...","Temporary working memory",["Permanent storage","A type of screen","A power supply"]);
+Q("Which of these is an operating system?","Linux",["Python","HTML","Excel"]);
+Q("What does GPS stand for?","Global Positioning System",["General Position Signal","Ground Path Sensor","Global Power Supply"]);
+Q("What does USB stand for?","Universal Serial Bus",["United System Board","Universal Signal Booster","Unified Serial Battery"]);
+Q("What does CAD stand for?","Computer-Aided Design",["Computer Added Data","Central Automated Drawing","Circuit And Diode"]);
+Q("Which unit measures processor clock speed?","Hertz (GHz)",["Watts","Bytes","Decibels"]);
+Q("Who invented the World Wide Web?","Tim Berners-Lee",["Bill Gates","Alan Turing","Elon Musk"]);
+Q("In Python, which symbol starts a comment?","#",["//","<!--","**"]);
+Q("What is the derivative of x squared?","2x",["x","x squared","2"]);
+Q("What is the integral of 2x with respect to x?","x squared + C",["2 + C","x + C","2x squared + C"]);
+Q("What is sin 90 degrees?","1",["0","0.5","-1"]);
+Q("What is cos 0 degrees?","1",["0","0.5","-1"]);
+Q("What is the square root of 144?","12",["14","11","24"]);
+Q("Pi to two decimal places is...","3.14",["3.41","3.12","3.18"]);
+Q("What is the SI unit of force?","Newton",["Joule","Pascal","Watt"]);
+Q("What is the SI unit of energy?","Joule",["Newton","Watt","Pascal"]);
+Q("What is the SI unit of pressure?","Pascal",["Newton","Joule","Bar"]);
+Q("Acceleration due to gravity on Earth is about...","9.8 m/s squared",["1.6 m/s squared","98 m/s squared","3.0 m/s squared"]);
+Q("Which of these is a vector quantity?","Velocity",["Speed","Mass","Temperature"],"Velocity has both size and direction.");
+Q("The area of a circle is...","pi x r squared",["2 x pi x r","pi x d","r squared / 2"]);
+Q("Pythagoras' theorem for a right triangle says...","a squared + b squared = c squared",["a + b = c","a x b = c","a squared - b squared = c"]);
+Q("Density is...","Mass divided by volume",["Volume divided by mass","Mass times volume","Force divided by area"]);
+Q("What is absolute zero on the Kelvin scale?","0 K",["100 K","-273 K","273 K"]);
+Q("Newton's first law is also known as the law of...","Inertia",["Gravity","Action and reaction","Energy"]);
+Q("Water boils at what temperature at sea level?","100 degrees C",["90 degrees C","110 degrees C","212 degrees C"]);
+Q("Roughly how fast does sound travel in air?","340 m/s",["3 m/s","34 000 m/s","3 x 10^8 m/s"]);
+Q("What is the SI unit of length?","Metre",["Foot","Kilogram","Second"]);
+Q("Which material is strong in compression and widely used in buildings?","Concrete",["Foam","Rubber","Cotton"]);
+Q("Reinforced concrete uses steel bars mainly to resist...","Tension",["Compression","Heat","Light"]);
+Q("An alloy of copper and tin is called...","Bronze",["Brass","Steel","Solder"]);
+Q("An alloy of copper and zinc is called...","Brass",["Bronze","Steel","Pewter"]);
+Q("Which metal is liquid at room temperature?","Mercury",["Lead","Zinc","Tin"]);
+Q("Crude oil is separated into products by...","Fractional distillation",["Filtration only","Electrolysis","Freezing"]);
+Q("What does GIS stand for in geomatic engineering?","Geographic Information System",["General Imaging Scale","Global Instrument Survey","Ground Inspection Sheet"]);
+Q("In flight, which force acts against thrust?","Drag",["Lift","Torque","Magnetism"]);
+Q("Which force holds an aeroplane up in the air?","Lift",["Drag","Thrust","Friction"]);
+Q("Archimedes' principle explains...","Buoyancy",["Magnetism","Combustion","Resonance"]);
+Q("An ECG records the electrical activity of the...","Heart",["Brain","Lungs","Kidneys"]);
+Q("Optical fibre carries signals as...","Light",["Sound","Heat","Magnetism"]);
+Q("A 3 dB increase in power is roughly...","Double the power",["Half the power","Ten times the power","No change"]);
+Q("Lean manufacturing aims to reduce...","Waste",["Quality","Safety","Customers"]);
+Q("How many strokes make one cycle in a four-stroke engine?","4",["2","6","8"],"Intake, compression, power and exhaust.");
+Q("Which is generally lighter for the same volume?","Aluminium",["Steel","Lead","Copper"]);
+Q("What is the chemical symbol for gold?","Au",["Ag","Go","Gd"]);
+Q("What is the chemical symbol for iron?","Fe",["Ir","In","Fi"]);
+Q("What is the pH of a neutral solution?","7",["0","14","1"]);
+Q("What is the first step of the engineering design process?","Define the problem",["Sell the product","Build the final version","Write the report"]);
+Q("The Akosombo Dam created which lake?","Lake Volta",["Lake Bosomtwe","Lake Chad","Lake Victoria"]);
+Q("KNUST is in which Ghanaian city?","Kumasi",["Accra","Tamale","Takoradi"]);
+Q("In which region is KNUST located?","Ashanti",["Greater Accra","Northern","Volta"]);
+Q("What does GESA stand for?","Ghana Engineering Students' Association",["Ghana Electrical Supply Authority","Great Engineers Study Alliance","General Engineering Science Academy"]);
+
+/* ---- quiz with celebrations ---- */
+var qstr=0;
+function qShow(){var b=$("qo");b.innerHTML="";$("qx").textContent="";
+ if(qi>=qo.length){var pc=sc/qo.length,nb=sc>bs&&sc>0;
+  $("qq").textContent="You scored "+sc+" out of "+qo.length+". "+(pc===1?"PERFECT SCORE!":pc>=.7?"Great job!":pc>=.4?"Good effort. Practise more and try again.":"Keep studying. You will do better next time.");
+  if(nb){bs=sc;try{localStorage.setItem("qbest",bs)}catch(e){}}
+  $("qs").textContent="Best score: "+bs;$("qn").textContent="Play again";
+  if(pc>=.7){win();award(10+(pc===1?20:0));cheer(pc===1?"PERFECT SCORE!":"Great result!",sc+" out of "+qo.length+(nb?" · New best!":""),pc===1?"🏆":"🎓")}
+  else if(nb){cheer("New best score!",sc+" out of "+qo.length,"🏅")}
+  $("qn").style.display="";lk=true;qi=-1;qstr=0;return}
+ var it=QZ[qo[qi]];
+ $("qs").textContent="Question "+(qi+1)+" of "+qo.length+" · Best: "+bs+(qstr>1?" · Streak: "+qstr:"");
+ $("qq").textContent=it[0];lk=false;$("qn").textContent=qi===qo.length-1?"See score":"Next";$("qn").style.display="none";
+ shuf(it[1].map(function(t,i){return{t:t,ok:i===0}})).forEach(function(o){var x=document.createElement("button");x.className="opt";x.type="button";x.textContent=o.t;if(o.ok)x.dataset.ok=1;
+  x.onclick=function(){if(lk)return;lk=true;
+   if(o.ok){x.className="opt ok";sc++;qstr++;good();award(3);var cm={3:"3 in a row! Warming up",5:"5 in a row! Unstoppable",7:"7 in a row! Legend",10:"10 in a row! Flawless"};cheer(cm[qstr]||pick(PR),cm[qstr]?"Keep the streak alive!":"+3 points",cm[qstr]?"🔥":pick(PE));$("qx").textContent=it[2]||""}
+   else{x.className="opt no";qstr=0;bad();[].forEach.call(b.children,function(y){if(y.dataset.ok)y.className="opt ok"});$("qx").textContent="Not quite, but now you know. "+(it[2]||"The right answer is shown in green.")}
+   $("qn").style.display=""};
+  b.appendChild(x)})}
+$("qs").textContent="10 random questions from "+QZ.length+". Beat your best score.";
+
+/* ---- Memory match ---- */
+(function(){var E=["⚡","🔧","💡","🔋","📡","🧲","⚙️","🔌"],a=null,lockM=false,mv=0,mt=0,mb=0;try{mb=+localStorage.getItem("mbest")||0}catch(e){}
+function txt(){$("mst").textContent="Moves: "+mv+(mb?" · Best: "+mb:"")}
+function build(){var g=$("mg");g.innerHTML="";mv=0;mt=0;a=null;lockM=false;txt();shuf(E.concat(E)).forEach(function(e){var b=document.createElement("button");b.type="button";b.className="mc";b.dataset.e=e;b.textContent="?";b.onclick=function(){flip(b)};g.appendChild(b)})}
+function flip(b){if(lockM||b===a||b.classList.contains("done"))return;b.className="mc up";b.textContent=b.dataset.e;if(!a){a=b;return}
+ mv++;txt();var x=a;a=null;
+ if(x.dataset.e===b.dataset.e){x.className=b.className="mc done";mt++;pop();if(mt===8){var nb=!mb||mv<mb;if(nb){mb=mv;try{localStorage.setItem("mbest",mb)}catch(e){}}txt();win();award(Math.max(5,30-mv));cheer(mv<=12?"Amazing memory!":mv<=18?"Well played!":"You did it!",mv+" moves"+(nb?" · New best!":""),mv<=12?"🧠":"🎉")}}
+ else{lockM=true;setTimeout(function(){x.className=b.className="mc";x.textContent=b.textContent="?";lockM=false},700)}}
+$("mnew").onclick=build;build()})();
+
+/* ---- Snake ---- */
+(function(){var cv=$("snk"),cx=cv.getContext("2d"),G=15,C=20,sn,dr,nd,fd,sco=0,on=false,tm2=null,bsn=0;try{bsn=+localStorage.getItem("sbest")||0}catch(e){}
+cv.width=cv.height=G*C;
+function info(m){$("sst").textContent=m||("Score: "+sco+" · Best: "+bsn)}
+function place(){do{fd={x:Math.floor(Math.random()*G),y:Math.floor(Math.random()*G)}}while(sn.some(function(p){return p.x===fd.x&&p.y===fd.y}))}
+function dw(){cx.fillStyle="#1f1f1f";cx.fillRect(0,0,G*C,G*C);cx.fillStyle="#FF3D8B";cx.beginPath();cx.arc(fd.x*C+C/2,fd.y*C+C/2,C/2-3,0,7);cx.fill();sn.forEach(function(p,i){cx.fillStyle=i?"#19B36B":"#6BEBA9";cx.fillRect(p.x*C+1,p.y*C+1,C-2,C-2)})}
+function reset(){sn=[{x:7,y:7},{x:6,y:7},{x:5,y:7}];dr={x:1,y:0};nd=dr;sco=0;place();dw();info()}
+function over(){on=false;clearTimeout(tm2);bad();$("snkgo").textContent="Play again";var nb=sco>bsn&&sco>0;if(nb){bsn=sco;try{localStorage.setItem("sbest",bsn)}catch(e){}}info("Game over. Score: "+sco+" · Best: "+bsn);if(sco>0)award(Math.ceil(sco/2));if(nb&&sco>=3)setTimeout(function(){win();cheer("New high score!",sco+" points","🏆")},400)}
+function step(){dr=nd;var h={x:sn[0].x+dr.x,y:sn[0].y+dr.y};if(h.x<0||h.y<0||h.x>=G||h.y>=G||sn.some(function(p){return p.x===h.x&&p.y===h.y})){over();return}sn.unshift(h);if(h.x===fd.x&&h.y===fd.y){sco++;pop();place();info();if(sco%5===0)cheer(sco+" points!","Keep going!","🐍")}else sn.pop();dw()}
+function loop(){if(!on)return;if(!$("p-fun").classList.contains("on")){on=false;info("Paused. Tap Play again to restart.");$("snkgo").textContent="Play again";return}step();if(on)tm2=setTimeout(loop,Math.max(70,150-sco*4))}
+function turn(x,y){if(!on||(x===-dr.x&&y===-dr.y))return;nd={x:x,y:y}}
+$("snkgo").onclick=function(){clearTimeout(tm2);reset();on=true;$("snkgo").textContent="Restart";tm2=setTimeout(loop,300)};
+$("sU").onclick=function(){turn(0,-1)};$("sD").onclick=function(){turn(0,1)};$("sL").onclick=function(){turn(-1,0)};$("sR").onclick=function(){turn(1,0)};
+document.addEventListener("keydown",function(e){var m={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];if(!m||!on)return;e.preventDefault();turn(m[0],m[1])});
+var tx=0,ty=0;cv.addEventListener("touchstart",function(e){var t=e.touches[0];tx=t.clientX;ty=t.clientY},{passive:true});
+cv.addEventListener("touchend",function(e){var t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;if(Math.abs(dx)>Math.abs(dy))turn(dx>0?1:-1,0);else turn(0,dy>0?1:-1)});
+reset();info("Press Start to play. Best: "+bsn)})();
+
+/* ---- Word scramble ---- */
+(function(){var W=[["CAPACITOR","Stores electric charge"],["RESISTOR","Limits current flow"],["TRANSISTOR","A tiny switch or amplifier"],["INDUCTOR","Stores energy in a magnetic field"],["VOLTAGE","Electric potential difference"],["CIRCUIT","A closed path for current"],["TURBINE","Spins to generate power"],["BRIDGE","Civil structure over a river"],["ALGORITHM","Step by step solution"],["SENSOR","Detects a physical change"],["GENERATOR","Turns motion into electricity"],["PROCESSOR","The brain of a computer"],["ANTENNA","Sends and receives radio waves"],["CONCRETE","Cement, sand and gravel"],["HYDRAULIC","Uses fluid pressure"],["ENGINE","Converts fuel into motion"],["DIODE","One-way electrical valve"],["VOLTMETER","Measures potential difference"],["ROBOTICS","Building programmable machines"],["BINARY","Base 2 number system"],["SOFTWARE","Programs that run on hardware"],["FREQUENCY","Cycles per second"],["AMPLIFIER","Makes a signal stronger"],["TORQUE","Turning force"],["BATTERY","Stores chemical energy"],["SURVEYING","Measuring land"],["REFINERY","Where crude oil is processed"],["AEROFOIL","Wing shape that creates lift"]],w,st=0,bt=0;try{bt=+localStorage.getItem("wbest")||0}catch(e){}
+function scr(s){var r;do{r=shuf(s.split("")).join("")}while(r===s);return r}
+function nx(){w=pick(W);$("wq").textContent=scr(w[0]).split("").join(" ");$("wh").textContent="Hint: "+w[1];$("wi").value="";$("wo").textContent=""}
+function chk(){var v=$("wi").value.trim().toUpperCase();if(!v)return;if(v===w[0]){st++;if(st>bt){bt=st;try{localStorage.setItem("wbest",bt)}catch(e){}}good();award(4);cheer(pick(PR),w[0]+" is correct! Streak "+st,"🔤");nx();$("wo").textContent="Streak: "+st+" · Best: "+bt}else{bad();$("wo").textContent="Not yet. Try again or tap Skip."}}
+$("wc").onclick=chk;$("wi").onkeydown=function(e){if(e.key==="Enter")chk()};
+$("wsk").onclick=function(){var o=w[0];st=0;nx();$("wo").textContent="The word was "+o+". Streak reset."};nx()})();
+
+/* ---- Logic gate challenge ---- */
+(function(){var GT=[["AND",function(a,b){return a&b},"AND gives 1 only when both inputs are 1."],["OR",function(a,b){return a|b},"OR gives 1 when at least one input is 1."],["NAND",function(a,b){return 1-(a&b)},"NAND is AND followed by NOT."],["NOR",function(a,b){return 1-(a|b)},"NOR is OR followed by NOT."],["XOR",function(a,b){return a^b},"XOR gives 1 when the inputs are different."],["XNOR",function(a,b){return 1-(a^b)},"XNOR gives 1 when the inputs are the same."]],g,a,b,st=0,bt=0;try{bt=+localStorage.getItem("gbest")||0}catch(e){}
+function nx(){g=pick(GT);a=Math.round(Math.random());b=Math.round(Math.random());$("lgq").innerHTML='Gate: <b style="color:var(--y)">'+g[0]+"</b> &nbsp; A = "+a+" &nbsp; B = "+b+" &nbsp; Output = ?"}
+function ans(v){var r=g[1](a,b);if(v===r){st++;if(st>bt){bt=st;try{localStorage.setItem("gbest",bt)}catch(e){}}pop();award(1);$("lgo").textContent="Correct! "+g[2]+" Streak: "+st+" · Best: "+bt;if(st%5===0){win();cheer(st+" in a row!","Logic legend. +1 point each","🧠")}}else{bad();$("lgo").textContent="Not quite. The output was "+r+". "+g[2]+" Streak reset.";st=0}nx()}
+$("lg0").onclick=function(){ans(0)};$("lg1").onclick=function(){ans(1)};nx();$("lgo").textContent="Best streak: "+bt})();
+
+/* ---- Reaction test ---- */
+(function(){var box=$("rtb"),state=0,t0=0,to=null,best=0;try{best=+localStorage.getItem("rbest")||0}catch(e){}
+function idle(m,c){state=0;box.style.background=c||"#2F6BFF";box.textContent=m}
+idle("Tap to start");$("rto").textContent=best?"Best: "+best+" ms":"";
+box.onclick=function(){if(state===0){state=1;box.style.background="#C8102E";box.textContent="Wait for green...";to=setTimeout(function(){state=2;box.style.background="#19B36B";box.textContent="TAP NOW!";t0=Date.now()},1500+Math.random()*2500)}
+ else if(state===1){clearTimeout(to);bad();idle("Too early! Tap to try again.","#FF8A00")}
+ else{var ms=Date.now()-t0,nb=!best||ms<best;if(nb){best=ms;try{localStorage.setItem("rbest",best)}catch(e){}}var r=ms<250?"Lightning fast!":ms<350?"Great reflexes!":ms<500?"Not bad!":"Keep practising!";idle(ms+" ms · "+r+" Tap to play again.");$("rto").textContent="Best: "+best+" ms"+(nb?" · New best!":"");award(2);if(ms<350){good();cheer(r,ms+" ms"+(nb?" · New best!":""),"⚡")}else pop()}};})();
+
+/* ---- 30-second maths sprint ---- */
+(function(){var tl=30,iv=null,an=0,scr=0,run=false,best=0;try{best=+localStorage.getItem("mpbest")||0}catch(e){}
+function upd(){$("mpt").innerHTML="Time: "+tl+" &nbsp; Score: "+scr}
+function nq(){var a=2+Math.floor(Math.random()*11),b=2+Math.floor(Math.random()*11),o=Math.floor(Math.random()*3),q;if(o===0){an=a+b;q=a+" + "+b}else if(o===1){if(b>a){var t=a;a=b;b=t}an=a-b;q=a+" - "+b}else{an=a*b;q=a+" x "+b}$("mq").textContent=q+" = ?";$("mi").value=""}
+function fin(){run=false;clearInterval(iv);$("mi").disabled=true;$("mgo").textContent="Play again";$("mq").textContent="Time up!";var nb=scr>best&&scr>0;if(nb){best=scr;try{localStorage.setItem("mpbest",best)}catch(e){}}$("mo").textContent="You solved "+scr+". Best: "+best+(nb?" · New best!":"");award(scr);if(scr>=5){win();cheer(scr>=15?"Lightning mind!":scr>=10?"Brilliant speed!":"Nice work!",scr+" correct answers"+(nb?" · New best!":""),scr>=15?"🧮":"⚡")}else{cheer("Time up!",scr+" solved. Try again!","⏱️",true)}}
+$("mgo").onclick=function(){clearInterval(iv);tl=30;scr=0;run=true;$("mi").disabled=false;$("mo").textContent="";upd();nq();$("mi").focus();iv=setInterval(function(){tl--;upd();if(tl<=0)fin()},1000)};
+$("mi").oninput=function(){if(!run||this.value==="")return;if(parseInt(this.value,10)===an){scr++;pop();upd();nq()}};
+$("mi").onkeydown=function(e){if(e.key==="Enter"&&run&&this.value!==""&&parseInt(this.value,10)!==an){bad();nq()}else if(e.key==="Enter"&&run&&this.value===""){nq()}};
+$("mo").textContent=best?"Best: "+best:""})();
 </script>
 </body></html>
