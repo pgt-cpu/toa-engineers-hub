@@ -215,7 +215,7 @@ function draw(){
 }
 $("q").oninput=draw;draw();
 var PG=["home","res","tools","plan","kit","fun","g-quiz","g-binary","g-memory","g-snake","g-word","g-gate","g-react","g-math"];
-function go(n,pop){PG.forEach(function(p){$("p-"+p).className="pg"+(p===n?" on":"")});[].forEach.call(document.querySelectorAll(".bn button"),function(b){b.className=b.dataset.p===(n.indexOf("g-")===0?"fun":n)?"on":""});window.scrollTo(0,0);if(pop)return;try{var sub=history.state&&history.state.sub;if(n==="home"){if(sub)history.back();else history.replaceState({},"","#home")}else if(sub)history.replaceState({sub:1},"","#"+n);else history.pushState({sub:1},"","#"+n)}catch(e){}}
+function go(n,pop){PG.forEach(function(p){$("p-"+p).className="pg"+(p===n?" on":"")});[].forEach.call(document.querySelectorAll(".bn button"),function(b){b.className=b.dataset.p===(n.indexOf("g-")===0?"fun":n)?"on":""});window.scrollTo(0,0);try{if(n==="home")rDay()}catch(e){}if(pop)return;try{var sub=history.state&&history.state.sub;if(n==="home"){if(sub)history.back();else history.replaceState({},"","#home")}else if(sub)history.replaceState({sub:1},"","#"+n);else history.pushState({sub:1},"","#"+n)}catch(e){}}
 [].forEach.call(document.querySelectorAll("[data-p]"),function(b){b.onclick=function(){go(b.dataset.p)}});
 var h0=(location.hash||"").slice(1);(function(){var h=PG.indexOf(h0)>-1?h0:"home";try{if(h!=="home"&&history.state&&history.state.sub){go(h,true);return}if(h!=="home")history.replaceState({},"","#home")}catch(e){}go(h)})();
 window.addEventListener("popstate",function(){var h=location.hash.slice(1);go(PG.indexOf(h)>-1?h:"home",true)});
