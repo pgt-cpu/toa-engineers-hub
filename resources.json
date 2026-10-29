@@ -1,0 +1,7 @@
+{
+  "_help": "Add a resource by pasting a line right after the line that says \"resources\": [ . Use the Add a resource page (admin.html) to make the line for you. Types allowed: Timetables, Past questions, Study materials, Opportunities, News.",
+  "resources": [
+  ],
+  "notices": [
+  ]
+}

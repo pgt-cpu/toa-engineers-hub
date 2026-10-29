@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TOA Engineers Hub | KNUST</title>
+<meta name="description" content="Free timetables, past questions and study materials for KNUST engineering students. A student-run initiative, not an official GESA channel.">
+<meta name="theme-color" content="#FFD000">
+<link rel="icon" href="badge.png">
+<meta property="og:title" content="TOA Engineers Hub: Connecting Every Engineer">
+<meta property="og:description" content="Free timetables, past questions and study materials for KNUST engineering students.">
+<meta property="og:image" content="badge.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFD000;--a:#FFB800;--k:#111;--r:#C8102E;--w:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--k);background-color:var(--y);background-repeat:no-repeat;background-image:radial-gradient(ellipse 300px 170px at 105% 90px,#FFE040 0,#FFE040 98%,transparent 100%),radial-gradient(ellipse 320px 150px at -60px 420px,#FFB800 0,#FFB800 98%,transparent 100%),radial-gradient(ellipse 300px 170px at 108% 900px,#FFE040 0,#FFE040 98%,transparent 100%),radial-gradient(ellipse 340px 160px at -80px 1500px,#FFB800 0,#FFB800 98%,transparent 100%);overflow-x:hidden;padding-bottom:84px}
+.pg{display:none}.pg.on{display:block}
+.hero{padding:16px 18px 6px;position:relative}
+.in{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.brand{display:flex;align-items:center;gap:8px;min-width:0}
+.brand img{height:50px;flex:none}.brand small{font-size:10px;line-height:1.3;font-weight:500}.brand b{font-size:15px;font-weight:800;display:block}
+.toa{height:50px;max-width:38%;object-fit:contain}
+h1{font-weight:800;font-size:clamp(26px,7.4vw,50px);line-height:1.08;margin:22px 0 0;text-align:center;letter-spacing:-.3px}
+h1 span{color:var(--r)}
+.dark{padding:20px 18px 0;max-width:760px;margin:0 auto}
+.free{color:var(--k);font-weight:800;font-size:clamp(22px,6vw,34px);text-align:center;margin:0 0 4px}
+.sub{color:#222;text-align:center;font-size:14px;margin:0 0 6px}
+.lbl{color:var(--k);font-weight:800;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin:16px 0 8px;text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{border:2.5px solid var(--k);background:transparent;border-radius:30px;padding:7px 14px;font:800 13px Poppins,sans-serif;color:var(--k);cursor:pointer}
+.chip.on{background:var(--k);color:var(--y)}
+.psel{width:100%;background:var(--k);color:var(--y);border:0;border-radius:16px;padding:15px 16px;font:800 15px Poppins,sans-serif}
+.screen{margin:24px 0 0;background:var(--k);border-radius:26px;padding:18px 16px 16px;box-shadow:0 8px 0 rgba(0,0,0,.14)}
+.bar{color:var(--y);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0 2px 12px;font-weight:800;font-size:12px;letter-spacing:1.2px;border-bottom:1px solid #333;margin-bottom:14px}
+.ctx{color:#fff;font-weight:800;font-size:19px;margin:0 0 12px}
+.search{width:100%;background:#2b2b2b;border:0;border-radius:14px;color:#fff;padding:11px 14px;font:500 14px Poppins,sans-serif;margin:0 0 12px;outline:none}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:6px}
+.tab{border:0;border-radius:20px;background:#2b2b2b;color:#e6e6e6;padding:8px 14px;font:700 12px Poppins,sans-serif;cursor:pointer}
+.tab.on{background:var(--y);color:var(--k)}
+.card{background:#1f1f1f;color:var(--w);border-radius:14px;padding:13px 14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card b{display:block;font-size:14px;font-weight:600}.card em{font-style:normal;font-size:11px;color:#aaa}
+.card a{background:var(--y);color:var(--k);font-weight:800;font-size:11px;padding:6px 14px;border-radius:20px;text-decoration:none}
+.empty{color:#aaa;font-size:13px;padding:10px 2px 6px}
+.prompt{background:#1f1f1f;border:2px dashed var(--y);border-radius:14px;padding:16px;color:#eee;font-size:14px;line-height:1.55}.prompt b{color:var(--y);font-size:16px}
+.foot{background:var(--w);margin-top:30px;padding:18px;text-align:center}
+.me{display:flex;align-items:center;justify-content:center;gap:16px;max-width:560px;margin:0 auto}
+.me img{width:104px;height:104px;flex:none}.me .t{text-align:left}
+.me p{margin:0}.me .big{font-weight:800;font-size:16px;line-height:1.25}
+.small{font-size:11px;color:#666;margin:12px 0 0}
+.tools{max-width:760px;margin:30px auto 0;padding:0 18px}
+.tools h2{font-size:clamp(24px,6.5vw,32px);font-weight:800;margin:0 0 2px}
+.tools .tl{margin:0 0 16px;font-size:14px}
+.tc{background:var(--k);color:var(--w);border-radius:22px;padding:16px;margin:0 0 16px;box-shadow:0 8px 0 rgba(0,0,0,.14)}
+.tc h3{margin:0 0 4px;color:var(--y);font-size:16px}
+.tc .d{margin:0 0 12px;font-size:12px;color:#bbb}
+.tc input{background:#2b2b2b;border:0;border-radius:10px;color:#fff;padding:10px;font:600 14px Poppins,sans-serif;width:100%;outline:none}
+.tc input[type=checkbox]{width:auto;margin-right:6px}
+.tc select{background:#2b2b2b;color:#fff;border:0;border-radius:10px;padding:10px;font:600 14px Poppins,sans-serif;flex:1;min-width:0}
+.rw{display:flex;gap:8px;margin-bottom:8px}.rw input{flex:1;min-width:0}
+.btn{border:0;border-radius:20px;background:var(--y);color:var(--k);font:800 13px Poppins,sans-serif;padding:9px 16px;cursor:pointer}.btn.g{background:#2b2b2b;color:#ddd}
+.bt{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.clock{font-size:52px;font-weight:800;margin:4px 0 10px;letter-spacing:2px}
+.res{font-weight:800;font-size:19px;color:var(--y);margin-top:10px}
+.it{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#1f1f1f;border-radius:12px;padding:9px 12px;margin:6px 0;font-size:13px}.it em{font-style:normal;color:var(--y);font-size:12px;white-space:nowrap}
+.bx{border:0;background:#2b2b2b;color:#ddd;border-radius:50%;width:26px;height:26px;cursor:pointer;font:800 12px Poppins,sans-serif;flex:none}
+.wd,.wn{font-weight:800;font-size:12px;letter-spacing:.8px;text-transform:uppercase;margin:12px 0 2px;color:#bbb}.wn{color:var(--y)}.dn{text-decoration:line-through;color:#888}
+.fcard{background:var(--y);color:var(--k);border-radius:16px;padding:26px 16px;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:17px;cursor:pointer;margin-bottom:8px}.fcard.back{background:#fff}
+.tipt{font-size:15px;line-height:1.5;color:#fff;margin:0}
+.bn{position:fixed;left:0;right:0;bottom:0;background:var(--k);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px));z-index:50;box-shadow:0 -4px 0 rgba(0,0,0,.12)}
+.bn button{flex:1;background:none;border:0;color:#aaa;font:700 10px Poppins,sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}.bn .ic{width:26px;height:26px;color:inherit}.bn button.on{color:var(--y)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:20px auto 0;padding:0 18px}
+.tile{background:var(--k);color:#fff;border:0;border-radius:22px;padding:16px;text-align:left;cursor:pointer;box-shadow:0 8px 0 rgba(0,0,0,.14);font-family:Poppins,sans-serif}.ic{display:block;width:46px;height:46px;color:var(--y)}.tile .ic{margin-bottom:4px}.tile b{display:block;color:var(--y);margin:6px 0 2px;font-size:15px}.tile i{font-style:normal;font-size:12px;color:#ccc}
+.sw{display:flex;gap:6px;margin:10px 0}.sw div{width:22px;height:46px;border-radius:4px;border:1px solid #888}
+.opt{display:block;width:100%;text-align:left;background:#2b2b2b;color:#fff;border:0;border-radius:12px;padding:11px 12px;margin:7px 0;font:600 14px Poppins,sans-serif;cursor:pointer}.opt.ok{background:#2a9d3f}.opt.no{background:#c8102e}
+.big2{font-size:34px;font-weight:800;color:var(--y);margin:4px 0}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:26px 18px 28px;background:var(--k);color:#fff;position:relative;overflow:hidden}
+.ph.rd{background:#C8102E}.ph .k{font-weight:800;font-size:11px;letter-spacing:2px;color:var(--y)}
+.ph h2{margin:4px 0 4px;font-weight:800;font-size:clamp(30px,9vw,46px);line-height:1;letter-spacing:-.5px;color:var(--y)}
+.ph.rd h2{color:#fff}.ph p{margin:0;font-size:13px;color:#ddd;max-width:20em}
+.stk{width:78px;height:78px;flex:none;background:var(--y);color:#111;border-radius:20px;padding:11px;transform:rotate(7deg);box-shadow:5px 5px 0 rgba(0,0,0,.35);animation:fl 3.2s ease-in-out infinite;position:relative;z-index:1}
+.ph.rd .stk{box-shadow:5px 5px 0 #111}.ph:after{content:"";position:absolute;right:-40px;bottom:-60px;width:150px;height:150px;border-radius:50%;background:rgba(255,208,0,.12)}
+@keyframes fl{50%{transform:rotate(-4deg) translateY(-6px)}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pg.on .ph,.pg.on .hero,.pg.on .tile,.pg.on .tools>*,.pg.on .dark>*{animation:up .5s both}
+.pg.on .tile:nth-child(2),.pg.on .tools>:nth-child(2),.pg.on .dark>:nth-child(3){animation-delay:.06s}.pg.on .tile:nth-child(3),.pg.on .tools>:nth-child(3),.pg.on .dark>:nth-child(4){animation-delay:.12s}.pg.on .tile:nth-child(4),.pg.on .tools>:nth-child(4),.pg.on .dark>:nth-child(5){animation-delay:.18s}.pg.on .tile:nth-child(5),.pg.on .tools>:nth-child(5){animation-delay:.24s}.pg.on .tile:nth-child(6),.pg.on .tools>:nth-child(6){animation-delay:.3s}
+.tools>h2,.tools>.tl,.dark>.free,.dark>.sub{display:none}
+.tile:active,.btn:active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+.hero{padding-bottom:78px!important}
+#p-res{--c:#2F6BFF;--cd:#1B47C4}#p-tools{--c:#19B36B;--cd:#0E7A49}#p-plan{--c:#8B5CF6;--cd:#5B34C4}#p-kit{--c:#FF8A00;--cd:#C25F00}#p-fun{--c:#FF3D8B;--cd:#C21E66}
+.pg.on{animation:up .4s ease both}@keyframes up{from{opacity:0;transform:translateY(14px)}}
+@keyframes fl{50%{transform:translateY(-7px) rotate(-3deg)}}
+.pg:not(#p-home) .ph{background:linear-gradient(135deg,var(--c),var(--cd))!important;box-shadow:0 8px 0 var(--cd),0 16px 22px rgba(0,0,0,.2);border-radius:0 0 28px 28px;margin-bottom:12px}
+.pg:not(#p-home) .ph h2{color:#fff!important}.pg:not(#p-home) .ph .k{color:#fff;opacity:.85}.pg:not(#p-home) .ph p{color:#fff;opacity:.92}
+.ph:before{content:"";position:absolute;left:38%;top:-50px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.13)}
+.ph .stk{filter:drop-shadow(0 9px 6px rgba(0,0,0,.4));animation:fl 4s ease-in-out infinite;position:relative;z-index:1}
+.ball{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.75),transparent 38%),var(--b);box-shadow:inset -6px -8px 12px rgba(0,0,0,.28),0 10px 14px rgba(0,0,0,.2);animation:fl 5s ease-in-out infinite}
+.tile{background:linear-gradient(145deg,var(--c),var(--cd))!important;box-shadow:0 8px 0 var(--cd),0 16px 20px rgba(0,0,0,.2)!important;position:relative;overflow:hidden;min-height:150px}
+.tile:nth-child(1){--c:#2F6BFF;--cd:#1B47C4}.tile:nth-child(2){--c:#19B36B;--cd:#0E7A49}.tile:nth-child(3){--c:#8B5CF6;--cd:#5B34C4}.tile:nth-child(4){--c:#FF8A00;--cd:#C25F00}.tile:nth-child(5){--c:#FF3D8B;--cd:#C21E66}.tile:nth-child(6){--c:#F43F3F;--cd:#B01F1F}
+.tile:before{content:"";position:absolute;right:-26px;top:-26px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.16)}
+.tile:active{transform:translateY(6px)!important;box-shadow:0 2px 0 var(--cd)!important}
+.tile .ic{width:62px;height:62px;filter:drop-shadow(0 6px 4px rgba(0,0,0,.3));position:relative;animation:fl 5s ease-in-out infinite}
+.tile b{color:#fff!important}.tile i{color:#fff!important;opacity:.92}
+.bn .ic{width:27px;height:27px;transition:transform .15s}.bn button.on .ic{transform:translateY(-4px) scale(1.2);filter:drop-shadow(0 4px 3px rgba(0,0,0,.5))}
+.btn{box-shadow:0 4px 0 #b8960a;transition:transform .08s}.btn.g{box-shadow:0 4px 0 #0a0a0a}
+.pg .btn:not(.g){background:var(--c);color:#fff;box-shadow:0 4px 0 var(--cd)}
+.btn:active{transform:translateY(3px)!important;box-shadow:none!important}
+.chip{box-shadow:0 3px 0 var(--k)}#p-res .chip.on{background:var(--c);color:#fff;border-color:var(--c);box-shadow:0 3px 0 var(--cd)}
+#p-res .tab.on{background:var(--c);color:#fff}#p-res .card a{background:var(--c);color:#fff}
+.tc,.screen{border-top:7px solid var(--c)}
+.tc h3{color:#fff}.tc h3:before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:8px}
+.fcard{background:var(--c);color:#fff}.fcard.back{background:#fff;color:var(--k)}
+.hm{max-width:760px;margin:22px auto 0;padding:0 18px}#p-home{--c:#FFD000;--cd:#b8960a}
+#p-home .btn:not(.g){background:var(--k);color:var(--y);box-shadow:0 4px 0 #000}
+.in .ball{bottom:-66px!important}
+.nw{display:inline-block;background:#C8102E;color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:10px;vertical-align:middle;margin-left:4px}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;display:flex;align-items:flex-end}.sheet[hidden]{display:none}
+.sh{background:#111;color:#fff;width:100%;max-width:640px;margin:0 auto;border-radius:26px 26px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px));border-top:7px solid var(--y)}
+.sh h3{margin:0 0 12px;color:#fff;font-size:18px}.sh .d{font-size:12px;color:#bbb}
+.sh textarea{width:100%;min-height:100px;background:#2b2b2b;border:0;border-radius:12px;color:#fff;padding:12px;font:500 14px Poppins,sans-serif;margin:10px 0;outline:none;resize:vertical}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FB0FF"/><stop offset="1" stop-color="#2F6BFF"/></linearGradient><linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6BEBA9"/><stop offset="1" stop-color="#19B36B"/></linearGradient><linearGradient id="gP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B79BFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><linearGradient id="gO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC15A"/><stop offset="1" stop-color="#FF8A00"/></linearGradient><linearGradient id="gK" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FBF"/><stop offset="1" stop-color="#FF3D8B"/></linearGradient><linearGradient id="gR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD000"/><stop offset=".45" stop-color="#FF8A00"/><stop offset="1" stop-color="#F43F3F"/></linearGradient><linearGradient id="gY" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF08A"/><stop offset="1" stop-color="#FFC400"/></linearGradient><symbol id="i-book" viewBox="0 0 64 64"><rect x="6" y="42" width="52" height="14" rx="5" fill="#1B47C4"/><rect x="6" y="38" width="52" height="14" rx="5" fill="url(#gB)"/><rect x="12" y="26" width="44" height="14" rx="5" fill="#0E7A49"/><rect x="12" y="22" width="44" height="14" rx="5" fill="url(#gG)"/><rect x="8" y="10" width="40" height="14" rx="5" fill="#C21E66"/><rect x="8" y="6" width="40" height="14" rx="5" fill="url(#gK)"/><rect x="14" y="42" width="30" height="3" rx="1.5" fill="#fff" opacity=".55"/><rect x="20" y="26" width="24" height="3" rx="1.5" fill="#fff" opacity=".55"/></symbol>
+<symbol id="i-calc" viewBox="0 0 64 64"><rect x="10" y="9" width="44" height="52" rx="9" fill="#0E7A49"/><rect x="10" y="3" width="44" height="52" rx="9" fill="url(#gG)"/><rect x="16" y="9" width="32" height="13" rx="4" fill="#0b3d2a"/><rect x="19" y="12" width="14" height="3" rx="1.5" fill="#6BEBA9"/><g fill="#fff" opacity=".9"><circle cx="21" cy="32" r="3.5"/><circle cx="32" cy="32" r="3.5"/><circle cx="43" cy="32" r="3.5"/><circle cx="21" cy="42" r="3.5"/><circle cx="32" cy="42" r="3.5"/><circle cx="43" cy="42" r="3.5"/></g><circle cx="43" cy="49" r="3.5" fill="#FFD000"/></symbol>
+<symbol id="i-cal" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="46" rx="9" fill="#5B34C4"/><rect x="6" y="10" width="52" height="46" rx="9" fill="#fff"/><rect x="6" y="10" width="52" height="17" rx="9" fill="url(#gP)"/><rect x="6" y="20" width="52" height="7" fill="url(#gP)"/><rect x="17" y="3" width="6" height="14" rx="3" fill="#2a1666"/><rect x="41" y="3" width="6" height="14" rx="3" fill="#2a1666"/><g fill="#8B5CF6"><circle cx="19" cy="37" r="3.5"/><circle cx="32" cy="37" r="3.5"/><circle cx="45" cy="37" r="3.5"/><circle cx="19" cy="48" r="3.5"/><circle cx="32" cy="48" r="3.5"/></g><circle cx="45" cy="48" r="4" fill="#FF8A00"/></symbol>
+<symbol id="i-gear" viewBox="0 0 64 64"><g fill="#C25F00"><rect x="18" y="3" width="5" height="12" rx="2"/><rect x="30" y="3" width="5" height="12" rx="2"/><rect x="42" y="3" width="5" height="12" rx="2"/><rect x="18" y="49" width="5" height="12" rx="2"/><rect x="30" y="49" width="5" height="12" rx="2"/><rect x="42" y="49" width="5" height="12" rx="2"/><rect x="3" y="20" width="12" height="5" rx="2"/><rect x="3" y="32" width="12" height="5" rx="2"/><rect x="49" y="20" width="12" height="5" rx="2"/><rect x="49" y="32" width="12" height="5" rx="2"/></g><rect x="11" y="16" width="42" height="42" rx="9" fill="#C25F00"/><rect x="11" y="11" width="42" height="42" rx="9" fill="url(#gO)"/><rect x="21" y="21" width="22" height="22" rx="5" fill="#7a3d00"/><rect x="24" y="24" width="10" height="4" rx="2" fill="#FFC15A"/></symbol>
+<symbol id="i-game" viewBox="0 0 64 64"><rect x="3" y="26" width="58" height="30" rx="15" fill="#C21E66"/><rect x="3" y="20" width="58" height="30" rx="15" fill="url(#gK)"/><rect x="13" y="31" width="18" height="7" rx="3" fill="#fff"/><rect x="18.5" y="25.5" width="7" height="18" rx="3" fill="#fff"/><circle cx="44" cy="30" r="4.5" fill="#FFD000"/><circle cx="52" cy="38" r="4.5" fill="#2F6BFF"/><rect x="10" y="22" width="44" height="5" rx="2.5" fill="#fff" opacity=".25"/></symbol>
+<symbol id="i-fire" viewBox="0 0 64 64"><path d="M32 10C36 22 52 28 52 43A20 20 0 0 1 12 43C12 33 20 29 22 18C27 22 29 16 32 10Z" fill="#B01F1F"/><path d="M32 4C36 16 52 22 52 37A20 20 0 0 1 12 37C12 27 20 23 22 12C27 16 29 10 32 4Z" fill="url(#gR)"/><path d="M32 30C34 36 41 38 41 44A9 9 0 0 1 23 44C23 39 28 37 29 33C30 35 31 33 32 30Z" fill="#FFF08A"/></symbol>
+<symbol id="i-home" viewBox="0 0 64 64"><rect x="12" y="32" width="40" height="28" rx="4" fill="#C79A00"/><rect x="12" y="28" width="40" height="28" rx="4" fill="url(#gY)"/><path d="M32 4L2 30H62Z" fill="#B01F1F"/><path d="M32 0L2 26H62Z" fill="url(#gR)"/><rect x="26" y="38" width="12" height="18" rx="3" fill="#7a3d00"/></symbol></defs></svg>
+<div class="pg on" id="p-home"><div class="hero"><div class="in">
+ <div class="top"><div class="brand"><img src="logo.png" alt="KNUST and GESA crests"><small><b>GESA-KNUST</b>Ghana Engineering Students' Association</small></div><img class="toa" src="toa.png" alt="Thomas Osei Adjei"></div>
+ <h1>YOUR TIMETABLES.<br>PAST QUESTIONS.<br><span>STUDY MATERIALS.</span></h1>
+<i class="ball" style="--b:#2F6BFF;width:54px;height:54px;left:6%;bottom:8px"></i><i class="ball" style="--b:#FF3D8B;width:32px;height:32px;left:24%;bottom:34px;animation-delay:-2s"></i><i class="ball" style="--b:#19B36B;width:44px;height:44px;right:9%;bottom:12px;animation-delay:-4s"></i><i class="ball" style="--b:#8B5CF6;width:26px;height:26px;right:28%;bottom:40px;animation-delay:-3s"></i></div></div>
+<div class="hm"><div class="tc" id="day"></div><div class="tc" id="nt" style="display:none"></div><div class="bt"><button class="btn" id="shw" type="button">Share on WhatsApp</button><button class="btn g" id="rq2" type="button">Send or request a resource</button></div></div>
+<div class="tiles"><button class="tile" data-p="res" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></span><b>Class resources</b><i>Timetables, past questions, study materials</i></button><button class="tile" data-p="tools" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></span><b>Study tools</b><i>CWA calculator, timer, exam countdown</i></button><button class="tile" data-p="plan" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></span><b>My planner</b><i>Classes, assignments, flashcards</i></button><button class="tile" data-p="kit" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></span><b>Engineer's toolkit</b><i>Number bases, Ohm's law, resistor codes, dBm</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></span><b>Quiz and games</b><i>Engineering quiz, binary challenge</i></button><button class="tile" data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-fire"/></svg></span><b>Study streak</b><i>Build a daily study habit</i></button></div></div>
+<div class="pg" id="p-res"><div class="ph"><div><div class="k">CLASS RESOURCES</div><h2>Find your class</h2><p>Timetables, past questions and study materials. Free for every student.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></div></div><div class="dark">
+ <p class="free">FREE. IN ONE PLACE.</p>
+ <p class="sub">Find your class resources in 3 quick steps.</p>
+ <div class="lbl">1 · Choose your programme</div><select class="psel" id="psel"></select>
+ <div class="lbl">2 · Choose your year</div><div class="chips" id="years"></div>
+ <div class="lbl" style="margin-top:22px">3 · Browse your class</div>
+ <div class="screen" id="browse"><div class="bar"><span>TOA ENGINEERS HUB</span><img src="toa-yellow.png" alt="TOA" style="height:34px;width:auto;flex:none"></div>
+  <p class="ctx" id="ctx"></p><input class="search" id="q" type="search" placeholder="Search this section..."><div class="tabs" id="tabs"></div><div id="list"></div><div class="bt" style="margin-top:14px"><button class="btn" id="rq" type="button">Send or request a resource</button></div></div>
+</div></div>
+<div class="pg" id="p-tools"><div class="ph rd"><div><div class="k">STUDY TOOLS</div><h2>Study smarter</h2><p>CWA calculator, timer and exam countdown in one place.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></div></div><div class="tools"><h2>Study tools</h2><p class="tl">Handy things to use while you study. All free.</p>
+<div class="tc"><h3>Study tip of the day</h3><p class="tipt" id="tip"></p></div>
+<div class="tc"><h3>CWA calculator</h3><p class="d">Step 1: add this semester's courses with their credit hours and your mark out of 100.</p><div id="cwa"></div><div class="bt"><button class="btn g" id="addc" type="button">+ Add course</button></div><div class="res" id="cres"></div><p class="d" style="margin-top:16px">Step 2 (optional): add your earlier results to get your cumulative CWA.</p><div class="rw"><input id="pc" type="number" inputmode="decimal" placeholder="Previous CWA"><input id="pk" type="number" inputmode="decimal" placeholder="Previous credit hrs"></div><div class="res" id="cum"></div><p class="d" style="margin-top:16px">Step 3 (optional): set a goal to see what mark you need.</p><div class="rw"><input id="tg" type="number" inputmode="decimal" placeholder="Target CWA"><input id="rm" type="number" inputmode="decimal" placeholder="Credit hrs still to take"></div><div class="res" id="need"></div></div>
+<div class="tc"><h3>Study timer</h3><p class="d">Focus in short bursts, then take a break.</p><div class="clock" id="tt">25:00</div><div class="bt"><button class="btn" id="tgob" type="button">Start</button><button class="btn g" id="trs" type="button">Reset</button><button class="btn g" id="p25" type="button">Focus 25</button><button class="btn g" id="p5" type="button">Break 5</button></div></div>
+<div class="tc"><h3>What do I need in the exam?</h3><p class="d">Enter your continuous assessment mark and your target. Check your course's CA and exam split with your lecturer.</p><div class="rw"><input id="ca" type="number" inputmode="decimal" placeholder="CA mark (out of 100)"><input id="cw" type="number" inputmode="decimal" placeholder="CA weight %" value="30"></div><div class="rw"><input id="tf" type="number" inputmode="decimal" placeholder="Target final mark"></div><div class="res" id="exn"></div></div>
+<div class="tc"><h3>Exam countdown</h3><p class="d">Pick your next exam or deadline. It stays saved on this device.</p><input type="date" id="exd"><div class="res" id="cdt"></div></div></div></div>
+<div class="pg" id="p-plan"><div class="ph"><div><div class="k">PLANNER</div><h2>Plan your week</h2><p>Your lectures, deadlines and revision cards.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></div></div><div class="tools"><h2>My planner</h2><p class="tl">Your classes, deadlines and revision cards in one place.</p>
+<div class="tc"><h3>My class timetable</h3><p class="d">Add your own lectures once. Today's classes show first. Saved on this device.</p><div class="rw"><select id="cd"><option value="1">Mon</option><option value="2">Tue</option><option value="3">Wed</option><option value="4">Thu</option><option value="5">Fri</option><option value="6">Sat</option><option value="0">Sun</option></select><input type="time" id="ct"></div><div class="rw"><input type="text" id="cn" placeholder="Course or venue"><button class="btn" id="cadd" type="button">Add</button></div><div id="cl"></div></div>
+<div class="tc"><h3>Assignment tracker</h3><p class="d">Never miss a deadline. Tick items off when done.</p><div class="rw"><input type="text" id="an" placeholder="Assignment or quiz"><input type="date" id="ad" style="max-width:150px"></div><div class="bt"><button class="btn" id="aadd" type="button">Add</button></div><div id="al"></div></div>
+<div class="tc"><h3>Flashcards</h3><p class="d">Make your own cards. Tap a card to flip it.</p><div class="fcard" id="fcb"></div><p class="d" id="fcn"></p><div class="bt"><button class="btn g" id="fpv" type="button">Back</button><button class="btn" id="fnx" type="button">Next</button><button class="btn g" id="fsh" type="button">Shuffle</button><button class="btn g" id="fdl" type="button">Delete</button></div><div class="rw" style="margin-top:12px"><input type="text" id="fq" placeholder="Question"><input type="text" id="fa" placeholder="Answer"></div><div class="bt"><button class="btn" id="fadd" type="button">Add card</button></div></div></div></div>
+<div class="pg" id="p-kit"><div class="ph rd"><div><div class="k">TOOLKIT</div><h2>Engineer's toolkit</h2><p>Quick calculators for bases, circuits and dBm.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></div></div><div class="tools"><h2>Engineer's toolkit</h2><p class="tl">Quick calculators you will use all through engineering.</p>
+<div class="tc"><h3>Number base converter</h3><p class="d">Type a number and pick its base.</p><div class="rw"><input type="text" id="nb" placeholder="e.g. 1011"><select id="bs"><option value="10">Decimal</option><option value="2">Binary</option><option value="16">Hex</option><option value="8">Octal</option></select></div><div class="res" id="nbo" style="font-size:14px;line-height:1.7"></div></div>
+<div class="tc"><h3>Ohm's law and power</h3><p class="d">Fill any two boxes. The rest is worked out.</p><div class="rw"><input id="ov" type="number" inputmode="decimal" placeholder="Volts (V)"><input id="oi" type="number" inputmode="decimal" placeholder="Amps (A)"></div><div class="rw"><input id="or" type="number" inputmode="decimal" placeholder="Ohms"></div><div class="res" id="oo" style="font-size:14px;line-height:1.7"></div></div>
+<div class="tc"><h3>Resistor colour code</h3><p class="d">Choose the four bands to read the value.</p><div class="rw"><select id="b1"></select><select id="b2"></select></div><div class="rw"><select id="bm"></select><select id="bt"></select></div><div class="sw" id="sw"></div><div class="res" id="ro"></div></div>
+<div class="tc"><h3>dBm and milliwatts</h3><p class="d">Handy for telecom. Fill either box.</p><div class="rw"><input id="dm" type="number" inputmode="decimal" placeholder="dBm"><input id="mw" type="number" inputmode="decimal" placeholder="mW"></div><div class="res" id="dmo" style="font-size:14px"></div></div></div></div>
+<div class="pg" id="p-fun"><div class="ph"><div><div class="k">QUIZ AND GAMES</div><h2>Take a break</h2><p>Test yourself, beat your streak, stay sharp.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></div></div><div class="tools"><h2>Quiz and games</h2><p class="tl">Quick challenges and habits to keep you sharp.</p>
+<div class="tc"><h3>Study streak</h3><p class="d">Tap once on each day you study. Keep the chain going.</p><div class="big2" id="sk">0 days</div><div class="d" id="skd"></div><div class="bt"><button class="btn" id="skb" type="button">I studied today</button></div></div>
+<div class="tc"><h3>Engineering quick quiz</h3><p class="d" id="qs">10 questions. Beat your best score.</p><p id="qq" style="font-weight:700;margin:0 0 6px"></p><div id="qo"></div><div class="bt"><button class="btn" id="qn" type="button">Start quiz</button></div></div>
+<div class="tc"><h3>Binary challenge</h3><p class="d">Convert the number to binary. How long can you keep your streak?</p><div class="big2" id="bn"></div><div class="rw"><input id="ba" type="text" inputmode="numeric" placeholder="Answer in binary"><button class="btn" id="bc" type="button">Check</button></div><div class="res" id="bo" style="font-size:14px"></div></div></div></div>
+<div class="foot"><div class="me"><img src="badge.png" alt="Thomas Osei Adjei"><div class="t"><p class="big">Built by an engineering student, for every engineering student.</p></div></div>
+<p class="small">A student-run initiative, not an official GESA channel.</p></div>
+<nav class="bn"><button data-p="home" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-home"/></svg></span>Home</button><button data-p="res" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-book"/></svg></span>Resources</button><button data-p="tools" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></span>Tools</button><button data-p="plan" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></span>Planner</button><button data-p="kit" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></span>Toolkit</button><button data-p="fun" type="button"><span class="ic"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-game"/></svg></span>Fun</button></nav>
+<div class="sheet" id="sheet" hidden><div class="sh"><h3>Send or request a resource</h3><div class="bt"><button class="btn" id="sq" type="button">I want to request</button><button class="btn g" id="ss" type="button">I want to send</button></div><p class="d" id="sctx" style="margin:12px 0 0"></p><textarea id="sd" placeholder="Tell me what you need or what you are sending. Example: EE 251 Circuit Theory past questions 2023, or paste a Google Drive link."></textarea><div class="bt"><button class="btn" id="sgo" type="button">Open WhatsApp</button><button class="btn g" id="sx" type="button">Cancel</button></div></div></div>
+<script src="config.js"></script>
+<script>
+var P=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
+var T=["Timetables","Past questions","Study materials","Opportunities","News"];
+var D=[],N=[],LOADERR="";
+function $(i){return document.getElementById(i)}
+function ld(k){try{return JSON.parse(localStorage.getItem(k)||"[]")}catch(e){return[]}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function nv(i){var v=parseFloat($(i).value);return isNaN(v)?null:v}
+function shuf(a){return a.sort(function(){return Math.random()-.5})}
+var s={p:"",y:0,t:0};try{var z=JSON.parse(localStorage.getItem("hubsel")||"{}");if(z.p)s.p=z.p;if(z.y)s.y=z.y}catch(e){}
+function chips(el,arr,key,lab){el.innerHTML="";arr.forEach(function(v){var b=document.createElement("button");b.className="chip"+(s[key]===v?" on":"");b.textContent=lab(v);b.onclick=function(){s[key]=v;draw()};el.appendChild(b)})}
+function draw(){
+ var ps=$("psel");if(!ps.options.length){ps.innerHTML='<option value="">Select your programme</option>'+P.map(function(v){return "<option>"+v.replace("&","&amp;")+"</option>"}).join("");ps.onchange=function(){s.p=ps.value;draw()}}ps.value=s.p;
+ chips($("years"),[1,2,3,4],"y",function(v){return "YEAR "+v});
+ $("tabs").innerHTML="";T.forEach(function(n,i){var b=document.createElement("button");b.className="tab"+(s.t===i?" on":"");b.textContent=n;b.onclick=function(){s.t=i;draw()};$("tabs").appendChild(b)});
+ var rd=!!(s.p&&s.y),q=($("q").value||"").toLowerCase();
+ $("ctx").textContent=rd?s.p+" · Year "+s.y:"Your class resources";$("tabs").style.display=rd?"flex":"none";$("q").style.display=rd?"block":"none";
+ if(rd)sv("hubsel",{p:s.p,y:s.y});
+ var r=D.slice().sort(function(a,b){return(b.d||'').localeCompare(a.d||'')}).filter(function(d){return d.t===s.t&&(d.p==="*"||d.p===s.p)&&(d.y===0||d.y===s.y)&&(!q||d.n.toLowerCase().indexOf(q)>-1)});
+ $("list").innerHTML=!rd?'<div class="prompt"><b>Start here</b><br>Choose your programme in step 1 and your year in step 2. Your timetables, past questions and study materials will show up here.</div>':r.length?r.map(card).join(""):(LOADERR?'<p class="empty">The resources could not load right now. Please refresh or try again later.</p>':'<p class="empty">Nothing posted here yet. Tap "Send or request a resource" below to ask for it.</p>');
+}
+$("q").oninput=draw;draw();
+var PG=["home","res","tools","plan","kit","fun"];
+function go(n){PG.forEach(function(p){$("p-"+p).className="pg"+(p===n?" on":"")});[].forEach.call(document.querySelectorAll(".bn button"),function(b){b.className=b.dataset.p===n?"on":""});window.scrollTo(0,0);try{history.replaceState(null,"","#"+n)}catch(e){}}
+[].forEach.call(document.querySelectorAll("[data-p]"),function(b){b.onclick=function(){go(b.dataset.p)}});
+var h0=(location.hash||"").slice(1);go(PG.indexOf(h0)>-1?h0:"home");
+var tips=["Start with your hardest topic while your mind is fresh.","Work through past questions under time. They show how exams are set.","Explain a topic out loud as if teaching a friend.","Sleep beats an all-night session before an exam.","Study in 25-minute bursts, then rest for five.","After each lecture, write a one-page summary in your own words.","Form a small study group and teach each other the hard parts.","Plan tomorrow tonight. Three tasks is enough."];
+$("tip").textContent=tips[Math.floor(Date.now()/864e5)%tips.length];
+function addRow(){var d=document.createElement("div");d.className="rw";d.innerHTML='<input type="text" placeholder="Course" class="nm" style="flex:1.6"><input type="number" inputmode="decimal" min="0" placeholder="Credits" class="cr" style="max-width:78px"><input type="number" inputmode="decimal" min="0" max="100" placeholder="Mark" class="mk" style="max-width:78px"><button class="btn g" type="button">x</button>';d.querySelector("button").onclick=function(){d.remove();calc()};d.oninput=calc;$("cwa").appendChild(d)}
+function calc(){var tc=0,tw=0;document.querySelectorAll("#cwa .rw").forEach(function(r){var a=parseFloat(r.querySelector(".cr").value),m=parseFloat(r.querySelector(".mk").value);if(a>0&&m>=0&&m<=100){tc+=a;tw+=a*m}});$("cres").textContent=tc?"This semester: "+(tw/tc).toFixed(2)+" ("+tc+" credit hrs)":"Add your courses to see this semester's CWA";var pc=nv("pc"),pk=nv("pk"),hp=pc!==null&&pk>0,pw=hp?pc*pk:0,pr=hp?pk:0;$("cum").textContent=hp&&tc?"Cumulative: "+((pw+tw)/(pr+tc)).toFixed(2)+" ("+(pr+tc)+" credit hrs)":"";var tg=nv("tg"),rm=nv("rm");if(tg!==null&&rm>0&&(tc||hp)){var need=(tg*(pr+tc+rm)-pw-tw)/rm;$("need").textContent=need>100?"A target of "+tg+" needs over 100 on your remaining credits. Try a lower goal.":need<=0?"You are already above that target.":"You need an average of about "+need.toFixed(1)+" on your next "+rm+" credit hrs."}else{$("need").textContent=""}}
+$("addc").onclick=addRow;addRow();addRow();addRow();["pc","pk","tg","rm"].forEach(function(i){$(i).oninput=calc});calc();
+var tm=1500,run=null,mode=1500;
+function show(){var m=Math.floor(tm/60),q=tm%60;$("tt").textContent=(m<10?"0":"")+m+":"+(q<10?"0":"")+q}
+function setM(v){clearInterval(run);run=null;mode=v;tm=v;$("tgob").textContent="Start";show()}
+$("tgob").onclick=function(){if(run){clearInterval(run);run=null;$("tgob").textContent="Resume";return}$("tgob").textContent="Pause";run=setInterval(function(){tm--;show();if(tm<=0){clearInterval(run);run=null;$("tgob").textContent="Start";$("tt").textContent="Done!";tm=mode}},1000)};
+$("trs").onclick=function(){setM(mode)};$("p25").onclick=function(){setM(1500)};$("p5").onclick=function(){setM(300)};show();
+function cd(){var v=$("exd").value,o=$("cdt");if(!v){o.textContent="Pick a date to start the countdown";return}var n=Math.ceil((new Date(v+"T00:00:00")-new Date())/864e5);o.textContent=n>1?n+" days to go":n===1?"1 day to go: tomorrow":n===0?"It is today. You got this.":"That date has passed";try{localStorage.setItem("exd",v)}catch(e){}}
+try{var sv1=localStorage.getItem("exd");if(sv1)$("exd").value=sv1}catch(e){}
+$("exd").onchange=cd;cd();
+var DN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],cls=ld("cls");
+function rCls(){var t=new Date().getDay(),h="";for(var k=0;k<7;k++){var d=(t+k)%7,L=cls.map(function(c,i){return{c:c,i:i}}).filter(function(o){return o.c.d===d}).sort(function(a,b){return a.c.t<b.c.t?-1:1});if(!L.length)continue;h+='<div class='+(k===0?"wn":"wd")+'>'+(k===0?"Today":DN[d])+"</div>"+L.map(function(o){return '<div class="it"><span><b>'+esc(o.c.t)+"</b> "+esc(o.c.n)+'</span><button class="bx" data-i="'+o.i+'" type="button">x</button></div>'}).join("")}$("cl").innerHTML=h||'<p class="d">No classes added yet.</p>';[].forEach.call($("cl").querySelectorAll("button"),function(b){b.onclick=function(){cls.splice(+b.dataset.i,1);sv("cls",cls);rCls()}})}
+$("cd").value=new Date().getDay();$("cadd").onclick=function(){var n=$("cn").value.trim(),t=$("ct").value;if(!n||!t)return;cls.push({d:+$("cd").value,t:t,n:n});sv("cls",cls);$("cn").value="";rCls()};rCls();
+var asg=ld("asg");
+function rAsg(){var L=asg.map(function(c,i){return{c:c,i:i}}).sort(function(a,b){return((a.c.x?1:0)-(b.c.x?1:0))||(a.c.d<b.c.d?-1:1)});$("al").innerHTML=L.length?L.map(function(o){var n=Math.ceil((new Date(o.c.d+"T00:00:00")-new Date())/864e5),w=o.c.x?"Done":n<0?"Overdue":n===0?"Due today":n+(n===1?" day left":" days left");return '<div class="it"><label><input type="checkbox" data-c="'+o.i+'"'+(o.c.x?" checked":"")+'><span class="'+(o.c.x?"dn":"")+'">'+esc(o.c.n)+"</span></label><em>"+w+'</em><button class="bx" data-i="'+o.i+'" type="button">x</button></div>'}).join(""):'<p class="d">Nothing added yet.</p>';[].forEach.call($("al").querySelectorAll("input"),function(b){b.onchange=function(){asg[+b.dataset.c].x=b.checked;sv("asg",asg);rAsg()}});[].forEach.call($("al").querySelectorAll("button"),function(b){b.onclick=function(){asg.splice(+b.dataset.i,1);sv("asg",asg);rAsg()}})}
+$("aadd").onclick=function(){var n=$("an").value.trim(),d=$("ad").value;if(!n||!d)return;asg.push({n:n,d:d,x:0});sv("asg",asg);$("an").value="";rAsg()};rAsg();
+var fc=ld("fc"),fi=0,ff=false;
+function rFc(){var b=$("fcb");if(!fc.length){b.className="fcard";b.textContent="Add a question and answer to make your first card.";$("fcn").textContent="";return}if(fi>=fc.length)fi=0;if(fi<0)fi=fc.length-1;b.textContent=ff?fc[fi].a:fc[fi].q;b.className=ff?"fcard back":"fcard";$("fcn").textContent=(ff?"Answer":"Question")+" - card "+(fi+1)+" of "+fc.length}
+$("fcb").onclick=function(){if(fc.length){ff=!ff;rFc()}};$("fnx").onclick=function(){fi++;ff=false;rFc()};$("fpv").onclick=function(){fi--;ff=false;rFc()};$("fsh").onclick=function(){fc.sort(function(){return Math.random()-.5});fi=0;ff=false;sv("fc",fc);rFc()};$("fdl").onclick=function(){if(fc.length){fc.splice(fi,1);ff=false;sv("fc",fc);rFc()}};$("fadd").onclick=function(){var q=$("fq").value.trim(),a=$("fa").value.trim();if(!q||!a)return;fc.push({q:q,a:a});sv("fc",fc);$("fq").value="";$("fa").value="";fi=fc.length-1;ff=false;rFc()};rFc();
+function nb(){var t=$("nb").value.trim(),b=+$("bs").value;if(!t){$("nbo").textContent="";return}var v=parseInt(t,b);if(isNaN(v)||v.toString(b).toUpperCase()!==t.replace(/^0+(?=.)/,"").toUpperCase()){$("nbo").textContent="That is not a valid base-"+b+" number.";return}$("nbo").innerHTML="Decimal: "+v+"<br>Binary: "+v.toString(2)+"<br>Hex: "+v.toString(16).toUpperCase()+"<br>Octal: "+v.toString(8)}
+$("nb").oninput=nb;$("bs").onchange=nb;
+function ohm(){var V=nv("ov"),I=nv("oi"),R=nv("or"),n=[V,I,R].filter(function(x){return x!==null}).length;if(n<2){$("oo").textContent="Fill any two boxes.";return}if(V===null)V=I*R;else if(I===null)I=R?V/R:NaN;else if(R===null)R=I?V/I:NaN;if(!isFinite(V)||!isFinite(I)||!isFinite(R)){$("oo").textContent="Check your numbers.";return}function r(x){return +x.toPrecision(4)}$("oo").innerHTML="Voltage: "+r(V)+" V<br>Current: "+r(I)+" A<br>Resistance: "+r(R)+" ohms<br>Power: "+r(V*I)+" W"}
+["ov","oi","or"].forEach(function(i){$(i).oninput=ohm});
+var CL=[["Black","#111"],["Brown","#7b4a1e"],["Red","#d62828"],["Orange","#f77f00"],["Yellow","#ffd000"],["Green","#2a9d3f"],["Blue","#1d4ed8"],["Violet","#7e3ff2"],["Grey","#8d8d8d"],["White","#fff"]];
+function fill(id,arr){$(id).innerHTML=arr.map(function(a,i){return "<option value="+i+">"+a+"</option>"}).join("")}
+fill("b1",CL.map(function(c,i){return c[0]+" ("+i+")"}));fill("b2",CL.map(function(c,i){return c[0]+" ("+i+")"}));
+var MU=CL.map(function(c,i){return[c[0]+" x10^"+i,Math.pow(10,i),c[1]]}).concat([["Gold x0.1",0.1,"#d4af37"],["Silver x0.01",0.01,"#c0c0c0"]]);
+var TL=[["Brown 1%","#7b4a1e"],["Red 2%","#d62828"],["Gold 5%","#d4af37"],["Silver 10%","#c0c0c0"]];
+fill("bm",MU.map(function(m){return m[0]}));fill("bt",TL.map(function(t){return t[0]}));$("bm").value=2;$("bt").value=2;
+function fo(v){return v>=1e6?+(v/1e6).toPrecision(3)+" M ohms":v>=1e3?+(v/1e3).toPrecision(3)+" k ohms":+v.toPrecision(3)+" ohms"}
+function rc(){var a=+$("b1").value,b=+$("b2").value,m=MU[+$("bm").value],t=TL[+$("bt").value];$("sw").innerHTML=[CL[a][1],CL[b][1],m[2],t[1]].map(function(c){return "<div style=background:"+c+"></div>"}).join("");$("ro").textContent=fo((a*10+b)*m[1])+"  "+t[0].split(" ")[1]}
+["b1","b2","bm","bt"].forEach(function(i){$(i).onchange=rc});rc();
+$("dm").oninput=function(){var v=nv("dm");$("mw").value="";$("dmo").textContent=v===null?"":v+" dBm = "+(+Math.pow(10,v/10).toPrecision(4))+" mW"};
+$("mw").oninput=function(){var v=nv("mw");$("dm").value="";$("dmo").textContent=v>0?v+" mW = "+(+(10*Math.log10(v)).toPrecision(4))+" dBm":""};
+function dk(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+var stk=ld("stk");
+function rSk(){var q=new Set(stk),d=new Date(),n=0;if(!q.has(dk(d)))d.setDate(d.getDate()-1);while(q.has(dk(d))){n++;d.setDate(d.getDate()-1)}$("sk").textContent=n+(n===1?" day":" days");$("skd").textContent=stk.length+" days studied in total"+(q.has(dk(new Date()))?". Done for today!":".")}
+$("skb").onclick=function(){var k=dk(new Date());if(stk.indexOf(k)<0){stk.push(k);sv("stk",stk)}rSk()};rSk();
+var QZ=[["What is the SI unit of electrical resistance?",["Ohm","Volt","Ampere","Farad"]],["What is binary 1010 in decimal?",["10","8","12","5"]],["Which formula links voltage, current and resistance?",["V = I x R","V = I / R","I = V x R","R = V x I"]],["What does a capacitor store?",["Electric charge","Magnetic flux","Heat","Light"]],["What is the SI unit of frequency?",["Hertz","Decibel","Watt","Weber"]],["Roughly how fast does light travel in a vacuum?",["3 x 10^8 m/s","3 x 10^6 m/s","3 x 10^5 m/s","3 x 10^10 m/s"]],["Which of these is a good electrical insulator?",["Rubber","Copper","Silver","Aluminium"]],["A transistor is mainly used as what?",["A switch or amplifier","A battery","A fuse","A heater"]],["What is hexadecimal F in decimal?",["15","16","14","10"]],["What is the SI unit of power?",["Watt","Joule","Newton","Pascal"]],["Which equation is the second law of motion?",["F = m x a","F = m / a","F = a / m","F = m + a"]],["What does CPU stand for?",["Central Processing Unit","Central Program Unit","Computer Power Unit","Core Processing Utility"]]];
+var qo=[],qi=0,sc=0,lk=true,bs=0;try{bs=+localStorage.getItem("qbest")||0}catch(e){}
+function qShow(){var b=$("qo");b.innerHTML="";if(qi>=qo.length){$("qq").textContent="You scored "+sc+" out of "+qo.length+".";if(sc>bs){bs=sc;try{localStorage.setItem("qbest",bs)}catch(e){}}$("qs").textContent="Best score: "+bs;$("qn").textContent="Play again";$("qn").style.display="";lk=true;qi=-1;return}var it=QZ[qo[qi]];$("qs").textContent="Question "+(qi+1)+" of "+qo.length+". Best: "+bs;$("qq").textContent=it[0];lk=false;$("qn").textContent="Next";$("qn").style.display="none";shuf(it[1].map(function(t,i){return{t:t,ok:i===0}})).forEach(function(o){var x=document.createElement("button");x.className="opt";x.type="button";x.textContent=o.t;if(o.ok)x.dataset.ok=1;x.onclick=function(){if(lk)return;lk=true;x.className="opt "+(o.ok?"ok":"no");if(o.ok)sc++;else[].forEach.call(b.children,function(y){if(y.dataset.ok)y.className="opt ok"});$("qn").style.display=""};b.appendChild(x)})}
+$("qn").onclick=function(){if(qi<0||!qo.length){qo=shuf(QZ.map(function(_,i){return i})).slice(0,10);qi=0;sc=0}else qi++;qShow()};
+var bv=0,bst=0,bb=0;try{bb=+localStorage.getItem("bbest")||0}catch(e){}
+function bnew(){bv=1+Math.floor(Math.random()*(bst>5?127:31));$("bn").textContent=bv;$("ba").value=""}
+$("bc").onclick=function(){var a=$("ba").value.trim();if(!a)return;if(/^[01]+$/.test(a)&&parseInt(a,2)===bv){bst++;if(bst>bb){bb=bst;try{localStorage.setItem("bbest",bb)}catch(e){}}$("bo").textContent="Correct! Streak: "+bst+". Best: "+bb}else{$("bo").textContent="Not quite. "+bv+" is "+bv.toString(2)+" in binary. Streak reset.";bst=0}bnew()};bnew();
+
+var CONTACT=(window.HUB||{}).whatsapp||"";
+function wa(t){window.open("https://wa.me/"+CONTACT+"?text="+encodeURIComponent(t),"_blank")}
+$("shw").onclick=function(){var t="Free timetables, past questions and study materials for KNUST engineering students: "+((window.HUB||{}).siteUrl||location.href);if(navigator.share){navigator.share({text:t}).catch(function(){})}else wa(t)};
+var sm="request";
+function sheetSet(m){sm=m;$("sq").className=m==="request"?"btn":"btn g";$("ss").className=m==="send"?"btn":"btn g"}
+function rq(){$("sctx").textContent="Programme: "+(s.p||"not chosen")+", Year: "+(s.y||"not chosen");sheetSet("request");$("sheet").hidden=false}
+$("rq").onclick=rq;$("rq2").onclick=rq;$("sq").onclick=function(){sheetSet("request")};$("ss").onclick=function(){sheetSet("send")};$("sx").onclick=function(){$("sheet").hidden=true};
+$("sheet").onclick=function(e){if(e.target===$("sheet"))$("sheet").hidden=true};
+$("sgo").onclick=function(){var d=$("sd").value.trim();wa("Hi Thomas, I want to "+sm+" a resource.\nProgramme: "+(s.p||"-")+"\nYear: "+(s.y||"-")+"\nDetails: "+d);$("sheet").hidden=true};
+function rDay(){var t=new Date(),cl=ld("cls").filter(function(c){return c.d===t.getDay()}).sort(function(a,b){return a.t<b.t?-1:1}),as=ld("asg").filter(function(a){return !a.x}).sort(function(a,b){return a.d<b.d?-1:1}).slice(0,2),ex="";try{ex=localStorage.getItem("exd")||""}catch(e){}
+ var h="<h3>Your day</h3><p class=d>"+t.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})+"</p>";
+ h+=cl.length?cl.map(function(c){return '<div class="it"><span><b>'+esc(c.t)+"</b> "+esc(c.n)+"</span></div>"}).join(""):'<p class="d">No lectures added for today. Add your timetable in Planner.</p>';
+ as.forEach(function(a){var n=Math.ceil((new Date(a.d+"T00:00:00")-t)/864e5);h+='<div class="it"><span>Due: '+esc(a.n)+"</span><em>"+(n<0?"Overdue":n===0?"Today":n+"d left")+"</em></div>"});
+ if(ex){var n=Math.ceil((new Date(ex+"T00:00:00")-t)/864e5);if(n>=0)h+='<div class="it"><span>Next exam or deadline</span><em>'+(n===0?"Today":n+" days")+"</em></div>"}
+ $("day").innerHTML=h}
+function rNt(){if(!N.length)return;$("nt").style.display="block";$("nt").innerHTML="<h3>Notice board</h3>"+N.map(function(n){return '<div class="it"><span>'+esc(n.t)+"</span><em>"+esc(n.d)+"</em></div>"}).join("")}
+rDay();rNt();[].forEach.call(document.querySelectorAll("[data-p]"),function(b){b.addEventListener("click",function(){if(b.dataset.p==="home")rDay()})});
+function exn(){var ca=nv("ca"),cw=nv("cw"),tf=nv("tf");if(ca===null||cw===null||tf===null||cw<=0||cw>=100){$("exn").textContent="";return}var need=(tf-ca*cw/100)/((100-cw)/100);$("exn").textContent=need>100?"Even 100 in the exam is not enough for "+tf+". Try a lower target.":need<=0?"You already have enough. Any exam mark gets you there.":"You need about "+need.toFixed(1)+" out of 100 in the exam."}
+["ca","cw","tf"].forEach(function(i){$(i).oninput=exn});
+
+function isNew(d){if(!d)return false;var t=new Date(d+"T00:00:00");return !isNaN(t)&&(new Date()-t)/864e5<=14&&(new Date()-t)>=-1}
+function card(d){var nw=d.nw||isNew(d.d),u=(d.u||"").replace(/"/g,"%22");if(/^\s*javascript:/i.test(u))u="";return '<div class="card"><div><b>'+esc(d.n)+(nw?' <span class="nw">NEW</span>':"")+"</b><em>"+esc(d.m||d.d||"")+"</em></div>"+(u?'<a href="'+u+'" target="_blank" rel="noopener">Open</a>':"")+"</div>"}
+function lenient(t){return JSON.parse(t.replace(/,\s*([\]}])/g,"$1"))}
+function loadData(){fetch("resources.json?v="+Date.now()).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text()}).then(function(t){var j=lenient(t);D=(j.resources||[]).map(function(r){var ty=T.indexOf(r.type);if(ty<0)return null;return{t:ty,p:(!r.programme||r.programme==="All")?"*":r.programme,y:(!r.year||r.year==="All")?0:+r.year,n:r.title||"Untitled",m:r.note||"",u:r.link||"",d:r.date||"",nw:!!r.new}}).filter(Boolean);N=(j.notices||[]).map(function(n){return{d:n.date||"",t:n.text||""}});LOADERR="";draw();rNt()}).catch(function(e){LOADERR=String(e.message||e);if(window.console)console.warn("resources.json problem:",LOADERR);draw()})}
+loadData();
+</script>
+</body></html>

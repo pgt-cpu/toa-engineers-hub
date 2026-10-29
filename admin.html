@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Add a resource | TOA Engineers Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}
+</style></head><body><div class="w">
+<p><a href="index.html">Back to the site</a></p>
+<h1>Add a resource</h1>
+<p>Fill the boxes. I will make one line for you. Paste it into <b>resources.json</b> on GitHub, right after the line that says <b>"resources": [</b></p>
+
+<label for="ti">Title</label><input id="ti" placeholder="e.g. 2026/2027 First-Semester Timetable">
+<label for="ty">Type</label><select id="ty"><option>Timetables</option><option>Past questions</option><option>Study materials</option><option>Opportunities</option><option>News</option></select>
+<label for="pr">Programme</label><select id="pr"></select>
+<label for="yr">Year</label><select id="yr"><option>All</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+<label for="li">Link (Google Drive link or any web link)</label><input id="li" type="url" placeholder="https://drive.google.com/...">
+<label for="no">Short note (optional)</label><input id="no" placeholder="e.g. EE 251, 2023 exam">
+<button id="mk" type="button">Make the line</button>
+<div class="out" id="o1"></div><button class="o" id="cp" type="button" style="display:none">Copy the line</button>
+
+<h2>Add a notice</h2>
+<label for="nd">Date text</label><input id="nd" placeholder="e.g. 27 Oct">
+<label for="nt">Notice</label><textarea id="nt" placeholder="e.g. Mid-semester exams start on 10 November"></textarea>
+<button id="mn" type="button">Make the notice line</button>
+<div class="out" id="o2"></div><button class="o" id="cp2" type="button" style="display:none">Copy the line</button>
+<p style="margin-top:10px">Paste notice lines right after the line that says <b>"notices": [</b></p>
+
+<h2>Open your file on GitHub</h2>
+<label for="gh">Your GitHub name and project, like thomas123/gesa-student-hub</label><input id="gh" placeholder="username/project">
+<button id="go" type="button">Open resources.json to edit</button>
+<p style="margin-top:10px">Tap the pencil to edit, paste the line, then tap <b>Commit changes</b>. The live site updates in about a minute.</p>
+
+<h2>Check my resources.json</h2>
+<p>Paste the whole file here to find mistakes before you save.</p>
+<textarea id="ck" style="min-height:140px"></textarea>
+<button id="cb" type="button">Check it</button><p id="cr" style="margin-top:10px"></p>
+</div>
+<script>
+var P=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
+var TY=["Timetables","Past questions","Study materials","Opportunities","News"];
+function $(i){return document.getElementById(i)}
+$("pr").innerHTML="<option>All</option>"+P.map(function(p){return "<option>"+p.replace("&","&amp;")+"</option>"}).join("");
+function today(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function show(id,btn,txt){var o=$(id);o.style.display="block";o.textContent=txt;$(btn).style.display="inline-block"}
+$("mk").onclick=function(){var ti=$("ti").value.trim(),li=$("li").value.trim();if(!ti||!li){alert("Please fill the title and the link.");return}
+ var o={type:$("ty").value,programme:$("pr").value,year:$("yr").value==="All"?"All":+$("yr").value,title:ti,link:li,note:$("no").value.trim(),date:today()};
+ show("o1","cp","  "+JSON.stringify(o)+",")};
+$("mn").onclick=function(){var t=$("nt").value.trim();if(!t){alert("Please type the notice.");return}show("o2","cp2","  "+JSON.stringify({date:$("nd").value.trim(),text:t})+",")};
+function copy(id,btn){var t=$(id).textContent.trim();function done(){$(btn).textContent="Copied"}if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){sel(id)})}else sel(id)}
+function sel(id){var r=document.createRange();r.selectNodeContents($(id));var s=getSelection();s.removeAllRanges();s.addRange(r);alert("Press and hold the selected text, then tap Copy.")}
+$("cp").onclick=function(){copy("o1","cp")};$("cp2").onclick=function(){copy("o2","cp2")};
+try{$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
+$("go").onclick=function(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return}try{localStorage.setItem("ghrepo",v)}catch(e){}window.open("https://github.com/"+v+"/edit/main/resources.json","_blank")};
+$("cb").onclick=function(){var r=$("cr"),j;try{j=JSON.parse($("ck").value.replace(/,\s*([\]}])/g,"$1"))}catch(e){r.className="bad";r.textContent="This is not valid. "+e.message+". Check commas, quotes and brackets.";return}
+ var rs=j.resources||[],bad=[];rs.forEach(function(x,i){var w=[];if(TY.indexOf(x.type)<0)w.push("type must be one of: "+TY.join(", "));if(x.programme!=="All"&&P.indexOf(x.programme)<0)w.push("programme not recognised");if(!(x.year==="All"||[1,2,3,4].indexOf(+x.year)>-1))w.push("year must be All or 1 to 4");if(!x.title)w.push("missing title");if(!x.link)w.push("missing link");if(w.length)bad.push("Item "+(i+1)+" ("+(x.title||"no title")+"): "+w.join("; "))});
+ if(bad.length){r.className="bad";r.textContent=bad.join("\n")}else{r.className="ok";r.textContent="Looks good. "+rs.length+" resources and "+(j.notices||[]).length+" notices."}};
+</script></body></html>
