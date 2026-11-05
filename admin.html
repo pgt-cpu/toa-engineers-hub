@@ -18,10 +18,12 @@ button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;c
 <p>Fill the boxes. I will make one line for you. Paste it into <b>resources.json</b> on GitHub, right after the line that says <b>"resources": [</b></p>
 
 <label for="ti">Title</label><input id="ti" placeholder="e.g. 2026/2027 First-Semester Timetable">
-<label for="ty">Type</label><select id="ty"><option>Timetables</option><option>Past questions</option><option>Study materials</option><option>Opportunities</option><option>News</option></select>
+<label for="ty">Type</label><select id="ty"><option>Timetables</option><option>Past questions</option><option>Study materials</option><option>Videos</option><option>Opportunities</option><option>News</option></select>
 <label for="pr">Programme</label><select id="pr"></select>
 <label for="yr">Year</label><select id="yr"><option>All</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
-<label for="li">Link (Google Drive link or any web link)</label><input id="li" type="url" placeholder="https://drive.google.com/...">
+<label for="sm">Semester</label><select id="sm"><option>All</option><option>1</option><option>2</option></select>
+<label for="co">Course (code and name, type it the same way every time)</label><input id="co" placeholder="e.g. TEE 251 Circuit Theory">
+<label for="li">Link (a Google Drive link, or just the file name you uploaded, like EE251-slides.pdf. For videos, paste the YouTube link)</label><input id="li" type="text" placeholder="https://drive.google.com/... or files/EE251-slides.pdf">
 <label for="no">Short note (optional)</label><input id="no" placeholder="e.g. EE 251, 2023 exam">
 <button id="mk" type="button">Make the line</button>
 <div class="out" id="o1"></div><button class="o" id="cp" type="button" style="display:none">Copy the line</button>
@@ -45,13 +47,13 @@ button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;c
 </div>
 <script>
 var P=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
-var TY=["Timetables","Past questions","Study materials","Opportunities","News"];
+var TY=["Timetables","Past questions","Study materials","Videos","Opportunities","News"];
 function $(i){return document.getElementById(i)}
 $("pr").innerHTML="<option>All</option>"+P.map(function(p){return "<option>"+p.replace("&","&amp;")+"</option>"}).join("");
 function today(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
 function show(id,btn,txt){var o=$(id);o.style.display="block";o.textContent=txt;$(btn).style.display="inline-block"}
-$("mk").onclick=function(){var ti=$("ti").value.trim(),li=$("li").value.trim();if(!ti||!li){alert("Please fill the title and the link.");return}
- var o={type:$("ty").value,programme:$("pr").value,year:$("yr").value==="All"?"All":+$("yr").value,title:ti,link:li,note:$("no").value.trim(),date:today()};
+$("mk").onclick=function(){var ti=$("ti").value.trim(),li=$("li").value.trim();if(li&&!/^(https?:)?\/\//i.test(li)&&li.indexOf("/")<0)li="files/"+li.replace(/ /g,"-");if(!ti||!li){alert("Please fill the title and the link.");return}
+ var o={type:$("ty").value,programme:$("pr").value,year:$("yr").value==="All"?"All":+$("yr").value,semester:$("sm").value==="All"?"All":+$("sm").value,course:$("co").value.trim(),title:ti,link:li,note:$("no").value.trim(),date:today()};
  show("o1","cp","  "+JSON.stringify(o)+",")};
 $("mn").onclick=function(){var t=$("nt").value.trim();if(!t){alert("Please type the notice.");return}show("o2","cp2","  "+JSON.stringify({date:$("nd").value.trim(),text:t})+",")};
 function copy(id,btn){var t=$(id).textContent.trim();function done(){$(btn).textContent="Copied"}if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){sel(id)})}else sel(id)}
@@ -60,6 +62,6 @@ $("cp").onclick=function(){copy("o1","cp")};$("cp2").onclick=function(){copy("o2
 try{$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
 $("go").onclick=function(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return}try{localStorage.setItem("ghrepo",v)}catch(e){}window.open("https://github.com/"+v+"/edit/main/resources.json","_blank")};
 $("cb").onclick=function(){var r=$("cr"),j;try{j=JSON.parse($("ck").value.replace(/,\s*([\]}])/g,"$1"))}catch(e){r.className="bad";r.textContent="This is not valid. "+e.message+". Check commas, quotes and brackets.";return}
- var rs=j.resources||[],bad=[];rs.forEach(function(x,i){var w=[];if(TY.indexOf(x.type)<0)w.push("type must be one of: "+TY.join(", "));if(x.programme!=="All"&&P.indexOf(x.programme)<0)w.push("programme not recognised");if(!(x.year==="All"||[1,2,3,4].indexOf(+x.year)>-1))w.push("year must be All or 1 to 4");if(!x.title)w.push("missing title");if(!x.link)w.push("missing link");if(w.length)bad.push("Item "+(i+1)+" ("+(x.title||"no title")+"): "+w.join("; "))});
+ var rs=j.resources||[],bad=[];rs.forEach(function(x,i){var w=[];if(TY.indexOf(x.type)<0)w.push("type must be one of: "+TY.join(", "));if(x.programme!=="All"&&P.indexOf(x.programme)<0)w.push("programme not recognised");if(!(x.year==="All"||[1,2,3,4].indexOf(+x.year)>-1))w.push("year must be All or 1 to 4");if(!(x.semester===undefined||x.semester==="All"||[1,2].indexOf(+x.semester)>-1))w.push("semester must be All, 1 or 2");if(!x.title)w.push("missing title");if(!x.link)w.push("missing link");if(w.length)bad.push("Item "+(i+1)+" ("+(x.title||"no title")+"): "+w.join("; "))});
  if(bad.length){r.className="bad";r.textContent=bad.join("\n")}else{r.className="ok";r.textContent="Looks good. "+rs.length+" resources and "+(j.notices||[]).length+" notices."}};
 </script></body></html>
