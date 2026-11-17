@@ -234,6 +234,7 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 [data-theme=dark] body:after{background-image:radial-gradient(rgba(255,255,255,.09) 1.2px,transparent 1.5px)}
 .bn{left:50%!important;right:auto!important;transform:translateX(-50%);width:calc(100% - 24px);max-width:620px;box-sizing:border-box}
 
+[data-theme=dark] img[src^="toa"]{filter:brightness(0) invert(1)}
 /* ===== GUIDED TOUR ===== */
 #tourb{margin:0!important;padding:8px 14px!important;border:1px solid var(--ln);border-radius:20px!important;background:var(--sf);color:var(--tx);font:700 12px Poppins,sans-serif!important;cursor:pointer;line-height:1.2}
 #tour{position:fixed;inset:0;z-index:700;display:none}
@@ -710,7 +711,7 @@ cheer(ios?"Install on iPhone":"Install this app",ios?"Tap the Share button, then
 </script>
 <script>
 (function(){var h=document.documentElement,b=document.getElementById("thm"),mt=document.querySelector('meta[name="theme-color"]');
-function ap(t){h.setAttribute("data-theme",t);b.textContent=t==="dark"?"☀️ Light":"🌙 Dark";if(mt)mt.content=t==="dark"?"#0F0F10":"#F5F3EE";[].forEach.call(document.querySelectorAll('img[src^="toa"]'),function(im){im.setAttribute("src",t==="dark"?"toa-white.png":"toa.png")});[].forEach.call(document.querySelectorAll('img[src^="logo"]'),function(im){im.setAttribute("src",t==="dark"?"logo-dark.png":"logo.png")})}
+function ap(t){h.setAttribute("data-theme",t);b.textContent=t==="dark"?"☀️ Light":"🌙 Dark";if(mt)mt.content=t==="dark"?"#0F0F10":"#F5F3EE";[].forEach.call(document.querySelectorAll('img[src^="toa"]'),function(im){im.setAttribute("src","toa.png")});[].forEach.call(document.querySelectorAll('img[src^="logo"]'),function(im){im.onerror=function(){this.onerror=null;this.src="logo.png"};im.setAttribute("src",t==="dark"?"logo-dark.png":"logo.png")})}
 var t="light";try{t=localStorage.getItem("hubth")||"light"}catch(e){}ap(t);
 b.onclick=function(){t=t==="dark"?"light":"dark";ap(t);try{localStorage.setItem("hubth",t)}catch(e){}}})();
 </script>
