@@ -1,0 +1,11 @@
+Learn how to use the following features:
+1. mirrow: creates a mirror image, feature or face of a selected item across a defined line, or plane.
+2. Hole: creates a specified hole as if it was drilled.
+3. Unit: puts two or more features together as one.
+4. partern: repeats a feature in a given specified partten.
+5. Shell: N/A
+
+----------------------------------
+a. Learn about every tool in Nx
+b. Learn Assembly
+----------------------------------
