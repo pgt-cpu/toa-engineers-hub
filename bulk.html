@@ -1,103 +1,138 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>Bulk add resources</title>
+<title>Bulk add resources | TOA Engineers Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;font:15px/1.5 Poppins,system-ui,sans-serif;background:#F5F3EE;color:#17171A;padding:18px 16px 60px}
-.w{max-width:980px;margin:0 auto}h1{font-size:26px;margin:6px 0 4px}h2{font-size:17px;margin:0 0 8px}p{margin:0 0 10px;color:#55555c}
-.c{background:#fff;border:1px solid #E4E1D8;border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 10px 24px -18px rgba(0,0,0,.3)}
-button,select,input{font:inherit}button{border:0;border-radius:12px;padding:11px 18px;font-weight:700;cursor:pointer;background:#FFD000;color:#111}button.g{background:#EEEBE0}button:disabled{opacity:.4}
-select,input[type=text]{border:1px solid #D8D4C8;border-radius:10px;padding:8px 10px;background:#fff;max-width:100%}
-.f{display:none;padding:10px 12px;border-radius:12px;margin:8px 0;font-size:13.5px}.w1{background:#FFF3C4}.e1{background:#FDE0E3}.o1{background:#DDF3E4}
-.row{border:1px solid #E4E1D8;border-radius:14px;padding:12px;margin:10px 0;background:#fff}.row.bad{border-color:#E5484D;background:#FFF6F6}.row.chk{border-color:#F0B400;background:#FFFBEA}.row.off{opacity:.5}
-.row .p{font-size:12px;color:#77777f;word-break:break-all;margin-bottom:8px}.g2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.g2 label{font-size:11px;font-weight:700;color:#77777f;display:block}
-.g2>div{min-width:110px}.tt{flex:1 1 200px}.tt input{width:100%}.tag{font-size:11px;font-weight:800;border-radius:8px;padding:2px 8px;margin-left:6px}.t1{background:#F0B400;color:#111}.t2{background:#E5484D;color:#fff}.t3{background:#999;color:#fff}
-textarea{width:100%;min-height:150px;font:12px/1.4 Courier,monospace;border:1px solid #D8D4C8;border-radius:12px;padding:10px}
-.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}ol{margin:0;padding-left:20px}li{margin:4px 0}
+:root{--bg:#F6F5F1;--sf:#fff;--ink:#16171A;--mu:#6B6C72;--ln:#DEDCD3;--y:#FFD000;--ok:#1F7A4D;--wn:#8A5A00;--wb:#FFF4D1;--bd:#B3261E}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141415;--sf:#1C1C1E;--ink:#EEEDE8;--mu:#9A9AA0;--ln:#2E2E31;--ok:#5CCB92;--wn:#F0B400;--wb:#2A2411;--bd:#FF8A80}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+.w{max-width:980px;margin:0 auto;padding:28px 20px 80px}
+a{color:inherit}.back{font-size:13px;color:var(--mu);text-decoration:none}.back:hover{color:var(--ink)}
+h1{font-size:30px;line-height:1.2;font-weight:600;margin:18px 0 8px;letter-spacing:-.01em}
+.lead{color:var(--mu);max-width:60ch;margin:0 0 8px}
+.step{display:grid;grid-template-columns:36px 1fr;gap:0 14px;padding:30px 0 6px;border-top:1px solid var(--ln);margin-top:26px}
+.n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font:600 13px/28px "IBM Plex Sans";text-align:center}
+h2{font-size:18px;font-weight:600;margin:2px 0 6px}.step p{margin:0 0 14px;color:var(--mu);max-width:64ch}
+button{font:inherit;font-weight:500;border-radius:8px;padding:9px 16px;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink)}
+button:hover{background:rgba(127,127,127,.12)}button.p{background:var(--y);border-color:var(--y);color:#16171A}button.p:hover{filter:brightness(.95)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.stats{display:flex;flex-wrap:wrap;margin:6px 0 4px;border:1px solid var(--ln);border-radius:10px;background:var(--sf)}
+.stats div{flex:1 1 130px;padding:14px 16px;border-right:1px solid var(--ln)}.stats div:last-child{border:0}
+.stats b{display:block;font:600 24px/1.2 "IBM Plex Sans";font-variant-numeric:tabular-nums}.stats span{font-size:13px;color:var(--mu)}
+.note{font-size:13.5px;color:var(--wn);background:var(--wb);border-radius:8px;padding:9px 12px;margin:10px 0 0;display:none}
+.tabs{display:flex;gap:4px;margin:0 0 12px;border-bottom:1px solid var(--ln)}
+.tabs button{border:0;border-radius:0;border-bottom:2px solid transparent;padding:8px 12px;color:var(--mu)}.tabs button.on{border-color:var(--ink);color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px;font-size:13.5px;color:var(--mu)}
+select,input[type=text]{font:inherit;font-size:14px;color:var(--ink);background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:7px 9px;max-width:100%}
+.row{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;margin:0 0 8px}.row.off{opacity:.5}.row.look{border-left:3px solid var(--y)}
+.pt{display:flex;gap:10px;align-items:flex-start;font:12.5px/1.5 "IBM Plex Mono",ui-monospace,monospace;color:var(--mu);word-break:break-all}.pt input{margin-top:5px}
+.tag{font:500 12px "IBM Plex Sans";border-radius:6px;padding:1px 8px;margin-left:6px;white-space:nowrap;background:var(--wb);color:var(--wn)}.tag.q{background:rgba(127,127,127,.15);color:var(--mu)}
+.sv{font:12px/1.5 "IBM Plex Mono",monospace;color:var(--ok);margin:4px 0 0 26px;word-break:break-all}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px;margin:10px 0 0 26px}.g label{display:block;font-size:12px;color:var(--mu);margin-bottom:2px}.g select,.g input{width:100%}.g .w2{grid-column:span 2}
+.li{padding:8px 0;border-bottom:1px solid var(--ln);font:12.5px/1.5 "IBM Plex Mono",monospace;word-break:break-all}.li small{font:13px "IBM Plex Sans";color:var(--mu);display:block}
+pre{margin:0 0 12px;padding:12px 14px;background:var(--ink);color:var(--bg);border-radius:8px;font:13px/1.5 "IBM Plex Mono",monospace;overflow-x:auto}
+ul.s{margin:0 0 14px;padding-left:18px;color:var(--mu);max-width:64ch}ul.s li{margin:4px 0}ul.s b{color:var(--ink);font-weight:500}code{font:13px "IBM Plex Mono",monospace;background:rgba(127,127,127,.15);padding:1px 5px;border-radius:4px}
+.hide{display:none}@media(max-width:560px){.step{grid-template-columns:1fr}.n{margin-bottom:8px}.g,.sv{margin-left:0}}
 </style></head><body><div class="w">
-<h1>Bulk add resources</h1>
-<p>Pick your organised folder and this page makes <b>all</b> the labels in one go. Best on a laptop or computer.</p>
+<a class="back" href="index.html">Back to the site</a>
+<h1>Add many resources at once</h1>
+<p class="lead">Choose your organised folder. Nothing is uploaded from this page. It reads the file names and shows exactly what the sync program will do with them.</p>
 
-<div class="c"><h2>Step 1: Choose your folder</h2>
-<p>Pick the main folder that holds your files, for example one that contains Programme, Year, Semester and Course folders. Nothing is uploaded here. The page only reads the names.</p>
-<input type="file" id="pick" webkitdirectory multiple hidden><button id="pb" type="button">Choose folder</button> <span id="sum"></span>
-<div class="f w1" id="wn"></div></div>
+<div class="step"><div class="n">1</div><div><h2>Choose your folder</h2>
+<p>Pick the main folder that holds your Programme, Year, Semester and Course folders.</p>
+<input type="file" id="pick" webkitdirectory multiple hidden><button class="p" id="pb" type="button">Choose folder</button> <span id="sum" style="margin-left:8px;color:var(--mu)"></span>
+<div class="stats hide" id="st"></div><div class="note" id="wn"></div></div></div>
 
-<div class="c" id="rev" style="display:none"><h2>Step 2: Check the list</h2>
-<p>Yellow rows are guesses and red rows are missing something. Fix them using the boxes. Untick any file you do not want.</p>
-<div class="bar"><b>Set for every row:</b>
-<select id="ap"><option value="">Programme (keep)</option></select><select id="ay"><option value="">Year (keep)</option><option>All</option><option>1</option><option>2</option><option>3</option><option>4</option></select><select id="as"><option value="">Semester (keep)</option><option>All</option><option>1</option><option>2</option></select><button class="g" id="aa" type="button">Apply</button></div>
-<div class="bar"><button class="g" id="sa" type="button">Tick all</button><button class="g" id="sn" type="button">Untick all</button></div>
-<div id="list"></div></div>
+<div class="step hide" id="rev"><div class="n">2</div><div><h2>Check what it decided</h2>
+<p>The program fills in programme, year, semester and course from your folder names. Rows with a yellow edge are guesses or gaps, so start there. Where it cannot tell, it uses “All” so every student still sees the file.</p>
+<div class="tabs" id="tabs"></div><div id="tb"></div><div id="list"></div><button class="hide" id="more" type="button">Show more</button></div></div>
 
-<div class="c" id="out" style="display:none"><h2>Step 3: Make the labels</h2>
-<div class="f e1" id="er"></div><button id="mk" type="button">Make the labels</button>
-<div id="res" style="display:none"><div class="f o1" id="ok" style="display:block"></div><textarea id="ta" readonly></textarea><div class="bar"><button id="cp" type="button">Copy all labels</button></div></div></div>
-
-<div class="c"><h2>How to finish</h2><ol>
-<li>On GitHub, open your project, then the <b>files</b> folder. Tap <b>Add file</b>, then <b>Upload files</b>, and drag your <b>whole main folder</b> in. Wait for it to finish and tap <b>Commit changes</b>.</li>
-<li>Open <b>resources.json</b>, tap the pencil, put your cursor at the end of the line <code>"resources": [</code>, press Enter, and <b>paste</b> the labels. Tap <b>Commit changes</b>.</li>
-<li>Wait 1 to 2 minutes, then check the Resources page.</li></ol>
-<p>GitHub's website takes about <b>100 files at a time</b> and up to <b>25 MB per file</b>. For bigger batches use the free <b>GitHub Desktop</b> app: drag the folder into your project folder, then Commit and Push.</p></div>
+<div class="step hide" id="out"><div class="n">3</div><div><h2>Run the sync program</h2>
+<ul class="s"><li><b>Videos</b> are set aside automatically. The program lists them in a file you can fill with YouTube links later.</li>
+<li><b>Names with symbols</b> such as # ? % &amp; + are cleaned on the copy that goes online. Your originals are untouched.</li>
+<li><b>Upload in batches</b> is automatic. The program copies, labels and pushes to GitHub for you, and continues where it stopped if something fails.</li></ul>
+<p>Open a terminal in your project folder and run:</p><pre id="cmd"></pre>
+<button id="cc" type="button">Copy command</button> <button class="hide" id="dl" type="button">Download my corrections</button>
+<p id="dn" class="hide" style="margin-top:12px">Save the corrections as <code>hub-overrides.json</code> next to <code>hub-sync.mjs</code>. The program reads it automatically.</p></div></div>
 </div>
 <script>
-var PR=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
-var TY=["Timetables","Past questions","Study materials"];
-var PK=[["Petrochemical",/petro-?chem/],["Petroleum",/petroleum/],["Telecommunication",/telecom/],["Electrical & Electronic",/electrical|electronic|\beee\b|\bee\b/],["Aerospace",/aero/],["Agricultural",/agric/],["Automobile",/automo/],["Biomedical",/biomed/],["Chemical",/chem/],["Civil",/civil/],["Computer",/computer|\bcpe\b/],["Geological",/geolog/],["Geomatic",/geomat/],["Industrial",/industrial/],["Marine",/marine/],["Materials",/^materials?( (eng|sci).*)?$/],["Mechanical",/mechanical|\bmech\b/],["Metallurgical",/metallurg/]];
-var SKIP=/^(\.ds_store|thumbs\.db|desktop\.ini)$|^~\$|^\./i,VID=/\.(mp4|mkv|mov|avi|webm|m4v)$/i;
-var rows=[],done={};function $(i){return document.getElementById(i)}function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function today(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
-function mb(n){return n>=1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB"}
-var CC=/\b[A-Za-z]{2,5}\s?-?\s?(\d{3})[A-Za-z]?\b/;
-function detect(f){
- var parts=f.webkitRelativePath.split("/"),name=parts.pop(),segs=parts.slice(),all=segs.concat([name]);
- var r={prog:"",yr:"",sm:"All",type:"Study materials",course:"",flags:[],guess:false};
- segs.forEach(function(s){var t=s.toLowerCase().replace(/[_-]+/g," ").trim();
-  if(!r.prog){if(/^(all|general|common)\b/.test(t))r.prog="All";else for(var i=0;i<PK.length;i++)if(PK[i][1].test(t)){r.prog=PK[i][0];break}}
-  var m;if(!r.yr){if(m=t.match(/(?:^|[^a-z])(?:year|yr|y)\s*([1-4])(?!\d)/)||t.match(/\blevel\s*([1-4])00\b/)||t.match(/^l?([1-4])00(\s*level)?$/))r.yr=m[1];else if(m=t.match(/\b(first|second|third|fourth|1st|2nd|3rd|4th)\s*year\b/))r.yr={first:1,second:2,third:3,fourth:4,"1st":1,"2nd":2,"3rd":3,"4th":4}[m[1]]+""}
+const PR=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
+const TY=["Timetables","Past questions","Study materials"];
+const PK=[["Petrochemical",/petro-?chem/],["Petroleum",/petroleum/],["Telecommunication",/telecom/],["Electrical & Electronic",/electrical|electronic|\beee\b|\bee\b/],["Aerospace",/aero/],["Agricultural",/agric/],["Automobile",/automo/],["Biomedical",/biomed/],["Chemical",/chem/],["Civil",/civil/],["Computer",/computer|\bcpe\b/],["Geological",/geolog/],["Geomatic",/geomat/],["Industrial",/industrial/],["Marine",/marine/],["Materials",/^materials?( (eng|sci).*)?$/],["Mechanical",/mechanical|\bmech\b/],["Metallurgical",/metallurg/]];
+const SKIP=/^(\.ds_store|thumbs\.db|desktop\.ini)$|^~\$|^\./i,VID=/\.(mp4|mkv|mov|avi|webm|m4v|wmv|flv|3gp|mpeg|mpg)$/i;
+const CC=/\b[A-Za-z]{2,5}\s?-?\s?(\d{3})[A-Za-z]?\b/;
+let ALIAS={};
+const STEMS=[["aerospace","Aerospace"],["agricultural","Agricultural"],["automobile","Automobile"],["biomedical","Biomedical"],["chemical","Chemical"],["computer","Computer"],["electrical","Electrical & Electronic"],["electronic","Electrical & Electronic"],["geological","Geological"],["geomatic","Geomatic"],["industrial","Industrial"],["materials","Materials"],["mechanical","Mechanical"],["metallurgical","Metallurgical"],["petrochemical","Petrochemical"],["petroleum","Petroleum"],["telecommunication","Telecommunication"],["telecom","Telecommunication"]];
+function lev(a,b){const p=[];for(let j=0;j<=b.length;j++)p[j]=j;for(let i=1;i<=a.length;i++){let d=p[0];p[0]=i;for(let j=1;j<=b.length;j++){const t=p[j];p[j]=Math.min(p[j]+1,p[j-1]+1,d+(a[i-1]===b[j-1]?0:1));d=t}}return p[b.length]}
+const MB=1048576,UNSAFE=/[#?%&+'"<>:*|\\]/;
+const mb=n=>n>=MB?(n/MB).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB";
+const takeout=s=>s.replace(/-\d{8}T\d{6}Z-\d+-\d+$/i,"");
+function safe(s){return s.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/\+/g," plus ").replace(/#/g," no ").replace(/%/g," percent ").replace(/[^A-Za-z0-9._ -]+/g,"").replace(/\s+/g,"-").replace(/-{2,}/g,"-").replace(/^[-.]+|[-.]+$/g,"").slice(0,80)||"item"}
+function safePath(rel,used){const p=rel.split("/"),n=p.pop(),i=n.lastIndexOf("."),ext=i>0?n.slice(i).toLowerCase().replace(/[^a-z0-9.]/g,""):"",base=safe(i>0?n.slice(0,i):n),dir=p.map(s=>safe(takeout(s))).join("/"),pre=dir?dir+"/":"";let out=pre+base+ext,k=2;while(used.has(out.toLowerCase()))out=pre+base+"-"+(k++)+ext;used.add(out.toLowerCase());return out}
+function detect(rel){
+ const parts=rel.split("/"),name=parts.pop(),segs=parts.map(takeout),all=segs.concat([name]);
+ const r={prog:"",yr:"",sm:"All",type:"Study materials",course:"",guess:false};
+ segs.concat([name.replace(/\.[^.]+$/,"")]).forEach(function(s,ix){const t=s.toLowerCase().replace(/[_-]+/g," ").trim();
+  if(!r.prog){if(/^(all|general|common)\b/.test(t))r.prog="All";else{for(const k in ALIAS)if((" "+t+" ").includes(" "+k.toLowerCase()+" ")){r.prog=ALIAS[k];break}
+   if(!r.prog)for(let i=0;i<PK.length;i++)if(PK[i][1].test(t)){r.prog=PK[i][0];break}
+   if(!r.prog)t.split(" ").forEach(w=>{if(!r.prog&&w.length>=5)for(const st of STEMS)if(lev(w,st[0])<=(w.length>=9?2:1)){r.prog=st[1];break}})}}
+  let m;if(!r.yr){if(m=t.match(/(?:^|[^a-z])(?:year|yr|y)\s*([1-4])(?!\d)/)||t.match(/\blevel\s*([1-4])00\b/)||t.match(/^l?([1-4])00(\s*level)?$/))r.yr=m[1];else if(m=t.match(/\b(first|second|third|fourth|1st|2nd|3rd|4th)\s*year\b/))r.yr={first:1,second:2,third:3,fourth:4,"1st":1,"2nd":2,"3rd":3,"4th":4}[m[1]]+""}
   if(r.sm==="All"){if(m=t.match(/(?:^|[^a-z])(?:sem(?:ester)?|s)\s*([12])(?!\d)/))r.sm=m[1];else if(m=t.match(/\b(first|1st|second|2nd)\s*sem/))r.sm=/^(first|1st)/.test(m[1])?"1":"2"}
-  if(!r.course&&CC.test(s)&&!/year|level|sem|^l?[1-4]00$/.test(t))r.course=s.replace(/[_]+/g," ").trim()});
- var lo=all.join(" ").toLowerCase();
+  if(ix<segs.length&&!r.course&&CC.test(s)&&!/year|level|sem|^l?[1-4]00$/.test(t))r.course=s.replace(/[_]+/g," ").trim()});
+ const lo=all.join(" ").toLowerCase();
  if(/time ?table|schedule/.test(lo))r.type="Timetables";else if(/past ?q|\bpq\b|exam|quiz|mid ?sem|trial|\btest\b/.test(lo))r.type="Past questions";
- var nm=name.replace(/\.[^.]+$/,"").replace(/[_]+/g," ").replace(/\s+/g," ").trim();
- if(!r.course){var m2=nm.match(CC);if(m2)r.course=m2[0].replace(/^([A-Za-z]+)\s?-?\s?(\d)/,"$1 $2")}
- if(!r.course){for(var i=segs.length-1;i>=0;i--){var t=segs[i].toLowerCase();if(!/^(resources?|files?|uploads?|folder|new folder|documents?|my files)$/.test(t)&&!/year|level|sem|^l?\d00|past|slide|note|material|time ?table|exam|lecture|video|pdf/.test(t)&&PK.every(function(p){return !p[1].test(t.replace(/[_-]+/g," "))})&&!/^(all|general|common)/.test(t)){r.course=segs[i].replace(/[_]+/g," ").trim();break}}}
- var cm=(r.course+" "+nm).match(CC);
+ const nm=name.replace(/\.[^.]+$/,"").replace(/[_]+/g," ").replace(/\s+/g," ").trim();
+ if(!r.course){const m2=nm.match(CC);if(m2)r.course=m2[0].replace(/^([A-Za-z]+)\s?-?\s?(\d)/,"$1 $2")}
+ if(!r.course){for(let i=segs.length-1;i>=0;i--){const t=segs[i].toLowerCase();if(!/^(resources?|files?|uploads?|folder|new folder|documents?|my files)$/.test(t)&&!/year|level|sem|^l?\d00|past|slide|note|material|time ?table|exam|lecture|video|pdf|academic/.test(t)&&PK.every(p=>!p[1].test(t.replace(/[_-]+/g," ")))&&!/^(all|general|common)/.test(t)){r.course=segs[i].replace(/[_]+/g," ").trim();break}}}
+ const cm=(r.course+" "+nm).match(CC);
  if(cm){if(!r.yr&&/^[1-4]/.test(cm[1])){r.yr=cm[1][0];r.guess=true}if(r.sm==="All"&&/[12]$/.test(cm[1])){r.sm=cm[1][2];r.guess=true}}
- if(r.sm==="All"){var m3=nm.toLowerCase().match(/\b(?:sem(?:ester)?)\s*([12])\b/);if(m3)r.sm=m3[1]}
+ if(r.sm==="All"){const m3=nm.toLowerCase().match(/\b(?:sem(?:ester)?)\s*([12])\b/);if(m3)r.sm=m3[1]}
  if(r.prog==="All"&&!r.yr)r.yr="All";
- r.title=nm;return r}
-function mkRow(f){var d=detect(f),p=f.webkitRelativePath;var bad=/[#?%&+'"<>:*|\\]/.test(p)||/(^|\/)\s|\s(\/|$)/.test(p);
- return{f:f,path:p,size:f.size,inc:!bad,prog:d.prog,yr:d.yr,sm:d.sm,type:d.type,course:d.course,title:d.title,guess:d.guess,unsafe:bad,link:"files/"+p,note:mb(f.size)}}
-$("pb").onclick=function(){$("pick").click()};
-$("pick").onchange=function(){var fs=[].slice.call(this.files),vid=0,skip=0;rows=[];
- fs.forEach(function(f){var n=f.name;if(SKIP.test(n)){skip++;return}if(VID.test(n)){vid++;return}rows.push(mkRow(f))});
- rows.sort(function(a,b){return a.path<b.path?-1:1});var tot=rows.reduce(function(a,r){return a+r.size},0),w=[];
- if(vid)w.push(vid+" video file(s) were left out. Upload videos to YouTube and add them with the Add a resource page.");
- if(rows.length>100)w.push("You have "+rows.length+" files. GitHub's website takes about 100 at a time, so upload in batches or use GitHub Desktop.");
- var big=rows.filter(function(r){return r.size>25*1048576});if(big.length)w.push(big.length+" file(s) are over 25 MB, which is too big for the GitHub website. Use Google Drive links for those or GitHub Desktop.");
- if(tot>90*1048576)w.push("Total size is "+mb(tot)+". The free site plan holds about 100 MB in total, so consider Google Drive links for the biggest files.");
- var u=rows.filter(function(r){return r.unsafe}).length;if(u)w.push(u+" file(s) have names with symbols like # ? % & +. Rename them and choose the folder again.");
- $("sum").textContent=rows.length+" files found ("+mb(tot)+")";$("wn").style.display=w.length?"block":"none";$("wn").innerHTML=w.map(esc).join("<br>");
- $("rev").style.display=$("out").style.display=rows.length?"block":"none";$("res").style.display="none";
- fetch("resources.json?v="+Date.now()).then(function(r){return r.ok?r.text():""}).then(function(t){done={};try{JSON.parse(t.replace(/,\s*([\]}])/g,"$1")).resources.forEach(function(x){done[x.link]=1})}catch(e){}rows.forEach(function(r){if(done[r.link])r.inc=false,r.dup=true});draw()}).catch(function(){draw()})};
-function opt(a,v,ph){return(ph?'<option value="">'+ph+"</option>":"")+a.map(function(x){return"<option"+(String(x)===String(v)?" selected":"")+">"+esc(x)+"</option>"}).join("")}
-function draw(){var h="";rows.forEach(function(r,i){var miss=!r.prog||!r.yr,cls="row"+(r.inc?"":" off")+(miss&&r.inc?" bad":r.guess&&r.inc?" chk":"");
- h+='<div class="'+cls+'" data-i="'+i+'"><div class="p"><label><input type="checkbox" data-k="inc"'+(r.inc?" checked":"")+'> '+esc(r.path)+"</label>"+(r.dup?'<span class="tag t3">already added</span>':"")+(r.unsafe?'<span class="tag t2">rename file</span>':"")+(r.guess&&!miss?'<span class="tag t1">guessed from course code</span>':"")+(miss?'<span class="tag t2">choose programme and year</span>':"")+'</div><div class="g2">'
- +'<div><label>Programme</label><select data-k="prog">'+opt(["All"].concat(PR),r.prog,"Choose")+"</select></div>"
- +'<div><label>Year</label><select data-k="yr">'+opt(["All",1,2,3,4],r.yr,"Choose")+"</select></div>"
- +'<div><label>Semester</label><select data-k="sm">'+opt(["All",1,2],r.sm)+"</select></div>"
- +'<div><label>Type</label><select data-k="type">'+opt(TY,r.type)+"</select></div>"
- +'<div class="tt"><label>Course</label><input type="text" data-k="course" value="'+esc(r.course)+'"></div>'
- +'<div class="tt"><label>Title</label><input type="text" data-k="title" value="'+esc(r.title)+'"></div></div></div>'});
- $("list").innerHTML=h;[].forEach.call($("list").querySelectorAll("[data-k]"),function(e){e.onchange=function(){var i=+e.closest(".row").dataset.i,k=e.dataset.k;rows[i][k]=k==="inc"?e.checked:e.value;if(k==="prog"||k==="yr"||k==="inc")rows[i].guess=rows[i].guess&&k==="inc";draw()}})}
-$("ap").innerHTML=opt(["All"].concat(PR),"","Programme (keep)");
-$("aa").onclick=function(){var p=$("ap").value,y=$("ay").value,s=$("as").value;rows.forEach(function(r){if(p)r.prog=p;if(y)r.yr=y;if(s)r.sm=s});draw()};
-$("sa").onclick=function(){rows.forEach(function(r){if(!r.unsafe)r.inc=true});draw()};$("sn").onclick=function(){rows.forEach(function(r){r.inc=false});draw()};
-$("mk").onclick=function(){var use=rows.filter(function(r){return r.inc}),bad=use.filter(function(r){return !r.prog||!r.yr});
- if(!use.length){$("er").style.display="block";$("er").textContent="No files are ticked.";return}
- if(bad.length){$("er").style.display="block";$("er").textContent=bad.length+" ticked row(s) still need a programme and year. Fix the red rows first.";return}
- $("er").style.display="none";var d=today();
- var lines=use.map(function(r){return"  "+JSON.stringify({type:r.type,programme:r.prog,year:r.yr==="All"?"All":+r.yr,semester:r.sm==="All"?"All":+r.sm,course:r.course.trim(),title:r.title.trim()||"Untitled",link:r.link,note:r.note,date:d})+","}).join("\n");
- $("ta").value=lines;$("res").style.display="block";$("ok").textContent=use.length+" label(s) ready. Copy them and paste into resources.json."};
-$("cp").onclick=function(){var t=$("ta");function ok(){$("cp").textContent="Copied"}if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(ok,function(){t.select();document.execCommand("copy");ok()});else{t.select();document.execCommand("copy");ok()}};
+ r.look=!r.prog||!r.yr||r.guess;r.prog=r.prog||"All";r.yr=r.yr||"All";r.title=nm;return r}
+
+const MAXF=95*MB,BUD=900*MB;
+let rows=[],vids=[],big=[],ov={},tab="look",shown=100,root="";
+const $=i=>document.getElementById(i),esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const opt=(a,v)=>a.map(x=>"<option"+(String(x)===String(v)?" selected":"")+">"+esc(x)+"</option>").join("");
+$("pb").onclick=()=>$("pick").click();
+$("pick").onchange=function(){
+ const fs=[...this.files].filter(f=>!SKIP.test(f.name)).sort((a,b)=>a.webkitRelativePath<b.webkitRelativePath?-1:1),used=new Set();
+ rows=[];vids=[];big=[];ov={};tab="look";shown=100;root=fs.length?fs[0].webkitRelativePath.split("/")[0]:"";
+ fs.forEach(f=>{const rel=f.webkitRelativePath,d=detect(rel);
+  if(VID.test(f.name)){vids.push({rel,size:f.size});return}
+  if(f.size>MAXF){big.push({rel,size:f.size});return}
+  const link="files/"+safePath(rel,used);rows.push({rel,size:f.size,link,prog:d.prog,yr:d.yr,sm:d.sm,type:d.type,course:d.course,title:d.title,look:d.look,guess:d.guess,fix:UNSAFE.test(rel),inc:true})});
+ const tot=rows.reduce((a,r)=>a+r.size,0);
+ $("sum").textContent=fs.length?fs.length+" files found, "+mb(fs.reduce((a,f)=>a+f.size,0)):"No files found.";
+ $("st").classList.toggle("hide",!fs.length);$("rev").classList.toggle("hide",!rows.length);$("out").classList.toggle("hide",!rows.length);
+ $("st").innerHTML=[[rows.length,"ready to add"],[vids.length,"videos set aside"],[rows.filter(r=>r.fix).length,"names cleaned"],[rows.filter(r=>r.look).length,"need a look"],[big.length,"too big for GitHub"]].map(s=>"<div><b>"+s[0]+"</b><span>"+s[1]+"</span></div>").join("");
+ const w=tot>BUD?["Together the files add up to "+mb(tot)+". The program stops at 900 MB by default so the project stays within GitHub’s recommended size. The rest are listed in a report so you can host them on Google Drive."]:[];
+ $("wn").style.display=w.length?"block":"none";$("wn").textContent=w.join(" ");
+ $("cmd").textContent='node hub-sync.mjs "'+root+'"';
+ fetch("resources.json?v="+Date.now()).then(r=>r.ok?r.text():"").then(t=>{try{const have={};JSON.parse(t.replace(/,\s*([\]}])/g,"$1")).resources.forEach(x=>have[x.link]=1);rows.forEach(r=>{if(have[r.link]){r.inc=false;r.dup=true}})}catch(e){}draw()}).catch(draw)};
+function setTab(t){tab=t;shown=100;draw()}
+function draw(){
+ const lk=rows.filter(r=>r.look&&!r.dup),left=vids.length+big.length;
+ if(tab==="look"&&!lk.length)tab="all";
+ $("tabs").innerHTML=[["look","Needs a look ("+lk.length+")"],["all","All files ("+rows.length+")"],["left","Left out ("+left+")"]].map(t=>'<button class="'+(tab===t[0]?"on":"")+'" data-t="'+t[0]+'">'+t[1]+"</button>").join("");
+ [].forEach.call($("tabs").children,b=>b.onclick=()=>setTab(b.dataset.t));
+ $("tb").innerHTML=tab==="all"?'<div class="bar">Set for every row:<select id="ap"><option value="">Programme</option>'+opt(["All"].concat(PR),"")+'</select><select id="ay"><option value="">Year</option>'+opt(["All",1,2,3,4],"")+'</select><select id="as"><option value="">Semester</option>'+opt(["All",1,2],"")+'</select><button id="aa" type="button">Apply</button></div>':"";
+ if($("aa"))$("aa").onclick=()=>{const p=$("ap").value,y=$("ay").value,s=$("as").value;rows.forEach(r=>{if(p)edit(r,"prog",p);if(y)edit(r,"yr",y);if(s)edit(r,"sm",s)});draw()};
+ if(tab==="left"){
+  $("list").innerHTML=(vids.length?'<p style="margin:0 0 4px;color:var(--mu)">Videos. Upload these to YouTube, then add the links to the report the program saves.</p>'+vids.map(v=>'<div class="li">'+esc(v.rel)+"<small>"+mb(v.size)+"</small></div>").join(""):"")+(big.length?'<p style="margin:14px 0 4px;color:var(--mu)">Over 95 MB. GitHub refuses files this large. Use Google Drive links for these.</p>'+big.map(v=>'<div class="li">'+esc(v.rel)+"<small>"+mb(v.size)+"</small></div>").join(""):"")||"<p>Nothing was left out.</p>";
+  $("more").classList.add("hide");return}
+ const vis=(tab==="look"?lk:rows);
+ $("list").innerHTML=vis.slice(0,shown).map(r=>{const i=rows.indexOf(r);
+  return '<div class="row'+(r.inc?"":" off")+(r.look&&!r.dup?" look":"")+'" data-i="'+i+'"><label class="pt"><input type="checkbox" data-k="inc"'+(r.inc?" checked":"")+"><span>"+esc(r.rel)+"</span></label>"
+  +'<div style="margin-left:26px;margin-top:2px">'+(r.dup?'<span class="tag q">already on the site</span>':"")+(r.fix?'<span class="tag q">name cleaned</span>':"")+(r.guess?'<span class="tag">guessed from course code</span>':"")+(r.look&&!r.guess?'<span class="tag">could not tell, using All</span>':"")+"</div>"
+  +(r.fix?'<div class="sv">saved as '+esc(r.link)+"</div>":"")
+  +'<div class="g"><div><label>Programme</label><select data-k="prog">'+opt(["All"].concat(PR),r.prog)+'</select></div><div><label>Year</label><select data-k="yr">'+opt(["All",1,2,3,4],r.yr)+'</select></div><div><label>Semester</label><select data-k="sm">'+opt(["All",1,2],r.sm)+'</select></div><div><label>Type</label><select data-k="type">'+opt(TY,r.type)+'</select></div><div class="w2"><label>Course</label><input type="text" data-k="course" value="'+esc(r.course)+'"></div><div class="w2"><label>Title</label><input type="text" data-k="title" value="'+esc(r.title)+'"></div></div></div>'}).join("")||"<p>No files to show.</p>";
+ $("more").classList.toggle("hide",vis.length<=shown);
+ [].forEach.call($("list").querySelectorAll("[data-k]"),e=>e.onchange=()=>{const r=rows[+e.closest(".row").dataset.i],k=e.dataset.k;if(k==="inc"){r.inc=e.checked;(ov[r.rel]=ov[r.rel]||{}).skip=!e.checked}else edit(r,k,e.value);if(k==="inc"||k==="prog"||k==="yr")r.look=false;draw()});
+ const n=Object.keys(ov).length;$("dl").classList.toggle("hide",!n);$("dn").classList.toggle("hide",!n)}
+function edit(r,k,v){r[k]=v;(ov[r.rel]=ov[r.rel]||{})[k]=v}
+$("more").onclick=()=>{shown+=100;draw()};
+$("cc").onclick=()=>{const t=$("cmd").textContent,ok=()=>$("cc").textContent="Copied";navigator.clipboard?navigator.clipboard.writeText(t).then(ok):ok()};
+$("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(ov,null,1)],{type:"application/json"}));a.download="hub-overrides.json";a.click()};
 </script></body></html>

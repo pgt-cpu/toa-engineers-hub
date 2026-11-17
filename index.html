@@ -33,6 +33,7 @@ h1 span{color:var(--r)}
 .screen{margin:24px 0 0;background:var(--k);border-radius:26px;padding:18px 16px 16px;box-shadow:0 8px 0 rgba(0,0,0,.14)}
 .bar{color:var(--y);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0 2px 12px;font-weight:800;font-size:12px;letter-spacing:1.2px;border-bottom:1px solid #333;margin-bottom:14px}
 .ctx{color:#fff;font-weight:800;font-size:19px;margin:0 0 12px}
+.sw{position:relative}.sg{position:absolute;left:0;right:0;top:calc(100% - 8px);background:#2b2b2b;border-radius:12px;z-index:30;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.35)}.sg button{display:block;width:100%;text-align:left;background:none;border:0;color:#fff;padding:10px 14px;font:500 13.5px Poppins,sans-serif;cursor:pointer}.sg button:hover,.sg button:focus{background:#3a3a3a;outline:none}.sg small{display:block;color:#aaa;font-size:11.5px;font-weight:400}.sg p{margin:0;padding:10px 14px;color:#aaa;font-size:13px}
 .search{width:100%;background:#2b2b2b;border:0;border-radius:14px;color:#fff;padding:11px 14px;font:500 14px Poppins,sans-serif;margin:0 0 12px;outline:none}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:6px}
 .tab{border:0;border-radius:20px;background:#2b2b2b;color:#e6e6e6;padding:8px 14px;font:700 12px Poppins,sans-serif;cursor:pointer}
@@ -268,7 +269,7 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
  <div class="lbl">Year</div><div class="chips" id="years"></div>
  <div class="lbl">Semester</div><div class="chips" id="sems"></div>
  <div class="bt"><button class="btn" id="rdone" type="button">Show my resources</button></div></div></div>
- <div class="screen" id="browse"><p id="ctx" hidden></p><input class="search" id="q" type="search" placeholder="Search by title or course..."><div class="tabs" id="tabs"></div><div id="list"></div><div class="bt" style="margin-top:14px"><button class="btn" id="rq" type="button">Send or request a resource</button></div></div>
+ <div class="screen" id="browse"><p id="ctx" hidden></p><div class="sw"><input class="search" id="q" type="search" placeholder="Search by title or course..." autocomplete="off"><div class="sg" id="sg" hidden></div></div><div class="tabs" id="tabs"></div><div id="list"></div><div class="bt" style="margin-top:14px"><button class="btn" id="rq" type="button">Send or request a resource</button></div></div>
 </div></div>
 <div class="pg" id="p-tools"><div class="ph rd"><div><div class="k">STUDY TOOLS</div><h2>Study smarter</h2><p>CWA calculator, timer and exam countdown in one place.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-calc"/></svg></div></div><div class="tools"><h2>Study tools</h2><p class="tl">Handy things to use while you study. All free.</p>
 <div class="tc"><h3>Study tip of the day</h3><p class="tipt" id="tip"></p></div>
@@ -316,7 +317,17 @@ var s={p:"",y:0,t:0,s:0};try{var z=JSON.parse(localStorage.getItem("hubsel")||"{
 function grp(r){var has=r.some(function(d){return d.c}),cur=null,h="";r.forEach(function(d){var c=d.c||"General";if(has&&c!==cur){cur=c;h+='<div class="wd" style="margin-top:16px">'+esc(c)+"</div>"}h+=card(d)});return h}
 function chips(el,arr,key,lab){el.innerHTML="";arr.forEach(function(v){var b=document.createElement("button");b.className="chip"+(s[key]===v?" on":"");b.textContent=lab(v);b.onclick=function(){s[key]=v;draw()};el.appendChild(b)})}
 var IC=["📅","📝","📚","▶️","💼","📰"];
-function fl(d,t,q){return d.t===t&&(d.p==="*"||d.p===s.p)&&(d.y===0||d.y===s.y)&&(!s.s||d.s===0||d.s===s.s)&&(!q||(d.n+" "+d.c).toLowerCase().indexOf(q)>-1)}
+function lev(a,b){var p=[],i,j,d,t;for(j=0;j<=b.length;j++)p[j]=j;for(i=1;i<=a.length;i++){d=p[0];p[0]=i;for(j=1;j<=b.length;j++){t=p[j];p[j]=Math.min(p[j]+1,p[j-1]+1,d+(a[i-1]===b[j-1]?0:1));d=t}}return p[b.length]}
+function wm(w,k){return w.indexOf(k)>-1||(k.length>=4&&lev(k,w.slice(0,k.length))<=(k.length>=7?2:1))}
+function mt(h,q){if(h.indexOf(q)>-1)return 1;var ws=h.split(/[^a-z0-9]+/),ks=q.split(/\s+/).filter(Boolean);return ks.length&&ks.every(function(k){return ws.some(function(w){return wm(w,k)})})}
+function hideSg(){var g=$("sg");g.hidden=true;g.innerHTML=""}
+function sug(){var q=($("q").value||"").toLowerCase().trim(),g=$("sg");if(q.length<2){hideSg();return}
+var seen={},c=[];D.forEach(function(d){var inS=(d.p==="*"||d.p===s.p)&&(d.y===0||d.y===s.y);[[d.c,"Course"],[d.n,T[d.t]]].forEach(function(x){var l=(x[0]||"").trim(),lo=l.toLowerCase();if(!l||seen[lo])return;var r=lo.indexOf(q)===0?0:lo.split(/[^a-z0-9]+/).some(function(w){return w.indexOf(q)===0})?1:lo.indexOf(q)>-1?2:mt(lo,q)?3:9;if(r>8)return;seen[lo]=1;c.push([r+(inS?0:.5),l,x[1]])})});
+c.sort(function(a,b){return a[0]-b[0]||a[1].length-b[1].length});c=c.slice(0,6);
+g.innerHTML=c.length?c.map(function(x,i){return'<button type="button" data-i="'+i+'">'+esc(x[1])+'<small>'+esc(x[2])+'</small></button>'}).join(""):q.length>=3?'<p>Nothing found. Try fewer letters, or send a request below.</p>':"";g.hidden=!g.innerHTML;
+[].forEach.call(g.querySelectorAll("button"),function(b){b.onclick=function(){$("q").value=c[+b.dataset.i][1];hideSg();draw()}})}
+document.addEventListener("click",function(e){if(!e.target.closest(".sw"))hideSg()});
+function fl(d,t,q){return d.t===t&&(d.p==="*"||d.p===s.p)&&(d.y===0||d.y===s.y)&&(!s.s||d.s===0||d.s===s.s)&&(!q||mt((d.n+" "+d.c).toLowerCase(),q))}
 function draw(){
  if(s._i===undefined){s._i=1;if(s.p&&s.y)s.ed=false}
  var ps=$("psel");if(!ps.options.length){ps.innerHTML='<option value="">Select your programme</option>'+P.map(function(v){return "<option>"+v.replace("&","&amp;")+"</option>"}).join("");ps.onchange=function(){s.p=ps.value;draw()}}ps.value=s.p;
@@ -330,7 +341,7 @@ function draw(){
  $("list").innerHTML=r.length?grp(r):(LOADERR?'<div class="emp"><div class="ei">📡</div><b>Could not load</b><p>Please refresh or try again later.</p></div>':'<div class="emp"><div class="ei">'+IC[s.t]+'</div><b>Nothing here yet</b><p>No '+T[s.t].toLowerCase()+(q?' match your search':' for this class yet')+'. Tap "Send or request a resource" below to ask for it.</p></div>');
 }
 $("rch").onclick=function(){s.ed=true;draw()};$("rdone").onclick=function(){s.ed=false;draw();window.scrollTo(0,0)};
-$("q").oninput=draw;draw();
+$("q").oninput=function(){draw();sug()};draw();
 var PG=["home","res","tools","plan","kit","fun","g-quiz","g-binary","g-memory","g-snake","g-word","g-gate","g-react","g-math"];
 function go(n,pop){PG.forEach(function(p){$("p-"+p).className="pg"+(p===n?" on":"")});[].forEach.call(document.querySelectorAll(".bn button"),function(b){b.className=b.dataset.p===(n.indexOf("g-")===0?"fun":n)?"on":""});window.scrollTo(0,0);try{if(n==="home")rDay()}catch(e){}if(pop)return;try{var sub=history.state&&history.state.sub;if(n==="home"){if(sub)history.back();else history.replaceState({},"","#home")}else if(sub)history.replaceState({sub:1},"","#"+n);else history.pushState({sub:1},"","#"+n)}catch(e){}}
 [].forEach.call(document.querySelectorAll("[data-p]"),function(b){b.onclick=function(){go(b.dataset.p)}});
@@ -797,4 +808,28 @@ document.getElementById("aremall").onclick=function(){
  icsDl("my-deadlines",b);cheer("Deadlines ready","Open the file to add them to your calendar","🔔")};
 })();
 </script>
+<style id="mature">
+/* Mature pass: small logos, flat surfaces, quiet colour */
+.top{align-items:center}
+.brand{gap:10px}.brand img{height:30px!important}
+.brand small{font-size:10.5px!important;line-height:1.3;color:var(--mut);font-weight:400}
+.brand b{font-size:12.5px!important;font-weight:600!important;letter-spacing:.01em;color:var(--tx)}
+.top .toa{height:24px!important;max-width:30%}
+.gr h1{font-size:26px!important;font-weight:600!important;letter-spacing:-.01em}
+.gr p{color:var(--mut)}
+#cf{display:none!important}
+.me{gap:12px}.me img{width:52px!important;height:52px!important;box-shadow:0 0 0 2px var(--ln)!important}
+.me .big{font-size:14px;font-weight:500;line-height:1.5}
+.btn{box-shadow:none!important;border-radius:10px!important;font-weight:600!important}
+.stats div,.card,.ph,.foot,.tc{border-radius:12px!important;box-shadow:none!important}
+.stats b{font-weight:600}
+.tab{border-radius:10px!important;font-weight:600!important}
+.bn{border-radius:16px!important;box-shadow:0 8px 24px -12px rgba(0,0,0,.3)!important}
+.bn button.on .ic{transform:none!important;filter:none!important}
+.tile{background:var(--sf)!important;border:1px solid var(--ln)!important;border-left:3px solid var(--c)!important;border-radius:12px!important;box-shadow:none!important}
+.tile b{color:var(--tx)!important;font-weight:600}.tile i{color:var(--mut)!important}
+.tile .ic{transform:scale(.8);transform-origin:left center}
+.tile:first-child{background:#1B1B20!important;border:0!important;border-left:3px solid var(--y)!important}
+body:before,[data-theme=dark] body:before{background:none!important}body:after{display:none!important}
+</style>
 </body></html>
