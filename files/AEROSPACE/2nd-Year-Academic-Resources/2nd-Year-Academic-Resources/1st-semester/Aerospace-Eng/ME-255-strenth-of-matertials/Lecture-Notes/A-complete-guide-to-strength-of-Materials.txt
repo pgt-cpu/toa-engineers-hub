@@ -1,0 +1,59 @@
+Other Mechanics of Materials Lectures:
+Watch the entire course in less than 4 HOURS!!
+
+01 Axial Loading Normal Stress: 
+https://youtu.be/jQ-fNqZWrNg​
+
+02 Shearing Strain and Stress Components: 
+https://youtu.be/OT2lOcf2zwU​
+
+03 Axial Deformation, Temperature Changes, and Poisson’s Ratio: 
+https://youtu.be/ZCV_zagQIXI​
+
+04 Statically Indeterminate: 
+https://youtu.be/IAiyaFKm1ZQ​
+
+05 Stress Concentrations and Factor of Safety: 
+https://youtu.be/kZN0xdPMQzw​
+
+06 Shearing Stress, Torsion: 
+https://youtu.be/VJKGB0wibpc
+
+07 Angle of Twist, Statically Indeterminate: 
+https://youtu.be/ZxVkU4O-974
+
+08 Bending Stress, Second Moment of Area, and Parallel Axis Theorem: 
+https://youtu.be/8btK_PhC-2A
+
+09 Stress Concentration Factors for Torsion and Bending: 
+https://youtu.be/a7qxEJPxmMY
+
+10 Beam Deflections & Singularity Functions : 
+https://youtu.be/IW9uvArmypg
+
+11 Transformed Sections for Bending (Composites):  
+https://youtu.be/IW9uvArmypg
+
+12 Transverse Shear: https://youtu.be/4x0E9yvzfCM
+13 Shear Flow: 
+https://youtu.be/IQx2uRgUGNU
+
+14 Mohr’s Circle and Principal Stresses: 
+https://youtu.be/aumN-Vl0OhQ
+
+15 Pressure Vessels: 
+https://youtu.be/ic8LmMUr8js
+
+16 Ductile Failure Criteria (Yield): 
+https://youtu.be/FnRp6DDLe0Y
+
+17 Brittle Failure Criteria (Fracture): 
+https://youtu.be/A6kf7b8JcTQ
+
+18 Combined Loading: 
+https://youtu.be/N-PlI900hSg
+
+19 Column Buckling: 
+https://youtu.be/3FNEV6yNUFY
+
+20 Elastoplastic Beams and Residual Stresses (torsion too): coming soon

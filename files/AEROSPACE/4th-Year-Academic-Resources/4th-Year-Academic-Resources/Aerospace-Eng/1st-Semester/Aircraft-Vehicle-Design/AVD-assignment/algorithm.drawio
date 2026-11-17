@@ -1,0 +1,105 @@
+<mxfile host="Electron" modified="2024-02-11T23:36:05.774Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="JRyiDDOI7KIJo-u6ZqdZ" version="22.1.2" type="device">
+  <diagram name="Page-1" id="OUbz4BGwDyR4lLdSUR_E">
+    <mxGraphModel dx="1600" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-1" value="Write&amp;nbsp; a python script that will compute the W0 by varying the Range while payload is constant.&lt;br&gt;In the second scenerio we would vary the payload and keep the range constant." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="990" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="880" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="295" />
+              <mxPoint x="680" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-3" target="ZgTvzVi3Co5nQiBItVCo-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="295" />
+              <mxPoint x="630" y="1020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-3" value="CONSTANT PARAMETERS" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="200" width="200" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-4" value="&lt;span style=&quot;&quot;&gt;w1_w0 = 0.97&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;w2_w1 = 0.985&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;w7_w6 = 0.995&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;C_cruise = 0.0001389&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;C_loiter&amp;nbsp; = 0.0001111&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;L_D_cruise = 13.9&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;L_D_loiter = 16&lt;br&gt;&lt;/span&gt;E1 = 10800&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;E2 = 1200&lt;br&gt;Wcrew = 800&lt;br&gt;W0_guess = 5000&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="ZgTvzVi3Co5nQiBItVCo-3">
+          <mxGeometry x="30" y="15" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-5" value="Inputs&lt;br&gt;1. Range: (start, end, step)&lt;br&gt;2. Payload (start, end, step)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="430" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-3" target="ZgTvzVi3Co5nQiBItVCo-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="860" y="400" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-7" target="ZgTvzVi3Co5nQiBItVCo-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-7" target="ZgTvzVi3Co5nQiBItVCo-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-7" value="cruise formula&lt;br&gt;&lt;br&gt;loiter formula" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="265" width="120" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-9" target="ZgTvzVi3Co5nQiBItVCo-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="600" />
+              <mxPoint x="750" y="880" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-9" value="Calculate Crusie&lt;br&gt;W3_W2&lt;br&gt;W5_W4" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-13" target="ZgTvzVi3Co5nQiBItVCo-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-13" value="Calculate loiter&lt;br&gt;W4_W3&lt;br&gt;W6_W5" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-16" target="ZgTvzVi3Co5nQiBItVCo-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-16" value="Calculate&lt;br&gt;W7_W0&lt;br&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="850" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-19" target="ZgTvzVi3Co5nQiBItVCo-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-19" value="Calculate&lt;br&gt;Wo" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-19" target="ZgTvzVi3Co5nQiBItVCo-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZgTvzVi3Co5nQiBItVCo-23" target="ZgTvzVi3Co5nQiBItVCo-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="1160" />
+              <mxPoint x="940" y="970" />
+              <mxPoint x="860" y="970" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZgTvzVi3Co5nQiBItVCo-23" value="Display the Wo" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="1130" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

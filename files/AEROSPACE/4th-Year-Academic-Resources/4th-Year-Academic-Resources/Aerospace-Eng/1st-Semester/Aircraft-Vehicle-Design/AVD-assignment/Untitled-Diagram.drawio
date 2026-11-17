@@ -1,0 +1,92 @@
+<mxfile host="Electron" modified="2024-03-04T20:21:04.965Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="-hgeXb1NQKE8rxSPS2mu" version="23.0.2" type="device">
+  <diagram name="Page-1" id="gYcPXYYU3U8ANwCdPIot">
+    <mxGraphModel dx="880" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-1" value="AIRCRAFT DESIGN ALGORITHM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="230" y="50" width="430" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-2" target="EDWypIqyqMbv-rIADtJ0-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-2" value="Defining relevant constants&lt;br&gt;------------------------------------&lt;br&gt;L/D, C, Velocity, Endurance, Crew" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="332" y="140" width="164" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EDWypIqyqMbv-rIADtJ0-3" target="EDWypIqyqMbv-rIADtJ0-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-3" value="Cruise function&lt;br&gt;------------------------&lt;br&gt;e^(-(RC) / (L/D x V) )" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-4" target="EDWypIqyqMbv-rIADtJ0-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-4" value="Taking inputs&lt;br&gt;--------------------------&lt;br&gt;Range (int or range)&lt;br&gt;Payload (int or range)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="332" y="250" width="166" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="EDWypIqyqMbv-rIADtJ0-6" target="EDWypIqyqMbv-rIADtJ0-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-6" value="Loiter function&lt;br&gt;----------------------&lt;br&gt;e^(-(EC) / (L/D) )" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-7" target="EDWypIqyqMbv-rIADtJ0-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-7" value="Calculate W7/W0" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="355" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-9" target="EDWypIqyqMbv-rIADtJ0-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-9" value="pick a range value" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-11" target="EDWypIqyqMbv-rIADtJ0-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-11" value="pick a payload value" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="355" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-13" target="EDWypIqyqMbv-rIADtJ0-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-13" value="calculate W0&lt;br&gt;--------------------&lt;br&gt;W0 = (Wcrew + payload) / (1 - 1.06(1 - w7/w0) - 0.96W0_guess^(-0.07)&lt;br&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="167" y="650" width="496" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-15" target="EDWypIqyqMbv-rIADtJ0-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EDWypIqyqMbv-rIADtJ0-15" target="EDWypIqyqMbv-rIADtJ0-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-25" value="Ture" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="EDWypIqyqMbv-rIADtJ0-24" vertex="1" connectable="0">
+          <mxGeometry x="-0.1655" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-15" value="W0 - W0_guess &amp;lt;= 10^-4" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="302.5" y="740" width="225" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-19" value="Set new W0_guess&lt;br&gt;-------------------------&lt;br&gt;0.5(W0+W0_guess)&amp;nbsp;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="595" y="740" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-22" value="Fasle" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="252.5" y="748" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EDWypIqyqMbv-rIADtJ0-23" value="Save data&lt;br&gt;--------------------&lt;br&gt;range&lt;br&gt;payload&lt;br&gt;Take-off weight" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="342.5" y="870" width="145" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

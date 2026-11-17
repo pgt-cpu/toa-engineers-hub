@@ -1,0 +1,55 @@
+(TOOL/MILL,0.5,0,2,0)
+(STOCK/BLOCK,5,5,1,0,0,1)
+(COLOR,255,255,255)
+Workpiece Size: X5, Y5, Z1
+Tool: tool #4, 1/2" slot drill
+Tool: tool #2, 1/4" slot drill
+Tool Start Position: X0, Y0, Z1
+%
+:1003
+N5 G90 G20 		(Absolute positioning and inches)
+(TOOL/MILL,0.5,0,2,0)
+(COLOR,255,255,255)
+N10 M06 T4 		(Change tool to 0.5 diameter drill)
+N15 M03 S1200 		(Spindle rotates CW at 1200rpm)
+N20 G00 Z0.1		(Rapid move, 0.1" above workpiece)
+N25 G01 Z-0.5 F5	(Feed into 0.5 inch dept at 5 ipm)
+N30 Y5			(Feed in the y-axis, +5 units: 0, 5, -0.5)
+N35 X5			(Feed in the x-axis, +5 units: 5, 5, -0.5)
+N40 Y0			(Feed in the y-axis, -5 units: 5, 0, -0.5)
+N45 X0			(Feed in the x-axis, -5 units: 0, 0, -0.5)
+N50 G00 Z1		(Rapid in the z-axis, +1.5 units: 0, 0, 1)
+(TOOL/MILL,0.25,0,2,0)
+(COLOR,255,255,255)
+N55 M05 M06 T2		(Change tool to 0.25 diameter drill)
+N60 M03 S1200		(Spindle rotates CW at 1200rpm)
+N65 G00 Z0.1		(Rapid in the z-axis: -0.9 units: 0, 0, 0.1)
+N70 G01 Z-0.5		(Feed in the z-axis, -0.6 units: 0, 0, -0.5)
+N75 X1 Y1		(Feed in the xy-plane, x=+1 y=+1 unit: 1, 1, -0.5)
+N80 G00 Z1		(Rapid in the z-axis, +1.5 units: 1, 1, 1)
+N85 X4 Y4		(Rapid in the xy-plane, +3 +3 units: 4, 4, 1)
+N90 Z0.1		(Rapid in the z-axis, -0.9 units: 4, 4, 0.1)
+N95 G01 Z-0.5		(Feed in the z-axis, -0.6 units: 4, 4, -0.5)
+N100 X5 Y5		(Feed in the xy-axis, 
+N105 G00 Z1
+N110 X0
+N115 Z0.1
+N120 G01 Z-0.5
+N125 X1 Y4
+N130 G00 Z1
+N135 X4 Y1
+N140 Z0.1
+N145 G01 Z-0.5
+N150 X5 Y0
+N155 G00 Z1
+N160 X1 Y1
+N165 Z0.1
+N170 G01 Z-0.5
+N175 Y4
+N180 X4
+N185 Y1
+N190 X1
+N195 G00 Z1
+N200 X0 Y0
+N205 M05
+N210 M30

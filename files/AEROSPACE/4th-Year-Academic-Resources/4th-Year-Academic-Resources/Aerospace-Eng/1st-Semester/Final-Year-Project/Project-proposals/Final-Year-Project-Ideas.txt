@@ -1,0 +1,45 @@
+NRICD meetings - https://umich.zoom.us/j/96712182710
+Dr. Jesse YouTube - https://youtube.com/playlist?list=PLVdDn5y3AueDYygeFmKo7bP-GrLStSgui&si=9TeqLaZT5FXQ_Kcw
+
+Opoku's project description
+Solar circuit with step up voltage ability
+
+The project aims to extract solar power and step it up to power home AC devices.
+
+It has come to my realization that whenever there is power out, most people find their homes uncomfortable due to heat, poor ventilation, and other devices(freezers,cookers etc) seize operation causing lots of problems.
+As as result, the project seeks to build a standby power supply circuit that will automatically be operate when there is power out to save work and increase comfortability.
+
+The project will focus on building a circuit that combines a step up transformer with a transistorized inverter.
+The circuit will be powered by solar cells and will have voltage regulators as well. 
+The solar cells will store enough energy during the day and will be used when necessary to power the circuit, the inverter will provide AC power as required while the voltage is step up by the transformer.
+Note: The main goal is to build a simple circuit which will do the job
+
+ALL PROJECT IDEAS
+PROJECT IDEAS SUGESTIONS
+Deadline: 9th December, 2023
+-----------------------------------
+1. Design a variable blade-pitch compressor to increase the efficiency of jet engine and reduce it fuel consumption. This is to help reduce the carbon emissions in the aviation industry.
+
+2. Design an AI model to work with a drone in detecting of mining sites to help fight against galamsey operations. By Dr. Adams (proposed)
+
+3. Designing and testing a rocket engine
+
+4. Designing a 4 motor vtol quadcopter that doubles as a hovercraft
+
+5. Develop a micro controller to help a drone pilot control a fleet of drones all at once. The technology could be utilized in the field of disaster responds where fleets of drone could be piloted at the same time in response to a disaster or accident for risk assesment.
+
+6. Build a solar circuit that will step up solar energy to power home electrical appliances ( fan, TV, etc)
+
+7.
+
+8.
+
+9. 
+
+10. 
+
+
+
+-------------------------------------------------
+All wild ideas are welcome. You can google search, use ChatGPT, refer to other sources, etc.
+Copy and paste....

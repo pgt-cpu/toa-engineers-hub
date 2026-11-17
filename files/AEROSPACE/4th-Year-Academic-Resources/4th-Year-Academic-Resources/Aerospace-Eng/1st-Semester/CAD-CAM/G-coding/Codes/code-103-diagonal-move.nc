@@ -1,0 +1,21 @@
+(TOOL/MILL,0.375,0,2,0)
+(STOCK/BLOCK,4,3,1,0,0,1)
+(COLOR,255,255,255)
+workpiece size: x4, y3, z1
+tool: tool #3 3/8" slot drill
+tool start position: x0, y0, z1
+%
+:1002
+n5 g90 g20 (absolute position and inches)
+(TOOL/MILL,0.375,0,2,0)
+(COLOR,255,255,255)
+n10 m06 t3 (tool changing to tool #3)
+n15 m03 s1250 (spindle on cw at 1250rpm)
+n20 g00 x1 y1 (rapid over to x=1, y=1)
+n25 z0.1
+n30 g01 z-0.125 f5 (feed down to -0.125 at 5 inches per minute, ipm)
+n35 x3 y2 f10 (feed diagonally to x=3, y=2 at 10 ipm)
+n40 g00 z1 (rapid up to z=1)
+n45 x0 y0 (rapid over x=0, y=0)
+n50 m05 (spinddle off)
+n55 m30 (program end)
