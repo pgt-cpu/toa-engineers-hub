@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TOA Engineers Hub | KNUST</title>
 <meta name="description" content="Free timetables, past questions and study materials for KNUST engineering students. A student-run initiative, not an official GESA channel.">
-<meta name="theme-color" content="#FFD000">
+<meta name="theme-color" content="#F5F3EE">
 <link rel="icon" href="badge.png"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Eng Hub">
 <meta property="og:title" content="TOA Engineers Hub: Connecting Every Engineer">
 <meta property="og:description" content="Free timetables, past questions and study materials for KNUST engineering students.">
@@ -277,8 +277,8 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 <div class="tc"><h3>Make questions from notes</h3><p class="d">Paste your notes or choose a .txt file. The site makes practice questions from your sentences. It works best with clear notes, so check the answers.</p><textarea id="qmt" placeholder="Paste your notes here..." style="width:100%;min-height:110px;background:#2b2b2b;border:0;border-radius:12px;color:#fff;padding:12px;font:500 14px Poppins,sans-serif;outline:none;resize:vertical"></textarea><div class="bt"><input type="file" id="qmf" accept=".txt,.md,text/plain" style="background:none;padding:6px 0;font-size:12px"><button class="btn" id="qmb" type="button">Make questions</button><button class="btn g" id="qma" type="button" style="display:none">Add all to my flashcards</button></div><div id="qmo"></div></div>
 <div class="tc"><h3>Exam countdown</h3><p class="d">Pick your next exam or deadline. It stays saved on this device.</p><input type="date" id="exd"><div class="res" id="cdt"></div><div class="bt"><button class="btn g" id="exc" type="button">Add to calendar</button></div></div></div></div>
 <div class="pg" id="p-plan"><div class="ph"><div><div class="k">PLANNER</div><h2>Plan your week</h2><p>Your lectures, deadlines and revision cards.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-cal"/></svg></div></div><div class="tools"><h2>My planner</h2><p class="tl">Your classes, deadlines and revision cards in one place.</p>
-<div class="tc"><h3>My class timetable</h3><p class="d">Add your own lectures once. Today's classes show first. Saved on this device.</p><div class="rw"><select id="cd"><option value="1">Mon</option><option value="2">Tue</option><option value="3">Wed</option><option value="4">Thu</option><option value="5">Fri</option><option value="6">Sat</option><option value="0">Sun</option></select><input type="time" id="ct"></div><div class="rw"><input type="text" id="cn" placeholder="Course or venue"><button class="btn" id="cadd" type="button">Add</button></div><div id="cl"></div></div>
-<div class="tc"><h3>Assignment tracker</h3><p class="d">Never miss a deadline. Tick items off when done.</p><div class="rw"><input type="text" id="an" placeholder="Assignment or quiz"><input type="date" id="ad" style="max-width:150px"></div><div class="bt"><button class="btn" id="aadd" type="button">Add</button></div><div id="al"></div></div>
+<div class="tc"><h3>My class timetable</h3><p class="d">Add your own lectures once. Today's classes show first. Saved on this device.</p><div class="rw"><select id="cd"><option value="1">Mon</option><option value="2">Tue</option><option value="3">Wed</option><option value="4">Thu</option><option value="5">Fri</option><option value="6">Sat</option><option value="0">Sun</option></select><input type="time" id="ct"></div><div class="rw"><input type="text" id="cn" placeholder="Course or venue"><button class="btn" id="cadd" type="button">Add</button></div><div id="cl"></div><div class="bt"><button class="btn" id="cremall" type="button">🔔 Remind me of all my classes</button></div><p class="d" id="cremn">Adds every class to your phone calendar, repeating every week, with an alarm 15 minutes before. The alarm rings even when this website is closed.</p></div>
+<div class="tc"><h3>Assignment tracker</h3><p class="d">Never miss a deadline. Tick items off when done.</p><div class="rw"><input type="text" id="an" placeholder="Assignment or quiz"><input type="date" id="ad" style="max-width:150px"></div><div class="bt"><button class="btn" id="aadd" type="button">Add</button></div><div id="al"></div><div class="bt"><button class="btn" id="aremall" type="button">🔔 Remind me of all deadlines</button></div><p class="d">Adds every unfinished assignment to your phone calendar, with an alarm the day before and on the morning it is due.</p></div>
 <div class="tc"><h3>Flashcards</h3><p class="d">Make your own cards. Tap a card to flip it.</p><div class="fcard" id="fcb"></div><p class="d" id="fcn"></p><div class="bt"><button class="btn g" id="fpv" type="button">Back</button><button class="btn" id="fnx" type="button">Next</button><button class="btn g" id="fsh" type="button">Shuffle</button><button class="btn g" id="fdl" type="button">Delete</button></div><div class="rw" style="margin-top:12px"><input type="text" id="fq" placeholder="Question"><input type="text" id="fa" placeholder="Answer"></div><div class="bt"><button class="btn" id="fadd" type="button">Add card</button></div></div></div></div>
 <div class="pg" id="p-kit"><div class="ph rd"><div><div class="k">TOOLKIT</div><h2>Engineer's toolkit</h2><p>Quick calculators for bases, circuits and dBm.</p></div><div class="stk"><svg viewBox="0 0 48 48" width="100%" height="100%"><use href="#i-gear"/></svg></div></div><div class="tools"><h2>Engineer's toolkit</h2><p class="tl">Quick calculators you will use all through engineering.</p>
 <div class="tc"><h3>Number base converter</h3><p class="d">Type a number and pick its base.</p><div class="rw"><input type="text" id="nb" placeholder="e.g. 1011"><select id="bs"><option value="10">Decimal</option><option value="2">Binary</option><option value="16">Hex</option><option value="8">Octal</option></select></div><div class="res" id="nbo" style="font-size:14px;line-height:1.7"></div></div>
@@ -777,6 +777,23 @@ document.getElementById("tourb").onclick=function(){try{go("home")}catch(e){}set
 window.addEventListener("resize",function(){if(el.style.display==="block"){var st=ST[i];place(st,tgt(st))}});
 var seen="";try{seen=localStorage.getItem(KEY)||""}catch(e){}
 if(!seen)setTimeout(function(){var f="";try{f=localStorage.getItem(KEY)||""}catch(e){}if(!f)start()},3800);
+})();
+</script>
+<script>
+/* ===== PHONE REMINDERS (calendar alarms) ===== */
+(function(){
+function pad(n){return("0"+n).slice(-2)}
+function fmt(x){return x.getFullYear()+pad(x.getMonth()+1)+pad(x.getDate())+"T"+pad(x.getHours())+pad(x.getMinutes())+"00"}
+document.getElementById("cremall").onclick=function(){
+ var L=ld("cls");if(!L.length){cheer("No classes yet","Add your classes first","📅",true);return}
+ var b="";L.forEach(function(c){var d=new Date();d.setDate(d.getDate()+((c.d-d.getDay()+7)%7));var h=+c.t.split(":")[0],m=+c.t.split(":")[1],s=new Date(d.getFullYear(),d.getMonth(),d.getDate(),h,m),e=new Date(s.getTime()+36e5);
+  b+=ev(["DTSTART:"+fmt(s),"DTEND:"+fmt(e),"RRULE:FREQ=WEEKLY;BYDAY="+["SU","MO","TU","WE","TH","FR","SA"][c.d],"SUMMARY:"+ics2(c.n),"DESCRIPTION:From the TOA Engineers Hub planner",alarmBlock("-PT15M","Class starts in 15 minutes: "+ics2(c.n))])});
+ icsDl("my-timetable",b);cheer("Timetable ready","Open the file to add it to your calendar","🔔")};
+document.getElementById("aremall").onclick=function(){
+ var A=ld("asg").filter(function(a){return !a.x});if(!A.length){cheer("Nothing to remind","No unfinished deadlines","✅",true);return}
+ var b="";A.forEach(function(a){var p=a.d.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]),n=new Date(d.getTime()+864e5);
+  b+=ev(["DTSTART;VALUE=DATE:"+ymd(d),"DTEND;VALUE=DATE:"+ymd(n),"SUMMARY:"+ics2("Due: "+a.n),alarmBlock("-PT15H","Due tomorrow: "+ics2(a.n)),alarmBlock("PT8H","Due today: "+ics2(a.n))])});
+ icsDl("my-deadlines",b);cheer("Deadlines ready","Open the file to add them to your calendar","🔔")};
 })();
 </script>
 </body></html>
