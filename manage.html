@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Manage resources</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 Poppins,system-ui,sans-serif;background:#F5F3EE;color:#17171A;padding:18px 14px 120px}
+.w{max-width:900px;margin:0 auto}h1{font-size:25px;margin:6px 0 4px}h2{font-size:17px;margin:0 0 8px}p{margin:0 0 10px;color:#55555c}
+.c{background:#fff;border:1px solid #E4E1D8;border-radius:18px;padding:14px;margin:12px 0}
+button,select,input{font:inherit}button{border:0;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;background:#FFD000;color:#111}button.g{background:#EEEBE0}button.r{background:#E5484D;color:#fff}
+select,input[type=text],input[type=search]{border:1px solid #D8D4C8;border-radius:10px;padding:8px 10px;background:#fff;max-width:100%}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}.bar input[type=search]{flex:1 1 220px}
+.row{border:1px solid #E4E1D8;border-radius:14px;padding:10px 12px;margin:8px 0;background:#fff}.row.rm{background:#FFF1F2;border-color:#E5484D}.row.rm .f{opacity:.45}.row.ed{border-color:#2F6BFF}
+.top{display:flex;gap:10px;align-items:flex-start}.top label{font-weight:700;color:#C8102E;white-space:nowrap}.lk{font-size:12px;color:#77777f;word-break:break-all}
+.f{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.f div{min-width:105px}.f label{display:block;font-size:11px;font-weight:700;color:#77777f}.f .t{flex:1 1 220px}.f .t input{width:100%}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #E4E1D8;padding:10px 14px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(0,0,0,.08)}
+textarea{width:100%;min-height:160px;font:12px/1.4 Courier,monospace;border:1px solid #D8D4C8;border-radius:12px;padding:10px}
+.note{background:#FFF3C4;border-radius:12px;padding:10px 12px;font-size:13.5px;margin:8px 0}.ok{background:#DDF3E4}
+ol{margin:0;padding-left:20px}li{margin:4px 0}a{color:#2F6BFF;font-weight:700}
+</style></head><body><div class="w">
+<h1>Manage resources</h1>
+<p>Search for anything on your website, tick it to remove it, or fix its spelling and place. Then make the new list.</p>
+
+<div class="c" id="load"><p id="lm">Loading your list...</p>
+<div id="paste" style="display:none"><p>I could not load the list automatically. Open <b>resources.json</b> on GitHub, copy everything, and paste it here:</p><textarea id="pt"></textarea><div class="bar"><button id="pb" type="button">Use this</button></div></div></div>
+
+<div id="main" style="display:none">
+<div class="c"><div class="bar"><input type="search" id="q" placeholder="Search by title, course or file name"><select id="fp"><option value="">All programmes</option></select><select id="fy"><option value="">All years</option><option>1</option><option>2</option><option>3</option><option>4</option><option>All</option></select><select id="ft"><option value="">All types</option></select></div>
+<div class="bar"><span id="cnt"></span><button class="g" id="ra" type="button">Tick every item shown</button><button class="g" id="rn" type="button">Untick all</button></div></div>
+<div id="list"></div>
+
+<div class="c" id="out" style="display:none"><h2>Your new list is ready</h2><div class="note ok" id="sm"></div>
+<ol><li>Tap <b>Copy the new list</b>.</li><li>Tap <b>Open resources.json on GitHub</b>. It opens the editor.</li><li>Click inside the big box, press <b>Ctrl + A</b> (select everything) and <b>Ctrl + V</b> (paste).</li><li>Tap the green <b>Commit changes</b> button, then <b>Commit changes</b> again.</li></ol>
+<div class="bar"><button id="cp" type="button">Copy the new list</button><a id="gh" target="_blank" rel="noopener"><button class="g" type="button">Open resources.json on GitHub</button></a></div>
+<textarea id="ta" readonly></textarea>
+<div id="fl" style="display:none"><h2 style="margin-top:14px">Also delete the files (optional, frees space)</h2><p>Each link opens GitHub's delete page for that file. Tap <b>Commit changes</b> there.</p><div id="fls"></div></div></div>
+</div>
+
+<div class="sticky" id="stk" style="display:none"><span id="st"></span><button id="mk" type="button">Make the new list</button></div>
+</div>
+<script>
+var REPO="pgt-cpu/toa-engineers-hub",BRANCH="main";
+var PR=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
+var TY=["Timetables","Past questions","Study materials","Videos","Opportunities","News"];
+var D=null,R=[],orig=[];function $(i){return document.getElementById(i)}function esc(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function opts(a,v){return a.map(function(x){return"<option"+(String(x)===String(v)?" selected":"")+">"+esc(x)+"</option>"}).join("")}
+function start(text){try{D=JSON.parse(text.replace(/,\s*([\]}])/g,"$1"))}catch(e){$("lm").textContent="That does not look like a valid resources.json. Check you copied everything.";$("paste").style.display="block";return}
+ R=(D.resources||[]).map(function(x,i){return{i:i,x:x,rm:false}});orig=R.map(function(r){return JSON.stringify(r.x)});
+ $("load").style.display="none";$("main").style.display="block";$("stk").style.display="flex";
+ $("fp").innerHTML='<option value="">All programmes</option>'+opts(["All"].concat(PR),"");$("ft").innerHTML='<option value="">All types</option>'+opts(TY,"");draw()}
+function shown(){var q=$("q").value.toLowerCase(),p=$("fp").value,y=$("fy").value,t=$("ft").value;
+ return R.filter(function(r){var x=r.x;return(!q||(x.title+" "+x.course+" "+x.link).toLowerCase().indexOf(q)>-1)&&(!p||x.programme===p)&&(!y||String(x.year)===y)&&(!t||x.type===t)})}
+function counts(){var rm=R.filter(function(r){return r.rm}).length,ed=R.filter(function(r){return!r.rm&&JSON.stringify(r.x)!==orig[r.i]}).length;$("st").textContent=rm+" to remove, "+ed+" edited"}
+function draw(){var L=shown().slice(0,150);$("cnt").textContent=shown().length+" of "+R.length+" items"+(shown().length>150?" (showing the first 150, narrow your search)":"");
+ $("list").innerHTML=L.map(function(r){var x=r.x,ed=JSON.stringify(x)!==orig[r.i];
+  return'<div class="row'+(r.rm?" rm":"")+(ed&&!r.rm?" ed":"")+'" data-i="'+r.i+'"><div class="top"><label><input type="checkbox" data-k="rm"'+(r.rm?" checked":"")+'> Remove</label><div class="lk">'+esc(x.link)+'</div></div><div class="f">'
+  +'<div class="t"><label>Title</label><input type="text" data-k="title" value="'+esc(x.title)+'"></div><div class="t"><label>Course</label><input type="text" data-k="course" value="'+esc(x.course)+'"></div>'
+  +'<div><label>Programme</label><select data-k="programme">'+opts(["All"].concat(PR),x.programme)+'</select></div><div><label>Year</label><select data-k="year">'+opts(["All",1,2,3,4],x.year)+'</select></div><div><label>Semester</label><select data-k="semester">'+opts(["All",1,2],x.semester)+'</select></div><div><label>Type</label><select data-k="type">'+opts(TY,x.type)+'</select></div></div></div>'}).join("");
+ [].forEach.call($("list").querySelectorAll("[data-k]"),function(e){e.onchange=function(){var r=R[+e.closest(".row").dataset.i],k=e.dataset.k;
+  if(k==="rm")r.rm=e.checked;else if(k==="year"||k==="semester")r.x[k]=e.value==="All"?"All":+e.value;else r.x[k]=e.value;
+  var row=e.closest(".row"),ed=JSON.stringify(r.x)!==orig[r.i];row.classList.toggle("rm",r.rm);row.classList.toggle("ed",ed&&!r.rm);counts()}});counts()}
+["q","fp","fy","ft"].forEach(function(i){$(i).oninput=draw});
+$("ra").onclick=function(){shown().forEach(function(r){r.rm=true});draw()};$("rn").onclick=function(){R.forEach(function(r){r.rm=false});draw()};
+function fmt(o){var keys=Object.keys(o),out=[];keys.forEach(function(k){var v=o[k];
+  if(Array.isArray(v))out.push('  '+JSON.stringify(k)+': ['+(v.length?'\n'+v.map(function(i){return'    '+JSON.stringify(i)}).join(",\n")+'\n  ':'')+']');else out.push('  '+JSON.stringify(k)+': '+JSON.stringify(v))});
+ return"{\n"+out.join(",\n")+"\n}\n"}
+$("mk").onclick=function(){var keep=R.filter(function(r){return!r.rm}),gone=R.filter(function(r){return r.rm});
+ var N=Object.assign({},D);N.resources=keep.map(function(r){return r.x});var txt=fmt(N);try{JSON.parse(txt)}catch(e){alert("Something went wrong building the list.");return}
+ $("ta").value=txt;$("out").style.display="block";
+ var ed=keep.filter(function(r){return JSON.stringify(r.x)!==orig[r.i]}).length;
+ $("sm").textContent=keep.length+" items will stay on the site. "+gone.length+" removed, "+ed+" edited.";
+ $("gh").href="https://github.com/"+REPO+"/edit/"+BRANCH+"/resources.json";
+ var files=gone.map(function(r){return r.x.link}).filter(function(l){return/^files\//.test(l||"")&&!keep.some(function(k){return k.x.link===l})});
+ $("fl").style.display=files.length?"block":"none";$("fls").innerHTML=files.map(function(l){return'<div class="lk" style="margin:6px 0"><a target="_blank" rel="noopener" href="https://github.com/'+REPO+'/delete/'+BRANCH+'/'+l.split("/").map(encodeURIComponent).join("/")+'">Delete '+esc(l)+'</a></div>'}).join("");
+ $("out").scrollIntoView({behavior:"smooth"})};
+$("cp").onclick=function(){var t=$("ta");function ok(){$("cp").textContent="Copied"}if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(ok,function(){t.select();document.execCommand("copy");ok()});else{t.select();document.execCommand("copy");ok()}};
+$("pb").onclick=function(){start($("pt").value)};
+fetch("resources.json?v="+Date.now()).then(function(r){if(!r.ok)throw 0;return r.text()}).then(start).catch(function(){$("lm").textContent="";$("paste").style.display="block"});
+</script></body></html>
