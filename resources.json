@@ -1,6 +1,9 @@
 {
   "_help": "Add a resource by pasting a line right after the line that says \"resources\": [ . Use the Add a resource page (admin.html) to make the line for you. Types allowed: Timetables, Past questions, Study materials, Opportunities, News.",
   "resources": [
+    {"type":"Study materials","programme":"Automobile","year":1,"semester":1,"course":"matlab for technical computing","title":"flash","link":"files/AUTOMOBILE/1st-Year/1st-Sem/Matlab/Matlab/matlab-for-technical-computing/flash.css","note":"1 KB","date":"2026-11-20"},
+    {"type":"Study materials","programme":"Automobile","year":1,"semester":1,"course":"Tools","title":"21 - Copy - Copy (2)","link":"files/AUTOMOBILE/1st-Year/1st-Sem/Tools/21-Copy-Copy-2.png","note":"3 KB","date":"2026-11-20"},
+    {"type":"Study materials","programme":"Automobile","year":1,"semester":1,"course":"Tools","title":"8","link":"files/AUTOMOBILE/1st-Year/1st-Sem/Tools/8.jpg","note":"3 KB","date":"2026-11-20"},
     {"type":"Study materials","programme":"Agricultural","year":4,"semester":1,"course":"AE 451 IRRIGATION & DRAINAGE","title":"Book2","link":"files/AGRIC/AGRIC-4/Semester-1/SEMESTER-1/AE-451-IRRIGATION-and-DRAINAGE/Assignments/Book2.xlsx","note":"14 KB","date":"2026-11-20"},
     {"type":"Study materials","programme":"Agricultural","year":4,"semester":1,"course":"AE 451 IRRIGATION & DRAINAGE","title":"Book1(1)","link":"files/AGRIC/AGRIC-4/Semester-1/SEMESTER-1/AE-451-IRRIGATION-and-DRAINAGE/Assignments/Book11.xlsx","note":"14 KB","date":"2026-11-20"},
     {"type":"Past questions","programme":"Agricultural","year":"All","semester":1,"course":"Assign 5","title":"Assign 5","link":"files/AGRIC/AGRIC-3/Semester-1/MATH-351_Numerical-Analysis/Sample-Questions/Assignments/Assign-5/Assign-5.docx","note":"19 KB","date":"2026-11-20"},
