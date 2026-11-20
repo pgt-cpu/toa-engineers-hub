@@ -772,7 +772,6 @@
     {"type":"Study materials","programme":"Aerospace","year":4,"semester":1,"course":"OpenAVD","title":"aircraft-design","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/Aircraft-Vehicle-Design/OpenAVD/aircraft-design.ico","note":"101 KB","date":"2026-11-17"},
     {"type":"Study materials","programme":"Aerospace","year":2,"semester":2,"course":"Assignments","title":"Fig1 soln","link":"files/AEROSPACE/2nd-Year-Academic-Resources/2nd-Year-Academic-Resources/2nd-semester/Aerospace-Eng/Mechanisms-Synthesis-and-Analysis/Assignments/Fig1-soln.pdf","note":"101 KB","date":"2026-11-17"},
     {"type":"Study materials","programme":"Aerospace","year":4,"semester":1,"course":"Not Need Items","title":"aircraft design4","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/Aircraft-Vehicle-Design/AVD-assignment/G7_Open_AVD_project/Not-Need-Items/aircraft-design4.jpg","note":"102 KB","date":"2026-11-17"},
-    {"type":"Timetables","programme":"Aerospace","year":4,"semester":1,"course":"Z strategy","title":"schedule","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/Z-strategy/schedule.docx","note":"30 KB","date":"2026-11-17"},
     {"type":"Timetables","programme":"Aerospace","year":3,"semester":2,"course":"ME 366","title":"ME 366 COURSE POLICY AND TEACHING SCHEDULE (2022 2023)","link":"files/AEROSPACE/3rd-Year-Academic-Resources/3rd-Year-Academic-Resources/2nd-Semester/Heat-Transfer/ME-366-COURSE-POLICY-AND-TEACHING-SCHEDULE-2022_2023.pdf","note":"419 KB","date":"2026-11-17"},
     {"type":"Past questions","programme":"Aerospace","year":4,"semester":1,"course":"code 105","title":"code 105 exams trials","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/CAD-CAM/G-coding/Codes/code-105-exams-trials.txt","note":"1 KB","date":"2026-11-17"},
     {"type":"Past questions","programme":"Aerospace","year":2,"semester":2,"course":"Assignments","title":"Boom Calc Example20.2","link":"files/AEROSPACE/2nd-Year-Academic-Resources/2nd-Year-Academic-Resources/2nd-semester/Aerospace-Eng/Aerospace-Structures/Assignments/Boom-Calc-Example20.2.xlsx","note":"10 KB","date":"2026-11-17"},
@@ -973,7 +972,5 @@
     {"type":"Study materials","programme":"Aerospace","year":4,"semester":1,"course":"OpenAVD","title":"README","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/Aircraft-Vehicle-Design/OpenAVD/README.md","note":"1 KB","date":"2026-11-17"},
     {"type":"Study materials","programme":"Aerospace","year":1,"semester":2,"course":"MATLAB","title":"Class total","link":"files/AEROSPACE/1st-Year-Academic-Resources/1st-Year-Academic-Resources/2nd-Semester/Aersopace-Eng/MATLAB/Lecture-MatLab-codes/Class_total.m","note":"1 KB","date":"2026-11-17"}
   ],
-  "notices": [
-
-  ]
+  "notices": []
 }
