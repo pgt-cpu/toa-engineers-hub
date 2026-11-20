@@ -1,6 +1,8 @@
 {
   "_help": "Add a resource by pasting a line right after the line that says \"resources\": [ . Use the Add a resource page (admin.html) to make the line for you. Types allowed: Timetables, Past questions, Study materials, Opportunities, News.",
   "resources": [
+    {"type":"Study materials","programme":"Agricultural","year":4,"semester":1,"course":"AE 451 IRRIGATION & DRAINAGE","title":"Book2","link":"files/AGRIC/AGRIC-4/Semester-1/SEMESTER-1/AE-451-IRRIGATION-and-DRAINAGE/Assignments/Book2.xlsx","note":"14 KB","date":"2026-11-20"},
+    {"type":"Study materials","programme":"Agricultural","year":4,"semester":1,"course":"AE 451 IRRIGATION & DRAINAGE","title":"Book1(1)","link":"files/AGRIC/AGRIC-4/Semester-1/SEMESTER-1/AE-451-IRRIGATION-and-DRAINAGE/Assignments/Book11.xlsx","note":"14 KB","date":"2026-11-20"},
     {"type":"Past questions","programme":"Agricultural","year":"All","semester":1,"course":"Assign 5","title":"Assign 5","link":"files/AGRIC/AGRIC-3/Semester-1/MATH-351_Numerical-Analysis/Sample-Questions/Assignments/Assign-5/Assign-5.docx","note":"19 KB","date":"2026-11-20"},
     {"type":"Past questions","programme":"Agricultural","year":3,"semester":2,"course":"ME 376 Introduction to CAD CAM","title":"G-Code Processing Example","link":"files/AGRIC/AGRIC-3/Semester-2/ME-376_Introduction-to-CAD_CAM/Lecture-materials/G-Code-Processing-Example.pdf","note":"20 KB","date":"2026-11-20"},
     {"type":"Past questions","programme":"Agricultural","year":3,"semester":2,"course":"ME 376 Tutorial","title":"G-Code Processing Example","link":"files/AGRIC/AGRIC-3/Semester-2/ME-376_Introduction-to-CAD_CAM/Tutorials/ME-376-Tutorial/G-Code-Processing-Example.pdf","note":"20 KB","date":"2026-11-20"},
@@ -1050,5 +1052,7 @@
     {"type":"Study materials","programme":"Aerospace","year":4,"semester":1,"course":"OpenAVD","title":"README","link":"files/AEROSPACE/4th-Year-Academic-Resources/4th-Year-Academic-Resources/Aerospace-Eng/1st-Semester/Aircraft-Vehicle-Design/OpenAVD/README.md","note":"1 KB","date":"2026-11-17"},
     {"type":"Study materials","programme":"Aerospace","year":1,"semester":2,"course":"MATLAB","title":"Class total","link":"files/AEROSPACE/1st-Year-Academic-Resources/1st-Year-Academic-Resources/2nd-Semester/Aersopace-Eng/MATLAB/Lecture-MatLab-codes/Class_total.m","note":"1 KB","date":"2026-11-17"}
   ],
-  "notices": []
+  "notices": [
+
+  ]
 }
