@@ -1,0 +1,27 @@
+16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MobilePC-Client-SideShow-Package-ua~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MobilePC-Client-SideShow-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-Client-Home-Basic-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-Client-Home-Premium-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-Client-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-msmq-cluster-package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-ia64-Server-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-Server-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MSMQ-ServerCore-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-admin~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-drivers~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-ds~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-enduser~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-inetcore~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-minkernel~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-shell~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-Multilingual-Package-windows~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-MultipathIo-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx-Shared-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx-Shared-WPF-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx2-OC-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx2-ServerCore-OC-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx2-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx3-Package~31bf3856ad364e35~amd64~ko-KR~6.2.9200.16384, skip
+2013-03-05 21:32:21, Info                  CBS    Mapping: Duplicate package entry: Microsoft-Windows-NetFx3-Server-OC-

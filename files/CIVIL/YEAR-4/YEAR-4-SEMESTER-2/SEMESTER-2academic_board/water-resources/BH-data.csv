@@ -1,0 +1,120 @@
+Hole Num.,X (Lon),Y (lat),Grnd.Elev. (m), Community,District, Drilled Depth_m, Water Strike_m,Weather Zone_m, Aquifer Zone_m,Yield_lpm,  SWL_m,Status
+BH1,-1.2103,9.6245,138,Ngaba,Tolon-Kumbugu,28,6,0-3.1,3.1-28,7,,Wet
+BH2,-1.1963,9.6067,133,Lingbung Gurugu,Tolon-Kumbugu,30.5,16.5,0-15,16.5-25.4,18,7.8,Wet
+BH3,-1.197,9.6073,133,Lingbung Gurugu,Tolon-Kumbugu,36.5,20.5,0-15,22-34,9,,Wet
+BH4,-1.15,9.664,132,Buglang,Tolon-Kumbugu,30.57,16.57,0-3.57,16.57-18.57,26,3.01,Wet
+BH5,-1.1902,9.6003,120,Lingbung Gurugu,Tolon-Kumbugu,30.6,13.5,0-9.5,13.5-29,19,,Wet
+BH6,-1.3045,9.6372,98,Walshie,Tolon-Kumbugu,36.6,29.6,0-95,29.6-34.6,453,7.1,Wet
+BH7,-1.3043,9.6373,86,Walshie,Tolon-Kumbugu,36.6,29.6,   0-24.6,29.6-34.6,390,,Wet
+BH8,-1.3035,9.6362,88,Walshie,Tolon-Kumbugu,45.6,36.6,0-15.6,36.6-42.6,32,,Wet
+BH9,-1.3023,9.6372,97,Walshe,Tolon-Kumbugu,42.5,30.5,0-27.5,33.5-39.3,88,11.42,Wet
+BH10,-1.3023,9.6368,106,Walshe,Tolon-Kumbugu,42.6,33.6,0-31.6,33.0-40.6,15,,Wet
+BH11,-1.2073,9.6395,124,Lingbunga,Tolon-Kumbugu,45.6,34.6,0-32,34.6-42.6,56,,Wet
+BH12,-1.2075,9.6395,130,Lingbunga,Tolon-Kumbugu,36.6,22,0-21,24.0-32.0,49,,Wet
+BH13,-1.8888,9.9523,,Nambalga,Savelugu-Nanton,39.3,25,0-2.0,25.0-36.0,15,,Wet
+BH14,-1.214,9.647,137,Lingbunga,Tolon-Kumbugu,48.5,39.5,0-24,39.5-45.5,25,,Wet
+BH15,-1.8865,9.9513,,Nambalga,Savelugu-Nanton,36.3,21,0-3.0,21.0-27.0,45,,Wet
+BH16,-1.1043,9.672,107,Golazoli,Tolon-Kumbugu,36.5,28.6,0-18,28.0-36.5,750,,Wet
+BH17,-1.1045,9.6717,116,Golazoli,Tolon-Kumbugu,36.6,28.6,0-18,28.0-34.6,235,,Wet
+BH18,-1.1837,9.6667,105,Kuli,Tolon-Kumbugu,63.6,55,0-19,55.0-60.6,70,,Wet
+BH19,-1.8892,9.9523,,Nambalga,Savelugu-Nanton,34,22.5,0-3.0,33,15,7.02,Wet
+BH20,-1.1833,9.667,103,Kuli,Tolon-Kumbugu,30.5,19.5,0-6,14.5-27.5,12,,Wet
+BH21,-1.1763,9.6688,112,Kuli,Tolon-Kumbugu,36.6,21.6,0-9,21.6-33.6,13,,Wet
+BH22,-1.9428,9.9447,,Yoggu,Savelugu-Nanton,43,25.5,0-1.5,42,342,13.02,Wet
+BH23,-1.1835,9.6668,116,Kuli,Tolon-Kumbugu,60.6,51.6,0-6,51.6-55.6,65,,Wet
+BH24,-1.1387,9.659,88,Yuni,Tolon-Kumbugu,30.6,17.6,0-12,17.0-21.6,60,,Wet
+BH25,-1.2993,9.8205,,Sanguli Station,Saboba Chereponi,37,12,0-3.6,37,246,3.72,Wet
+BH26,-1.2992,9.8202,,Sanguli Station,Saboba Chereponi,37,13.5,0-3.6,37,84,2.52,Wet
+BH27,-1.2578,9.6342,120,Wala,Tolon-Kumbugu,33.5,12.5,0-15,12.5-18.5-30.6-31.6,14,8.6,Wet
+BH28,-1.209,9.6177,196,Lingbung Gundu,Tolon-Kumbugu,30.6,11.6,0-9,11.0-19.6,10,,Wet
+BH29,-1.2498,9.7675,,Njakundo,Saboba Chereponi,43,31.5,0-1.8,43,39,9.92,Wet
+BH30,-1.2052,9.6413,118,Lingbunga,Tolon-Kumbugu,39.6,29.6,0-9,29.6-30.0,50,,Wet
+BH31,-1.2187,9.5502,110,Aseiyili,Tolon-Kumbugu,30.6,14,0-6,14-24.6,127,,Wet
+BH32,-1.1453,9.9248,,Chaabodo,Saboba Chereponi,31,16.5,0-2.0,31,14,7.66,Wet
+BH33,-1.1453,9.8022,,Bonbodo,Saboba Chereponi,34,15,0-1.8,34,10,8.22,Wet
+BH34,-1.22,9.5517,128,Aseiyili,Tolon-Kumbugu,30.5,20.5,0-9,22.0-29.5,114,6.8,Wet
+BH35,-1.0888,9.6502,,Jajamb,Saboba Chereponi,40,22.5,0-1.9,40,10,3.95,Wet
+BH36,-1.165,9.7075,,Gbenjag,Saboba Chereponi,31,7.5,0-1.5,31,16,4.58,Wet
+BH37,-1.1987,9.7137,,Naboa,Saboba Chereponi,31,7.5,0-3.6,31,72,0.88,Wet
+BH38,-1.0735,9.5632,151,Tiring,Tolon-Kumbugu,67,30,0-9,-,4**,-,Wet
+BH39,-1.0758,9.5522,151,Tiring,Tolon-Kumbugu,70,-,0-9,-,-,-,Dry Hole
+BH40,-1.0903,9.5355,,Namdu Silimboma,Tolon-Kumbugu,73,-,0-4,-,-,-,Dry Hole
+BH41,-1.0903,9.5355,,Namdu Silimboma,Tolon-Kumbugu,58,-,0-6,-,-,-,Dry Hole
+BH42,-1.1148,9.5508,163,Kasulyili,Tolon-Kumbugu,73,-,0-9,-,-,-,Dry Hole
+BH43,-1.045,9.4687,164,Gizaa,Tolon-Kumbugu,88,-,0-39,-,-,-,Dry Hole
+BH44,-1.047,9.4642,164,Gizaa,Tolon-Kumbugu,88,-,0-33,-,-,-,Dry Hole
+BH45,-1.0408,9.4677,164,Gizaa,Tolon-Kumbugu,87.5,,0-27,-,-,-,Dry Hole
+BH46,-1.228,9.6233,126,Kaa,Tolon-Kumbugu,57.6,-,0-6.6,-,-,-,Dry Hole
+BH47,-1.228,9.6243,122,Kaa,Tolon-Kumbugu,57.4,-,0-4,-,-,-,Dry Hole
+BH48,-1.2282,9.6243,126,Kaa,Tolon-Kumbugu,57.5,-,0-3,-,-,-,Dry Hole
+BH49,-1.1592,9.664,123,Buglang,Tolon-Kumbugu,42.5,14.5,0-27,14.5-24.5,6**,-,Wet
+BH50,-1.1522,9.6648,123,Buglang,Tolon-Kumbugu,60.53,-,0-3.53,-,-,-,Dry Hole
+BH51,-1.1492,9.5037,170,Kanfihiyili,Tolon-Kumbugu,39.5,17.5,0-5,17.5-18.5,4**,-,Wet
+BH52,-1.1488,9.5035,173,Kanfihiyili,Tolon-Kumbugu,51.5,-,0-5,-,,-,Dry Hole
+BH53,-1.1077,9.376,149,Kpachiyili,Tolon-Kumbugu,57.5,-,0-2.8,-,,-,Dry Hole
+BH54,-1.1002,9.3693,130,Kpachiyili,Tolon-Kumbugu,57.5,-,0-1.8,-,,-,Dry Hole
+BH55,-1.0717,9.4425,163,Yobzeri,Tolon-Kumbugu,57.5,-,0-18.5,-,,-,Dry Hole
+BH56,-1.0763,9.4383,163,Yobzeri,Tolon-Kumbugu,57.5,-,0-18.5,-,,-,Dry Hole
+BH57,-0.696,9.5713,,Tinkurugu,Savelugu-Nanton,54.4,,,-,5**,-,Dry Hole
+BH58,-1.2567,9.4927,151,Kpendua,Tolon-Kumbugu,54.5,31.5,0-15.5,31.5-33.5,2**,-,Wet
+BH59,-1.2572,9.4927,149,Kpendua,Tolon-Kumbugu,57.5,-,0-12.5,-,,-,Dry Hole
+BH60,-0.6978,9.5695,,Tinkurugu,Savelugu-Nanton,45.5,,,-,4**,-,Dry Hole
+BH61,-1.2565,9.492,150,Kpendua,Tolon-Kumbugu,57.5,-,0-6.5,-,,-,Dry Hole
+BH62,-0.6885,9.6333,,Looni,Savelugu-Nanton,72.4,,,-,2**,-,Dry Hole
+BH63,-1.0925,9.4348,138,Kamshiegu,Tolon-Kumbugu,57.5,-,0-18.5,-,,-,Dry Hole
+BH64,-1.0932,9.4345,141,Kamshiegu,Tolon-Kumbugu,57.5,-,0-6.5,-,,-,Dry Hole
+BH65,-0.7138,9.5253,,Tahakpamu,Savelugu-Nanton,75,  ,,-,,-,Dry Hole
+BH66,-0.706,9.5197,,Kpanduli,Savelugu-Nanton,60.4,,,-,,-,Dry Hole
+BH67,-0.6968,9.5667,,Tinkurugu,Savelugu-Nanton,42.4,,,-,3**,-,
+BH68,-0.7192,9.6333,,Batangyli,Savelugu-Nanton,75,,,-,,-,Dry Hole
+BH69,-0.7327,9.6148,,Nanton-Kurugu,Savelugu-Nanton,60,-,0-2.6,-,-,-,Dry Hole
+BH70,-0.7325,9.6142,,Nanton-Kurugu,Savelugu-Nanton,66,-,0-5.1,-,-,-,Dry Hole
+BH71,-1.2578,9.501,110,Wala,Tolon-Kumbugu,72.6,-,0-9.5,-,-,-,Dry Hole
+BH72,-0.5857,9.5737,,Sugu /Adayili,Savelugu-Nanton,60,-,0-8.0,-,-,-,Dry Hole
+BH73,-1.2523,9.6353,113,Wala,Tolon-Kumbugu,45.5,34.5,0-9.5,34.5-36.5,4**,-,Wet
+BH74,-1.2517,9.6335,117,Wala,Tolon-Kumbugu,57.5,-,0-9.0,-,-,-,Dry Hole
+BH75,-0.5857,9.5573,,Sugu /Adayili,Savelugu-Nanton,54.3,23,0-8.1,-,6**,-,Wet
+BH76,-1.2547,9.5008,110,Wala,Tolon-Kumbugu,72,-,0-18,-,3**,-,Dry Hole
+BH77,-0.5643,9.5667,,Yoggu,Savelugu-Nanton,72,63,0-9.0,-,3**,-,Wet
+BH78,-1.2525,9.6353,114,Wala,Tolon-Kumbugu,57.5,-,0-12,-,-,-,Dry Hole
+BH79,-0.5365,9.5667,,Nambalga,Savelugu-Nanton,72,-,-,-,-,-,Dry Hole
+BH80,-1.2073,9.6388,133,Lingbunga,Tolon-Kumbugu,63.6,-,0-12.6,-,-,-,Dry Hole
+BH81,-0.5333,9.5713,,Nambalga,Savelugu-Nanton,45.3,21.3,0.7,21.0-45.0,6**,-,Wet
+BH82,-0.8133,9.0588,,Galogu,Savelugu-Nanton,66,-,0-2.4,-,-,-,Dry Hole
+BH83,-0.8137,10.0572,,Galogu,Savelugu-Nanton,61,-,0-6.2,-,,-,Dry Hole
+BH84,-1.1353,9.6715,113,Yuni,Tolon-Kumbugu,36.5,-,0-12,-,,-,Dry Hole
+BH85,-0.8032,10.071,,Galogu,Savelugu-Nanton,61,-,0-4.5,-,,-,Dry Hole
+BH86,-1.134,9.6707,117,Yuni,Tolon-Kumbugu,57.6,-,0-6.0,-,,-,Dry Hole
+BH87,-1.136,9.6723,114,Yuni,Tolon-Kumbugu,57.6,-,0-9.0,-,,-,Dry Hole
+BH88,-1.1845,9.6585,110,Kuli,Tolon-Kumbugu,57.6,-,0-9.0,-,-,-,Dry Hole
+BH89,-1.1842,9.6595,126,Kuli,Tolon-Kumbugu,63.5,-,0-6.0,-,-,-,Dry Hole
+BH90,-1.1845,9.6597,116,Kuli,Tolon-Kumbugu,69.5,-,0-6.0,-,,-,Dry Hole
+BH91,-1.1385,9.6758,88,Yuni,Tolon-Kumbugu,60.6,-,0-12,-,-,-,Dry Hole
+BH92,-1.1388,9.6758,88,Yuni,Tolon-Kumbugu,42.6,19.5,0-12.6,19.5-27.5,5**,-,Wet
+BH93,-1.2572,9.6353,105,Wala,Tolon-Kumbugu,72.6,-,0-9,-,-,-,Dry Hole
+BH94,0.2878,9.8038,,Bongen,Saboba Chereponi,59,-,-,-,-,-,Dry Hole
+BH95,0.3038,9.7895,,Kpeigu,Saboba Chereponi,59,-,0-1,-,-,-,Dry Hole
+BH96,-1.2575,9.6347,120,Wala,Savelugu-Nanton,57.5,-,0-12,-,-,-,Dry Hole
+BH97,-1.2503,9.6323,121,Wala,Tolon-Kumbugu,57.6,-,0-6.0,-,-,-,Dry Hole
+BH98,-1.209,9.6175,99,Lingbung Gundu,Tolon-Kumbugu,57.5,-,0-6.0,-,-,-,Dry Hole
+BH99,0.2797,9.8118,,Labaldo,Saboba Chereponi,61,-,0-2.1,-,-,-,Dry Hole
+BH100,-1.2048,9.6172,108,Ngaba,Tolon-Kumbugu,57.6,14,0-9,14.0-21.6,3**,-,Wet
+BH101,0.2885,9.8052,,Bongen,Saboba Chereponi,61,-,-,-,-,-,Dry Hole
+BH102,0.3035,9.7862,,Kpeigu,Saboba Chereponi,58,9,3.6,58,4**,-,Wet
+BH103,-0.864,9.8712,,Jagrido,Saboba Chereponi,58,-,3.6,-,-,-,Dry Hole
+BH104,0.0982,9.7547,,Tindugu,Saboba Chereponi,55,51,2.2,55,10**,-,Wet
+BH105,-1.192,9.5515,,Adumbiyili,Tolon-Kumbugu,57.5,-,0-15,-,-,-,Dry Hole
+BH106,-1.193,9.539,,Adumbiyili,Tolon-Kumbugu,57.5,-,0-12,-,-,-,Dry Hole
+BH107,-1.1865,9.518,,Tamaligu,Tolon-Kumbugu,72.5,25.5,0-9.0,25.5-27.5,2**,-,Wet
+BH108,0.0882,9.6533,,Jajamb,Saboba Chereponi,60,-,0-1.5,-,-,-,Dry Hole
+BH109,-1.186,9.509,,Tamaligu,Tolon-Kumbugu,57.5,-,0-6.0,-,-,-,Dry Hole
+BH110,-1.1865,9.518,,Tamaligu,Tolon-Kumbugu,57.5,-,0-15.0,-,-,-,Dry Hole
+BH111,0.1718,9.6775,,Bulkpam,Saboba Chereponi,60,-,0-1.5,-,-,-,Dry Hole
+BH112,0.1718,9.6775,,Bulkpam,Saboba Chereponi,60,-,0-1.5,-,-,-,Dry Hole
+BH113,0.199,9.606,,Gbalim,Saboba Chereponi,60,-,0-1.5,-,-,-,Dry Hole
+BH114,-1.0918,9.4915,,Kanfihiyili,Tolon-Kumbugu,57.6,28.5,0-27,28-36.5,1**,-,Wet
+BH115,-1.1415,9.5032,,Kanfihiyili,Tolon-Kumbugu,57.6,-,0-9.0,-,-,-,Dry Hole
+BH116,0.2618,9.6965,,Nakpando Nayeni,Saboba Chereponi,60,-,2.7,-,-,-,Dry Hole
+BH117,0.1718,9.6775,,Bulkpam,Saboba Chereponi,58,15,2.7,58,8**,-,Wet
+BH118,-1.1203,9.8108,,Nyoring-Tolon,Tolon-Kumbugu,57.5,-,0-30.0,-,-,-,Dry Hole
+BH119,-1.1265,9.454,,Koblimahigu,Tolon-Kumbugu,30.7,9,0-12.0,9.0-18.0,7**,-,Wet

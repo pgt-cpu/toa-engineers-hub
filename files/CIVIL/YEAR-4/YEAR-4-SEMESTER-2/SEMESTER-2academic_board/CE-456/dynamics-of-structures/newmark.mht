@@ -1,0 +1,48 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: 
+Date: Mon, 5 Feb 2007 06:38:33 -0000
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: 7bit
+Content-Location: http://www.engin.umich.edu/class/cee511/newmark.m
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY><PRE>function [X,t] = newmark(M,C,K,f,dt,gamma,beta,Xi,Xdi)
+%================================================================
+%function [X,t] = newmark(M,C,K,f,dt,gamma,beta,Xi,Xdi)
+%
+%	(c) Jerome Peter Lynch, (all rights reserved)
+%	University of Michigan
+%	March 2006
+%
+%	This function is intended to perform the numerical
+%	integration of a structural system subjected to an
+%	external dynamic excitation such as a wind or earthquake.
+%	The structural model is assumed to be a lumped mass shear
+%	model.  The integration scheme utilized for this analysis
+%	is the newmark alpha-beta method.  The newmark alpha-beta
+%	method is an implicit time steping scheme so stability of
+%	the system need not be considered. 
+%
+%	Input Variables:
+%	M = Mass 
+%	C = Damping 
+%	K = Stiffness 
+%	{f} = Excitation Vector (mx1)
+%	dt  = Time Stepping Increment
+%	beta= Newmark Const (1/6 or 1/4 usually)
+%	gam = Newmark Const (1/2)
+%	Xi  = Initial Displacement 
+%	Xdi = Initial Velocity 
+%
+%	Output Variables:
+%	{t} = Time Vector (mx1)
+%	[X] = Response Vector (mx1)
+%================================================================
+
+PLACE YOUR CODE HERE</PRE></BODY></HTML>

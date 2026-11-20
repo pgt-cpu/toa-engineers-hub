@@ -1,0 +1,75 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: 
+Date: Mon, 5 Feb 2007 06:38:11 -0000
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.engin.umich.edu/class/cee511/mainshellHW6.m
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252">
+<META content=3D"MSHTML 6.00.2900.2180" name=3DGENERATOR></HEAD>
+<BODY><PRE>%=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+%	(c) Jerome Peter Lynch, (all rights reserved)
+%	University of Michigan
+%	March 2006
+%
+%	This program implements a Newmark solution to Problem 2=20
+%   	in Homework #6.  In particular, the Newmark Average=20
+%   	Acceleration method (gamma =3D 1/2, beta =3D 1/4)
+%=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+    %=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D%
+    % PROBLEM #2 %
+    %=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D%
+
+    %Establish Structural Properties
+    =
+%=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+    m  =3D 1;                      % in kips-s^2/in
+    k  =3D 100;                    % in kips/in
+    c  =3D 0.05*2*sqrt(k*m);       % in kips-s/in
+    wn =3D sqrt(k/m);              % in rad/sec
+    Tn =3D 2*pi/wn;                % in sec
+    fn =3D wn/(2*pi);              % in Hz
+
+    %First Setup Applied Loading
+    =
+%=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D
+    dt =3D 0.1;
+    tmax =3D 5;
+   =20
+    for i=3D1:4:49
+        f(i,1) =3D 0;
+        f(i+1,1) =3D 386.4;
+        f(i+2,1) =3D 0;
+        f(i+3,1) =3D -386.4;
+    end
+       =20
+    %Apply Newmark Method
+    %=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+    gamma =3D 1/2;
+    beta =3D 1/4;
+    [X,t] =3D newmark(m,c,k,f,dt,gamma,beta,0,0);
+   =20
+   =20
+    %Plot Response
+    %=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+    figure
+    plot(t,X,'r-o');
+    xlabel('Time (sec)');
+    ylabel('Response (in)');
+
+   =20
+   =20
+   =20
+  </PRE></BODY></HTML>

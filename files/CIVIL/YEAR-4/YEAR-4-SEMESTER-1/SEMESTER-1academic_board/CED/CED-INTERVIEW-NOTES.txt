@@ -1,0 +1,49 @@
+GEOTECHNICAL STUDIES FOR CED 
+SOIL MECHANICS
+FOUNDATION ENGINEERING
+
+BOOKS
+ARORA
+Page 47 Practical Foundation Engineering
+BS 5950 COMMENTARY ON 20.3
+
+The different types of soil and rock on the site are identified. 
+A series of tests are performed on the soils to determine their strength, plasticity, potential for liquefaction, and permeability
+The depth of groundwater is also provided. 
+The level of groundwater varies with the time of year and the character of the previous rainy seasons
+The geologic report should also identify groundwater conditions
+The designer should look into bearing capacity and settlement when considering shallow 
+foundations. The geotechnical engineer needs to investigate the feasibility of designing a shallow foundation, due to its cheapness and ease 
+of construction. 
+Investigation point spacing
+
+Investigation points should be spaced in accordance with BS EN 1997-2:2007,
+Annex B (for large-area structures, a grid pattern with points at not more than 60m distance)
+
+Depth of exploration
+
+The depth of exploration depends on how significantly new work affects the
+ground and groundwater, or is affected by them. For example, exploratory holes
+for a building should normally be taken down to a depth that includes all
+ground that might be stressed to a significant level by the foundation
+(the depth of exploration is governed by influence zone which depends on the type of structure, intensity of the load, and the sol profile).
+
+
+Design issues and criteria
+The following issues will generally need to be addressed in the design of foundations for high-rise buildings:
+
+1.Ultimate capacity of the foundation under vertical, lateral and moment loading combinations.
+2.Overall settlements.
+
+
+environmental impacts(Environmental Issues)
+building codes(Regulatory Issues)
+hazards
+communication skills
+diplomacy
+cad
+3d modelling software
+Licensing Process
+4-years experience
+State exam
+Of course, the more advanced training you have in the field, the higher earning potential you’ll have going forward.
