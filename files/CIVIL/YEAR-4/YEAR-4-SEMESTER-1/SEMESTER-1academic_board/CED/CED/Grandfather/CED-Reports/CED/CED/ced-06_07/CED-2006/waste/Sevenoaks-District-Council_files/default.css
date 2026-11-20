@@ -1,0 +1,651 @@
+#logo {
+	Z-INDEX: 2; LEFT: 0px; WIDTH: 249px; POSITION: absolute; TOP: 0px; HEIGHT: 75px; caption: logo layer
+}
+#header {
+	Z-INDEX: 2; LEFT: 487px; WIDTH: 249px; POSITION: absolute; TOP: 15px; HEIGHT: 75px; caption: SDC header layer
+}
+#navigation {
+	FONT-SIZE: 85%; Z-INDEX: 2; BACKGROUND: #333333; LEFT: 249px; WIDTH: 506px; LETTER-SPACING: 0em; POSITION: absolute; TOP: 51px; HEIGHT: 24px; caption: top navigation layer
+}
+#banner {
+	Z-INDEX: 2; LEFT: 0px; WIDTH: 506px; POSITION: absolute; TOP: 75px; HEIGHT: 87px; caption: banner layer
+}
+#banner_content {
+	Z-INDEX: 2; LEFT: 249px; WIDTH: 506px; POSITION: absolute; TOP: 95px; HEIGHT: 87px; caption: banner layer
+}
+.menu_item {
+	PADDING-RIGHT: 12px; FLOAT: right; PADDING-TOP: 4px; WHITE-SPACE: nowrap; HEIGHT: 20px; caption: menu text
+}
+#business_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #cf2a2a; LEFT: 0px; WIDTH: 757px; COLOR: #f1c0c0; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#council_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #1933ba; LEFT: 0px; WIDTH: 755px; COLOR: #bac2ea; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#safety_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #b8a609; LEFT: 0px; WIDTH: 755px; COLOR: #eae4b6; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#default_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #008e88; LEFT: 0px; WIDTH: 755px; COLOR: #b3dddc; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#environment_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #72b720; LEFT: 0px; WIDTH: 755px; COLOR: #d5eabd; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#community_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #e0661d; LEFT: 0px; WIDTH: 755px; COLOR: #f6d1bc; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#education_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #059fbb; LEFT: 0px; WIDTH: 755px; COLOR: #b4e2eb; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#leisure_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #95773c; LEFT: 0px; WIDTH: 755px; COLOR: #dfd6c5; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#jobs_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #3abab5; LEFT: 0px; WIDTH: 755px; COLOR: #c4eae9; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#sevenoaks_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #f3950e; LEFT: 0px; WIDTH: 755px; COLOR: #fbdfb7; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#payments_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #813fe3; LEFT: 0px; WIDTH: 755px; COLOR: #d9c6f7; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#transport_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #b651c5; LEFT: 0px; WIDTH: 755px; COLOR: #e9cbee; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#housing_signature {
+	FONT-SIZE: 80%; Z-INDEX: 2; BACKGROUND: #e9ba15; LEFT: 0px; WIDTH: 755px; COLOR: #f8eab9; LETTER-SPACING: 0em; POSITION: absolute; TOP: 75px; HEIGHT: 20px; caption: strip of colour containing date
+}
+#main_image {
+	LEFT: 10px; WIDTH: 211px; POSITION: absolute; TOP: 162px; HEIGHT: 111px; caption: image layer
+}
+#main_headline {
+	LEFT: 10px; WIDTH: 495px; POSITION: absolute; TOP: 162px; HEIGHT: 238px; caption: image headline layer
+}
+#main_showme {
+	LEFT: 403px; WIDTH: 102px; POSITION: absolute; TOP: 367px; HEIGHT: 33px; caption: show me button layer
+}
+#hp_divider {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/homepage/hp_divider.gif) repeat-x; LEFT: 10px; WIDTH: 495px; POSITION: absolute; TOP: 400px; HEIGHT: 10px; caption: divider dotted line
+}
+#lhm_wrapper {
+	FONT-SIZE: 85%; LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; POSITION: absolute; TOP: 0px; caption: lhm layer
+}
+#lhm {
+	MARGIN-TOP: 0px; FONT-SIZE: 85%; LEFT: 0px; WIDTH: 249px; COLOR: #a3a3a3; POSITION: absolute; TOP: 0px; HEIGHT: 87px; caption: lhm layer
+}
+.lhm_level1 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 100%; MARGIN-LEFT: 0px; LINE-HEIGHT: 130%; LETTER-SPACING: 0.1em
+}
+.lhm_level2 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 90%; MARGIN-LEFT: 0px; LETTER-SPACING: 0.1em
+}
+.lhm_level3 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 90%; MARGIN-LEFT: 0px; LETTER-SPACING: 0em
+}
+.nobullet {
+	LIST-STYLE: none none outside; caption: lhm no bullet
+}
+.nobullet_sectionheader {
+	LIST-STYLE: none none outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 130%; MARGIN-BOTTOM: 6px; WIDTH: 239px; COLOR: #000000; PADDING-TOP: 10px; LETTER-SPACING: 0.1em; HEIGHT: 15px; caption: lhm no bullet
+}
+.subbullet {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/lhm_subbullet.gif) inside; PADDING-LEFT: 0px; BACKGROUND: #e1e1e1; MARGIN-LEFT: 0px; caption: lhm no bullet
+}
+.lhm_nav {
+	MARGIN-TOP: 0px; PADDING-LEFT: 10px; BACKGROUND: #e1e1e1; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 50px; MARGIN-LEFT: 0px; LINE-HEIGHT: 135%; caption: lhm ul tag
+}
+.lhm_subnav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; BACKGROUND: #e1e1e1; MARGIN: 0px; caption: lhm ul tag
+}
+#quicklinks_layer {
+	FONT-WEIGHT: bold; FONT-SIZE: 130%; LEFT: 5px; WIDTH: 500px; POSITION: absolute; TOP: 410px; HEIGHT: 300px; caption: quicklink layer
+}
+.ql_table {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; caption: quicklink table padding
+}
+.quicklinks {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; LIST-STYLE-IMAGE: none; PADDING-BOTTOM: 0px; COLOR: #000000; LINE-HEIGHT: 1.1em; LETTER-SPACING: 0.05em; caption: sub quicklink text
+}
+.nospace_ql {
+	MARGIN-TOP: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 18px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; caption: sub quicklinks no space ul bullets
+}
+.business {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/business_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #cf2a2a; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink business text
+}
+.education {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/education_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #059fbb; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink education text
+}
+.jobs {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/jobs_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #3abab5; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink jobs text
+}
+.transport {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/transport_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #b651c5; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink transport text
+}
+.community {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/community_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #e0661d; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink community text
+}
+.environment {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/environment_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #72b720; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink environment text
+}
+.leisure {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/leisure_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #95773c; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink leisure text
+}
+.sevenoaks {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/sevenoaks_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #f3950e; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink sevenoaks text
+}
+.council {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/council_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #1933ba; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink council text
+}
+.housing {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/housing_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #e9ba15; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink housing text
+}
+.safety {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/safety_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #b8a609; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink safety text
+}
+.payments {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/payments_bullet.gif) outside; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 2px; COLOR: #813fe3; LINE-HEIGHT: 135%; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em; caption: quicklink payments text
+}
+#back_to_top {
+	LEFT: 10px; WIDTH: 250px; POSITION: relative; TOP: 10px; HEIGHT: 80px; caption: back to top layer
+}
+#footer_content {
+	PADDING-LEFT: 0px; FONT-SIZE: 85%; LEFT: 0px; MARGIN-BOTTOM: 2px; WIDTH: 230px; MARGIN-RIGHT: 10px; POSITION: relative; TOP: 0px; HEIGHT: 80px; caption: footer wrapper layer
+}
+#footer {
+	PADDING-LEFT: 0px; FONT-SIZE: 85%; LEFT: 10px; MARGIN-BOTTOM: 2px; WIDTH: 230px; MARGIN-RIGHT: 10px; POSITION: relative; TOP: 10px; HEIGHT: 80px; caption: footer wrapper layer
+}
+#address_icon {
+	POSITION: relative; caption: address bullet positioning
+}
+#phone_icon {
+	POSITION: relative; caption: phone bullet positioning
+}
+#address_layer {
+	FONT-WEIGHT: normal; FONT-SIZE: 75%; LEFT: 30px; COLOR: #555555; LINE-HEIGHT: 120%; POSITION: relative; TOP: -15px; caption: address text
+}
+#address_layer_content {
+	FONT-WEIGHT: normal; LEFT: 300px; COLOR: #aaaaaa; LINE-HEIGHT: 130%; POSITION: relative; TOP: -125px; caption: content address text
+}
+#phone_layer {
+	FONT-WEIGHT: normal; FONT-SIZE: 75%; LEFT: 30px; COLOR: #555555; LINE-HEIGHT: 120%; POSITION: relative; TOP: -15px; caption: phone no text
+}
+#phone_layer_content {
+	FONT-WEIGHT: normal; LEFT: 300px; COLOR: #aaaaaa; LINE-HEIGHT: 120%; POSITION: relative; TOP: -110px; caption: phone no text
+}
+#hp_divider_footer {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/homepage/hp_divider.gif) repeat-x; LEFT: 0px; WIDTH: 495px; POSITION: relative; TOP: 0px; HEIGHT: 10px; caption: footer dotted line
+}
+#content_divider_footer {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/homepage/hp_divider.gif) repeat-x; LEFT: 0px; WIDTH: 485px; POSITION: relative; TOP: 0px; HEIGHT: 10px; caption: footer dotted line
+}
+#copyright {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; LEFT: 270px; COLOR: #aaaaaa; LINE-HEIGHT: 130%; LETTER-SPACING: 0em; POSITION: relative; TOP: -87px; caption: copyright text
+}
+#copyright_content {
+	FONT-WEIGHT: normal; FONT-SIZE: 90%; LEFT: 0px; COLOR: #aaaaaa; LINE-HEIGHT: 160%; LETTER-SPACING: 0em; POSITION: relative; TOP: 0px; caption: content copyright text
+}
+.searchtextfield {
+	BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px inset; PADDING-LEFT: 2px; FONT-SIZE: 110%; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; WIDTH: 150px; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 1px inset; BACKGROUND-COLOR: #eeeeee; caption: Search Text Field
+}
+#searchbox {
+	Z-INDEX: 2; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/search_gradient.jpg); LEFT: 506px; WIDTH: 249px; POSITION: absolute; TOP: 75px; HEIGHT: 87px; caption: Search Gradient background positioning
+}
+#searchbox_content {
+	Z-INDEX: 2; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/search_gradient.jpg); LEFT: 0px; WIDTH: 249px; POSITION: absolute; TOP: 95px; HEIGHT: 87px; caption: Search Gradient background positioning
+}
+#searchform {
+	FONT-SIZE: 85%; Z-INDEX: 2; LEFT: 518px; WIDTH: 200px; POSITION: absolute; TOP: 95px; HEIGHT: 50px; caption: Search form layer positioning
+}
+#searchform_content {
+	FONT-SIZE: 85%; Z-INDEX: 2; LEFT: 12px; WIDTH: 200px; POSITION: absolute; TOP: 115px; HEIGHT: 50px; caption: Search form layer positioning
+}
+.searchtext {
+	COLOR: #ffffff; LINE-HEIGHT: 120%; LETTER-SPACING: 0em; caption: Search text
+}
+.searchterm {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND-COLOR: #e1e1e1; caption: search term highlight
+}
+FORM {
+	MARGIN-TOP: 0px; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; caption: Form spacing
+}
+#rhm {
+	FONT-SIZE: 85%; LEFT: 506px; WIDTH: 249px; POSITION: absolute; TOP: 162px; BACKGROUND-COLOR: #e1e1e1; caption: Right hand column positioning
+}
+#rhm_whatsnew {
+	PADDING-LEFT: 7px; LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 242px; POSITION: relative; TOP: 0px; BACKGROUND-COLOR: #e1e1e1; caption: Whats new area
+}
+#rhm_latestnews {
+	PADDING-LEFT: 7px; LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 242px; POSITION: relative; TOP: 0px; BACKGROUND-COLOR: #e1e1e1; caption: Latest news area
+}
+.rhm_banners {
+	MARGIN-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; WIDTH: 249px; PADDING-TOP: 0px; POSITION: relative; TOP: 0px; BACKGROUND-COLOR: #ffffff; caption: Banner area
+}
+#rhm_divider {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/homepage/whats_new_divider.gif) repeat-x; LEFT: 0px; WIDTH: 240px; POSITION: relative; TOP: 0px; HEIGHT: 11px; caption: Right hand column dotted line
+}
+.latestnews {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/latest_news_bullet.gif) outside; PADDING-LEFT: 0px; MARGIN-BOTTOM: 10px; LINE-HEIGHT: 120%; MARGIN-RIGHT: 10px; caption: latest news style bullets
+}
+.whatsnew {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/homepage/whats_new_bullet.gif) outside; PADDING-LEFT: 0px; LINE-HEIGHT: 120%; MARGIN-RIGHT: 10px; caption: Whats new style bullets
+}
+.date {
+	PADDING-RIGHT: 10px; FONT-SIZE: 80%; FLOAT: right; COLOR: #a3a3a3; LINE-HEIGHT: 250%; TEXT-ALIGN: right; caption: date style
+}
+.news {
+	PADDING-RIGHT: 10px; FONT-SIZE: 80%; FLOAT: right; MARGIN-BOTTOM: 7px; PADDING-BOTTOM: 7px; LINE-HEIGHT: 250%; TEXT-ALIGN: right; caption: news link style
+}
+.nospace {
+	MARGIN-TOP: 0px; PADDING-LEFT: 0px; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 18px; caption: no space on ul tag
+}
+.sitemap {
+	LIST-STYLE-POSITION: outside; PADDING-BOTTOM: 5px; LIST-STYLE-TYPE: disc; caption: bulleted list
+}
+.sitemap_level1 {
+	LIST-STYLE: none url(http://www.sevenoaks.gov.uk/images/bullet_sitemap1.gif) outside; FONT-SIZE: 100%; LINE-HEIGHT: 120%; caption: bullet
+}
+.sitemap_level2 {
+	LIST-STYLE: none url(http://www.sevenoaks.gov.uk/images/bullet_sitemap2.gif) outside; FONT-SIZE: 85%; LINE-HEIGHT: 140%; caption: subbullet
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 80%; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; LINE-HEIGHT: 132%; PADDING-TOP: 0px; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body styles
+}
+.background {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/background_vert_dots.gif) repeat-y
+}
+#default_background {
+	PADDING-RIGHT: 0px; Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_default.jpg); LEFT: 0px; WIDTH: 99%; MARGIN-RIGHT: 0px; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: default background layer
+}
+#business_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_business.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: business background layer
+}
+#community_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_community.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: community background layer
+}
+#housing_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_housing.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: housing background layer
+}
+#safety_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_safety.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: safety background layer
+}
+#transport_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_transport.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: transport background layer
+}
+#education_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_education.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: education background layer
+}
+#environment_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_environment.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: environment background layer
+}
+#jobs_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_jobs.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: jobs background layer
+}
+#leisure_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_leisure.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: leisure background layer
+}
+#sevenoaks_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_sevenoaks.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: sevenoaks background layer
+}
+#payments_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_payments.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: payments background layer
+}
+#council_background {
+	Z-INDEX: 1; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/top/bg_council.jpg); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 182px; caption: council background layer
+}
+#page_wrapper {
+	Z-INDEX: 9; LEFT: 0px; POSITION: absolute; TOP: 182px; caption: content pages wrapper layer
+}
+#content_layer {
+	PADDING-LEFT: 5px; LEFT: 265px; MARGIN-LEFT: 5px; WIDTH: 470px; POSITION: absolute; TOP: 5px; HEIGHT: 300px; caption: content area layer
+}
+H1 {
+	MARGIN-TOP: 12px; FONT-WEIGHT: normal; FONT-SIZE: 180%; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; COLOR: #000000; LINE-HEIGHT: 130%; PADDING-TOP: 0px; caption: header text
+}
+H2 {
+	MARGIN-TOP: 12px; FONT-WEIGHT: normal; FONT-SIZE: 140%; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; COLOR: #000000; LINE-HEIGHT: 100%; PADDING-TOP: 0px; TEXT-ALIGN: center; caption: sub header
+}
+.breadcrumb {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #a3a3a3; caption: breadcrumb text
+}
+UL {
+	LIST-STYLE-POSITION: outside; LIST-STYLE-TYPE: square; caption: bulleted list
+}
+.btsearch {
+	FONT-SIZE: 85%; LETTER-SPACING: 0.05em; caption: sub body text
+}
+.tablecell {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 15px; VERTICAL-ALIGN: top; PADDING-TOP: 0px; LETTER-SPACING: 0.1em; caption: table cell
+}
+.numbered {
+	MARGIN-TOP: 0px; LIST-STYLE-POSITION: outside; MARGIN-BOTTOM: 10px; LETTER-SPACING: 0.01em; caption: numbered list
+}
+A.white:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.white:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.white:hover {
+	COLOR: #ff9803; TEXT-DECORATION: none
+}
+A.white:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.black:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.black:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.black:hover {
+	COLOR: #ff9803; TEXT-DECORATION: none
+}
+A.black:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #0066cc; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #0066cc; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff9803; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #0066cc; TEXT-DECORATION: none
+}
+A.linkfooter:link {
+	COLOR: #aaaaaa; TEXT-DECORATION: none
+}
+A.linkfooter:visited {
+	COLOR: #aaaaaa; TEXT-DECORATION: none
+}
+A.linkfooter:hover {
+	COLOR: #ff9803; TEXT-DECORATION: none
+}
+.form {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 110%; PADDING-BOTTOM: 2px; BORDER-TOP-STYLE: inset; PADDING-TOP: 2px; BORDER-RIGHT-STYLE: inset; BORDER-LEFT-STYLE: inset; BACKGROUND-COLOR: #eeeeee; BORDER-BOTTOM-STYLE: inset; caption: Form Text
+}
+.bt {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body text
+}
+.bt8 {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body text
+}
+.trbt8 {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; BACKGROUND-COLOR: #aaaaaa; caption: tr class (8pt)
+}
+H3 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 0px; COLOR: #000000; LINE-HEIGHT: 100%; caption: header 3
+}
+#investor {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em
+}
+.investor {
+	
+}
+.bt8nested {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body text nested (8pt)
+}
+.joblist_bullet {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/icons/chev.gif) outside; PADDING-LEFT: 2px; MARGIN-BOTTOM: 2px; LINE-HEIGHT: 120%; MARGIN-RIGHT: 10px
+}
+.joblist_hr {
+	MARGIN-LEFT: -17px
+}
+.st {
+	FONT-WEIGHT: normal; FONT-SIZE: 60%; COLOR: #000000; LINE-HEIGHT: 120%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: small text (7 pt)
+}
+.formtextfield {
+	BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px inset; PADDING-LEFT: 2px; FONT-SIZE: 80%; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; WIDTH: 240px; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 1px inset; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #eeeeee
+}
+.btrednested {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; COLOR: #ff9900; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em
+}
+.formtextfieldshort {
+	BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px inset; PADDING-LEFT: 2px; FONT-SIZE: 80%; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; WIDTH: 100px; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 1px inset; FONT-FAMILY: Tahoma, Arial, Helvetica; BACKGROUND-COLOR: #eeeeee; caption: form text field shorter
+}
+#column1 {
+	FONT-WEIGHT: bold; VERTICAL-ALIGN: top
+}
+#column2 {
+	
+}
+#column3 {
+	VERTICAL-ALIGN: top
+}
+LI.planning {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/icons/chev.gif) outside; FONT-SIZE: 70%; LINE-HEIGHT: 132%; LETTER-SPACING: 0.05em; caption: Planning bullet style
+}
+#planning_content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 130%; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/icons/planning/planning_bg.gif) no-repeat; PADDING-BOTTOM: 10px; COLOR: #ffffff; LINE-HEIGHT: 140%; PADDING-TOP: 10px; FONT-STYLE: normal; LETTER-SPACING: 0.01em
+}
+#planning_title {
+	WIDTH: 230px
+}
+#building_title {
+	FLOAT: right; WIDTH: 230px
+}
+#building_content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 130%; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/icons/planning/building_bg.gif) no-repeat; PADDING-BOTTOM: 10px; COLOR: #05918b; LINE-HEIGHT: 140%; PADDING-TOP: 10px; FONT-STYLE: normal; LETTER-SPACING: 0.01em
+}
+.btg8nested {
+	FONT-WEIGHT: normal; FONT-SIZE: 85%; COLOR: #aaaaaa; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body text nested (8pt)
+}
+#dotted-line {
+	FONT-SIZE: 0px; BACKGROUND: url(http://www.sevenoaks.gov.uk/images/dotted_line.gif) repeat-x; WIDTH: 100%; HEIGHT: 6px; caption: content divider dotted line
+}
+#grey-line {
+	BACKGROUND: url(http://www.sevenoaks.gov.uk/images/grey_dot.gif) repeat-x; MARGIN-BOTTOM: 0px; WIDTH: 100%; HEIGHT: 6px; caption: content divider grey line
+}
+.lhm_level4 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 90%; MARGIN-LEFT: 0px; LETTER-SPACING: 0em
+}
+.nobullet1 {
+	LIST-STYLE: circle url(http://www.sevenoaks.gov.uk/images/lhm_subbullet.gif) outside; PADDING-LEFT: 0px; MARGIN-LEFT: 10px; caption: lhm no bullet
+}
+A.business:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #cf2a2a; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.housing:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e9ba15; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.education:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #059fbb; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.environment:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #72b720; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.jobs:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #3abab5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.leisure:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #95773c; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.community:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e0661d; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.council:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #1933ba; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.transport:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b651c5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.sevenoaks:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #f3950e; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.safety:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b8a609; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.payments:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #813fe3; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+TD {
+	FONT-WEIGHT: normal; COLOR: #000000; LINE-HEIGHT: 132%; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body styles
+}
+UL.no_space {
+	LIST-STYLE-POSITION: outside; MARGIN: 0px; LIST-STYLE-TYPE: none; caption: UL.no_space
+}
+.td_quicklinks {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 80%; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 33%; COLOR: #000000; LINE-HEIGHT: 1.32em; PADDING-TOP: 0px; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body styles
+}
+A.business:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #cf2a2a; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.business:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #cf2a2a; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.housing:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e9ba15; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.housing:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e9ba15; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.education:link {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #059fbb; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.education:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #059fbb; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.environment:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #72b720; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.environment:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #72b720; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.jobs:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #3abab5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.jobs:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #3abab5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.leisure:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #95773c; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.leisure:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #95773c; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.community:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e0661d; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.community:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #e0661d; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.council:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #1933ba; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.council:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #1933ba; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.transport:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b651c5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.transport:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b651c5; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.sevenoaks:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #f3950e; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.sevenoaks:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #f3950e; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.safety:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b8a609; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.safety:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #b8a609; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.payments:active {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #813fe3; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+A.payments:visited {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 2px; COLOR: #813fe3; MARGIN-RIGHT: 10px; LETTER-SPACING: 0em
+}
+TD.td_quicklinks {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 80%; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; LINE-HEIGHT: 132%; PADDING-TOP: 0px; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body styles
+}
+.formshort {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 110%; PADDING-BOTTOM: 2px; WIDTH: 50px; BORDER-TOP-STYLE: inset; PADDING-TOP: 2px; BORDER-RIGHT-STYLE: inset; BORDER-LEFT-STYLE: inset; BACKGROUND-COLOR: #eeeeee; BORDER-BOTTOM-STYLE: inset; visible: false
+}
+#downloadBox {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 85%; PADDING-BOTTOM: 5px; LINE-HEIGHT: 140%; PADDING-TOP: 5px; visible: false
+}
+#contentBox {
+	Z-INDEX: 100; WIDTH: 461px; caption: fixed width content box for dotEditor window
+}
+.lhm_level5 {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 90%; MARGIN-LEFT: 0px; LETTER-SPACING: 0em
+}
+LI {
+	LIST-STYLE: none url(http://www.sevenoaks.gov.uk/images/bullet_sitemap1.gif) outside; FONT-SIZE: 100%; LINE-HEIGHT: 120%; caption: Default list item
+}
+.menu_selected {
+	FONT-WEIGHT: bold; COLOR: #aaaaaa; caption: .menu_selected
+}
+.bt8italic {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; LINE-HEIGHT: 132%; FONT-STYLE: italic; FONT-FAMILY: Tahoma, Arial, Helvetica; LETTER-SPACING: 0.1em; caption: body text
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; caption: img
+}
+.img_align_middle {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: middle; BORDER-RIGHT-WIDTH: 0px; caption: .img_align_middle
+}
+.album_top {
+	WIDTH: 114px; HEIGHT: 14px
+}
+.album_middle {
+	PADDING-LEFT: 15px; BACKGROUND-IMAGE: url(http://www.sevenoaks.gov.uk/images/album_middle_bg.gif)
+}
+.album_main_box {
+	WIDTH: 114px; HEIGHT: 82px
+}
+.album_title {
+	PADDING-LEFT: 13px; FONT-WEIGHT: normal; FONT-SIZE: xx-small; WIDTH: 82px; COLOR: #000000; HEIGHT: 36px; TEXT-ALIGN: left
+}
+.album_middle_box {
+	FONT-WEIGHT: normal; FONT-SIZE: xx-small; BACKGROUND-IMAGE: url(http://www.sevenoaks.gov.uk/images/album_middle_bg.gif); WIDTH: 114px; COLOR: #000000; TEXT-ALIGN: left
+}
+.gallery_top {
+	WIDTH: 115px; HEIGHT: 14px
+}
+.gallery_bottom {
+	WIDTH: 115px; HEIGHT: 17px
+}
+.linked_images {
+	BORDER-TOP-WIDTH: 0px; PADDING-LEFT: 13px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.gallery_titles {
+	PADDING-LEFT: 13px; FONT-WEIGHT: normal; FONT-SIZE: xx-small; WIDTH: 89px; COLOR: #000000; TEXT-ALIGN: left
+}
+.gallery_placement {
+	BACKGROUND-IMAGE: url(http://www.sevenoaks.gov.uk/images/gallery_box_middle.gif); WIDTH: 115px; HEIGHT: 94px
+}
+.borderzero {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.folder_placement {
+	BACKGROUND-IMAGE: url(http://www.sevenoaks.gov.uk/images/folder_middle.gif); WIDTH: 115px; HEIGHT: 94px
+}
+.popup_navigation {
+	WIDTH: 412px; HEIGHT: 23px; BACKGROUND-COLOR: #76918e
+}
+.pupupbox_structure {
+	PADDING-LEFT: 18px; WIDTH: 412px; PADDING-TOP: 17px
+}
+.pop_bg {
+	BACKGROUND-IMAGE: url(http://www.sevenoaks.gov.uk/images/popup_bg.gif); WIDTH: 453px; HEIGHT: 498px
+}
+.popupnext {
+	FLOAT: right; BACKGROUND-COLOR: #76918e
+}
+.popuppicplacement {
+	PADDING-LEFT: 18px
+}
+.popuptitlplacement {
+	PADDING-LEFT: 18px; FONT-WEIGHT: bold; FONT-SIZE: x-small; PADDING-TOP: 14px
+}
+.album_title2 {
+	FONT-WEIGHT: normal; FONT-SIZE: xx-small; LINE-HEIGHT: 12px; caption: album_title2
+}
