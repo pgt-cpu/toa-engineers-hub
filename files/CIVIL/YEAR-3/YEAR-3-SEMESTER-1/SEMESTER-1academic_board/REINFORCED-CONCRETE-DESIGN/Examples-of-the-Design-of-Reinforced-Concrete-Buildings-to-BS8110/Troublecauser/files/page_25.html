@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_25</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_24.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_25</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_26.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    <p>Page 25</p>
+
+<p>The simplified method of analysis outlined in BS8110 (clause 3.2.1.2.1) involves the division of the complete structural frame into a series of sub-frames, each of which consists of the system of beams at one level together with the columns above and below that level, these columns being assumed fully fixed at the ends furthest from the beams considered (unless it is clearly more reasonable to assume that the end is pinned). Each sub-frame is analysed elastically under the following arrangements of loading. To obtain the maximum moments in the spans, alternate spans carry a total load of 1.4<em>G<sub>k</sub></em>+1.6<em>Q<sub>k</sub></em> while the remaining spans support a minimum dead load of 1.0<em>G<sub>k</sub></em> only. For the maximum moment at any support, all the spans carry 1.4<em>G<sub>k</sub></em>+1.6<em>Q<sub>k</sub></em>. </p>
+<p>The elastic moments in the simplified sub-frame may be determined by any of the methods normally used to analyse statically indeterminate structures, and thus once again two general types of solution are possible. Since more members are involved, the resulting analysis is somewhat more complex than in the case of a simple run of continuous beams and, unless computer methods are available to solve the necessary simultaneous equations, the use of an iterative method is even more advantageous when analysing a frame. Normal moment distribution is quite straightforward, and the variant known as precise moment distribution, discussed above, can also be employed as now described. </p>
+<p>The procedure necessary to analyse a sub-frame using precise moment distribution is only slightly more involved than when analysing a system of continuous beams. If more than two members meet at a support it can be shown by slope-deflection methods that the continuity factors <em>ϕ</em> for successive spans are given by the expression </p><img src="2fa1b5f6f950edd54ccd3d2688821386.png" alt="" />
+<p>(3.2a) </p>
+<p>where <em>ϕ<sub>n</sub></em><sub>+1</sub> is the continuity factor, <em>K<sub>n+</sub></em><sub>1</sub> is the stiffness of the span being considered, and Σ[<em>K<sub>n</sub>/</em>(2−<em>ϕ<sub>n</sub></em>)] is the sum of the values of <em>K<sub>n</sub>/</em>(2−<em>ϕ<sub>n</sub></em>) of all the remaining members meeting at that joint. Since the far ends of all the columns are assumed to be fully fixed, <em>ϕ<sub>n</sub></em>=0.5 and thus <em>K<sub>n</sub>/</em>(2−<em>ϕ<sub>n</sub></em>)=2/3<em>K<sub>n</sub></em> for each column. Thus if <em>K<sub>u</sub></em> and <em>K<sub>l</sub></em> are the stiffnesses of the upper and lower columns respectively, Σ[<em>K<sub>n</sub></em>/(2−<em>ϕ<sub>n</sub></em>)]=2/3<em>(K<sub>u</sub>+K<sub>l</sub>)</em>+<em>K<sub>n</sub></em>/(2−<em>ϕ<sub>n</sub></em>), where <em>ϕ<sub>n</sub></em> and <em>K<sub>n</sub></em> are the continuity factor and stiffness of the previous span. Starting at the end beam in a sub-frame, successive values of <em>ϕ</em> are determined for the beams in each direction as with a continuous-beam system but using expression (3.2a); note that the corresponding nomogram <em>cannot</em> be used. </p>
+<p>When the appropriate continuity factors have been found, the distribution factors for the beams at each side of each joint are again given by formula (3.3) or the corresponding nomogram on <em>Data Sheet 10</em>. However, in the case of a frame, the sum of the distribution factors obtained at a support will not equal unity because of the interaction of the columns. At a support B, say, the sum of the distribution factors for the upper and lower columns is equal to 1−<em>DF<sub>BA</sub>−DF<sub>BC</sub>,</em> where <em>DF<sub>BA</sub></em> and <em>DF<sub>BC</sub></em> are the distribution factors for the beams on each side of the support. The distribution factor relating to each individual column is then obtained by dividing the total column distribution factor in proportion to the stiffnesses of the columns (i.e. if the stiffness of the lower column is twice that of the upper, the distribution factor will be twice as great). </p>
+<p>Since there is now no automatic check when calculating the distribution factors, as is the case when analysing continuous-beam systems, especial care is essential when calculating the continuity and distribution factors. </p>
+<p>When the continuity and distribution factors and fixed-end moments have been determined, in the case of a frame the mathematical distribution procedure differs slightly from that described earlier. After distributing the unbalanced moment at the first support, the amount to be carried over is determined as before by multiplying by the appropriate right-to-left continuity factor. The moment carried over to the far end of the span is now divided between the remaining members meeting at that point in proportion to their values of <em>K<sub>LR</sub></em>/(2−<em>ϕ<sub>RL</sub></em>), i.e. their ‘relative restraint factors’ (which correspond to their restraint factors divided by a constant value of 6<em>E</em>). At each joint it is therefore worth while calculating <em>K<sub>LR</sub>/</em> (2−<em>ϕ<sub>RL</sub></em>) for each member. The amount of carried-over moment transferred to the next beam is thus obtained by multiplying it by the ratio of the relative restraint factor for that beam to the sum of the factors for the beam and the columns. The out-of-balance fixed-end moment at this joint is now distributed between all the members in proportion to their distribution factors, and the algebraic sum of the moments on the next span is carried over to the succeeding support as before. </p>
+<p>Thus in <em>Figure 3.11</em><em>,</em> which corresponds to the beam system considered previously but now forms part of a frame, the columns are 4 m long and have a value of <em>I</em> of one-tenth of the beams. The continuity factors are found as follows: </p><img src="fd9f8d374625f6a4b6f1d6521dc69254.png" alt="" /><img src="d7e89758297f091c8ecb4776a4d7db1c.png" alt="" />
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_24.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_25</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_26.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>
