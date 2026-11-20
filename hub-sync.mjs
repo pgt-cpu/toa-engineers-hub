@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // TOA Engineers Hub: automatic resource sync. Usage: node hub-sync.mjs "path/to/your/folder"
 // Add --dry-run to preview, --no-push to skip GitHub. Needs Node 18+ and Git.
+// Everything in the folder is a timetable:  node hub-sync.mjs "path/to/Timetables" --type Timetables
 // Clean up what is already on the site:  review  |  apply <file.csv>  |  fix [--auto-spell]   (see hub-rules.json)
 import fs from "node:fs";import path from "node:path";import {execFileSync} from "node:child_process";
 const PR=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
@@ -132,7 +133,9 @@ if(pos[0]==="fix"){
 
 if(!pos[0]||!fs.existsSync(pos[0])||!fs.statSync(pos[0]).isDirectory())die('give the folder to read, e.g.  node hub-sync.mjs "C:\\Users\\me\\Resources"');
 const src=path.resolve(pos[0]),base=path.dirname(src);
-const MAXF=flag("max-file-mb",95)*MB,BUDGET=flag("budget-mb",900)*MB,BF=flag("batch-files",200),BM=flag("batch-mb",250)*MB;
+const FORCE=flag("type","");if(FORCE&&!okType(FORCE))die("--type must be one of: "+TYPES.join(", "));
+const GEN=/^(img|dsc|dscn|pxl|image|photo|pic|picture|screenshot|screen shot|whatsapp image|whatsapp|scan|scanned|file|document|untitled|download|new image)[\s_.()\-:0-9a-z]*$|^[\d\s._()-]+$/i,TT={};data.resources.forEach(x=>{if(x.type==="Timetables"){const k=[x.programme,x.year,x.semester,x.title].join("|");TT[k]=(TT[k]||0)+1}});
+const MAXF=flag("max-file-mb",95)*MB,BUDGET=flag("budget-mb",0)*MB,BF=flag("batch-files",200),BM=flag("batch-mb",250)*MB;
 let ov={};for(const p of ["hub-overrides.json",path.join(src,"hub-overrides.json")])if(fs.existsSync(p)){try{ov=JSON.parse(fs.readFileSync(p,"utf8"));break}catch(e){die(p+" is not valid JSON.")}}
 if(fs.existsSync("hub-aliases.json")){try{ALIAS=JSON.parse(fs.readFileSync("hub-aliases.json","utf8"))}catch(e){die("hub-aliases.json is not valid JSON.")}}
 const have=new Set(data.resources.map(x=>x.link)),used=new Set(),cand=[];
@@ -145,7 +148,11 @@ for(const f of walk(src).sort()){
  const st=fs.statSync(f),d=Object.assign(detect(rel),o);
  if(RULES.remove.some(p=>wild(p).test(norm(rel)))){R.skipped++;continue}
  d.title=respell(d.title,RULES.spelling);d.course=respell(d.course,RULES.spelling);
+ if(FORCE)d.type=okType(FORCE);
  for(const pl of RULES.place)if(pl.match&&wild(pl.match).test(norm(rel))){if(pl.programme&&okProg(pl.programme))d.prog=okProg(pl.programme);if(pl.year!==undefined)d.yr=String(pl.year);if(pl.semester!==undefined)d.sm=String(pl.semester);if(pl.type&&okType(pl.type))d.type=okType(pl.type);if(pl.course!==undefined)d.course=pl.course;d.look=false}
+ if(d.type==="Timetables"){d.course="";const gen=/^(img|dsc|dscn|pxl|image|photo|pic|picture|screenshot|screen shot|whatsapp image|whatsapp|scan|scanned|file|document|untitled|download|new image)\b/i.test(d.title)||/^[\d\s._()-]+$/.test(d.title);
+  if(gen){d.title=(d.yr!=="All"?"Year "+d.yr+" ":"")+(d.sm!=="All"?"Semester "+d.sm+" ":"")+(d.yr==="All"&&d.sm==="All"?"General timetable":"timetable");d.title=d.title[0].toUpperCase()+d.title.slice(1)}
+  const k=[d.prog,d.yr==="All"?"All":+d.yr,d.sm==="All"?"All":+d.sm,d.title].join("|");TT[k]=(TT[k]||0)+1;if(TT[k]>1)d.title+=" ("+TT[k]+")"}
  if(VID.test(name)){R.videos.push([rel,d.prog,d.yr,d.sm,d.course,d.title,mb(st.size),""]);continue}
  if(st.size>MAXF){R.big.push([rel,mb(st.size)]);continue}
  const clean=safePath(rel,used),link="files/"+clean;
@@ -153,19 +160,39 @@ for(const f of walk(src).sort()){
  cand.push({rel,f,link,size:st.size,d,o,entry:{type:d.type,programme:d.prog,year:d.yr==="All"?"All":+d.yr,semester:d.sm==="All"?"All":+d.sm,course:(d.course||"").trim(),title:(d.title||"").trim()||"Untitled",link,note:mb(st.size),date:today()}})}
 const rank={Timetables:0,"Past questions":1};
 cand.sort((a,b)=>(rank[a.entry.type]??2)-(rank[b.entry.type]??2)||a.size-b.size);
-for(const c of cand){if(total+c.size>BUDGET){R.over.push([c.rel,mb(c.size)]);continue}total+=c.size;if(UNSAFE.test(c.rel))R.renamed.push([c.rel,c.link]);if(c.d.look&&!c.o.prog)R.look.push([c.rel,c.d.prog,c.d.yr,c.d.sm]);plan.push(c)}
+for(const c of cand){if(BUDGET&&total+c.size>BUDGET){R.over.push([c.rel,mb(c.size)]);continue}total+=c.size;if(UNSAFE.test(c.rel))R.renamed.push([c.rel,c.link]);if(c.d.look&&!c.o.prog)R.look.push([c.rel,c.d.prog,c.d.yr,c.d.sm]);plan.push(c)}
 csv("videos-to-upload.csv",["file","programme","year","semester","course","title","size","youtube_link"],R.videos);
 csv("too-big.csv",["file","size"],R.big);csv("over-budget.csv",["file","size"],R.over);
 csv("names-cleaned.csv",["original","saved_as"],R.renamed);csv("check-these.csv",["file","programme_used","year_used","semester_used"],R.look);
 try{if(!fs.readFileSync(".gitignore","utf8").includes("hub-report"))fs.appendFileSync(".gitignore","\nhub-report/\n")}catch(e){fs.writeFileSync(".gitignore","hub-report/\n")}
 const n=plan.length,bytes=plan.reduce((a,p)=>a+p.size,0);
 console.log(`\nReady to add: ${n} files (${mb(bytes)})\nVideos set aside: ${R.videos.length}\nNames cleaned: ${R.renamed.length}\nGuesses to check: ${R.look.length}\nToo big for GitHub: ${R.big.length}\nOver the size budget: ${R.over.length}\nAlready on the site: ${R.dups}\nReports saved in the hub-report folder.\n`);
-if(has("dry-run")||!n)process.exit(0);
 const batches=[];let cur=[],cf=0,cb=0;
 for(const p of plan){if(cur.length&&(cf>=BF||cb+p.size>BM)){batches.push(cur);cur=[];cf=cb=0}cur.push(p);cf++;cb+=p.size}if(cur.length)batches.push(cur);
-batches.forEach((b,i)=>{
- console.log(`Batch ${i+1} of ${batches.length}: ${b.length} files`);
- for(const p of b){const to=p.link;fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(p.f,to)}
+console.log(batches.length<=1?"Size check: everything fits in a single upload.\n":`Size check: ${mb(bytes)} is too much to send at once, so it will go up bit by bit in about ${batches.length} parts. Each part is uploaded before the next starts. If a part fails it is retried, then split into smaller pieces automatically.\n`);
+if(total>900*MB)console.log("Warning: the site folder will be about "+mb(total)+". GitHub Pages sites should stay under about 1 GB, so consider trimming old files.\n");
+if(has("dry-run")||!n)process.exit(0);
+
+if(!NOPUSH){try{git("config","http.postBuffer","524288000")}catch(e){}}
+const sleep=ms=>Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,ms);
+function sendOne(b,msg){
+ for(const p of b){fs.mkdirSync(path.dirname(p.link),{recursive:true});fs.copyFileSync(p.f,p.link)}
  data.resources=[...b.map(p=>p.entry),...data.resources];save();
- try{publish(`Add resources (batch ${i+1} of ${batches.length})`)}catch(e){die(`could not upload batch ${i+1}. Check your internet and GitHub sign-in, then run the same command again. It continues where it stopped.`)}});
-console.log("\nDone. Your site updates in a minute or two.");
+ if(NOPUSH)return true;
+ let committed=false;
+ try{git("add","files",rf);git("commit","-m",msg);committed=true}catch(e){}
+ if(committed)for(let a=1;a<=3;a++){try{git("push");return true}catch(e){console.log(`  Upload attempt ${a} of 3 failed.`);if(a<3)sleep(4000*a)}}
+ // failed: undo this part so it can be retried in smaller pieces
+ if(committed){try{git("reset","--soft","HEAD~1");git("reset","-q")}catch(e){}}
+ const gone=new Set(b.map(p=>p.link));data.resources=data.resources.filter(x=>!gone.has(x.link));save();
+ for(const p of b)dropFile(p.link);
+ return false}
+const queue=batches.slice(),FAILED=[];let sent=0,part=0,bad=0;
+while(queue.length){const b=queue.shift();part++;
+ console.log(`Uploading part ${part}: ${b.length} file${b.length>1?"s":""}, ${mb(b.reduce((a,p)=>a+p.size,0))}  (${queue.length} more waiting)`);
+ if(sendOne(b,`Add resources (part ${part})`)){sent+=b.length;bad=0;continue}
+ if(b.length>1){const h=Math.ceil(b.length/2);console.log("  That was too much in one go. Splitting it into two smaller parts and trying again.");queue.unshift(b.slice(0,h),b.slice(h))}
+ else{FAILED.push([b[0].rel,mb(b[0].size)]);bad++;console.log("  Could not upload "+b[0].rel+". Moving on.");
+  if(bad>=3){csv("not-uploaded.csv",["file","size"],FAILED.concat(queue.flat().map(p=>[p.rel,mb(p.size)])));die("three files in a row failed, so it looks like a connection or GitHub sign-in problem. Check your internet, then run the same command again. It continues where it stopped.")}}}
+csv("not-uploaded.csv",["file","size"],FAILED);
+console.log(`\nDone. Uploaded ${sent} of ${n} files.`+(FAILED.length?` ${FAILED.length} could not be sent (see hub-report/not-uploaded.csv). Run the same command again to retry just those.`:"")+"\nYour site updates in a minute or two.");
