@@ -1,0 +1,411 @@
+BODY {
+	MARGIN-TOP: 0px; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffffff
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: small
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small
+}
+TD {
+	FONT-SIZE: x-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TH {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+CAPTION {
+	FONT-WEIGHT: bold; FONT-SIZE: x-small; TEXT-ALIGN: left
+}
+BLOCKQUOTE {
+	MARGIN: 0px
+}
+LI {
+	MARGIN-BOTTOM: 0.25em
+}
+.List {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+.ListItem {
+	PADDING-BOTTOM: 0.35em
+}
+TABLE.mainArea {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; WIDTH: 100%; BORDER-COLLAPSE: collapse; HEIGHT: 100%
+}
+TR.TopRow {
+	
+}
+TR.MiddleRow {
+	WIDTH: 100%; HEIGHT: 100%
+}
+TR.FooterRow {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; HEIGHT: 25px; TEXT-ALIGN: center
+}
+TD.FooterTD {
+	BORDER-TOP: #666666 1px solid; FONT-SIZE: xx-small; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+.skipNavigation {
+	DISPLAY: none
+}
+TABLE.TopBannerTable {
+	PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 0px
+}
+TR.TopBannerRow {
+	BACKGROUND-COLOR: #a9a9a9
+}
+TD.TopBannerLeft {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 70%; PADDING-TOP: 0px; BORDER-BOTTOM: #666666 1px solid; BACKGROUND-COLOR: #cccccc
+}
+.TopBannerRight {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 1px; BORDER-TOP: medium none; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; BORDER-LEFT: medium none; WIDTH: 30%; COLOR: #000000; PADDING-TOP: 0px; BORDER-BOTTOM: #666666 1px solid; BACKGROUND-COLOR: #a9a9a9
+}
+.TopBannerSearch {
+	WIDTH: 100%
+}
+TR.TopMenuRow {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000000; BORDER-TOP-STYLE: none; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 25px; BACKGROUND-COLOR: #ffcc00; TEXT-ALIGN: center; BORDER-BOTTOM-STYLE: none
+}
+TD.TopMenuTD {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: #666666 1px solid; TEXT-ALIGN: left
+}
+TD.TopMenuDate {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: #666666 1px solid; TEXT-ALIGN: right
+}
+.TopMenuItem {
+	COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffcc00; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.TopMenuItem A {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc00
+}
+A.TopMenuItem:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #ffcc00; TEXT-DECORATION: underline
+}
+TD.LeftMenu {
+	VERTICAL-ALIGN: top; WIDTH: 20%; COLOR: #000000; BACKGROUND-COLOR: #cccccc
+}
+TABLE.LeftMenuTable {
+	CLEAR: none; WIDTH: 100%; COLOR: #000000; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: #cccccc; BORDER-BOTTOM-STYLE: none
+}
+TD.LeftMenuItem {
+	PADDING-RIGHT: 10px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FONT-SIZE: xx-small; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; BORDER-BOTTOM: #666666 1px solid; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none
+}
+A.leftmenuitemlink:link {
+	COLOR: #000000; BACKGROUND-COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.leftmenuitemlink:visited {
+	COLOR: #000000; BACKGROUND-COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.leftmenuitemlink:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: #cccccc; TEXT-DECORATION: underline
+}
+.LeftMenuItemHeading {
+	FONT-WEIGHT: bold
+}
+.LeftMenuItemSubsList {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.LeftMenuItemSubs {
+	FONT-WEIGHT: normal; MARGIN: 0px
+}
+TD.PlanningLeftMenu {
+	VERTICAL-ALIGN: top; WIDTH: 10%; COLOR: #000000; BACKGROUND-COLOR: #cccccc
+}
+.RightHandColumn {
+	FONT-SIZE: x-small; VERTICAL-ALIGN: top; WIDTH: 30%; BORDER-COLLAPSE: collapse
+}
+.RightHandText {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-TOP: 5px
+}
+.WhiteBG {
+	PADDING-LEFT: 0.5em; COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+.DarkGreyBG {
+	PADDING-LEFT: 0.5em; COLOR: #ffffff; BACKGROUND-COLOR: #999999
+}
+.LightGreyBG {
+	PADDING-LEFT: 0.5em; COLOR: #ffffff; BACKGROUND-COLOR: #cccccc
+}
+TD.NewsSummaryAdditionalInfo {
+	PADDING-LEFT: 5px; VERTICAL-ALIGN: top; WIDTH: 30%; PADDING-TOP: 5px
+}
+TD.SummaryAdditionalInfo {
+	PADDING-LEFT: 5px; VERTICAL-ALIGN: top; WIDTH: 30%; PADDING-TOP: 5px
+}
+TD.WhatsNewAdditonalInfo {
+	PADDING-LEFT: 5px; VERTICAL-ALIGN: top; WIDTH: 30%; PADDING-TOP: 5px
+}
+.Summary {
+	MARGIN-BOTTOM: 2em; FONT-STYLE: italic
+}
+.ContentArea_Planning {
+	VERTICAL-ALIGN: top; WIDTH: 50%
+}
+.ContentArea_NoPadding {
+	BORDER-RIGHT: #666666 1px solid; VERTICAL-ALIGN: top; BORDER-LEFT: #666666 1px solid; WIDTH: 50%
+}
+.ContentArea_Wide {
+	BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 8px; PADDING-LEFT: 8px; VERTICAL-ALIGN: top; BORDER-LEFT: #666666 1px solid; WIDTH: 80%; PADDING-TOP: 8px
+}
+.ContentArea_STD {
+	BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 8px; PADDING-LEFT: 8px; VERTICAL-ALIGN: top; BORDER-LEFT: #666666 1px solid; WIDTH: 50%; PADDING-TOP: 8px
+}
+.HeadLineTitle {
+	CLEAR: both; PADDING-RIGHT: 4px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: small; PADDING-BOTTOM: 4px; COLOR: #000000; PADDING-TOP: 4px; HEIGHT: 30px; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: none
+}
+.HeadLineTitle A {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: none
+}
+.HeadLineTitle A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: underline
+}
+.HeadLineTitle A:link {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9
+}
+.HeadlineText {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 3.5mm; FONT-SIZE: x-small; PADDING-BOTTOM: 2px; COLOR: #000000; PADDING-TOP: 2px; BACKGROUND-COLOR: #ffffff
+}
+TD.HeadLineImageTD {
+	VERTICAL-ALIGN: top
+}
+TD.HeadLinesTD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 1px
+}
+.NewsSummaryItemEndLine {
+	CLEAR: both; BORDER-BOTTOM: #666666 1px solid
+}
+.NewsSummaryItemTitle {
+	CLEAR: both; PADDING-RIGHT: 4px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; COLOR: #000000; PADDING-TOP: 4px; HEIGHT: 26px; BACKGROUND-COLOR: #a9a9a9
+}
+.NewsSummaryItemTitle A {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: none
+}
+.NewsSummaryItemTitle A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: underline
+}
+.NewsSummaryItemTitle A:link {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9
+}
+.NewsSummaryItemThumb {
+	PADDING-RIGHT: 8px; FLOAT: left
+}
+.NewsSummaryItemText {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 3mm; FONT-SIZE: x-small; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+.NewsItemImage {
+	
+}
+.SummaryBody {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; PADDING-TOP: 2px
+}
+.SummaryBodyNews {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 8px; PADDING-BOTTOM: 0px; PADDING-TOP: 8px
+}
+.SummaryHeading {
+	MARGIN-TOP: 0px; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; PADDING-TOP: 0px
+}
+.SummaryItemTitle {
+	PADDING-RIGHT: 0.5em; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 0.5em; FONT-WEIGHT: bold; PADDING-BOTTOM: 0.5em; COLOR: #000000; PADDING-TOP: 0.5em; BORDER-BOTTOM: #666666 1px solid; BACKGROUND-COLOR: #a9a9a9
+}
+.SummaryItemTitle A {
+	TEXT-DECORATION: none
+}
+.SummaryItemTitle A:link {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc00
+}
+.SummaryItemTitle A:visited {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc00
+}
+.SummaryItemText {
+	PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 1em; PADDING-TOP: 0.5em
+}
+.SimpleList {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 20px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.SimpleListItem {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0.3em; MARGIN-LEFT: 0px; PADDING-TOP: 0px
+}
+DIV.SearchText {
+	COLOR: #ffffff; BACKGROUND-COLOR: #a9a9a9
+}
+.AdvancedSearchText {
+	COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: none
+}
+.AdvancedSearchText A {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: none
+}
+A.AdvancedSearchLink:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #a9a9a9; TEXT-DECORATION: underline
+}
+.SearchOptionsTB {
+	
+}
+.BreadCrumbs {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: xx-small; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.CssConfirmMessage {
+	BORDER-RIGHT: #666666 outset; BORDER-TOP: 0px; FONT-SIZE: x-small; LEFT: 5cm; BORDER-LEFT: 0px; WIDTH: 320px; COLOR: #000000; BORDER-BOTTOM: #666666 outset; POSITION: absolute; TOP: 6cm; HEIGHT: 42px; BACKGROUND-COLOR: #99ffff; TEXT-ALIGN: left
+}
+.formButton {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 80%; BORDER-LEFT: #666666 1px solid; WIDTH: 30px; CURSOR: auto; BORDER-BOTTOM: #666666 1px solid
+}
+.formElement {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #666666 1px solid
+}
+.pushButtonStyle {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #0000ff
+}
+TD.AZCells {
+	WIDTH: 30px
+}
+.AZBtn {
+	WIDTH: 28px; HEIGHT: 28px
+}
+TABLE.DetailTable {
+	WIDTH: 570px; HEIGHT: 844px
+}
+.DetailTableTD {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 5px; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: 0px; BORDER-COLLAPSE: collapse
+}
+.DetailTableTDBottom {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 5px; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid; BORDER-COLLAPSE: collapse
+}
+.DetailTableTH {
+	BORDER-RIGHT: 0px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 5px; BORDER-LEFT: #c0c0c0 1px solid; WIDTH: 30%; BORDER-BOTTOM: 0px; BORDER-COLLAPSE: collapse; TEXT-ALIGN: left
+}
+.DetailTableTHBottom {
+	BORDER-RIGHT: 0px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 5px; BORDER-LEFT: #c0c0c0 1px solid; WIDTH: 30%; BORDER-BOTTOM: #c0c0c0 1px solid; BORDER-COLLAPSE: collapse; TEXT-ALIGN: left
+}
+.DiversityPH {
+	VERTICAL-ALIGN: top
+}
+TABLE.LanguageTB {
+	CLEAR: both; BORDER-RIGHT: 0px; WIDTH: 100%; BORDER-COLLAPSE: collapse
+}
+.LanguageTD {
+	BORDER-RIGHT: #dcdcdc 1px solid; BORDER-TOP: #dcdcdc 1px solid; BORDER-LEFT: #dcdcdc 1px solid; BORDER-BOTTOM: #a9a9a9 1px solid; BORDER-COLLAPSE: collapse
+}
+.DirectPanel {
+	VERTICAL-ALIGN: top; BORDER-COLLAPSE: collapse
+}
+.TopLink {
+	PADDING-BOTTOM: 10px; PADDING-TOP: 10px; TEXT-ALIGN: center
+}
+.TopLinkNew {
+	PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; TEXT-ALIGN: center
+}
+.DirectTab {
+	VERTICAL-ALIGN: top
+}
+.KeyLinksTD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: xx-small; VERTICAL-ALIGN: top; PADDING-TOP: 3px; BORDER-BOTTOM: gray 1px solid
+}
+.KeyLinksImages {
+	VERTICAL-ALIGN: top; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid
+}
+.DirectTD {
+	PADDING-LEFT: 5px; FONT-SIZE: xx-small; VERTICAL-ALIGN: top; COLOR: #000000; BORDER-BOTTOM: gray 1px solid; BACKGROUND-COLOR: #dcdcdc
+}
+.DirectTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: xx-small; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #dcdcdc; TEXT-DECORATION: none
+}
+.DirectTD A:hover {
+	TEXT-DECORATION: underline
+}
+.DirectHousingTD {
+	PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; COLOR: #000000; PADDING-TOP: 11px; BORDER-BOTTOM: #a9a9a9 1px solid; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+.DirectHousingTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: x-small; VERTICAL-ALIGN: top; COLOR: #000000; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.DirectHousingTD A:hover {
+	TEXT-DECORATION: underline
+}
+.DirectJobsTD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 5px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-COLOR: #7a4a56
+}
+.DirectJobsTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: 16pt; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; BACKGROUND-COLOR: #7a4a56; TEXT-DECORATION: none
+}
+.DirectJobsTD A:hover {
+	TEXT-DECORATION: underline
+}
+.DirectVisitingTD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 5px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-COLOR: #5f9d52
+}
+.DirectVisitingTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: 16pt; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; BACKGROUND-COLOR: #5f9d52; TEXT-DECORATION: none
+}
+.DirectVisitingTD A:hover {
+	TEXT-DECORATION: underline
+}
+.DirectPayTD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 5px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-COLOR: #bd5355
+}
+.DirectPayTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: 16pt; VERTICAL-ALIGN: top; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; BACKGROUND-COLOR: #bd5355; TEXT-DECORATION: none
+}
+.DirectPayTD A:hover {
+	TEXT-DECORATION: underline
+}
+.DirectConsultTD {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 5px; COLOR: #ffffff; PADDING-TOP: 5px; BACKGROUND-COLOR: #b87c3d
+}
+.DirectConsultTD A {
+	FONT-WEIGHT: normal; FONT-SIZE: 16pt; VERTICAL-ALIGN: top; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; BACKGROUND-COLOR: #b87c3d; TEXT-DECORATION: none
+}
+.DirectConsultTD A:hover {
+	TEXT-DECORATION: underline
+}
+.UseFulServices {
+	BORDER-RIGHT: #a9a9a9 1px solid; BORDER-TOP: #a9a9a9 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: normal; PADDING-BOTTOM: 2px; BORDER-LEFT: #a9a9a9 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #a9a9a9 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffcc33; TEXT-DECORATION: none
+}
+.OtherUseFulServices {
+	BORDER-RIGHT: #a9a9a9 1px solid; BORDER-TOP: #a9a9a9 1px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; PADDING-BOTTOM: 2px; BORDER-LEFT: #a9a9a9 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #a9a9a9 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffcc33; TEXT-DECORATION: none
+}
+.UsefulLinks {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: x-small; PADDING-BOTTOM: 5px; COLOR: #000000; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #669acc
+}
+.UsefulLinks A {
+	FONT-WEIGHT: normal; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #669acc; TEXT-DECORATION: none
+}
+.UsefulLinks A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #669acc; TEXT-DECORATION: underline
+}
+.UsefulLinks A:link {
+	COLOR: #000000; BACKGROUND-COLOR: #669acc
+}
+.UsefulLinksList {
+	MARGIN-TOP: 2px; MARGIN-LEFT: 20px; LIST-STYLE-TYPE: disc
+}
+TABLE.AvailableSubscriptions {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+.AvailableSubscriptionsHeader {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc00; TEXT-ALIGN: left
+}
+DT {
+	MARGIN-TOP: 0.25em; FONT-WEIGHT: bold; MARGIN-BOTTOM: 0.25em
+}
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.AlignRight {
+	TEXT-ALIGN: right
+}
+.AlignLeft {
+	TEXT-ALIGN: left
+}
+.AlignCenter {
+	TEXT-ALIGN: center
+}
+.PSSummary {
+	MARGIN-BOTTOM: 2em; WIDTH: 100%; HEIGHT: 10%
+}
+.PSInvisible {
+	VISIBILITY: hidden
+}
