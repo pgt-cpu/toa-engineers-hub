@@ -1,0 +1,42 @@
+Good afternoon to you all
+
+Please, kindly read on Data Compression from the book ”Elements of Information Theory” by Thomas M. Cover.
+
+It can be found at Page 103.
+
+A word to the wise is enough
+
+Thank you
+
+**********************************************************************************************************
+Fundamentals of Information Theory
+
+Example 2.2, page 57
+
+Kindly learn/know how to solve such a question
+
+A word to the wise…
+
+*********************************************************************************************************
+
+Consider a binary symmetric channel with error probability p that any bit may be flipped. Two possible error-correcting 
+coding schemes are available.
+Without any error-correcting coding scheme in place, state all the conditions that would maximise the channel capacity. 
+Include conditions on the error probability p and also on the probability distribution of the binary source input symbols.
+
+********************************************************************************************************
+
+Suppose that ravens are black with probability 0.6, that they are male with probability
+0.5 and female with probability 0.5, but that male ravens are 3 times more likely to be black
+than are female ravens.
+
+If you see a non-black raven, what is the probability that it is male?
+
+How many bits worth of information are contained in a report that a non-black raven is
+male?
+
+Rank-order for this problem, from greatest to least, the following uncertainties:
+(i) uncertainty about colour;
+(ii) uncertainty about gender;
+(iii) uncertainty about colour, given only that a raven is male;
+(iv) uncertainty about gender, given only that a raven is non-black.
