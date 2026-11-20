@@ -1,0 +1,23 @@
+{
+  "_help": "Put this file in your project folder, next to resources.json. Then run:  node hub-sync.mjs fix --dry-run   (preview)  and  node hub-sync.mjs fix   (do it). The same rules are used every time you add new files.",
+
+  "spelling": {
+    "Wrongword": "Rightword"
+  },
+
+  "remove": [
+    "*copy of*",
+    "*draft*"
+  ],
+
+  "place": [
+    {
+      "match": "*type part of the file or folder name here*",
+      "programme": "Aerospace",
+      "year": 1,
+      "semester": 1,
+      "type": "Study materials",
+      "course": "AE 151 Introduction to Aerospace"
+    }
+  ]
+}
