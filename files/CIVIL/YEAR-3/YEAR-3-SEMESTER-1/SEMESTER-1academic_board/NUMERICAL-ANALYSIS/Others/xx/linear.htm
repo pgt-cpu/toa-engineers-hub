@@ -1,0 +1,605 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: linear</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#Z_7">Linear equations </a></center>
+</h1>
+<h1><a name="L_1_Linear_equations">Contents Summary</a></h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300357">4</a><a name="Z_7">. </a><a name="S_Linear_Equations">Linear
+equations</a></h1>
+<p>
+<font size="2">Solving equation of the form </font><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><font color="#000080" size="2">&nbsp;<i>=</i>&nbsp;<i><b>r</b></i></font><font size="2">
+is central to many numerical algorithms. There are a number of
+methods which may be used, some algebraically correct, while others
+iterative in nature and providing only approximate solutions.
+Which is <i>best</i> will depend on the structure of </font><b><font color="#000080" size="2">A</font></b><font size="2">,
+the context in which it is to be solved and the size compared
+with the available computer resources.</font>
+</p><h2><a name="_Toc412300358">4</a><a name="L_2_Gauss_elimination">.1</a><a name="S_Gauss_Elimination">
+Gauss elimination</a></h2>
+<p>
+<font size="2">This is what you would probably do if you were computing
+the solution of a non-trivial system by hand. For the system</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="linear_files/index0033.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Linear_System">27)</a></td></tr>
+</tbody></table>
+</p><p>
+we first divide the first row by <i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">11</font></sub><font size="2">
+and then subtract </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">21</font></sub><font size="2">
+times the new first row from the second row, </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">31</font></sub><font size="2">
+times the new first row from the third row &#8230; and </font><i><font color="#000080" size="2">a</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+times the new first row from the </font><i><font color="#000080" size="2">n</font></i><font size="2">th
+row. This gives</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="linear_files/index0034.gif"><font size="2">.</font></center>
+</td><td width="33">(<a name="E_First_step_of_Gauss_elimination">28)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+By repeating this process for rows <font color="#000080" size="2">3</font><font size="2">
+to </font><i><font color="#000080" size="2">n</font></i><font size="2">,
+this time using the new contents of element 2,2, we gradually
+replace the region below the leading diagonal with zeros. Once
+we have</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0035.gif"></center>
+</td><td width="0">(<a name="E_Upper_triangular_from_Gauss_eliminatio">)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+the final solution may be obtained by back substitution.
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0036.gif"></center>
+</td><td width="0">(<a name="E_Back_substitution_for_Gauss_eliminatio">30)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+If the arithmetic is exact, and the matrix <b><font color="#000080" size="2">A</font></b><font size="2">
+is not singular, then the answer computed in this manner will
+be exact (provided no zeros appear on the diagonal - see below).
+However, as computer arithmetic is not exact, there will be some
+truncation and rounding error in the answer. The cumulative effect
+of this error may be very significant if the loss of precision
+is at an early stage in the computation. In particular, if a numerically
+<i>small</i> number appears on the diagonal of the row, then its
+use in the elimination of subsequent rows may lead to differences
+being computed between very large and very small values with a
+consequential loss of precision. For example, if </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">22</font></sub><font color="#000080" size="2">-(<i>a</i></font><sub><font color="#008080" size="2">21</font></sub><font color="#000080" size="2">/<i>a</i></font><sub><font color="#008080" size="2">11</font></sub><font color="#000080" size="2">)<i>a</i></font><sub><font color="#008080" size="2">12</font></sub><font size="2">
+were very small, 10<sup>-6</sup>, say, and both </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">23</font></sub><font color="#000080" size="2">-(<i>a</i></font><sub><font color="#008080" size="2">21</font></sub><font color="#000080" size="2">/<i>a</i></font><sub><font color="#008080" size="2">11</font></sub><font color="#000080" size="2">)<i>a</i></font><sub><font color="#008080" size="2">13</font></sub><font size="2">
+and </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">33</font></sub><font color="#000080" size="2">-(<i>a</i></font><sub><font color="#008080" size="2">31</font></sub><font color="#000080" size="2">/<i>a</i></font><sub><font color="#008080" size="2">11</font></sub><font color="#000080" size="2">)<i>a</i></font><sub><font color="#008080" size="2">13</font></sub><font size="2">
+were 1, say, then at the next stage of the computation the 3,3
+element would involve calculating the difference between 1/10<sup>-6</sup>=10<sup>6</sup>
+and 1. If single precision arithmetic (representing real values
+using approximately six significant digits) were being used, the
+result would be simply 1.0 and subsequent calculations would be
+unaware of the contribution of </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">23</font></sub><font size="2">
+to the solution. A more extreme case which may often occur is
+if, for example, </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">22</font></sub><font color="#000080" size="2">-(<i>a</i></font><sub><font color="#008080" size="2">21</font></sub><font color="#000080" size="2">/<i>a</i></font><sub><font color="#008080" size="2">11</font></sub><font color="#000080" size="2">)<i>a</i></font><sub><font color="#008080" size="2">12</font></sub><font size="2">
+is zero - unless something is done it will not be possible to
+proceed with the computation!</font>
+</p><p>
+<font size="2">A zero value occuring on the leading diagonal does
+not mean the matrix is singular. Consider, for example, the system
+<br>
+</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><a name="_Toc348772025"><img src="linear_files/index0037.gif"><font size="2">,</font></a></center>
+</td><td width="0">(<a name="E_Matrix_with_zero_on_diagonal">31)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+</p><p>
+the solution of which is obviously <i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;x</i></font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;x</i></font><sub><font color="#008080" size="2">3</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>1</font><font size="2">.
+However, if we were to apply the Gauss Elimination outlined above,
+we would need to divide through by </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">11</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>0</font><font size="2">.
+Clearly this leads to difficulties!</font>
+</p><h2><a name="_Toc412300359">4</a><a name="L_2_Pivoting">.2</a><a name="S_Pivoting">
+Pivoting</a></h2>
+<p>
+<font size="2">One of the ways around this problem is to ensure
+that small values (especially zeros) do not appear on the diagonal
+and, if they do, to remove them by rearranging the matrix and
+vectors. In the example given in ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#E_Matrix_with_zero_on_diagonal">31 </a>)
+we could simply interchange rows one and two to produce</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0038.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Matrix_with_zero_removed_from_diagonal">32)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+or columns one and two to give
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0039.gif">,</center>
+</td><td width="0">(<a name="E_Matrix_with_zero_removed_by_column_int">33)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+either of which may then be solved using standard Guass Elimination.
+</p><p>
+More generally, suppose at some stage during a calculation we
+have
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0040.gif"></center>
+</td><td width="0">(<a name="E_Matrix_with_small_value_on_diagonal">34)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where the element 2,5 (201) is numerically the largest value in
+the second row and the element 6,2 (155) the numerically largest
+value in the second column. As discussed above, the very small
+10<sup>-6</sup> value for element 2,2 is likely to cause problems.
+(In an extreme case we might even have the value 0 appearing on
+the diagonal - clearly something <b>must</b> be done to avoid
+a <i>divide by zero</i> error occurring!) To remove this problem
+we may again rearrange the rows and/or columns to bring a larger
+value into the 2,2 element.
+</p><h3><a name="_Toc412300360">4</a><a name="L_3_Partial_pivoting">.2</a><a name="S_Partial_Pivoting">.1
+Partial pivoting</a></h3>
+<p>
+<font size="2">In partial or column pivoting, we rearrange the rows
+of the matrix and the right-hand side to bring the numerically
+largest value in the column onto the diagonal. For our example
+matrix the largest value is in element 6,2 and so we simply swap
+rows 2 and 6 to give</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0041.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Matrix_after_partial_pivoting">35)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Note that our variables remain in the same order which simplifies
+the implementation of this procedure. The right-hand side vector,
+however, has been rearranged. Partial pivoting may be implemented
+for every step of the solution process, or only when the diagonal
+values are sufficiently small as to potentially cause a problem.
+Pivoting for every step will lead to smaller errors being introduced
+through numerical inaccuracies, but the continual reordering will
+slow down the calculation.
+</p><h3><a name="_Toc412300361">4</a><a name="L_3_Full_pivoting">.2</a><a name="S_Full_Pivoting">.2
+Full pivoting</a></h3>
+<p>
+<font size="2">The philosophy behind full pivoting is much the same
+as that behind partial pivoting. The main difference is that the
+numerically largest value in the column <i>or</i> row containing
+the value to be replaced. In our example above element the magnitude
+of element 2,5 (201) is the greatest in either row 2 or column
+2 so we shall rearrange the columns to bring this element onto
+the diagonal. This will also entail a rearrangement of the solution
+vector </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.
+The rearranged system becomes</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0042.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Full_pivoting">36)</a></td></tr>
+</tbody></table>
+</p><p>
+The ultimate degree of accuracy can be provided by rearranging
+both rows and columns so that the numerically largest value in
+the submatrix not yet processed is brought onto the diagonal.
+In our example above, the largest value is 6003 occurring at position
+4,6 in the matrix. We may bring this onto the diagonal for the
+next step by interchanging columns one and six <b>and</b> rows
+two and four. The order in which we do this is unimportant. The
+final result is
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="linear_files/index0043.gif">.</center>
+</td><td width="33">(<a name="E_Ultimate_pivoting">37)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+Again this process may be undertaken for every step, or only when
+the value on the diagonal is considered <i>too small</i> relative
+to the other values in the matrix.
+</p><p>
+If it is not possible to rearrange the columns or rows to remove
+a zero from the diagonal, then the matrix <b><font color="#000080" size="2">A</font></b><font size="2">
+is singular and no solution exists.</font>
+</p><h2><a name="_Toc412300362">4</a><a name="L_2_LU_factorisation">.3</a><a name="S_LU_Factorisation">
+LU factorisation</a></h2>
+<p>
+<font size="2">A frequently used form of Gauss Elimination is LU
+Factorisation also known as LU Decomposition or Crout Factorisation.
+The basic idea is to find two matrices </font><b><font color="#000080" size="2">L</font></b><font size="2">
+and </font><b><font color="#000080" size="2">U</font></b><font size="2">
+such that </font><b><font color="#000080" size="2">LU</font></b><font color="#000080" size="2">&nbsp;=&nbsp;<b>A</b></font><font size="2">,
+where </font><b><font color="#000080" size="2">L</font></b><font size="2">
+is a lower triangular matrix (zero above the leading diagonal)
+and </font><b><font color="#000080" size="2">U</font></b><font size="2">
+is an upper triangular matrix (zero below the diagonal). Note
+that this decomposition is underspecified in that we may choose
+the relative scale of the two matrices arbitrarily. By convention,
+the </font><b><font color="#000080" size="2">L</font></b><font size="2">
+matrix is scaled to have a leading diagonal of unit values. Once
+we have computed </font><b><font color="#000080" size="2">L</font></b><font size="2">
+and </font><b><font color="#000080" size="2">U</font></b><font size="2">
+we need solve only </font><b><font color="#000080" size="2">L<i><b>y</b></i></font></b><i><font color="#000080" size="2">=<i><b>b</b></i></font></i><font size="2">
+then </font><b><font color="#000080" size="2">U<i><b>x</b></i></font></b><i><font color="#000080" size="2">=<i><b>y</b></i></font></i><font size="2">,
+a procedure requiring </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">
+operations compared with </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">
+operations for the full Gauss elimination. While the factorisation
+process requires </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">
+operations, this need be done only once whereas we may wish to
+solve </font><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><i><font color="#000080" size="2">=<i><b>b</b></i></font></i><font size="2">
+for with whole range of </font><i><b><font color="#000080" size="2">b</font></b></i><font size="2">.</font>
+</p><p>
+<font size="2">Since we have decided the diagonal elements </font><i><font color="#000080" size="2">l</font><sub><font color="#008080" size="2">ii</font></sub></i><font size="2">
+in the lower triangular matrix will always be unity, it is not
+necessary for us to store these elements and so the matrices </font><b><font color="#000080" size="2">L</font></b><font size="2">
+and </font><b><font color="#000080" size="2">U</font></b><font size="2">
+can be stored together in an array the same size as that used
+for </font><b><font color="#000080" size="2">A</font></b><font size="2">.
+Indeed, in most implementations the factorisation will simply
+overwrite </font><b><font color="#000080" size="2">A</font></b><font size="2">.</font>
+</p><p>
+<font size="2">The basic decomposition algorithm for overwriting
+</font><b><font color="#000080" size="2">A</font></b><font size="2">
+with </font><b><font color="#000080" size="2">L</font></b><font size="2">
+and </font><b><font color="#000080" size="2">U</font></b><font size="2">
+may be expressed as</font>
+</p><p>
+<table border="1">
+<tbody><tr><td bgcolor="#00ffff" width="605">
+<pre><font color="#008000" size="2"># Factorisation
+FOR </font><i><font color="#000080" face="Courier New" size="2">i</font></i><font color="#000080" face="Courier New" size="2">=1</font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n
+</font></i><font color="#008000" face="Courier New" size="2">  FOR </font><i><font color="#000080" face="Courier New" size="2">p</font></i><font color="#000080" face="Courier New" size="2">=<i>i</i></font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n
+</font></i><font color="#008000" face="Courier New" size="2">    <img src="linear_files/index0044.gif">
+  NEXT </font><i><font color="#000080" face="Courier New" size="2">p
+</font></i><font color="#008000" face="Courier New" size="2">  FOR </font><i><font color="#000080" face="Courier New" size="2">q=i+</font></i><font color="#000080" face="Courier New" size="2">1</font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n
+</font></i><font color="#008000" face="Courier New" size="2">    <img src="linear_files/index0045.gif">
+  NEXT </font><i><font color="#000080" face="Courier New" size="2">q
+</font></i><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+</font></i><font color="#008000" face="Courier New" size="2"># Forward Substitution
+FOR </font><i><font color="#000080" face="Courier New" size="2">i</font></i><font color="#000080" face="Courier New" size="2">=1</font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n
+</font></i><font color="#008000" face="Courier New" size="2">  FOR </font><i><font color="#000080" face="Courier New" size="2">q=n+</font></i><font color="#008000" face="Courier New" size="2">1 TO </font><i><font color="#000080" face="Courier New" size="2">n</font></i><font color="#000080" face="Courier New" size="2">+<i>m
+</i></font><font color="#008000" face="Courier New" size="2">    <img src="linear_files/index0046.gif">
+  NEXT </font><i><font color="#000080" face="Courier New" size="2">q
+</font></i><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+</font></i><font color="#008000" face="Courier New" size="2"># Back Substitution
+FOR </font><i><font color="#000080" face="Courier New" size="2">i=n-</font></i><font color="#000080" face="Courier New" size="2">1</font><font color="#008000" face="Courier New" size="2"> TO </font><font color="#000080" face="Courier New" size="2">1
+</font><font color="#008000" face="Courier New" size="2">  FOR </font><i><font color="#000080" face="Courier New" size="2">q=n</font></i><font color="#000080" face="Courier New" size="2">+1</font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n</font></i><font color="#000080" face="Courier New" size="2">+<i>m
+</i></font><font color="#008000" face="Courier New" size="2">    <img src="linear_files/index0047.gif">
+  NEXT </font><i><font color="#000080" face="Courier New" size="2">q
+</font></i><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+
+</font></i>
+</pre>
+
+</td></tr>
+</tbody></table>
+</p><p>
+This algorithm assumes the right-hand side(s) are initially stored
+in the same array structure as the matrix and are positioned in
+the column(s) <i><font color="#000080" size="2">n+</font></i><font color="#000080" size="2">1</font><font size="2">
+(to </font><i><font color="#000080" size="2">n+m</font></i><font size="2">
+for </font><i><font color="#000080" size="2">m</font></i><font size="2">
+right-hand sides). To improve the efficiency of the computation
+for right-hand sides known in advance, the forward substitution
+loop may be incorporated into the factorisation loop.</font>
+</p><p>
+<font size="2">Figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure10.htm#F_LU_Factorisation">10 </a>indicates
+how the LU Factorisation process works. We want to find vectors
+</font><i><b><font color="#000080" size="2">l</font></b><sub><font color="#008080" size="2">i</font></sub></i><sup><font color="#800080" size="2">T</font></sup><font size="2">
+and </font><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">
+such that </font><i><font color="#000080" size="2">a</font><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;<i><b>l</b></i></font><sub><font color="#008080" size="2">i</font></sub></i><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">.
+When we are at the stage of calculating the </font><i><font color="#000080" size="2">i</font></i><font size="2">th
+element of </font><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">,
+we will already have the </font><i><font color="#000080" size="2">i</font></i><font size="2">
+nonzero elements of </font><i><b><font color="#000080" size="2">l</font></b><sub><font color="#008080" size="2">i</font></sub></i><sup><font color="#800080" size="2">T</font></sup><font size="2">
+and the first </font><i><font color="#000080" size="2">i1</font></i><font size="2">
+elements of </font><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">.
+The </font><i><font color="#000080" size="2">ith</font></i><font size="2">
+element of </font><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">
+may therefore be chosen simply as </font><i><font color="#000080" size="2">u</font><sub><font color="#008080" size="2">j</font></sub></i><sub><font color="#008080" size="2">(</font>i)</sub><font color="#000080" size="2">&nbsp;=&nbsp;<i>a</i></font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+</font><i><b><font color="#000080" size="2">l</font></b><sub><font color="#008080" size="2">i</font></sub></i><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">u</font></b><sub><font color="#008080" size="2">j</font></sub></i><font size="2">where
+the dot-product is calculated assuming </font><i><font color="#000080" size="2">u</font><sub><font color="#008080" size="2">j</font></sub></i><sub><font color="#008080" size="2">(</font>i)</sub><font size="2">
+is zero.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure10.htm#FF_10">Click here for Figure 10 </a>
+</li></ul>
+<p>
+<font size="2">As with normal Gauss Elimination, the potential occurrence
+of small or zero values on the diagonal can cause computational
+difficulties. The solution is again pivoting - partial pivoting
+is normally all that is required. However, if the matrix is to
+be used in its factorised form, it will be essential to record
+the pivoting which has taken place. This may be achieved by simply
+recording the row interchanges for each </font><i><font color="#000080" size="2">i</font></i><font size="2">
+in the above algorithm and using the same row interchanges on
+the right-hand side when using </font><b><font color="#000080" size="2">L</font></b><font size="2">
+in subsequent forward substitutions.</font>
+</p><h2><a name="_Toc412300363">4</a><a name="L_2_Banded_matrices">.4</a><a name="S_Banded_matrices">
+Banded matrices</a></h2>
+<p>
+<font size="2">The LU Factorisation may readily be modified to account
+for banded structure such that the only non-zero elements fall
+within some distance of the leading diagonal. For example, if
+elements outside the range </font><i><font color="#000080" size="2">a</font><sub><font color="#008080" size="2">i,i-b</font></sub></i><font size="2">
+to </font><i><font color="#000080" size="2">a</font><sub><font color="#008080" size="2">i,i+b</font></sub></i><font size="2">
+are all zero, then the summations in the LU Factorisation algorithm
+need be performed only from </font><i><font color="#000080" size="2">k=i</font></i><font size="2">
+or </font><i><font color="#000080" size="2">k=i+</font></i><font color="#000080" size="2">1</font><font size="2">
+to </font><i><font color="#000080" size="2">k=i+b</font></i><font size="2">.
+Moreover, the factorisation loop FOR </font><i><font color="#000080" size="2">q=i+</font></i><font color="#000080" size="2">1</font><font size="2">
+TO </font><i><font color="#000080" size="2">n</font></i><font size="2">
+can terminate at </font><i><font color="#000080" size="2">i+b</font></i><font size="2">
+instead of </font><i><font color="#000080" size="2">n</font></i><font size="2">.</font>
+</p><p>
+<font size="2">One problem with such banded structures can occur
+if a (near) zero turns up on the diagonal during the factorisation.
+Care must then be taken in any pivoting to try to maintain the
+banded structure. This may require, for example, pivoting on both
+the rows and columns as described in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#S_Full_Pivoting">4.2.2 </a>.</font>
+</p><p>
+<font size="2">Making use of the banded structure of a matrix can
+save substantially on the execution time and, if the matrix is
+stored intelligently, on the storage requirements. Software libraries
+such as NAG and IMSL provide a range of routines for solving such
+banded linear systems in a computationally and storage efficient
+manner.</font>
+</p><h2><a name="_Toc412300364">4</a><a name="L_2_Tridiagonal_matrices">.5</a><a name="S_Tridiagonal_Matrices">
+Tridiagonal matrices</a></h2>
+<p>
+<font size="2">A tridiagonal matrix is a special form of banded
+matrix where all the elements are zero except for those on and
+immediately above and below the leading diagonal (</font><i><font color="#000080" size="2">b=</font></i><font color="#000080" size="2">1</font><font size="2">).
+It is sometimes possible to rearrange the rows and columns of
+a matrix which does not initially have this structure in order
+to gain this structure and hence greatly simplify the solution
+process. As we shall see later in sections <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#S_First_Order_ODEs">6 </a>to<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#S_Partial_Differential_Equations">8 </a>,
+tridiagonal matrices frequently occur in numerical solution of
+differential equations.</font>
+</p><p>
+<font size="2">A tridiagonal system may be written as</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">a</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> + b</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2"> + c</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2"> = </font><i><font color="#000080" size="2">r</font><sub><font color="#008080" size="2">i</font></sub></i></center>
+</td><td width="57">(<a name="E_Tridiagonal_system">38)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+for <i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">=1,<i>&#8230;</i>,<i>n</i></font><font size="2">.
+Clearly </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+and </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+are not required and we set </font><i><font color="#000080" size="2">a</font></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">=<i>c</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">=0</font><font size="2">
+to reflect this. Solution, by analogy with the LU Factorisation,
+may be expressed as</font>
+</p><p>
+<table border="1">
+<tbody><tr><td bgcolor="#00ffff" width="605">
+<pre><a name="_Toc348772031"><font color="#008000" size="2"># Factorisation
+FOR </font></a><i><font color="#000080" face="Courier New" size="2">i</font></i><font color="#008000" face="Courier New" size="2">=1 TO </font><i><font color="#000080" face="Courier New" size="2">n
+  b</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> </font></i><font color="#000080" face="Courier New" size="2">=<i> b</i></font><i><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> - a</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2">c</font><sub><font color="#008080" face="Courier New" size="2">i-</font></sub></i><sub><font color="#008080" face="Courier New" size="2">1
+</font></sub><i><font color="#000080" face="Courier New" size="2">  c</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> </font></i><font color="#000080" face="Courier New" size="2">=<i> c</i></font><i><sub><font color="#008080" face="Courier New" size="2">i</font></sub></i><font color="#000080" face="Courier New" size="2">/<i>b</i></font><i><sub><font color="#008080" face="Courier New" size="2">i
+</font></sub></i><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+</font></i><font color="#008000" face="Courier New" size="2"># Forward Substitution
+FOR </font><i><font color="#000080" face="Courier New" size="2">i</font></i><font color="#000080" face="Courier New" size="2">=1</font><font color="#008000" face="Courier New" size="2"> TO </font><i><font color="#000080" face="Courier New" size="2">n
+  r</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> = </font></i><font color="#008000" face="Courier New" size="2">(</font><i><font color="#000080" face="Courier New" size="2">r</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> - a</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2">r</font><sub><font color="#008080" face="Courier New" size="2">i-</font></sub></i><sub><font color="#008080" face="Courier New" size="2">1</font></sub><font color="#000080" face="Courier New" size="2">)/<i>b</i></font><i><sub><font color="#008080" face="Courier New" size="2">i
+</font></sub></i><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+</font></i><font color="#008000" face="Courier New" size="2"># Back Substitution
+FOR </font><i><font color="#000080" face="Courier New" size="2">i=n-</font></i><font color="#000080" face="Courier New" size="2">1</font><font color="#008000" face="Courier New" size="2"> TO </font><font color="#000080" face="Courier New" size="2">1
+<i>  r</i></font><i><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> </font></i><font color="#000080" face="Courier New" size="2">=<i> r</i></font><i><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2"> - c</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub><font color="#000080" face="Courier New" size="2">r</font><sub><font color="#008080" face="Courier New" size="2">i</font></sub></i><sub><font color="#008080" face="Courier New" size="2">+1
+</font></sub><font color="#008000" face="Courier New" size="2">NEXT </font><i><font color="#000080" face="Courier New" size="2">i
+
+</font></i>
+</pre>
+
+</td></tr>
+</tbody></table>
+</p><h2><a name="_Toc412300365">4</a><a name="L_2_Other_approaches_to_solving_linear_s">.6</a><a name="S_Other_approaches_to_solving_linear_sys">
+Other approaches to solving linear systems</a></h2>
+<p>
+<font size="2">There are a number of other methods for solving general
+linear systems of equations including approximate iterative techniques.
+Many large matrices which need to be solved in practical situations
+have very special structures which allow solution - either exact
+or approximate - much faster than the general </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">
+solvers presented here. We shall return to this topic in section
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#S_Laplace">8.1 </a>where we shall discuss a
+system with a special structure resulting from the numerical solution
+of the Laplace equation.</font>
+</p><h2><a name="_Toc412300366">4</a><a name="L_2_Over_determined_systems_">.7</a><a name="S_Over_Determined_Systems">
+Over determined systems</a><sup>*</sup></h2>
+<p>
+<font size="2">If the matrix </font><b><font color="#000080" size="2">A</font></b><font size="2">
+contains </font><i><font color="#000080" size="2">m</font></i><font size="2">
+rows and </font><i><font color="#000080" size="2">n</font></i><font size="2">
+columns, with </font><i><font color="#000080" size="2">m&nbsp;</font></i><font color="#000080" size="2">&gt;&nbsp;<i>n</i></font><font size="2">,
+the system is probably over-determined (unless there are </font><i><font color="#000080" size="2">m-n</font></i><font size="2">
+redundant rows). While the <i>solution</i> to </font><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><font color="#000080" size="2">&nbsp;=&nbsp;<i><b>r</b></i></font><font size="2">
+will not exist in an algebraic sense, it can be valuable to determine
+the solution in an approximate sense. The <i>error</i> in this
+approximate solution is then </font><i><b><font color="#000080" size="2">e</font></b></i><font color="#000080" size="2">&nbsp;<i>=</i>&nbsp;<b>A<i>x</i></b><i>-<b>r</b></i></font><font size="2">.
+The approximate solution is chosen by optimising this error in
+some manner. Most useful among the classes of <i>solution</i>
+is the Least Squares solution. In this solution we minimise the
+<i>residual sum of squares</i>, which is simply </font><i><font color="#000080" size="2">rss=<i><b>e</b></i></font></i><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">e</font></b></i><font size="2">.
+Substituting for </font><i><b><font color="#000080" size="2">e</font></b></i><font size="2">
+we obtain</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">rss </font></i><font color="#000080" size="2">=<i> <b>e</b></i></font><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">e</font></b></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i> </i>[<i><b>x</b></i></font><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><font color="#000080" size="2"> <i><b>r</b></i></font><sup><font color="#800080" size="2">T</font></sup><font color="#000080" size="2">][<b>A<i>x</i></b> <i><b>r</b></i>]</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i><b> x</b></i></font><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">2<i><b>x</b></i></font><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">r</font></b><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> <b>r</b></i></font><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">r</font></b></i><b><font color="#000080" size="2">,</font></b></center>
+</td><td width="57">(<a name="E_Residual_sum_of_squares">39)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and setting <img src="linear_files/index0048.gif"> to zero gives
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="linear_files/index0049.gif">.</center>
+</td><td width="57">(<a name="E_Minimising_residual_sum_of_squares">40)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Thus, if we solve the <i><font color="#000080" size="2">m</font></i><font size="2">
+by </font><i><font color="#000080" size="2">m</font></i><font size="2">
+problem </font><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i><b>A</b></font><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">r</font></b></i><font size="2">,
+the solution vector </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">
+will give us the solution in a least squares sense.</font>
+</p><p>
+<b><font size="2">Warning:</font></b><font size="2"> The matrix </font><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A</font></b><font size="2">
+is often poorly conditioned (nearly singular) and can lead to
+significant errors in the resulting Least Squares solution due
+to rounding error. While these errors may be reduced using pivoting
+in combination with Gauss Elimination, it is generally better
+to solve the Least Squares problem using the Householder transformation,
+as this produces less rounding error, or better still by Singular
+Value Decomposition which will highlight any redundant or nearly
+redundant variables in </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.</font>
+</p><p>
+<font size="2">The Householder transformation avoids the poorly
+conditioned nature of </font><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">A</font></b><font size="2">
+by solving the problem directly without evaluating this matrix.
+Suppose </font><b><font color="#000080" size="2">Q</font></b><font size="2">
+is an orthogonal matrix such that</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><b><font color="#000080" size="2">Q</font></b><sup><font color="#800080" size="2">T</font></sup><b><font color="#000080" size="2">Q</font></b><font color="#000080" size="2">&nbsp;=&nbsp;<b>I</b></font><font size="2">,</font></center>
+</td><td width="33">(<a name="E_Orthogonal_matrix">41)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+where <b><font color="#000080" size="2">I</font></b><font size="2">
+is the identity matrix and </font><b><font color="#000080" size="2">Q</font></b><font size="2">
+is chosen to transform </font><b><font color="#000080" size="2">A</font></b><font size="2">
+into</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0050.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Householder_QA">42)</a></td></tr>
+</tbody></table>
+</p><p>
+where <b><font color="#000080" size="2">R</font></b><font size="2">
+is a square matrix of a size </font><i><font color="#000080" size="2">n</font></i><font size="2">
+and </font><b><font color="#000080" size="2">0</font></b><font size="2">
+is a zero matrix of size </font><i><font color="#000080" size="2">m</font></i><font color="#000080" size="2">­<i>n</i></font><font size="2">
+by </font><i><font color="#000080" size="2">n</font></i><font size="2">.
+The right-hand side of the system</font><b><font color="#000080" size="2">
+QA<i><b>x</b></i></font></b><i><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><b><font color="#000080" size="2">Q<i><b>r</b></i></font></b><font size="2">
+becomes</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0051.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Householder_Qr">43)</a></td></tr>
+</tbody></table>
+</p><p>
+where <b><font color="#000080" size="2">b</font></b><font size="2">
+is a vector of size </font><i><font color="#000080" size="2">n</font></i><font size="2">
+and </font><b><font color="#000080" size="2">c</font></b><font size="2">
+is a vector of size </font><i><font color="#000080" size="2">m</font></i><font color="#000080" size="2">­<i>n</i></font><font size="2">.</font>
+</p><p>
+<font size="2">Now the turning point (global minimum) in the residual
+sum of squares ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#E_Minimising_residual_sum_of_squares">40 </a>)
+occurs when</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="linear_files/index0052.gif"></center>
+</td><td width="0">(<a name="E_Householder_residual_sum_of_squares">44)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+vanishes. For a non-trivial solution, that occurs when
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><b><font color="#000080" size="2">R<i><b>x</b></i></font></b><font color="#000080" size="2">&nbsp;=&nbsp;<i><b>b</b></i></font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Householder_Rx_equals_b">45)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+This system may be solved to obtain the least squares solution
+<i><b><font color="#000080" size="2">x</font></b></i><font size="2">
+using any of the normal linear solvers discussed above.</font>
+</p><p>
+<font size="2">Further discussion of these methods is beyond the
+scope of this course.</font>
+</p><h2><a name="_Toc412300367">4</a><a name="L_2_Under_determined_systems_">.8</a><a name="S_Under_Determined_Systems">
+Under determined systems</a><sup>*</sup> </h2>
+<p>
+<font size="2">If the matrix </font><b><font color="#000080" size="2">A</font></b><font size="2">
+contains </font><i><font color="#000080" size="2">m</font></i><font size="2">
+rows and </font><i><font color="#000080" size="2">n</font></i><font size="2">
+columns, with </font><i><font color="#000080" size="2">m</font></i><font color="#000080" size="2">&nbsp;&gt;&nbsp;<i>n</i></font><font size="2">,
+the system is under determined. The <i>solution</i> maps out a
+</font><i><font color="#000080" size="2">n-m</font></i><font size="2">
+dimensional subregion in </font><i><font color="#000080" size="2">n</font></i><font size="2">
+dimensional space. Solution of such systems typically requires
+some form of <i>optimisation</i> in order to further constrain
+the solution vector.</font>
+</p><p>
+<font size="2">Linear programming represents one method for solving
+such systems. In Linear Programming, the solution is optimised
+such that the <i>objective function</i> </font><i><font color="#000080" size="2">z=<i><b>c</b></i></font></i><sup><font color="#800080" size="2">T</font></sup><i><b><font color="#000080" size="2">x</font></b></i><font size="2">
+is minimised. The "Linear" indicates that the underdetermined
+system of equations is linear and the objective function is linear
+in the solution variable </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.
+The "Programming" arose to enhance the chances of obtaining
+funding for research into this area when it was developing in
+the 1960s.<br>
+</font>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm">Goto next document (Integration) </a>
+</p><hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>

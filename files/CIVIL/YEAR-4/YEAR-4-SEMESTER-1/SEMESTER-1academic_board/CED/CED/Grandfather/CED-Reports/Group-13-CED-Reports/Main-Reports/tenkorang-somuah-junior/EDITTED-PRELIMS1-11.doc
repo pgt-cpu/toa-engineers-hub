@@ -1,0 +1,418 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f10\fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}
+{\f36\froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria{\*\falt Palatino Linotype};}{\f37\fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri{\*\falt Century Gothic};}{\f260\froman\fcharset238\fprq2 Times New Roman CE;}
+{\f261\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f263\froman\fcharset161\fprq2 Times New Roman Greek;}{\f264\froman\fcharset162\fprq2 Times New Roman Tur;}{\f265\froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\f266\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f267\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f268\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\f270\fswiss\fcharset238\fprq2 Arial CE;}
+{\f271\fswiss\fcharset204\fprq2 Arial Cyr;}{\f273\fswiss\fcharset161\fprq2 Arial Greek;}{\f274\fswiss\fcharset162\fprq2 Arial Tur;}{\f275\fswiss\fcharset177\fprq2 Arial (Hebrew);}{\f276\fswiss\fcharset178\fprq2 Arial (Arabic);}
+{\f277\fswiss\fcharset186\fprq2 Arial Baltic;}{\f278\fswiss\fcharset163\fprq2 Arial (Vietnamese);}{\f280\fmodern\fcharset238\fprq1 Courier New CE;}{\f281\fmodern\fcharset204\fprq1 Courier New Cyr;}{\f283\fmodern\fcharset161\fprq1 Courier New Greek;}
+{\f284\fmodern\fcharset162\fprq1 Courier New Tur;}{\f285\fmodern\fcharset177\fprq1 Courier New (Hebrew);}{\f286\fmodern\fcharset178\fprq1 Courier New (Arabic);}{\f287\fmodern\fcharset186\fprq1 Courier New Baltic;}
+{\f288\fmodern\fcharset163\fprq1 Courier New (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;
+\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 \styrsid12133299 Normal;}{
+\s1\ql \li0\ri0\sb240\sa60\keepn\widctlpar\aspalpha\aspnum\faauto\outlinelevel0\adjustright\rin0\lin0\itap0 \b\f1\fs32\lang1033\langfe1033\sub\kerning32\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \styrsid10179570 heading 1;}{\*\cs10 \additive 
+\ssemihidden Default Paragraph Font;}{\*\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv 
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}{\*\ts15\tsrowd\trbrdrt\brdrs\brdrw10 \trbrdrl\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 
+\trbrdrr\brdrs\brdrw10 \trbrdrh\brdrs\brdrw10 \trbrdrv\brdrs\brdrw10 \trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv 
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \sbasedon11 \snext15 \styrsid10179570 Table Grid;}{\s16\ql \li0\ri0\widctlpar
+\tqc\tx4320\tqr\tx8640\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext16 \styrsid3808189 footer;}{\*\cs17 \additive \sbasedon10 \styrsid3808189 page number;}{
+\s18\ql \li720\ri0\sa200\sl276\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0 \f37\fs22\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext18 \styrsid5242880 List Paragraph;}}
+{\*\latentstyles\lsdstimax156\lsdlockeddef0}{\*\listtable{\list\listtemplateid281314808{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'01\'00;}{\levelnumbers\'01;}\fbias0 \fi-360\li360
+\jclisttab\tx360\lin360 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'03\'00.\'01;}{\levelnumbers\'01\'03;}\loch\af0\hich\af0\dbch\af0 \fi-360\li360\jclisttab\tx360\lin360 }{\listlevel
+\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'05\'00.\'01.\'02;}{\levelnumbers\'01\'03\'05;}\fbias0 \fi-720\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\'07\'00.\'01.\'02.\'03;}{\levelnumbers\'01\'03\'05\'07;}\fbias0 \fi-720\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace0\levelindent0{\leveltext\'09\'00.\'01.\'02.\'03.\'04;}{\levelnumbers\'01\'03\'05\'07\'09;}\fbias0 \fi-1080\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\'0b\'00.\'01.\'02.\'03.\'04.\'05;}{\levelnumbers\'01\'03\'05\'07\'09\'0b;}\fbias0 \fi-1080\li1080\jclisttab\tx1080\lin1080 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'0d\'00.\'01.\'02.\'03.\'04.\'05.\'06;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d;}\fbias0 \fi-1440\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext
+\'0f\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f;}\fbias0 \fi-1440\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\'11\'00.\'01.\'02.\'03.\'04.\'05.\'06.\'07.\'08;}{\levelnumbers\'01\'03\'05\'07\'09\'0b\'0d\'0f\'11;}\fbias0 \fi-1800\li1800\jclisttab\tx1800\lin1800 }{\listname ;}\listid482434677}{\list\listtemplateid1940561552\listhybrid{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li7200
+\jclisttab\tx7200\lin7200 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li7920\jclisttab\tx7920\lin7920 }
+{\listname ;}\listid512493966}{\list\listtemplateid-422700952\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\fbias0 
+\fi-360\li720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2
+\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\fi-180\li2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0
+\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\fi-360\li2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713
+\'02\'04.;}{\levelnumbers\'01;}\fi-360\li3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\fi-180\li4320\lin4320 }
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\fi-360\li5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\fi-360\li5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0
+{\leveltext\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\fi-180\li6480\lin6480 }{\listname ;}\listid631642480}{\list\listtemplateid-92232622\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600
+\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1044479574}{\list\listtemplateid2018427434\listhybrid
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0
+{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li6120\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li6840
+\jclisttab\tx6840\lin6840 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li7560\jclisttab\tx7560\lin7560 }
+{\listname ;}\listid1379469883}{\list\listtemplateid40565462\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0
+{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid1572690943}{\list\listtemplateid1668218702\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360
+\levelindent0{\leveltext\leveltemplateid67698703\'02\'00.;}{\levelnumbers\'01;}\fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698715
+\'02\'02.;}{\levelnumbers\'01;}\fi-180\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}
+\fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\fi-360\li4320\jclisttab\tx4320\lin4320 }
+{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\fi-180\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc0\levelnfcn0\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\fi-360\li6480\jclisttab\tx6480\lin6480 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\fi-180\li7200\jclisttab\tx7200\lin7200 }{\listname ;}\listid1844932409}{\list\listtemplateid1820627086\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0
+{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li4320
+\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }
+{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23
+\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li7200\jclisttab\tx7200\lin7200 }{\listname ;}\listid1981300404}}{\*\listoverridetable
+{\listoverride\listid1044479574\listoverridecount0\ls1}{\listoverride\listid1572690943\listoverridecount0\ls2}{\listoverride\listid482434677\listoverridecount0\ls3}{\listoverride\listid631642480\listoverridecount0\ls4}{\listoverride\listid1844932409
+\listoverridecount0\ls5}{\listoverride\listid1981300404\listoverridecount0\ls6}{\listoverride\listid1379469883\listoverridecount0\ls7}{\listoverride\listid512493966\listoverridecount0\ls8}}{\*\pgptbl {\pgp\ipgp0\itap0\li0\ri0\sb0\sa0}}
+{\*\rsidtbl \rsid12003\rsid154305\rsid155888\rsid330581\rsid745627\rsid1248867\rsid1382769\rsid1523812\rsid1537786\rsid1538714\rsid1580377\rsid1652280\rsid1835894\rsid1841464\rsid1994071\rsid2121703\rsid2718854\rsid2905176\rsid3091345\rsid3166143
+\rsid3169247\rsid3294945\rsid3486541\rsid3702639\rsid3743007\rsid3808189\rsid3958178\rsid3959875\rsid4018195\rsid4083190\rsid4133903\rsid4152890\rsid4161190\rsid4273072\rsid4681791\rsid4865201\rsid4870402\rsid4922210\rsid5127264\rsid5133389\rsid5185877
+\rsid5192011\rsid5242880\rsid5269724\rsid5271325\rsid5701976\rsid5707894\rsid5769131\rsid5799526\rsid5863600\rsid5905514\rsid5965454\rsid5986007\rsid6033231\rsid6648942\rsid6886165\rsid6911412\rsid6965165\rsid7092076\rsid7301516\rsid7416509\rsid7499333
+\rsid7630578\rsid7749129\rsid8010869\rsid8344506\rsid8996930\rsid9650963\rsid9989295\rsid10179570\rsid10497655\rsid10509195\rsid10553261\rsid10764474\rsid10895480\rsid11101748\rsid11208067\rsid11471228\rsid11866270\rsid11959811\rsid12013383\rsid12133299
+\rsid12199814\rsid12207778\rsid12257372\rsid12268433\rsid12409604\rsid12807490\rsid13130847\rsid13245314\rsid13253780\rsid13319975\rsid13783182\rsid14120709\rsid14168814\rsid14239593\rsid14680336\rsid14687025\rsid14973482\rsid14974453\rsid15098499
+\rsid15222284\rsid15753012\rsid16057341\rsid16410299\rsid16452006\rsid16713209}{\*\generator Microsoft Word 11.0.5604;}{\info{\title CHAPTER ONE}{\author Yaw}{\operator  VELLI}{\creatim\yr2007\mo10\dy22\hr16\min9}{\revtim\yr2005\mo12\dy19\hr9\min43}
+{\version43}{\edmins232}{\nofpages11}{\nofwords1596}{\nofchars9102}{\*\company MOFEP}{\nofcharsws10677}{\vern24689}}\margl1260\margr1080\margt1260 
+\widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\formshade\horzdoc\dgmargin\dghspace180\dgvspace180\dghorigin1260\dgvorigin1260\dghshow1\dgvshow1
+\jexpand\viewkind1\viewscale100\pgbrdrhead\pgbrdrfoot\splytwnine\ftnlytwnine\htmautsp\nolnhtadjtbl\useltbaln\alntblind\lytcalctblwd\lyttblrtgr\lnbrkrule\nobrkwrptbl\snaptogridincell\allowfieldendsel\wrppunct
+\asianbrkrule\rsidroot12133299\newtblstyruls\nogrowautofit \fet0{\*\ftnsep \pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid3808189 \chftnsep 
+\par }}{\*\ftnsepc \pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid3808189 \chftnsepc 
+\par }}{\*\aftnsep \pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid3808189 \chftnsep 
+\par }}{\*\aftnsepc \pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid3808189 \chftnsepc 
+\par }}\sectd \linex0\endnhere\sectlinegrid360\sectdefaultcl\sectrsid2905176\sftnbj {\footer \pard\plain \s16\ql \li0\ri0\widctlpar\tqc\tx4320\tqr\tx8640\pvpara\phmrg\posxr\posy0\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid7092076 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\field{\*\fldinst {\cs17\insrsid3808189 PAGE  }}{\fldrslt {\cs17\lang1024\langfe1024\noproof\insrsid5905514 11}}}{\cs17\insrsid3808189 
+\par }\pard \s16\ql \li0\ri360\widctlpar\tqc\tx4320\tqr\tx8640\aspalpha\aspnum\faauto\adjustright\rin360\lin0\itap0\pararsid3808189 {\insrsid3808189 
+\par }}{\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}
+{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8
+\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid5799526 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\b\fs36\insrsid5799526 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs32\insrsid5799526\charrsid5799526 EXECUTIVE SUMMARY}{\b\fs32\insrsid5799526 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid10553261 {\insrsid16410299 
+\par }{\insrsid10553261 The project is based solely on the design of a structural steel support member. The choice of either a Braithwaite water tank or glass reinforced plastic tank is to be made on the basis of economics.
+\par 
+\par The designed tank has a capacity of 327.6m}{\super\insrsid10553261 3}{\insrsid10553261  and it is o
+f dimension 10m x 8.75m x 3.75m.  Glass reinforced plastic water tank has been chosen for the design on the basis of econmics. It is recyclable and has a low maintenance cost.
+\par 
+\par }{\insrsid4870402 The tank is placed}{\insrsid10553261  on beams , held in position by columns. The supporting structure consists of six 457 x191x 89 UB longitudinal beams(intermediate), two 457 x 191 x 67 UB  longitudinal beams(end) , two 406 x 178 }{
+\insrsid4870402 x 54 UB transverse beams,and eighteen 254 x 254 x 132 UC columns each of length 4m.}{\insrsid10553261 
+\par 
+\par The longitudinal beams are spaced at a distance of 1.25m whiles the transverse beams are spaced at 7.5m
+\par 
+\par Combination of weld and bolts have been used for the design connections. All possible che}{\insrsid4870402 cks have been made to ensure maximum}{\insrsid10553261  safety of the structure.
+\par }{\insrsid4865201 
+\par The total project cost is 2,041,915,757 billion cedis ( 204,191.58 New GH cedis ). Engineering services amounted to 185,628,705 million cedis ( 18,562.87  New GH cedis ). Contingencies were allowed in order to cater for any unforeseen event}{
+\insrsid4870402 s}{\insrsid4865201  that may occur.
+\par }{\insrsid14973482 
+\par }{\insrsid10553261\charrsid10553261 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs32\insrsid12199814 
+\par }{\b\fs36\insrsid5799526 
+\par 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs36\insrsid10553261 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs36\insrsid12133299\charrsid3743007 CHAPTER ONE}{\b\fs36\insrsid5192011 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs32\insrsid12199814 
+\par }{\b\fs32\insrsid12133299\charrsid3743007 INTRODUCTION}{\b\fs36\insrsid12133299\charrsid5192011 
+\par }{\b\fs28\insrsid5192011 
+\par }{\b\fs28\insrsid3959875 1.1 }{\b\fs28\insrsid12133299 BACKGROUND INFORMATION}{\b\fs28\insrsid12133299\charrsid5127264 
+\par }{\fs28\insrsid5192011 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 
+The Kumasi Metropolitan Assembly acting through the College of Engineering, KNUST as agent of the client is implementing an Urban Infrastructure Upgrading at Old Tafo, a suburb of Kumasi with a credit facility from the World Bank.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12133299 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 Messrs Civil Engineering Consultants (ED IV Civil}{\insrsid4273072 ,}{\insrsid12133299 Group}{\insrsid4273072  13}{
+\insrsid12133299 ) have been commissioned by Kumasi Metropolitan Assembly to undertake the stud}{\insrsid14687025 ies and designs for the project at Old Tafo.}{\insrsid12133299 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid5192011 
+\par 
+\par }{\insrsid12133299  }{\b\fs28\insrsid1523812 1.2}{\b\fs28\insrsid3959875  }{\b\fs28\insrsid3486541  }{\b\fs28\insrsid12133299\charrsid5127264 PROJECT OBJECTIVE}{\insrsid12133299\charrsid5192011 
+\par }{\insrsid12133299 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 The project is to improve urban living conditions with regards to enviro
+nment, health, sanitation, drainage, vehicular and access, and solid and liquid waste management with special emphasis on the urban poor, in line with the Government Poverty Reduction Strategy. 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12133299 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 A structural steel support is to be designe}{\insrsid13245314 d to carry an overhead tank whi}{\insrsid14168814 
+ch will receive water from an underground }{\insrsid12133299 water reservoir}{\insrsid13245314 .}{\insrsid12133299  }{\insrsid13245314 The overhead tank will then distribute water to people of Old Tafo under gravity.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5192011 
+\par 
+\par }{\b\fs28\insrsid12199814 
+\par 
+\par 
+\par 
+\par }{\b\fs28\insrsid1523812 1.3 }{\b\fs28\insrsid1523812\charrsid5127264 SCOPE OF WORK
+\par }{\insrsid1523812 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid1523812 
+With regards to the design of structural elements of the proposed project, it is required that an elevated tank be provided to supplement an underground water reservoir. The elevated tank is to be either Braithwaite or Glass Reinforced Plastic (GRP) type 
+suppo}{\insrsid7630578 rted by structural steel member}{\insrsid1523812 . On the basis of economics of the two tanks, it is required to recommend one appropriately. }{\insrsid7630578 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid7630578 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid1523812 Appropriates structural steel suppor}{\insrsid10764474 t member}{\insrsid1523812  }{\insrsid10764474 is}{\insrsid1523812 
+ required to be designed }{\insrsid10764474 to carry the overhead tank system.}{\insrsid1523812 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid7630578 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid7630578 Bill of quantities and detailed drawings in relation to the proposed project are to be prepared as well.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid5192011 
+\par 
+\par }{\b\fs28\insrsid1523812 1.4}{\b\fs28\insrsid3486541  }{\b\fs28\insrsid12133299\charrsid5127264 PROJECT SITE DESCRIPTION
+\par }{\insrsid12133299 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 Old Tafo is a suburb of Kumasi. It is located between mile 3 and mile 4 on both sides along Kumasi-Mampong main road. I
+t has an estimated population of 91397 with reference to 2000 base year. The area has houses built haphazardly on one side and some well defined houses built on the other side. It is a low income generating area.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid12199814 
+\par }{\b\fs28\insrsid1523812 1.5 }{\b\fs28\insrsid12133299\charrsid5127264 EXISTING CONDITIONS ON SITE
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12199814 
+\par }{\insrsid12133299 There is no overhead tank in the area, hence no structural steel supp}{\insrsid16057341 ort member. There is no regular }{\insrsid12133299 
+ flow of water in the area. Water flows well only in the early hours of the day. Since high pressures are needed to convey water to hilly areas, some residents who }{\insrsid1841464 are situated on the hilly lands}{\insrsid12133299 
+ of the area do not even receive water at all. }{\insrsid4152890 This goes a long way to affect the way of life of the people. }{\insrsid12133299 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid16057341 
+\par }{\insrsid5799526 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs36\insrsid16057341\charrsid16057341 CHAPTER TWO}{\b\fs36\insrsid16057341 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid16057341 
+\par }{\b\fs32\insrsid5185877\charrsid16713209  }{\b\fs32\insrsid12133299\charrsid16713209 METHODOLOGY
+\par }\pard \ql \fi720\li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12199814 {\insrsid16057341 For the}{\insrsid12133299  execution of the c}{\insrsid16057341 ontract, some processes were obeyed.}{\insrsid12133299 
+
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid16057341\charrsid4273072 2.1}{\b\fs28\insrsid4133903\charrsid4273072  }{\b\fs28\insrsid4273072 DESK STUDY}{\b\fs28\insrsid16057341\charrsid4273072 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid12199814 {\insrsid16057341 D}{\insrsid12133299 etailed investigation a}{\insrsid16057341 nd analysis of the project  was}{\insrsid12133299  made.}{
+\insrsid4133903  Pieces of Information in relation to}{\insrsid16057341  Old Tafo }{\insrsid4133903 were studied and necessary tools needed to undertake the project were assembled.}{\insrsid12133299 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid4273072 2.2 RECONNAISANCE SURVEY}{\b\fs28\insrsid4133903\charrsid4273072 
+\par }{\insrsid4133903      
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid4133903 A survey of the area was}{\insrsid12133299  done to help discover the existing conditions on the site. }{\insrsid4133903 
+This helped}{\insrsid12133299  }{\insrsid4133903    }{\insrsid12133299  us to know t}{\insrsid4133903 he extent of development the site needs. A good survey of the site}{\insrsid12133299  also hel}{\insrsid4133903 ped}{\insrsid12133299 
+ us to know the nature of the terrain, thereby having good knowledge about possible locations in the area for the erection of the  structural steel}{\insrsid4133903  support}{\insrsid12133299  member.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid6911412\charrsid16713209 2.3}{\b\fs28\insrsid1248867\charrsid16713209  }{\b\fs28\insrsid4273072\charrsid16713209 DATA COLLECTION}{\b\fs28\insrsid6911412\charrsid12199814 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid6911412 It }{\insrsid12133299 is also an important aspect of the methodology. In consultation with my group members, data }{
+\insrsid6911412  was}{\insrsid1248867  }{\insrsid12133299 collected and analysed to help us detect good and suitable locations for the construction }{\insrsid15098499 of the structural steel support.}{\insrsid12133299 
+\par }{\insrsid1248867 
+\par Other sources including organizations and books were sought to know the nat}{\insrsid12409604 ure of loadings that will come o}{\insrsid1248867 nto the structure. 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid10895480 
+\par }{\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid12199814 
+\par 
+\par 
+\par 
+\par }{\b\fs28\insrsid4273072\charrsid16713209 2.4 DESIGN CALCULATION AND DRAWING}{\b\fs28\insrsid10895480\charrsid16713209 
+\par }{\insrsid12409604 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12409604 Loadings were factored in order}{\insrsid2121703 
+ to provide maximum safety and stability of the structure.    Detailed drawings of various sections of the structure have also been made.}{\insrsid12409604 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12409604 
+\par \tab }{\insrsid10895480  
+\par }{\insrsid5185877 
+\par 
+\par 
+\par 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs36\insrsid8010869 
+\par }{\b\fs36\insrsid12199814 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12199814 {\b\fs36\insrsid7499333 CHAPTER THREE}{\b\fs36\insrsid12199814\charrsid12199814 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs32\insrsid10509195\charrsid10509195 DESIGN CONSIDERATIONS
+\par }{\b\fs28\insrsid10509195 
+\par }{\b\fs28\insrsid11471228 3}{\b\fs28\insrsid155888 .1 }{\b\fs28\insrsid11959811 DESIGN CRITERIA}{\b\fs28\insrsid12133299\charrsid12199814 
+\par }\pard \ql \fi720\li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12133299 The design of structural steel support}{\insrsid11959811  member}{\insrsid12133299  }{\insrsid11959811 for the over}{
+\insrsid7499333 head tank}{\insrsid12133299  conform}{\insrsid7499333 ed}{\insrsid12133299  with BS 5950. }{\insrsid11101748 
+\par }{\insrsid7499333 Design Grade of 43 was}{\insrsid11101748  employed in the design process.
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid7499333 The project}{\insrsid12133299  include}{\insrsid7499333 d}{\insrsid12133299 
+ the design of steel beams, steel columns, steel base plates, foundation, connections and bracing members}{\insrsid11101748  which constitute the components of the structural steel support member}{\insrsid12133299 .}{\insrsid5986007\charrsid5986007  }{
+\insrsid5986007 Ultimate Limit State}{\insrsid7499333  }{\insrsid3702639 ( general yielding , buckling, sway, overturning,transformation into a mechanism )and serviceability limit state design( deflection ) have}{\insrsid7499333  been}{\insrsid5986007 
+ incorporated in the execution of the project.}{\insrsid155888 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid5192011 
+\par 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12199814 {\b\fs28\insrsid5863600 3}{\b\fs28\insrsid155888\charrsid3743007 .2 }{\b\fs28\insrsid5986007\charrsid3743007 FUNCTIONS OF COMPONENTS }{
+\b\fs28\insrsid5986007\charrsid12199814 
+\par {\listtext\pard\plain\f3\insrsid12133299 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li720\ri0\sl360\slmult1\widctlpar\jclisttab\tx720\aspalpha\aspnum\faauto\ls1\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 The}{
+\insrsid6965165  longitudinal}{\insrsid12133299  beams}{\insrsid5986007  (upper)}{\insrsid12133299  carry the overhead tank. }{\insrsid5986007 
+\par {\listtext\pard\plain\f3\insrsid3091345 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid3091345 The }{\insrsid6965165  transverse beams beneath support the longitudinal beams. }{\insrsid3091345 
+\par {\listtext\pard\plain\f3\insrsid12133299 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid12133299 The columns would transmit the load of the water, weight of the tank and the self weight of the beam}{\insrsid12257372 s}{\insrsid12133299 
+ to the foundation safely to prevent any failure. }{\insrsid5986007 
+\par {\listtext\pard\plain\f3\insrsid12133299 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid12133299 The }{\insrsid12257372 base plates would help in connecting}{\insrsid12133299  the structural steel support to the foundation. }{\insrsid12257372 
+\par {\listtext\pard\plain\f3\insrsid12133299 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid12133299 Bracing members wo}{\insrsid12257372 uld}{\insrsid12133299  prevent any failure from lateral wind loads. 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid5192011 
+\par }{\b\fs28\insrsid5863600 3}{\b\fs28\insrsid155888\charrsid3743007 .3 }{\b\fs28\insrsid5986007\charrsid3743007 DESIGN LOADINGS
+\par }{\insrsid15753012 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid5986007 Design l}{\insrsid1994071 oadings have}{\insrsid12133299  be}{\insrsid4083190 en factored}{\insrsid12133299 
+ to cater for any unforeseen loading conditions, hence prevent collapse of the structure.}{\insrsid16713209  A factor of 1.4 has}{\insrsid5986007  be}{\insrsid16713209 en}{\insrsid5986007  multiplied by the dead lo}{\insrsid16713209 a}{\insrsid1994071 
+ds and that of imposed loads have}{\insrsid4083190  be}{\insrsid16713209 en}{\insrsid4083190  multiplied by}{\insrsid5986007  1.6}{\insrsid15753012 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid15753012 
+\par }{\insrsid12199814 
+\par 
+\par 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid15753012 The weight of the structural }{\insrsid12807490 components and the tank w}{\insrsid1537786 ere}{\insrsid15753012 
+ considered as dead loads whiles }{\insrsid12807490 the weight of the water was}{\insrsid15753012  considered as imposed load.}{\insrsid12133299  Since the supporting structure is subjected to other loads including wind loads,}{\insrsid12807490  it has}{
+\insrsid15753012  also b}{\insrsid12807490 een}{\insrsid15753012  designed against the effect}{\insrsid12807490 s}{\insrsid15753012  of wind in order not}{\insrsid12807490  to collapse.}{\insrsid12133299  }{\insrsid5271325 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid1580377 3}{\b\fs28\insrsid3743007 .4}{\b\fs28\insrsid5192011  }{\b\fs28\insrsid1382769 CHOICE}{\b\fs28\insrsid5271325\charrsid3743007  OF ST}{\b\fs28\insrsid1382769 RUCTURAL STEEL SECTIONS}{\b\fs28\insrsid5271325\charrsid12199814 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 Rolled section}{\insrsid13130847 s of steel has}{\insrsid12133299  b}{\insrsid13130847 een}{\insrsid12133299 
+ used in the entire design processes.}{\insrsid12268433  Built-up or fabricated }{\insrsid13130847 steel sections has also}{\insrsid12268433  be}{\insrsid13130847 en}{\insrsid12268433  used where necessary.}{\insrsid6033231 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid5192011 
+\par 
+\par }{\b\fs28\insrsid1538714 3}{\b\fs28\insrsid3743007\charrsid3743007 .5}{\b\fs28\insrsid155888\charrsid3743007  DESIGN CHECKS}{\b\fs28\insrsid155888\charrsid12199814 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 With resp}{\insrsid330581 ect to beam design, checks have}{\insrsid12133299  be}{\insrsid330581 en}{\insrsid12133299 
+ made against local buckling, bending, shear fail}{\insrsid330581 ure, shear buckling}{\insrsid12133299   and deflections. }{\insrsid330581 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid330581 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid330581 Local capacity}{\insrsid12133299  of columns}{\insrsid330581  and bracing members has}{\insrsid12133299  be}{\insrsid330581 
+en}{\insrsid12133299  checked to ensure that it is satisfactory. }{\insrsid330581 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid330581 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 These che}{\insrsid330581 cks have}{\insrsid12133299  help}{\insrsid330581 ed}{\insrsid12133299 
+ in the selection of adequate steel members for the design, hence durab}{\insrsid330581 le and tough steel members have}{\insrsid12133299  be}{\insrsid330581 en}{\insrsid12133299  used.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12268433 
+\par }\pard \ql \fi720\li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid1538714 Safe and economic sections have}{\insrsid12133299  be}{\insrsid1538714 en}{\insrsid12133299 
+ selected to satisfy the design of all members.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid1538714 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid12133299 Complete structural drawings of all beams, columns, f}{\insrsid1538714 oundations and connections have}{\insrsid12133299 
+ b}{\insrsid1538714 een}{\insrsid12133299  provided. Bill of quantities in relation to the design of the struc}{\insrsid1538714 tural support steel member has also}{\insrsid12133299  be}{\insrsid1538714 en prepared.}{\insrsid12133299 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid12133299 
+\par  
+\par 
+\par }{\insrsid12199814 
+\par 
+\par 
+\par }{\b\fs28\insrsid4273072 3.6}{\b\fs28\insrsid14120709\charrsid3743007  }{\b\fs28\insrsid11866270\charrsid3743007 STRUCTURAL STEEL MEMBER DESCRIPTION
+\par }{\insrsid11866270 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid10179570 The slab which will carry the total weight}{\insrsid4273072  of the tank a
+nd water has two transverse beams, eight longitudinal beams and six}{\insrsid10179570  columns. The longitudinal beams collect the load from the tank and direct them to the transver}{\insrsid4273072 se beams. The transverse beams }{\insrsid10179570 
+then transfer the loads to the columns. The columns finally transfer the columns to the foundation base.}{\insrsid16713209  }{\insrsid11866270 
+\par }{\insrsid16713209 
+\par The supporting structure has a pipe system running below the ground level. These pipes are held in place mass concrete. The pipe system consists of valves, over flow pipe, outlet pipe, inlet pipe }{\insrsid5707894 wash out pipe.}{
+\insrsid5707894\charrsid5707894  }{\insrsid5707894 The structural steel support member has a ladder connected to it. 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid5799526 
+\par }{\b\fs28\insrsid4273072 3.7}{\b\fs28\insrsid3743007  METHOD OF CONSTRUCTION}{\b\fs28\insrsid4018195\charrsid12199814 
+\par }\pard \ql \fi720\li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid4018195 The main target of skilled workers for the proposed project would be recruited from Old Tafo.
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid12199814 {\insrsid4018195 This would help give some revenue to the people to help their finan
+cial life. These revenues would go along way to  help them in creating small enterprises. It would also help reduce the level of crime and theft in the area.}{\insrsid5701976 
+\par }{\insrsid12199814 
+\par }\pard \ql \li720\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid5701976 Enough space  has been provided all round the structure. This will help in accessing bolts for future repair works.
+\par }{\insrsid4922210 
+\par Site safety rules would be strictly adhered with. All working gears would be worn on site during the entire construction process.
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid4018195 
+\par }{\insrsid4922210  }{\insrsid4018195 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }{\b\fs36\insrsid5707894 
+\par }\pard \qc \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12199814 {\b\fs36\insrsid5707894 CHAPTER FOUR
+\par }{\b\fs36\insrsid12199814\charrsid12199814 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\b\fs28\insrsid4273072\charrsid3743007  SELECTION CRITERIA OF OVERHEAD TANK}{\b\fs28\insrsid4273072\charrsid12199814 
+\par }{\insrsid4273072 As part of the project, either a Braithwaite or Glass Reinforced Plastic type elevated tank is to be recommended on the basis of economics.
+\par 
+\par Glass Reinforced Plastic elevated tank is preferred due to the properties listed below. They include
+\par 
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li720\ri0\sl360\slmult1\widctlpar\jclisttab\tx720\aspalpha\aspnum\faauto\ls2\adjustright\rin0\lin720\itap0\pararsid8344506 {\insrsid4273072 Inexpensive
+ to produce
+\par {\listtext\pard\plain\f3\insrsid10497655 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid10497655 It is rugged (strong)
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid4273072 Does not rust
+\par {\listtext\pard\plain\f3\insrsid10497655 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid10497655 It is light to handle}{\insrsid4273072  (low density)
+\par {\listtext\pard\plain\f3\insrsid5701976 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid5701976 It is non-corrosive, therefore it is ideal}{\insrsid1537786  for}{\insrsid5701976  harsh climatic conditions or where water quality is poor.}{\insrsid10497655 
+
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid4273072 High strength and durability
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}It is recyclable
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}It has relatively low maintenance cost
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}It has long life span
+\par {\listtext\pard\plain\f3\insrsid4273072 \loch\af3\dbch\af0\hich\f3 \'b7\tab}It does not promote the growth of algae and fungi
+\par {\listtext\pard\plain\f3\insrsid5701976 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}{\insrsid5701976 It is ideal for site use with restricted access.
+\par {\listtext\pard\plain\f3\insrsid5701976 \loch\af3\dbch\af0\hich\f3 \'b7\tab}It requires a minimum number of skilled men to assemble it.}{\insrsid4273072 
+\par }\pard \ql \li360\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin360\itap0\pararsid8344506 {\insrsid5701976 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8344506 {\insrsid4273072 Since it is inexpensive to produce, it\rquote 
+s cost effective is relatively better. Since it does not rust and recyclable, it gives it a long life span. Maintenance is also affordable and very safe for the purpose of storing drinking water because it does not promote the growth of algae and fungi. 
+
+\par }{\insrsid14974453 
+\par Apart from the standard panel sizes, individual needs can be m}{\insrsid12207778 et by the production of other}{\insrsid14974453  panel}{\insrsid12207778 s with sizes different from the standard ones.}{\insrsid4273072 
+\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid4273072 {\insrsid4273072 
+\par }{\insrsid15222284 
+\par 
+\par 
+\par }{\insrsid4273072 
+\par }{\b\fs28\insrsid14680336 CONCLUSION}{\b\fs28\insrsid4273072 
+\par }{\b\insrsid14973482\charrsid5242880 
+\par }{\insrsid14973482\charrsid5242880 The construction of the structural steel support member and the elevated water tank would go along way to affect the lives
+ of individuals residing at Old  Tafo. It will relieve them of their previous stressful conditions of walking long distance}{\insrsid15222284 s before getting portable water which were costly as well. }{\insrsid14973482\charrsid5242880 
+\par 
+\par The project needs to be maintained well in order for it to serve its purpose. Periodic and  routine maintenance should be undertaken so that the structure\rquote s life span would increase
+\par }{\b\fs28\insrsid14680336 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par REFERENCE
+\par }{\b\fs28\insrsid5242880 
+\par {\listtext\pard\plain\s18 \f3\insrsid5242880\charrsid9650963 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s18\ql \fi-360\li1440\ri0\sa200\sl276\slmult1\widctlpar
+\jclisttab\tx1440\aspalpha\aspnum\faauto\ls6\adjustright\rin0\lin1440\itap0\pararsid5242880 \f37\fs22\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\f0\fs24\insrsid5242880\charrsid9650963 Design of structural Steelwork to BS 5950 }{
+\f0\fs24\insrsid5242880 , }{\f0\fs24\insrsid5242880\charrsid9650963 By W.M.C. M}{\f0\fs24\super\insrsid5242880\charrsid9650963 c}{\f0\fs24\insrsid5242880\charrsid9650963 Kenzie
+\par }\pard \s18\ql \li360\ri0\sa200\sl276\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin360\itap0\pararsid5242880 {\f0\fs24\insrsid5242880\charrsid9650963 
+\par {\listtext\pard\plain\s18 \f3\insrsid5242880\charrsid9650963 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \s18\ql \fi-360\li1440\ri0\sa200\sl276\slmult1\widctlpar\jclisttab\tx1440\aspalpha\aspnum\faauto\ls6\adjustright\rin0\lin1440\itap0\pararsid5242880 {
+\f0\fs24\insrsid5242880\charrsid9650963 The Institution of Civil Engineering }{\f0\fs24\insrsid5242880 , }{\f0\fs24\insrsid5242880\charrsid9650963 CESMM3 Third Edition}{\f0\fs24\insrsid5242880 l
+\par }\pard \s18\ql \li0\ri0\sa200\sl276\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid5242880 {\f0\fs24\insrsid5242880 
+\par {\listtext\pard\plain\s18 \f3\insrsid5242880 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \s18\ql \fi-360\li1440\ri0\sa200\sl276\slmult1\widctlpar\jclisttab\tx1440\aspalpha\aspnum\faauto\ls6\adjustright\rin0\lin1440\itap0\pararsid5242880 {
+\f0\fs24\insrsid5242880 Design Of  Steel Tanks,  by Ramchandrah
+\par }\pard \s18\ql \li1080\ri0\sa200\sl276\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin1080\itap0\pararsid5242880 {\f0\fs24\insrsid5242880\charrsid9650963 
+\par }\pard \s18\ql \li1800\ri0\sa200\sl276\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin1800\itap0\pararsid5242880 {\f0\fs24\insrsid5242880\charrsid9650963 
+\par }\pard\plain \ql \li720\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid5242880 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid5242880 
+\par }\pard \ql \li0\ri0\sl360\slmult1\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid5242880 {\f36\insrsid5242880\charrsid14239593 
+\par 
+\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid5242880 {\insrsid5242880 
+\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid4273072 {\b\fs28\insrsid5242880 
+\par }{\b\fs28\insrsid14680336 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }{\b\fs28\insrsid4273072 
+\par 
+\par 
+\par 
+\par 
+\par }{\b\fs36\insrsid10509195 
+\par }\pard \qc \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid5133389 {\b\fs36\insrsid10509195 
+\par 
+\par 
+\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid12133299 {\b\fs28\insrsid8996930 
+\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid10509195 {\insrsid10509195\charrsid12133299 
+\par }}

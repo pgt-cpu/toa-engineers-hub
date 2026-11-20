@@ -1,0 +1,1008 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: integration</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#Z_8">Numerical integration </a></center>
+</h1>
+<h1><a name="L_1_Numerical_integration">Contents Summary</a></h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300368">5</a><a name="Z_8">. </a><a name="S_Numerical_Integration">Numerical
+integration</a></h1>
+<p>
+<font size="2">There are two main reasons for you to need to do
+numerical integration: analytical integration may be impossible
+or infeasible, or you may wish to integrate tabulated data rather
+than known functions. In this section we outline the main approaches
+to numerical integration. Which is preferable depends in part
+on the results required, and in part on the function or data to
+be integrated.</font>
+</p><h2><a name="_Toc412300369">5</a><a name="L_2_Manual_method">.1</a><a name="S_Manual_Method">
+Manual method</a></h2>
+<p>
+<font size="2">If you were to perform the integration by hand, one
+approach is to superimpose a grid on a graph of the function to
+be integrated, and simply count the squares, counting only those
+covered by 50% or more of the function. Provided the grid is sufficiently
+fine, a reasonably accurate estimate may be obtained. Figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure11.htm#F_Integration_by_counting_squares">11 </a>demonstrates
+how this may be achieved.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure11.htm#FF_11">Click here for Figure 11 </a>
+</li></ul>
+<h2><a name="_Toc412300370">5</a><a name="S_Trapezium_Rule">.2
+Trapezium rule</a></h2>
+<p>
+<font size="2">Consider the Taylor Series expansion integrated from
+</font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">0</font></sub></i><font size="2">
+to </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">+</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">:</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="integration_files/index0053.gif"><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Trapezium_Rule">46)</a></td></tr>
+</tbody></table>
+</p><p>
+The approximation represented by <sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#000080" size="2">[<i>f</i>(<i>x</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)<i>&nbsp;</i>+<i>&nbsp;f</i>(<i>x</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)]</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+is called the Trapezium Rule based on its geometric interpretation
+as shown in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure12.htm#F_Trapezium_Rule">12 </a>.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure12.htm#FF_12">Click here for Figure 12 </a>
+</li></ul>
+<p>
+<font size="2">As we can see from equation ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Trapezium_Rule">46 </a>),
+the error in the Trapezium Rule is proportional to </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">3</font></sup><font size="2">.
+Thus, if we were to halve </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">,
+the error would be decreased by a factor of eight. However, the
+size of the domain would be halved, thus requiring the Trapezium
+Rule to be evaluated twice and the contributions summed. The net
+result is the error decreasing by a factor of four rather than
+eight. The Trapezium Rule used in this manner is sometimes termed
+the Compound Trapezium Rule, but more often simply the Trapezium
+Rule. In general it consists of the sum of integrations over a
+smaller distance </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+to obtain a smaller error.</font>
+</p><p>
+<font size="2">Suppose we need to integrate from </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+to </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">.
+We shall subdivide this interval into </font><i><font color="#000080" size="2">n</font></i><font size="2">
+steps of size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x=</font></i><font color="#000080" size="2">(<i>x</i></font><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">-x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)/<i>n</i></font><font size="2">
+as shown in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure13.htm#F_Compound_Trapezium_Rule">13 </a>.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure13.htm#FF_13">Click here for Figure 13 </a>
+</li></ul>
+<p>
+<font size="2">The Compound Trapezium Rule approximation to the
+integral is therefore</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="integration_files/index0054.gif"><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Compound_Trapezium_Rule">47)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+While the error for each step is <i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">,
+the cumulative error is </font><i><font color="#000080" size="2">n</font></i><font size="2">
+times this or </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)
+~ <i>O</i>(<i>n</i></font><sup><font color="#800080" size="2">­2</font></sup><font color="#000080" size="2">)</font><font size="2">.</font>
+</p><p>
+<font size="2">The above analysis assumes </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+is constant over the interval being integrated. This is not necessary
+and an extension to this procedure to utilise a smaller step size
+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i</font></sub></i><font size="2">
+in regions of high curvature would reduce the total error in the
+calculation, although it would remain </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">.
+We would choose to reduce </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+in the regions of high curvature as we can see from equation (
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Trapezium_Rule">46 </a>) that the leading
+order truncation error is scaled by </font><i><font color="#000080" size="2">f"</font></i><font size="2">.</font>
+</p><h2><a name="_Toc412300371">5</a><a name="L_2_Mid_point_rule">.3</a><a name="S_Midpoint_Rule">
+Mid-point rule</a></h2>
+<p>
+<font size="2">A variant on the Trapezium Rule is obtained by integrating
+the Taylor Series from </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">0</font></sub></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x/</font></i><font color="#000080" size="2">2</font><font size="2">
+to </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x/</font></i><font color="#000080" size="2">2</font><font size="2">:</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="integration_files/index0055.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Midpoint_Rule">48)</a></td></tr>
+</tbody></table>
+</p><p>
+By evaluating the function <i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+at the midpoint of each interval the error may be slightly reduced
+relative to the Trapezium rule (the coefficient in front of the
+curvature term is 1/24 for the Mid-point Rule compared with 1/12
+for the Trapezium Rule) but the method remains of the same order.
+Figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure14.htm#F_Midpoint_Rule">14 </a>provides
+a graphical interpretation of this approach.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure14.htm#FF_14">Click here for Figure 14 </a>
+</li></ul>
+<p>
+<font size="2">Again we may reduce the error when integrating the
+interval </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+to </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+by subdividing it into </font><i><font color="#000080" size="2">n</font></i><font size="2">
+smaller steps. This Compound Mid-point Rule is then</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="integration_files/index0056.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Compound_Midpoint_Rule">49)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+with the graphical interpretation shown in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure15.htm#F_Compound_Midpoint_Rule">15 </a>.
+The difference between the Trapezium Rule and Mid-point Rule is
+greatly diminished in their compound forms. Comparison of equations
+( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Compound_Trapezium_Rule">47 </a>)
+and ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Compound_Midpoint_Rule">49 </a>)
+show the only difference is in the phase relationship between
+the points used and the domain, plus how the first and last intervals
+are calculated.
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure15.htm#FF_15">Click here for Figure 15 </a>
+</li></ul>
+<p>
+There are two further advantages of the Mid-point Rule over the
+Trapezium Rule. The first is that is requires one fewer function
+evaluations for a given number of subintervals, and the second
+that it can be used more effectively for determining the integral
+near an integrable singularity. The reasons for this are clear
+from figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure16.htm#F_Midpoint_Rule_integrable_singularity">16 </a>.
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure16.htm#FF_16">Click here for Figure 16 </a>
+</li></ul>
+<h2><a name="_Toc412300372">5</a><a name="S_Simpsons_Rule">.4
+Simpson's rule</a></h2>
+<p>
+<font size="2">An alternative approach to decreasing the step size
+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+for the integration is to increase the accuracy of the functions
+used to approximate the integrand. Integrating the Taylor series
+over an interval </font><font color="#000080" size="2">2</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+shows</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="integration_files/index0057.gif"></center>
+</td><td width="57">(<a name="E_Simpsons_Rule">50)</a></td></tr>
+<tr><td width="586"><center><img src="integration_files/index0058.gif"></center>
+</td><td width="57"></td></tr>
+</tbody></table>
+</p><p>
+Whereas the error in the Trapezium rule was <i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">,
+Simpson's rule is two orders more accurate at <i>O</i></font><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">5</font></sup><font color="#000080" size="2">)</font><font size="2">,
+giving exact integration of cubics.</font>
+</p><p>
+<font size="2">To improve the accuracy when integrating over larger
+intervals, the interval </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+to </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+may again be subdivided into </font><i><font color="#000080" size="2">n</font></i><font size="2">
+steps. The three-point evaluation for each subinterval requires
+that there are an even number of subintervals. Hence we must be
+able to express the number of intervals as </font><i><font color="#000080" size="2">n=</font></i><font color="#000080" size="2">2<i>m</i></font><font size="2">.
+The Compound Simpson's rule is then</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="integration_files/index0059.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Compound_Simpsons_Rule">51)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and the corresponding error <i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">5</font></sup><font color="#000080" size="2">)</font><font size="2">
+or </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2">)</font><font size="2">.</font>
+</p><h2><a name="_Toc412300373">5</a><a name="L_2_Quadratic_triangulation_">.5</a><a name="S_Quadratic_Triangulation">
+Quadratic triangulation</a><sup>*</sup></h2>
+<p>
+<font size="2">Simpson's Rule may be employed in a manual way to
+determine the integral with nothing more than a ruler. The approach
+is to cover the domain to be integrated with a triangle or trapezium
+(whichever is geometrically more appropriate) as is shown in figure
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure17.htm#F_Quadratic_triangulation">17 </a>. The
+integrand may cross the side of the trapezium (triangle) connecting
+the end points. For each arc-like region so created (there are
+two in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure17.htm#F_Quadratic_triangulation">17 </a>)
+the maximum deviation (indicated by arrows in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure17.htm#F_Quadratic_triangulation">17 </a>)
+from the line should be measured, as should the length of the
+chord joining the points of crossing. From Simpson's rule we may
+approximate the area between each of these arcs and the chord
+as</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="586"><p>
+</p><center><i><font color="#000080" size="2">area </font></i><font color="#000080" size="2">=<i> </i></font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">3</font></sub><i><font color="#000080" size="2"> chord</font></i><font color="#000080" size="2"> <i>maxDeviation</i></font><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Quadratic_triangulation">52)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+remembering that some increase the area while others decrease
+it relative to the initial trapezoidal (triangular) estimate.
+The overall estimate (ignoring linear measurement errors) will
+be <i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>l</i></font><sup><font color="#800080" size="2">5</font></sup><font color="#000080" size="2">)</font><font size="2">,
+where </font><i><font color="#000080" size="2">l</font></i><font size="2">
+is the length of the (longest) chord.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure17.htm#FF_17">Click here for Figure 17 </a>
+</li></ul>
+<h2><a name="_Toc412300374">5</a><a name="S_Romberg_Integration">.6
+Romberg integration</a></h2>
+<p>
+<font size="2">With the Compound Trapezium Rule we know from section
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#S_Trapezium_Rule">5.2 </a>the error in
+some estimate </font><i><font color="#000080" size="2">T</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)</font><font size="2">
+of the integral </font><i><font color="#000080" size="2">I</font></i><font size="2">
+using a step size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+goes like </font><i><font color="#000080" size="2">c</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">
+as </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x0</font></i><font size="2">,
+for some constant </font><i><font color="#000080" size="2">c</font></i><font size="2">.
+Likewise the error in </font><i><font color="#000080" size="2">T</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)</font><font size="2">
+will be </font><i><font color="#000080" size="2">c</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">/4</font><font size="2">.
+From this we may construct a revised estimate </font><i><font color="#000080" size="2">T</font></i><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)</font><font size="2">
+for </font><i><font color="#000080" size="2">I</font></i><font size="2">
+as a weighted mean of </font><i><font color="#000080" size="2">T</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)</font><font size="2">
+and </font><i><font color="#000080" size="2">T</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)</font><font size="2">:</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">T</font></i><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)<i> </i>= </font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">T</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2) + (1-</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">)<i>T</i>(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= </font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">[<i>I</i> + <i>c</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">/4 + <i>O</i>(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2">)] + (1-</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">)[<i>I</i> + <i>c</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2"> + <i>O</i>(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2">)]</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Weighted_mean_of_estimates">53)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+By choosing the weighting factor <font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">&nbsp;=&nbsp;4/3</font><font size="2">
+we elimate the leading order (</font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">)
+error terms, relegating the error to </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2">)</font><font size="2">.
+Thus we have</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">T</font></i><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)<i> </i>= [4<i>T</i>(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2) - <i>T</i>(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)]/3</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Romberg_Integration_for_Trapezium_Rule">54)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Comparison with equation ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Compound_Simpsons_Rule">51 </a>)
+shows that this formula is precisely that for Simpson's Rule.
+</p><p>
+This same process may be carried out to higher orders using <font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/4</font><font size="2">,
+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/8</font><font size="2">,
+&#8230; to eliminate the higher order error terms. For the Trapezium
+Rule the errors are all even powers of </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">
+and as a result it can be shown that</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">T</font></i><sup><font color="#800080" size="2">(</font>m)</sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2)<i> </i>= [2</font><sup><font color="#800080" size="2">2</font>m</sup><i><font color="#000080" size="2">T</font></i><sup><font color="#800080" size="2">(</font>m-1)</sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/2) - <i>T</i></font><sup><font color="#800080" size="2">(</font>m-1)</sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">)]/(2</font><sup><font color="#800080" size="2">2</font>m</sup><font color="#000080" size="2">-1)</font><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Romberg_Integration_generalise_for_Tra">)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+A similar process may also be applied to the Compound Simpson's
+Rule.
+</p><h2><a name="_Toc412300375">5</a><a name="L_2_Gauss_quadrature">.7</a><a name="S_Gauss_Quadrature">
+Gauss quadrature</a></h2>
+<p>
+<font size="2">By careful selection of the points at which the function
+is evaluated it is possible to increase the precision for a given
+number of function evaluations. The Mid-point rule is an example
+of this: with just a single function evaluation it obtains the
+same order of accuracy as the Trapezium Rule (which requires two
+points).</font>
+</p><p>
+<font size="2">One widely used example of this is Gauss quadrature
+which enables exact integration of cubics with only two function
+evaluations (in contrast Simpson's Rule, which is also exact for
+cubics, requires three function evaluations). Gauss quadrature
+has the formula</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="integration_files/index0060.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Gauss_Quadrature_two_point">56)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+In general it is possible to choose <i><font color="#000080" size="2">M</font></i><font size="2">
+function evaluations per interval to obtain a formula exact for
+all polynomials of degree </font><font color="#000080" size="2">2<i>M1</i></font><font size="2">
+and less.</font>
+</p><p>
+<font size="2">The Gauss Quadrature accurate to order </font><font color="#000080" size="2">2<i>M1</i></font><font size="2">
+may be determined using the same approach required for the two-point
+scheme. This may be derived by comparing the Taylor Series expansion
+for the integral with that for the points </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">+</font><font color="#008000" face="Symbol" size="2">aD</font><i><font color="#000080" size="2">x</font></i><font size="2">
+and </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">+</font><font color="#008000" face="Symbol" size="2">bD</font><i><font color="#000080" size="2">x</font></i><font size="2">:</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="integration_files/index0061.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Gauss_Quadrature_derivation">57)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Equating the various terms reveals
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> </i>1</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">a</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2"> + </font><font color="#008000" face="Symbol" size="2">b</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)/4 = 1/6,</font></center>
+</td><td width="57">(<a name="E_Gauss_Quadrature_positions">58)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+the solution of which gives the positions stated in equation (
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Gauss_Quadrature_two_point">56 </a>).
+</p><h2><a name="_Toc412300376">5</a><a name="L_2_Example_of_numerical_integration">.8</a><a name="S_Example_of_numerical_integration">
+Example of numerical integration</a></h2>
+<p>
+<font size="2">Consider the integral</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="integration_files/index0062.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Example_of_numerical_integration">59)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+which may be integrated numerically using any of the methods described
+in the previous sections. Table <a name="T_Numerical_integration_errors">2
+gives the error in the numerical estimates for the Trapezium Rule,
+Midpoint Rule, Simpson's Rule and Gauss Quadrature. The results
+are presented in terms of the number of function evaluations required.
+The calculations were performed in double precision.</a>
+</p><p>
+<table border="1">
+<tbody><tr><td width="82"><b>No. intervals</b></td><td width="140"><b>Trapezium Rule</b>
+</td><td width="131"><b>Midpoint Rule</b></td><td width="131"><b>Simpson's Rule</b>
+</td><td width="140"><b>Gauss Quadrature</b></td></tr>
+<tr><td width="82">
+<pre><font color="#ff0000" size="2">1
+
+</font>
+</pre>
+
+</td><td width="140"></td><td width="131"><pre><font color="#ff0000" size="2">1.14189790E+00
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">2
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.00000000E+00
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">2.21441469E-01
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"><pre><font color="#ff0000" size="2">-6.41804253E-02
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">4
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-4.29203673E-01
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">5.23443059E-02
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">9.43951023E-02
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-3.05477319E-03
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">8
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.03881102E-01
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.29090855E-02
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">4.55975498E-03
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.79666460E-04
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">16
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.57683980E-02
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">3.21637816E-03
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">2.69169948E-04
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.10640837E-05
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">32
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-6.42965622E-03
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">8.03416309E-04
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.65910479E-05
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-6.88965642E-07
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">64
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.60663902E-03
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">2.00811728E-04
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.03336941E-06
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-4.30208237E-08
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">128
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-4.01611359E-04
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">5.02002859E-05
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">6.45300022E-08
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.68818500E-09
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">256
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.00399815E-04
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.25499060E-05
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">4.03225719E-09
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.68002278E-10
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">512
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.50997649E-05
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">3.13746618E-06
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">2.52001974E-10
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.04984909E-11
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">1024
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-6.27492942E-06
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">7.84365898E-07
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.57500679E-11
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-6.55919762E-13
+
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">2048
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.56873161E-06
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.96091438E-07
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">9.82769421E-13
+
+</font>
+</pre>
+
+</td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">4096
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-3.92182860E-07
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">4.90228564E-08
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">8192
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-9.80457133E-08
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.22557182E-08
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">16384
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.45114248E-08
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">3.06393221E-09
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">32768
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-6.12785222E-09
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">7.65979280E-10
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">65536
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-1.53194190E-09
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.91497040E-10
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">131072
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-3.82977427E-10
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">4.78341810E-11
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">262144
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-9.57223189E-11
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">1.19970700E-11
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">524288
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-2.39435138E-11
+
+</font>
+</pre>
+
+</td><td width="131"><pre><font color="#ff0000" size="2">3.03357339E-12
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="140"></td></tr>
+<tr><td width="82"><pre><font color="#ff0000" size="2">1048576
+
+</font>
+</pre>
+
+</td><td width="140"><pre><font color="#ff0000" size="2">-5.96145355E-12
+
+</font>
+</pre>
+
+</td><td width="131"></td><td width="131"></td><td width="140"></td>
+</tr>
+</tbody></table>
+</p><p>
+</p><center>Table <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#T_Numerical_integration_errors">2 </a>:
+Error in numerical integration of ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#E_Example_of_numerical_integration">59 </a>)
+as a function of the number of subintervals.</center>
+<h3><a name="_Toc412300377">5</a><a name="L_3_Program_for_numerical_integration_">.8</a><a name="S_Program_for_numerical_integration">.1
+Program for numerical integration</a><sup>*</sup> </h3>
+<p>
+<font size="2">Note that this program is written for clarity rather
+than speed. The number of function evaluations actually computed
+may be approximately halved for the Trapezium rule and reduced
+by one third for Simpson's rule if the compound formulations are
+used. Note also that this example is included for illustrative
+purposes only. No knowledge of Fortran or any other programming
+language is required in this course.</font>
+</p><p>
+<table border="1">
+<tbody><tr><td bgcolor="#00ffff" width="643">
+<pre><font color="#008000" size="2">PROGRAM Integrat
+      REAL*8    x0,x1,Value,Exact,pi
+      INTEGER*4 i,j,nx
+C=====Functions
+      REAL*8    TrapeziumRule
+      REAL*8    MidpointRule
+      REAL*8    SimpsonsRule
+      REAL*8    GaussQuad
+C=====Constants
+      pi = 2.0*ASIN(1.0D0)
+      Exact = 2.0
+C=====Limits
+      x0 = 0.0
+      x1 = pi
+C=======================================================================
+C=    Trapezium rule                                                   =
+C=======================================================================
+      WRITE(6,*)
+      WRITE(6,*)'Trapezium rule'
+      nx = 1
+      DO i=1,20
+        Value = TrapeziumRule(x0,x1,nx)
+        WRITE(6,*)nx,Value,Value - Exact
+        nx = 2*nx
+      ENDDO
+C=======================================================================
+C=    Midpoint rule                                                    =
+C=======================================================================
+      WRITE(6,*)
+      WRITE(6,*)'Midpoint rule'
+      nx = 1
+      DO i=1,20
+        Value = MidpointRule(x0,x1,nx)
+        WRITE(6,*)nx,Value,Value - Exact
+        nx = 2*nx
+      ENDDO
+C=======================================================================
+C=    Simpson's rule                                                   =
+C=======================================================================
+      WRITE(6,*)
+      WRITE(6,*)'Simpson''s rule'
+      WRITE(6,*)
+      nx = 2
+      DO i=1,10
+        Value = SimpsonsRule(x0,x1,nx)
+        WRITE(6,*)nx,Value,Value - Exact
+        nx = 2*nx
+      ENDDO
+C=======================================================================
+C=    Gauss Quadrature                                                 =
+C=======================================================================
+      WRITE(6,*)
+      WRITE(6,*)'Gauss quadrature'
+      nx = 1
+      DO i=1,10
+        Value = GaussQuad(x0,x1,nx)
+        WRITE(6,*)nx,Value,Value - Exact
+        nx = 2*nx
+      ENDDO
+      END
+
+      FUNCTION f(x)
+C=====parameters
+      REAL*8    x,f
+      f = SIN(x)
+      RETURN
+      END
+
+      REAL*8 FUNCTION TrapeziumRule(x0,x1,nx)
+C=====parameters
+      INTEGER*4 nx
+      REAL*8    x0,x1
+C=====functions
+      REAL*8    f
+C=====local variables
+      INTEGER*4 i
+      REAL*8    dx,xa,xb,fa,fb,Sum
+      dx = (x1 - x0)/DFLOAT(nx)
+      Sum = 0.0
+      DO i=0,nx-1
+        xa = x0 + DFLOAT(i)*dx
+        xb = x0 + DFLOAT(i+1)*dx
+        fa = f(xa)
+        fb = f(xb)
+        Sum = Sum + fa + fb
+      ENDDO
+      Sum = Sum * dx / 2.0
+      TrapeziumRule = Sum
+      RETURN
+      END
+
+      REAL*8 FUNCTION MidpointRule(x0,x1,nx)
+C=====parameters
+      INTEGER*4 nx
+      REAL*8    x0,x1
+C=====functions
+      REAL*8    f
+C=====local variables
+      INTEGER*4 i
+      REAL*8    dx,xa,fa,Sum
+      dx = (x1 - x0)/Dfloat(nx)
+      Sum = 0.0
+      DO i=0,nx-1
+        xa = x0 + (DFLOAT(i)+0.5)*dx
+        fa = f(xa)
+        Sum = Sum + fa
+      ENDDO
+      Sum = Sum * dx
+      MidpointRule = Sum
+      RETURN
+      END
+
+      REAL*8 FUNCTION SimpsonsRule(x0,x1,nx)
+C=====parameters
+      INTEGER*4 nx
+      REAL*8    x0,x1
+C=====functions
+      REAL*8    f
+C=====local variables
+      INTEGER*4 i
+      REAL*8    dx,xa,xb,xc,fa,fb,fc,Sum
+      dx = (x1 - x0)/DFLOAT(nx)
+      Sum = 0.0
+      DO i=0,nx-1,2
+        xa = x0 + DFLOAT(i)*dx
+        xb = x0 + DFLOAT(i+1)*dx
+        xc = x0 + DFLOAT(i+2)*dx
+        fa = f(xa)
+        fb = f(xb)
+        fc = f(xc)
+        Sum = Sum + fa + 4.0*fb + fc
+      ENDDO
+      Sum = Sum * dx / 3.0
+      SimpsonsRule = Sum
+      RETURN
+      END
+
+      REAL*8 FUNCTION GaussQuad(x0,x1,nx)
+C=====parameters
+      INTEGER*4 nx
+      REAL*8    x0,x1
+C=====functions
+      REAL*8    f
+C=====local variables
+      INTEGER*4 i
+      REAL*8    dx,xa,xb,fa,fb,Sum,dxl,dxr
+      dx = (x1 - x0)/DFLOAT(nx)
+      dxl = dx*(0.5D0 - SQRT(3.0D0)/6.0D0)
+      dxr = dx*(0.5D0 + SQRT(3.0D0)/6.0D0)
+      Sum = 0.0
+      DO i=0,nx-1
+        xa = x0 + DFLOAT(i)*dx + dxl
+        xb = x0 + DFLOAT(i)*dx + dxr
+        fa = f(xa)
+        fb = f(xb)
+        Sum = Sum + fa + fb
+      ENDDO
+      Sum = Sum * dx / 2.0
+      GaussQuad = Sum
+      RETURN
+      END
+
+</font>
+</pre>
+
+</td></tr>
+</tbody></table>
+</p><p>
+<br>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm">Goto next document (ODEs) </a>
+</p><hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>
