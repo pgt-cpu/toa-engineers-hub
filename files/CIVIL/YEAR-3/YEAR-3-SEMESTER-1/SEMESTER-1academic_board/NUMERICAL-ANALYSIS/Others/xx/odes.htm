@@ -1,0 +1,723 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: odes</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#Z_9">First order ordinary differential equations </a></center>
+</h1>
+<h1><a name="L_1_First_order_ordinary_differential_eq">Contents
+Summary</a></h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300378">6</a><a name="Z_9">. </a><a name="S_First_Order_ODEs">First
+order ordinary differential equations</a></h1>
+<h2><a name="_Toc412300379">6</a><a name="L_2_Taylor_series">.1</a><a name="S_Taylor_Series">
+Taylor series</a></h2>
+<p>
+<font size="2">The key idea behind numerical solution of odes is
+the combination of function values at different points or times
+to approximate the derivatives in the required equation. The manner
+in which the function values are combined is determined by the
+Taylor Series expansion for the point at which the derivative
+is required. This gives us a <i>finite difference</i> approximation
+to the derivative.</font>
+</p><h2><a name="_Toc412300380">6</a><a name="L_2_Finite_difference">.2</a><a name="S_Finite_Difference">
+Finite difference</a></h2>
+<p>
+<font size="2">Consider a first order ode of the form</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="odes_files/index0063.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_First_order_ODE">60)</a></td></tr>
+</tbody></table>
+</p><p>
+subject to some boundary/initial condition <i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>t</i>=<i>t</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)&nbsp;=&nbsp;<i>c.</i></font><font size="2">
+The finite difference solution of this equation proceeds by discretising
+the independent variable </font><i><font color="#000080" size="2">t</font></i><font size="2">
+to </font><i><font color="#000080" size="2">t</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">,
+</font><i><font color="#000080" size="2">t</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">+</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,
+</font><i><font color="#000080" size="2">t</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">+</font></i><font color="#000080" size="2">2</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,
+</font><i><font color="#000080" size="2">t</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">+</font></i><font color="#000080" size="2">3</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,
+&#8230; We shall denote the exact solution at some </font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;t</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;t</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">+n</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+by </font><i><font color="#000080" size="2">y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;y</font></i><font color="#000080" size="2">(<i>t=t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+and our approximate solution by </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.
+We then look to solve</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> f</i>(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font></center>
+</td><td width="33">(<a name="E_Approximate_ODE">61)</a></td></tr>
+</tbody></table>
+</p><p>
+at each of the points in the domain.
+</p><p>
+If we take the Taylor Series expansion for the grid points in
+the neighbourhood of some point <i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="odes_files/index0064.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Taylor_Series_expansion_for_finite_dif">)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+we may then take linear combinations of these expansions to obtain
+an approximation for the derivative <i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+at </font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,
+<i>viz.</i></font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="odes_files/index0065.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Derivative_from_linear_combination_of_">)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+The linear combination is chosen so as to eliminate the term in
+<i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,
+requiring</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="odes_files/index0066.gif"></center>
+</td><td width="0">(<a name="E_No_Yn_in_derivative">64)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+and, depending on the method, possibly some of the terms of higher
+order. We shall look at various strategies for choosing <font color="#008000" face="Symbol" size="2">a</font><i><sub><font color="#008080" size="2">i</font></sub></i><font size="2">
+in the following sections. Before doing so, we need to consider
+the error associated with approximating </font><i><font color="#000080" size="2">y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+by </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.</font>
+</p><h2><a name="_Toc412300381">6</a><a name="L_2_Truncation_error">.3</a><a name="S_Truncation_Error">
+Truncation error</a></h2>
+<p>
+<font size="2">The <i>global truncation error</i> at the </font><i><font color="#000080" size="2">n</font></i><font size="2">th
+step is the cumulative total of the truncation error at the previous
+steps and is</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">E</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Global_truncation_error">65)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+In contrast, the <i>local truncation error</i> for the <i><font color="#000080" size="2">n</font></i><font size="2">th
+step is</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">e</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">*</font><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Local_truncation_error">66)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where <i><font color="#000080" size="2">y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">*</font></i><font size="2">
+the exact solution of our differential equation but with the initial
+condition </font><i><font color="#000080" size="2">y</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">*</font></i><font color="#000080" size="2">=<i>Y</i></font><i><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">.
+Note that </font><i><font color="#000080" size="2">E</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+is not simply the sum of </font><i><font color="#000080" size="2">e</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.
+It also depends on the <i>stability</i> of the method (see section
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#S_Stability_of_ODE_solvers">6.7 </a>for details)
+and we aim for </font><i><font color="#000080" size="2">E</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;O</i>(<i>e</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">.</font>
+</p><h2><a name="_Toc412300382">6</a><a name="L_2_Euler_method">.4</a><a name="S_Euler_Method">
+Euler method</a></h2>
+<p>
+<font size="2">The Euler method is the simplest finite difference
+scheme to understand and implement. By approximating the derivative
+in ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Approximate_ODE">61 </a>) as</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Forward_difference">67)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+in our differential equation for <i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+we obtain</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Euler_method">68)</a></td></tr>
+</tbody></table>
+</p><p>
+Given the initial/boundary condition <i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;<i>c</i></font><font size="2">,
+we may obtain </font><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+from </font><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">&nbsp;<i>+</i>&nbsp;</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">,<i>Y</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)</font><font size="2">,
+</font><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">2</font></sub><font size="2">
+from </font><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">&nbsp;+&nbsp;</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">,<i>Y</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)</font><font size="2">
+and so on, marching forwards through time. This process is shown
+graphically in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure18.htm#F_Euler_method">18 </a>.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure18.htm#FF_18">Click here for Figure 18 </a>
+</li></ul>
+<p>
+<font size="2">The Euler method is termed an <i>explicit</i> method
+because we are able to write down an explicit solution for </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+in terms of "known" values at </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.
+Inspection of our approximation for </font><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+shows the error term is of order </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">
+in our time step formula. This shows that the Euler method is
+a <i>first order method</i>. Moreover it can be shown that if
+</font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">=y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">,
+then </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2">=y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2">+O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">
+<i>provided</i> the scheme is stable (see section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#S_Stability_of_ODE_solvers">6.7 </a>).</font>
+</p><h2><a name="_Toc412300383">6</a><a name="L_2_Implicit_methods">.5</a><a name="S_Implicit_Methods">
+Implicit methods</a></h2>
+<p>
+<font size="2">The Euler method outlined in the previous section
+may be summarised by the update formula </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;g</i>(<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><font size="2">.
+In contrast implicit methods have have </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+on both sides: </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;h</i>(<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">,<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><font size="2">,
+for example. Such implicit methods are computationally more expensive
+for a single step than explicit methods, but offer advantages
+in terms of stability and/or accuracy in many circumstances. Often
+the computational expense <i>per step</i> is more than compensated
+for by it being possible to take larger steps (see section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#S_Stability_of_ODE_solvers">6.7 </a>).</font>
+</p><h3><a name="_Toc412300384">6</a><a name="L_3_Backward_Euler">.5</a><a name="S_Backward_Euler">.1
+Backward Euler</a></h3>
+<p>
+<font size="2">The backward Euler method is almost identical to
+its explicit relative, the only difference being that the derivative
+</font><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+is approximated by</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n </font></sub></i><font color="#000080" size="2">=~ (<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Backward_difference">69)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+to give the evolution equation
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Backward_Euler">70)</a></td></tr>
+</tbody></table>
+</p><p>
+This is shown graphically in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure19.htm#F_Backward_Euler_method">19 </a>.
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure19.htm#FF_19">Click here for Figure 19 </a>
+</li></ul>
+<p>
+The dependence of the right-hand side on the variables at <i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+rather than </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+means that it is not, in general possible to give an explicit
+formula for </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+only in terms of </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+and </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">.
+(It may, however, be possible to recover an explicit formula for
+some functions </font><i><font color="#000080" size="2">f</font></i><font size="2">.)</font>
+</p><p>
+<font size="2">As the derivative </font><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+is approximated only to the first order, the Backward Euler method
+has errors of </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">,
+exactly as for the Euler method. The solution process will, however,
+tend to be more stable and hence accurate, especially for <i>stiff</i>
+problems (problems where </font><i><font color="#000080" size="2">f'</font></i><font size="2">
+is large). An example of this is shown in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure20.htm#F_Comparison_of_ODE_solvers_for_stiff">20 </a>.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure20.htm#FF_20">Click here for Figure 20 </a>
+</li></ul>
+<h3><a name="_Toc412300385">6</a><a name="S_Richardson_Extrapolation">.5.2
+Richardson extrapolation</a></h3>
+<p>
+<font size="2">The Romberg integration approach (presented in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#S_Romberg_Integration">5.6 </a>)
+of using two approximations of different step size to construct
+a more accurate estimate may also be used for numerical solution
+of ordinary differential equations. Again, if we have the estimate
+for some time </font><i><font color="#000080" size="2">t</font></i><font size="2">
+calculated using a time step </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,
+then for both the Euler and Backward Euler methods the approximate
+solution is related to the true solution by </font><i><font color="#000080" size="2">Y</font></i><font color="#000080" size="2">(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>
+= y</i>(<i>t</i>) + <i>c</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">.
+Similarly an estimate using a step size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2</font><font size="2">
+will follow </font><i><font color="#000080" size="2">Y</font></i><font color="#000080" size="2">(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)<i>
+= y</i>(<i>t</i>) + </font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">4</font></sub><i><font color="#000080" size="2">c</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">
+as </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t0</font></i><font size="2">.
+Combining these two estimates to try and cancel the </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">
+errors gives the improved estimate as</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">Y</font></i><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2) = [4<i>Y</i>(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)<i> - Y</i>(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">) ]/3</font><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Richardson_extrapolation">71)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+The same approach may be applied to higher order methods such
+as those presented in the following sections. It is generally
+preferable, however, to utilise a higher order method to start
+with, the exception being that calculating both <i><font color="#000080" size="2">Y</font></i><font color="#000080" size="2">(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><font size="2">
+and </font><i><font color="#000080" size="2">Y</font></i><font color="#000080" size="2">(<i>t</i>,</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)</font><font size="2">
+allows the two solutions to be compared and thus the trunctation
+error estimated.</font>
+</p><h3><a name="_Toc412300386">6</a><a name="L_3_Crank_Nicholson">.5</a><a name="S_Crank_Nicholson">.3
+Crank-Nicholson</a></h3>
+<p>
+<font size="2">If we use <i>central differences</i> rather than
+the <i>forward difference</i> of the Euler method or the <i>backward
+difference</i> of the backward Euler, we may obtain a second order
+method due to cancellation of the terms of </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">.
+Using the same discretisation of </font><i><font color="#000080" size="2">t</font></i><font size="2">
+we obtain</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font> </sub><font color="#000080" size="2">=~ (<i>Y</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Central_difference">72)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+Substitution into our differential equation for <i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+gives</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><font color="#000080" size="2">(<i>Y</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2"> =~ <i>f</i>(<i>t</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Central_difference_for_ode">73)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+The requirement for <i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">)</font><font size="2">
+is then satisfied by a linear interpolation for </font><i><font color="#000080" size="2">f</font></i><font size="2">
+between </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font size="2">
+and </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font size="2">
+to obtain</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2"> =~ </font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#000080" size="2">[<i>f</i>(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">) + <i>f</i>(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)]</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Crank_Nicholson_method">74)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+As with the Backward Euler, the method is implicit and it is not,
+in general, possible to write an explicit expression for <i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+in terms of </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.</font>
+</p><p>
+<font size="2">Formal proof that the Crank-Nicholson method is second
+order accurate is slightly more complicated than for the Euler
+and Backward Euler methods due to the linear interpolation to
+approximate</font><i><font color="#000080" size="2"> f</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1/2</font></sub><font color="#000080" size="2">)</font><font size="2">.
+The overall approach is much the same, however, with a requirement
+for Taylor Series expansions about </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">::</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="odes_files/index0067.gif"></center>
+</td><td width="57">(<a name="E_Taylor_Series_for_Crank_Nicholson">75a)</a>
+</td></tr>
+<tr><td width="586"><center><img src="odes_files/index0068.gif"></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Taylor_Series_for_Crank_Nicholson">75 </a>b)
+</td></tr>
+</tbody></table>
+</p><p>
+Substitution of these into the left- and right-hand sides of equation
+( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Crank_Nicholson_method">74 </a>) reveals
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="odes_files/index0069.gif"></center>
+</td><td width="57">(<a name="E_Crank_Nicholson_proof">76a)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="odes_files/index0070.gif"></center>
+</td><td width="33">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Crank_Nicholson_proof">76 </a>b)
+</td></tr>
+</tbody></table>
+</p><p>
+which are equal up to <i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">.</font>
+</p><h2><a name="_Toc412300387">6</a><a name="L_2_Multistep_methods">.6</a><a name="S_Multistep_Methods">
+Multistep methods</a></h2>
+<p>
+<font size="2">As an alternative, the accuracy of the approximation
+to the derivative may be improved by using a linear combination
+of additional points. By utilising only </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n-s+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">,</font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n-s+</font></sub></i><sub><font color="#008080" size="2">2</font></sub><font size="2">,&#8230;,</font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+we may construct an approximation to the derivatives of orders
+</font><font color="#000080" size="2">1</font><font size="2"> to </font><i><font color="#000080" size="2">s</font></i><font size="2">
+at </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.
+For example, if </font><i><font color="#000080" size="2">s&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>2</font><font size="2">
+then</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> = f</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - f</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i></center>
+</td><td width="57">(<a name="E_Multistep_derivatives_for_s_equals_2">77)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and so we may construct a second order method as
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tY'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i>½</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">= Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">(3<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - f</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Second_order_multistep">78)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+For <i><font color="#000080" size="2">s=</font></i><font color="#000080" size="2">3</font><font size="2">
+we also have </font><i><font color="#000080" size="2">Y'"</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+and so can make use of a second-order one-sided finite difference
+to approximate </font><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">
+</font></i><font color="#000080" size="2">= <i>f'</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">
+= </font></i><font color="#000080" size="2">(3<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">
+</font></i><font color="#000080" size="2">­4<i> f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">­1</font></sub><font color="#000080" size="2">
++ <i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">­2</font></sub><font color="#000080" size="2">)</font><font size="2">/2</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+and include the third order </font><i><font color="#000080" size="2">Y'"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">
+</font></i><font color="#000080" size="2">= <i>f"</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">
+= </font></i><font color="#000080" size="2">(<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">­<i>
+</i>2<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">­1</font></sub><font color="#000080" size="2">+<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">­2</font></sub><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">
+to obtain</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tY'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">6</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">3</font></sup><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">= Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">12</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">(23<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - </font></i><font color="#000080" size="2">16<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2"> + 5<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-2</font></sub><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Third_order_multistep">79a)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+These methods are called <i>Adams-Bashforth</i> methods. Note
+that <i><font color="#000080" size="2">s&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>1</font><font size="2">
+recovers the Euler method.</font>
+</p><p>
+<font size="2">Implicit Adams-Bashforth methods are also possible
+if we use information about </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+in addition to earlier time steps. The corresponding </font><i><font color="#000080" size="2">s&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>2</font><font size="2">
+method then uses</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> = f</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> - f</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2">)/2</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y'"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2"> - 2<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Multistep_derivatives_for_implicit_met">80)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+to give
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tY'</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">Y"</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">6</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">3</font></sup><i><font color="#000080" size="2">Y'"</font><sub><font color="#008080" size="2">n</font></sub></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">= Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">(1/12)</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">(5<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">8<i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2"> - <i>f</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Implicit_multistep_method">81)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+This family of implicit methods is known as <i>Adams-Moulton</i>
+methods.
+</p><h2><a name="_Toc412300388">6</a><a name="L_2_Stability">.7</a><a name="S_Stability_of_ODE_solvers">
+Stability</a></h2>
+<p>
+<font size="2">The stability of a method can be even more important
+than its accuracy as measured by the order of the truncation error.
+Suppose we are solving</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">y' </font></i><font color="#000080" size="2">=<i> </i></font><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">y</font></i><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Exponential_growth">82)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+for some complex <font color="#008000" face="Symbol" size="2">l</font><font size="2">.
+The exact solution is bounded (<i>i.e.</i> does not increase without
+limit) provided </font><font color="#000080" size="2">Re</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">&nbsp;&lt;=&nbsp;0</font><font size="2">.
+Substituting this into the Euler method shows</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = </font></i><font color="#000080" size="2">(1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> = </font></i><font color="#000080" size="2">(1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><i><font color="#000080" size="2"> = &#8230; = </font></i><font color="#000080" size="2">(1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><i><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">+1</font></sup><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Exponential_for_Euler_method">83)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+If <i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+is to remain bounded for increasing </font><i><font color="#000080" size="2">n</font></i><font size="2">
+and given </font><font color="#000080" size="2">Re</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">&nbsp;&lt;&nbsp;0</font><font size="2">
+we require</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">|</font></i><font color="#000080" size="2">1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t|&nbsp;&lt;</font></i><font color="#000080" size="2">=&nbsp;1</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Euler_method_stability">84)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+If we choose a time step <font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+which does not satisfy ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Euler_method_stability">84 </a>)
+then </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+will increase without limit. This condition ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Euler_method_stability">84 </a>)
+on </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+is very restrictive if </font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">&lt;&lt;0</font><font size="2">
+as it demonstrates the Euler method must use very small time steps
+</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;2|</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">|</font><sup><font color="#800080" size="2">-1</font></sup><font size="2">
+if the solution is to converge on </font><i><font color="#000080" size="2">y&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>0</font><font size="2">.</font>
+</p><p>
+<font size="2">The reason why we consider the behaviour of equation
+( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_growth">82 </a>) is that it
+is a model for the behaviour of small errors. Suppose that at
+some stage during the solution process our approximate solution
+is </font><i><font color="#000080" size="2">y</font></i><sub><font color="#008080" size="2">$</font></sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;y&nbsp;</i>+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">e</font><font size="2">
+where </font><font color="#008000" face="Symbol" size="2">e</font><font size="2">
+is the (small) error. Substituting this into our differential
+equation of the form </font><i><font color="#000080" size="2">y'&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;f</i>(<i>t</i>,<i>y</i>)</font><font size="2">
+and using a Taylor Series expansion gives</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="odes_files/index0071.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Evolution_for_errors">85)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Thus, to the leading order, the error obeys an equation of the
+form given by ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_growth">82 </a>),
+with <font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;f</i>/<i>y</i></font><font size="2">.
+As it is desirable for errors to decrease (and thus the solution
+remain stable) rather than increase (and the solution be unstable),
+the limit on the time step suggested by ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Euler_method_stability">84 </a>)
+applies for the application of the Euler method to any ordinary
+differential equation. A consequence of the decay of errors present
+at one time step as the solution process proceeds is that memory
+of a particular time step's contribution to the global truncation
+error decays as the solution advances through time. Thus the global
+truncation error is dominated by the local trunction error(s)
+of the most recent step(s) and </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>E</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)<i>&nbsp;</i>=<i>&nbsp;O</i>(<i>e</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">.</font>
+</p><p>
+<font size="2">In comparison, solution of ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_growth">82 </a>)
+by the Backward Euler method</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Exponential_for_Backward_Euler">86)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+can be rearranged for <i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+and</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">/(1 - </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i> = Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">-1</font></sub><font color="#000080" size="2">/(1 - </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2"> = &#8230; = Y</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">/(1 - </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)</font><i><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">+1</font></sup><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Exponential_2_for_Backward_Euler">87)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+which will be stable provided
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#000080" size="2">|1 - </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">|<i>&nbsp;</i>&gt;&nbsp;1</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Backward_Euler_method_stability">88)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+For <font color="#000080" size="2">Re</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">&nbsp;&lt;=&nbsp;0</font><font size="2">
+this is always satisfied and so the Backward Euler method is unconditionally
+stable.</font>
+</p><p>
+<font size="2">The Crank-Nicholson method may be analysed in a similar
+fashion with</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#000080" size="2">(1­</font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> </i>(1+</font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Exponential_for_Crank_Nicholson">89)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+to arrive at
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> </i>[(1+</font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)/(1 - </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)]</font><i><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">+1</font></sup><i><font color="#000080" size="2"> Y</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Exponential_2_for_Crank_Nicholson">90)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+with the magnitude of the term in square brackets always less
+than unity for <font color="#000080" size="2">Re</font><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&lt;<i>&nbsp;</i>0</font><font size="2">.
+Thus, like Backward Euler, Crank-Nicholson is unconditionally
+stable.</font>
+</p><p>
+<font size="2">In general, explicit methods require less computation
+per step, but are only conditionally stable and so may require
+far smaller step sizes than an implicit method of nominally the
+same order.</font>
+</p><h2><a name="_Toc412300389">6</a><a name="L_2_Predictor_corrector_methods">.8</a><a name="S_Predictor_Corrector_Methods">
+Predictor-corrector methods</a></h2>
+<p>
+<font size="2">Predictor-corrector methods try to combine the advantages
+of the simplicity of explicit methods with the improved stability
+and accuracy of implicit methods. They achieve this by using an
+explicit method to <i>predict</i> the solution </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(</font>p)</sup><font size="2">
+at </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+and then utilise </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(</font>p)</sup><font color="#000080" size="2">)</font><font size="2">
+as an approximation to </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">)</font><font size="2">
+to <i>correct</i> this prediction using something similar to an
+implicit step.</font>
+</p><h3><a name="_Toc412300390">6</a><a name="L_3_Improved_Euler_method">.8</a><a name="S_Improved_Euler">.1
+Improved Euler method</a></h3>
+<p>
+<font size="2">The simplest of these methods combines the Euler
+method as the predictor</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">,</font></center>
+</td><td width="33">(<a name="E_Improved_Euler_prediction_step">91)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and then the Backward Euler to give the corrector
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font></i><sup><font color="#800080" size="2">(2)</font></sup><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">)</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Improved_Euler_correction_step">92)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+The final solution is the mean of these:
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = </font></i><font color="#000080" size="2">(<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> + Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(2)</font></sup><font color="#000080" size="2">)/2</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Improved_Euler_final_solution">93)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+To understand the stability of this method we again use the <i><font color="#000080" size="2">y'&nbsp;=&nbsp;</font></i><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">y</font></i><font size="2">
+so that the three steps described by equations ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Improved_Euler_prediction_step">91 </a>)
+to ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Improved_Euler_final_solution">93 </a>)
+become</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">tY</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Exponential_for_Improved_Euler">94a)</a>
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(2)</font></sup><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">tY</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= <i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2"> (<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">tY</font><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= (1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t </font></i><font color="#000080" size="2">+<i> </i></font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_for_Improved_Euler">94 </a>b)
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = </font></i><font color="#000080" size="2">(<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> + Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><sup><font color="#800080" size="2">(2)</font></sup><font color="#000080" size="2">)/2</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= [(1<i> + </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">(1 + </font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t + </font></i><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">]/2</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= (1<i> + </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t + </font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)<i> Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= (1<i> </i>+<i> </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t </font></i><font color="#000080" size="2">+<i> </i></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><i><sup><font color="#800080" size="2">n</font></sup><font color="#000080" size="2"> Y</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">.</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_for_Improved_Euler">94 </a>c)
+</td></tr>
+</tbody></table>
+</p><p>
+Convergence requires <font color="#000080" size="2">|1<i> + </i></font><font color="#008000" face="Symbol" size="2">lD</font><i><font color="#000080" size="2">t
++ </font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">|&nbsp;&lt;&nbsp;1</font><font size="2">
+(for </font><font color="#000080" size="2">Re</font><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&lt;<i>&nbsp;</i>0</font><font size="2">)
+which in turn restricts </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;2|</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">|</font><sup><font color="#800080" size="2">-1</font></sup><font size="2">.
+Thus the stability of this method, commonly known as the Improved
+Euler method, is identical to the Euler method. This is not surprising
+as it is limited by the stability of the initial predictive step.
+The accuracy of the method is, however, second order as may be
+seen by comparison of ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Exponential_for_Improved_Euler">94 </a>c)
+with the Taylor Series expansion.</font>
+</p><h3><a name="_Toc412300391">6</a><a name="L_3_Runge_Kutta_methods">.8</a><a name="S_Runge_Kutta">.2
+Runge-Kutta</a> methods</h3>
+<p>
+<font size="2">The Improved Euler method is the simplest of a family
+of similar predictor corrector methods following the form of a
+single <i>predictor</i> step and one or more <i>corrector</i>
+steps. The corrector step may be repeated a fixed number of times,
+or until the estimate for </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+converges to some tolerance.</font>
+</p><p>
+<font size="2">One subgroup of this family are the Runge-Kutta methods
+which use a fixed number of corrector steps. The Improved Euler
+method is the simplest of this subgroup. Perhaps the most widely
+used of these is the fourth order method:</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> </i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2"> ,</font></center>
+</td><td width="57">(<a name="E_Runge_Kutta_fourth_order">95a)</a>
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(2)</font></sup><i><font color="#000080" size="2"> = </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t </font></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><font color="#000080" size="2">½<i>k</i></font><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">)</font><font size="2"> ,</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Runge_Kutta_fourth_order">95 </a>b)
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(3)</font></sup><i><font color="#000080" size="2"> = </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t </font></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><font color="#000080" size="2">½<i>k</i></font><sup><font color="#800080" size="2">(2)</font></sup><font color="#000080" size="2">)</font><font size="2"> ,</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Runge_Kutta_fourth_order">95 </a>c)
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(4)</font></sup><i><font color="#000080" size="2"> = </font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t </font></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+k</font></i><sup><font color="#800080" size="2">(3)</font></sup><font color="#000080" size="2">)</font><font size="2"> ,</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Runge_Kutta_fourth_order">95 </a>d)
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> = Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">(<i>k</i></font><sup><font color="#800080" size="2">(1)</font></sup><i><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">2<i>k</i></font><sup><font color="#800080" size="2">(2)</font></sup><i><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">2<i>k</i></font><sup><font color="#800080" size="2">(3)</font></sup><i><font color="#000080" size="2"> + k</font></i><sup><font color="#800080" size="2">(4)</font></sup><font color="#000080" size="2">)/6</font><font size="2">.</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#E_Runge_Kutta_fourth_order">95 </a>e)
+</td></tr>
+</tbody></table>
+</p><p>
+In order to analyse this we need to construct Taylor-Series expansions
+for <i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(2)</font></sup><font color="#000080" size="2">&nbsp;=&nbsp;</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">+</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">+</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(1)</font></sup><font color="#000080" size="2">)&nbsp;=&nbsp;</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">[<i>f</i>(<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)+(</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/2)(<i>f</i>/<i>t</i>+<i>ff</i>/<i>y</i>)]</font><font size="2">,
+and similarly for </font><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(3)</font></sup><font size="2">
+and </font><i><font color="#000080" size="2">k</font></i><sup><font color="#800080" size="2">(4)</font></sup><font size="2">.
+This is then compared with a full Taylor-Series expansion for
+</font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font size="2">
+up to fourth order requiring </font><i><font color="#000080" size="2">Y"&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;df</i>/<i>dt&nbsp;</i>=&nbsp;<i>f</i>/<i>t&nbsp;</i>+<i>&nbsp;f
+f</i>/<i>y</i></font><font size="2">, </font><i><font color="#000080" size="2">Y'"&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;d</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">/<i>dt</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">/<i>t</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">
+</font></i><font color="#000080" size="2">+<i> </i>2<i>f </i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">/<i>ty
+</i>+<i> f</i>/<i>t f</i>/<i>y </i>+<i> f</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">
+</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">/<i>y</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">
+</font></i><font color="#000080" size="2">+<i> f </i>(<i>f</i>/<i>y</i>)</font><sup><font color="#800080" size="2">2</font></sup><font size="2">,
+and similarly for </font><i><font color="#000080" size="2">Y""</font></i><font size="2">.
+All terms up to order </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">4</font></sup><font size="2">
+can be shown to match, with the error coming in at </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">5</font></sup><font size="2">.</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"></td><td width="57"></td></tr>
+</tbody></table>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm">Goto next document (HighODE) </a>
+</p><hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>

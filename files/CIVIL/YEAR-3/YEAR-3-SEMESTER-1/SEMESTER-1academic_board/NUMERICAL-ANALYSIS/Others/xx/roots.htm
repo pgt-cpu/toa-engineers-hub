@@ -1,0 +1,687 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: roots</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#Z_6">Root finding in one dimension </a></center>
+</h1>
+<h1><a name="L_1_Root_finding_in_one_dimension">Contents Summary</a>
+</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300337">3</a><a name="Z_6">. </a><a name="S_Root_Finding">Root
+finding in one dimension</a></h1>
+<h2><a name="_Toc412300338">3</a><a name="L_2_Why_">.1</a><a name="S_Why">
+Why?</a></h2>
+<p>
+<font size="2">Solutions </font><i><b><font color="#000080" size="2">x&nbsp;</font></b></i><font color="#000080" size="2">=<i>&nbsp;<b>x</b></i></font><sub><font color="#008080" size="2">0</font></sub><font size="2">
+to equations of the form </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i><b>x</b></i>)<i>&nbsp;</i>=<i>&nbsp;</i>0</font><font size="2">
+are often required where it is impossible or infeasible to find
+an analytical expression for the vector </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.
+If the scalar function </font><i><font color="#000080" size="2">f</font></i><font size="2">
+depends on </font><i><font color="#000080" size="2">m</font></i><font size="2">
+independent variables </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">,</font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">2</font></sub><font color="#000080" size="2">,<i>&#8230;</i>,<i>x</i></font><i><sub><font color="#008080" size="2">m</font></sub></i><font size="2">,
+then the solution </font><i><b><font color="#000080" size="2">x</font></b></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+will describe a surface in </font><i><font color="#000080" size="2">m</font></i><font color="#000080" size="2">-1</font><font size="2">
+dimensional space. Alternatively we may consider the vector function
+</font><i><b><font color="#000080" size="2">f</font></b></i><font color="#000080" size="2">(<i><b>x</b></i>)=<b>0</b></font><font size="2">,
+the solutions of which typically collapse to particular values
+of </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.
+For this course we restrict our attention to a single independent
+variable </font><i><font color="#000080" size="2">x</font></i><font size="2">
+and seek solutions to </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>x</i>)<i>=</i>0</font><font size="2">.</font>
+</p><h2><a name="_Toc412300339">3</a><a name="L_2_Bisection">.2</a><a name="S_Bisection">
+Bisection</a></h2>
+<p>
+<font size="2">This is the simplest method for finding a root to
+an equation. As we shall see, it is also the most robust. One
+of the main drawbacks is that we need two initial guesses </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">a</font></sub></i><font size="2">
+and </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">b</font></sub></i><font size="2">
+which bracket the root: let </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">a</font></sub><font color="#000080" size="2">&nbsp;</font></i><font size="2">=</font><i><font color="#000080" size="2">&nbsp;f</font></i><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+and </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">b</font></sub><font color="#000080" size="2">&nbsp;</font></i><font size="2">=</font><i><font color="#000080" size="2">&nbsp;f</font></i><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+such that </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">a</font></sub><font color="#000080" size="2">&nbsp;f</font><sub><font color="#008080" size="2">b</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&lt;=<i>&nbsp;</i>0</font><font size="2">.
+An example of this is shown graphically in figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure1.htm#F_Bisection_method">1 </a>.
+Clearly, if </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">a</font></sub><font color="#000080" size="2">&nbsp;f</font><sub><font color="#008080" size="2">b</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>0</font><font size="2">
+then one or both of </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">a</font></sub></i><font size="2">
+and </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">b</font></sub></i><font size="2">
+must be a root of </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>x</i>)<i>&nbsp;</i>=<i>&nbsp;</i>0</font><font size="2">.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure1.htm#FF_1">Click here for Figure 1 </a>
+</li></ul>
+<p>
+<font size="2">The basic algorithm for the bisection method relies
+on repeated application of</font>
+</p><ul>
+<li><font size="2">Let </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">&nbsp;=<i>&nbsp;</i>(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">+<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)/2</font><font size="2">,</font>
+</li><li><font size="2">if </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">&nbsp;=&nbsp;<i>f</i>(<i>c</i>)&nbsp;=&nbsp;0</font><font size="2">
+then </font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">&nbsp;=&nbsp;<i>x</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font size="2">
+is an exact solution,</font>
+</li><li><font size="2">elseif </font><i><font color="#000080" size="2">f</font><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">&nbsp;<i>f</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">&nbsp;&lt;&nbsp;0</font><font size="2">
+then the root lies in the interval </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">)</font><font size="2">,</font>
+</li><li><font size="2">else the root lies in the interval </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">.</font>
+</li></ul>
+<p>
+<font size="2">By replacing the interval </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+with either </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+or </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">c</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+(whichever brackets the root), the error in our estimate of the
+solution to </font><i><font color="#000080" size="2">f</font></i><font color="#000080" size="2">(<i>x</i>)
+&nbsp;=&nbsp;0</font><font size="2"> is, on average, halved. We
+repeat this interval halving until either the exact root has been
+found or the interval is smaller than some specified tolerance.</font>
+</p><h3><a name="_Toc412300340">3</a><a name="L_3_Convergence">.2</a><a name="S_Convergence_of_Bisection">.1
+Convergence</a></h3>
+<p>
+<font size="2">Since the interval </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+always bracets the root, we know that the error in using either
+</font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">a</font></sub></i><font size="2">
+or </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">b</font></sub></i><font size="2">
+as an estimate for root at the </font><i><font color="#000080" size="2">n</font></i><font size="2">th
+iteration must be </font><i><font color="#000080" size="2">e</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&lt;<i>&nbsp;</i>|<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">­<i>&nbsp;x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">|</font><font size="2">.
+Now since the interval </font><font color="#000080" size="2">(<i>x</i></font><i><sub><font color="#008080" size="2">a</font></sub></i><font color="#000080" size="2">,<i>x</i></font><i><sub><font color="#008080" size="2">b</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+is halved for eac3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_188_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_189_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_190_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~tr-TR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_191_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_192_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_193_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_194_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_195_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-CN~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_196_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_197_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_198_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_199_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-WCF-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_200_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-ServerCore-OC-WOW64-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-HK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-NetFx3-Server-OC-Package~31bf3856ad364e35~amd64~zh-TW~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_201_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_202_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~ar-SA~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_202_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_202_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_202_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_202_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~bg-BG~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~en-GB~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, parent found: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~en-GB~6.2.9200.16384, state: Resolved
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~en-US~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~et-EE~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~hr-HR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~lt-LT~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~lv-LV~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~ro-RO~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~sk-SK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~sl-SI~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~sr-LATN-CS~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~th-TH~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~uk-UA~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Resolved
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Resolved
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_203_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Resolved.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_204_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~cs-CZ~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_204_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_204_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_204_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_204_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_205_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~da-DK~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_205_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_205_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_205_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_205_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_206_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~de-DE~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_206_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_206_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_206_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_206_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_207_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~el-GR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_207_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_207_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_207_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_207_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_208_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~es-ES~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_208_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_208_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_208_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_208_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_209_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~fi-FI~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_209_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_209_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_209_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_209_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_210_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~fr-FR~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_210_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_210_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_210_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_210_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_211_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~he-IL~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_211_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_211_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_211_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_211_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_212_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~hu-HU~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_212_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_212_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_212_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_212_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_213_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~it-IT~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_213_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_213_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_213_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-05 21:30:27, Info                  CBS    EvaluateApplicability, package: Package_213_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Package applicability: Absent.
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_214_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, Parent: Microsoft-Windows-Presentation-Package~31bf3856ad364e35~amd64~ja-JP~6.2.9200.16384, Disposition = Detect, VersionComp: EQ, ServiceComp: EQ, BuildComp: EQ, DistributionComp: GE, RevisionComp: GE, Exist: present
+2013-03-05 21:30:27, Info                  CBS    Appl: detectParent: package: Package_214_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, no parent found, go absent
+2013-03-05 21:30:27, Info                  CBS    Appl: detect Parent, Package: Package_214_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, disposition state from detectParent: Absent
+2013-03-05 21:30:27, Info                  CBS    Appl: Evaluating package applicability for package Package_214_for_KB2769166~31bf3856ad364e35~amd64~~6.2.1.0, applicable state: Absent
+2013-03-80" size="2">f'</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+as</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">h</font></i><font color="#000080" size="2">(<i>x</i>)<i> </i>=<i> </i>4<i>x</i>(<i>x - </i></font><font color="#008000" face="Symbol" size="2">p</font><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">p</font><sup><font color="#800080" size="2">2</font></sup></center>
+</td><td width="0">(<a name="E_Approximation_to_f_derivative_for_GI">26)</a>
+</td></tr>
+</tbody></table>
+</p><ul>
+<li>Initial guess: <i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">
+= 0</font><font size="2"> (fails with </font><i><font color="#000080" size="2">x
+= </font></i><font color="#008000" face="Symbol" size="2">p</font><font color="#000080" size="2">/2</font><font size="2">
+as </font><i><font color="#000080" size="2">h</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+vanishes).</font>
+</li><li><font size="2">Expect convergence: </font><font color="#008000" face="Symbol" size="2">e</font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">
+~ <i>g'</i>(<i>x*</i>) </font><font color="#008000" face="Symbol" size="2">e</font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">
+~ 0.026 </font><font color="#008000" face="Symbol" size="2">e</font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">.</font>
+</li></ul>
+<p>
+<table border="1">
+<tbody><tr><td width="99"><b><font size="2">Iteration</font></b></td><td width="222"><b>Error</b>
+</td><td width="204"><i><b><font color="#000080" size="2">e</font><sub><font color="#008080" size="2">n</font></sub></b></i><b><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">/<i><b>e</b></i></font><i><sub><font color="#008080" size="2">n</font></sub></i></b>
+</td></tr>
+<tr><td width="99">
+<pre><font size="2">0
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.0235988
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02985973863078
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">1
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.000704654
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02585084310882
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">2
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.0000182159
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02572477890195
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">3
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.000000468600
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02572151088348
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">4
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.0000000120531
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02572134969427
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">5
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.000000000310022
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02572107785899
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">6
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.00000000000797410
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02570835580191
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">7
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.000000000000205001
+
+</font>
+</pre>
+
+</td><td width="204"><pre><font size="2">0.02521207213623
+</font>
+</pre>
+
+</td></tr>
+<tr><td width="99"><pre><font size="2">8
+</font>
+</pre>
+</td>
+<td width="222"><pre><font size="2"> 0.00000000000000516850
+
+</font>
+</pre>
+
+</td><td width="204"></td></tr>
+<tr><td width="99"><pre><font size="2">9
+</font>
+</pre>
+</td>
+<td width="222"><i>Machine accuracy</i></td><td width="204"></td>
+</tr>
+</tbody></table>
+</p><p>
+The convergence, while still formally linear, is significantly
+more rapid than with the other first order methods. For a more
+complex example, the computational cost of having more iterations
+than Newton Raphson may be significantly less than the cost of
+evaluating the derivative.
+</p><p>
+A further potential use of this approach is to avoid the divergence
+problems associated with <i><font color="#000080" size="2">f'</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+vanishing in the Newton Raphson scheme. Since </font><i><font color="#000080" size="2">h</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+only approximates </font><i><font color="#000080" size="2">f'</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">,
+and the accuracy of this approximation is more important close
+to the root, it may be possible to choose </font><i><font color="#000080" size="2">h</font></i><font color="#000080" size="2">(<i>x</i>)</font><font size="2">
+in such a way as to avoid a divergent scheme.</font>
+</p><h3><a name="_Toc412300355">3</a><a name="L_3_Comparison">.7</a><a name="S_Example_of_roots_Comparison">.6
+Comparison</a></h3>
+<p>
+<font size="2">Figure <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure9.htm#F_Example_of_roots_Comparison">9 </a>shows
+graphicall a comparison between the different approaches to finding
+the roots of equation ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#E_Roots_of_cosine">21 </a>).
+The clear winner is the Newton-Raphson scheme, with the approximated
+derivative for the Direct Iteration proving a very good alternative.</font>
+</p><ul>
+<li><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/figure9.htm#FF_9">Click here for Figure 9 </a>
+</li></ul>
+<h3><a name="_Toc412300356">3</a><a name="S_Example_of_Fortran_program">.7.7
+Fortran program</a><sup>*</sup> </h3>
+<p>
+<font size="2">The following program was used to generate the data
+presented for the above examples. Note that this is included as
+an illustrative example. No knowledge of Fortran or any other
+programming language is required in this course.</font>
+</p><p>
+<table border="1">
+<tbody><tr><td bgcolor="#00ffff" width="605">
+<pre><font color="#008000" size="2">PROGRAM Roots
+      INTEGER*4 i,j
+      REAL*8    x,xa,xb,xc,fa,fb,fc,pi,xStar,f,df
+      REAL*8    Error(0:15,0:15)
+      f(x)=cos(x)-0.5
+      df(x) = -SIN(x)
+      pi = 3.141592653
+      xStar = ACOS(0.5)
+      WRITE(6,*)'# ',xStar,f(xStar)
+C=====Bisection
+      xa = 0
+      fa = f(xa)
+      xb = pi/2.0
+      fb = f(xb)
+      DO i=0,15
+        xc = (xa + xb)/2.0
+        fc = f(xc)
+        IF (fa*fc .LT. 0.0) THEN
+          xb = xc
+          fb = fc
+        ELSE
+          xa = xc
+          fa = fc
+        ENDIF
+        Error(0,i) = xc - xStar
+      ENDDO
+C=====Linear interpolation
+      xa = 0
+      fa = f(xa)
+      xb = pi/2.0
+      fb = f(xb)
+      DO i=0,15
+        xc = xa - (xb-xa)/(fb-fa)*fa
+        fc = f(xc)
+        IF (fa*fc .LT. 0.0) THEN
+          xb = xc
+          fb = fc
+        ELSE
+          xa = xc
+          fa = fc
+        ENDIF
+        Error(1,i) = xc - xStar
+      ENDDO
+C=====Newton-Raphson
+      xa = pi/2.0
+      DO i=0,15
+        xa = xa - f(xa)/df(xa)
+        Error(2,i) = xa - xStar
+      ENDDO
+C=====Secant
+      xa = 0
+      fa = f(xa)
+      xb = pi/2.0
+      fb = f(xb)
+      DO i=0,15
+        IF (fa .NE. fb) THEN
+C         If fa = fb then either method has converged (xa=xb)
+C         or will diverge from this point
+          xc = xa - (xb-xa)/(fb-fa)*fa
+          xa = xb
+          fa = fb
+          xb = xc
+          fb = f(xb)
+        ENDIF
+        Error(3,i) = xc - xStar
+      ENDDO
+C=====Direct iteration using x + f(x) = x
+      xa = 0.0
+      DO i=0,15
+        xa = xa + f(xa)
+        Error(4,i) = xa - xStar
+      ENDDO
+C=====Direct iteration using  xf(x)=0 rearranged for x
+C-----Starting point prevents convergence
+      xa = pi/2.0
+      DO i=0,15
+        xa = 2.0*xa*(f(x)-0.5)
+        Error(5,i) = xa - xStar
+      ENDDO
+C=====Direct iteration using xf(x)=0 rearranged for x
+      xa = pi/4.0
+      DO i=0,15
+        xa = 2.0*xa*COS(xa)
+        Error(6,i) = xa - xStar
+      ENDDO
+C=====Direct iteration using 4x(x-pi)/pi/pi to approximate f'
+      xa = pi/2.0
+      DO i=0,15
+        xa = xa - f(xa)*pi*pi/(4.0*xa*(xa-pi))
+        Error(7,i) = xa - xStar
+      ENDDO
+C=====Output results
+      DO i=0,15
+        WRITE(6,100)i,(Error(j,i),j=0,7)
+      ENDDO
+100   FORMAT(1x,i4,8(1x,g12.6))
+      END
+
+</font>
+</pre>
+
+</td></tr>
+</tbody></table>
+</p><p>
+<br>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm">Goto next document (Linear) </a>
+</p><hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>

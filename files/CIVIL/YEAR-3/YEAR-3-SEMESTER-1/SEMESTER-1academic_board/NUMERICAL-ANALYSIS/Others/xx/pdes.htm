@@ -1,0 +1,882 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: pdes</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#Z_11">Partial differential equations </a></center>
+</h1>
+<h1><a name="L_1_Partial_differential_equations">Contents Summary</a>
+</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300400">8</a><a name="Z_11">. </a><a name="S_Partial_Differential_Equations">Partial
+differential equations</a></h1>
+<h2><a name="_Toc412300401">8</a><a name="L_2_Laplace_equation">.1</a><a name="S_Laplace">
+Laplace</a> equation</h2>
+<p>
+<font size="2">Consider the Laplace equation in two dimensions</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="pdes_files/index0073.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Laplace_equation_in_2D">101)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+in some rectangular domain described by <i><font color="#000080" size="2">x</font></i><font size="2">
+in </font><font color="#000080" size="2">[<i>x</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">,<i>x</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">]</font><font size="2">,
+</font><i><font color="#000080" size="2">y</font></i><font size="2">
+in </font><font color="#000080" size="2">[<i>y</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">,<i>y</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">]</font><font size="2">.
+Suppose we discretise the solution onto a </font><i><font color="#000080" size="2">m+1</font></i><font size="2">
+by </font><i><font color="#000080" size="2">n</font></i><font color="#000080" size="2">+1</font><font size="2">
+rectangular grid (or mesh) given by </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;x</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">&nbsp;+&nbsp;i</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">,
+</font><i><font color="#000080" size="2">y</font><sub><font color="#008080" size="2">j</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;y</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">&nbsp;+&nbsp;j</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">y</font></i><font size="2">
+where </font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">=0,<i>m</i></font><font size="2">,
+</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">=0,<i>n</i></font><font size="2">.
+The mesh spacing is </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x&nbsp;=&nbsp;</font></i><font color="#000080" size="2">(<i>x</i></font><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">-x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)/<i>m</i></font><font size="2">
+and </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">y&nbsp;=&nbsp;</font></i><font color="#000080" size="2">(<i>y</i></font><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">-y</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)/<i>n</i></font><font size="2">.
+Let </font><i><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;(x</font><sub><font color="#008080" size="2">i</font></sub></i><font color="#000080" size="2">,<i>y</i></font><i><sub><font color="#008080" size="2">j</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+be the exact solution at the mesh point </font><i><font color="#000080" size="2">i,j</font></i><font size="2">,
+and </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font color="#000080" size="2">&nbsp;=~&nbsp;</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+be the approximate solution at that mesh point.</font>
+</p><p>
+<font size="2">By considering the Taylor Series expansion for about
+some mesh point </font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">,<i>j</i></font><font size="2">,</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="pdes_files/index0074.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Taylor_Series_for_Laplace_equation">102a)</a>
+</td></tr>
+<tr><td width="586"><center><img src="pdes_files/index0075.gif">,</center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Taylor_Series_for_Laplace_equation">102 </a>b)
+</td></tr>
+<tr><td width="586"><center><img src="pdes_files/index0076.gif">,</center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Taylor_Series_for_Laplace_equation">102 </a>b)
+</td></tr>
+<tr><td width="586"><center><img src="pdes_files/index0077.gif">,</center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Taylor_Series_for_Laplace_equation">102 </a>b)
+</td></tr>
+</tbody></table>
+</p><p>
+it is clear that we may approximate <sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">j</font><font color="#000080" size="2">/<i>x</i></font><sup><font color="#800080" size="2">2</font></sup><font size="2">
+and </font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">j</font><font color="#000080" size="2">/<i>y</i></font><sup><font color="#800080" size="2">2</font></sup><font size="2">to
+the first order using the four adjacent mesh points to obtain
+the finite difference approximation</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="pdes_files/index0078.gif"></center>
+</td><td width="57">(<a name="E_Finite_difference_for_Laplace_in_2D">103)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+for the internal points <font color="#000080" size="2">0&lt;<i>i</i>&lt;<i>m</i>,
+0&lt;<i>j</i>&lt;<i>n</i></font><font size="2">. In addition to
+this we will have either Dirichlet, von Neumann or mixed boundary
+conditions to specify the boundary values of </font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">.
+The system of linear equations described by ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Finite_difference_for_Laplace_in_2D">103 </a>)
+in combination with the boundary conditions may be solved in a
+variety of ways.</font>
+</p><h3><a name="_Toc412300402">8</a><a name="L_3_Direct_solution">.1</a><a name="S_Direct_Solution_of_Laplace">.1
+Direct solution</a></h3>
+<p>
+<font size="2">Provided the boundary conditions are linear in ,
+our finite difference approximation is itself linear and the resulting
+system of equations may be solved directly using Gauss Elimination
+as discussed in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#S_Gauss_Elimination">4.1 </a>.
+This approach may be feasible if the total number of mesh points
+</font><font color="#000080" size="2">(<i>m+</i>1)(<i>n+</i>1)</font><font size="2">
+required is relatively small, but as the matrix </font><b><font color="#000080" size="2">A</font></b><font size="2">
+used to represent the complete system will have </font><font color="#000080" size="2">[(<i>m+</i>1)(<i>n+</i>1)]</font><sup><font color="#800080" size="2">2</font></sup><font size="2">
+elements, the storage and computational cost of such a solution
+will become prohibitive even for relatively modest </font><i><font color="#000080" size="2">m</font></i><font size="2">
+and </font><i><font color="#000080" size="2">n</font></i><font size="2">.</font>
+</p><p>
+<font size="2">The structure of the system ensures </font><b><font color="#000080" size="2">A</font></b><font size="2">
+is relatively sparse, consisting of a tridiagonal core with one
+nonzero diagonal above and another below this. These nonzero diagonals
+are offset by either </font><i><font color="#000080" size="2">m</font></i><font size="2">
+or </font><i><font color="#000080" size="2">n</font></i><font size="2">
+from the leading diagonal. Provided pivoting (if required) is
+conducted in such a way that it does not place any nonzero elements
+outside this band then solution by Gauss Elimination or LU Decomposition
+will only produce nonzero elements inside this band, substantially
+reducing the storage and computational requirements (see section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#S_Banded_matrices">4.4 </a>).
+Careful choice of the order of the matrix elements (<i>i.e.</i>
+by </font><i><font color="#000080" size="2">x</font></i><font size="2">
+or by </font><i><font color="#000080" size="2">y</font></i><font size="2">)
+may help reduce the size of this matrix so that it need contain
+only </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>m</i></font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">
+elements for a square domain.</font>
+</p><p>
+<font size="2">Because of the wide spread need to solve Laplace's
+and related equations, specialised solvers have been developed
+for this problem. One of the best of these is Hockney's method
+for solving </font><b><font color="#000080" size="2">A<i><b>x</b></i></font></b><font color="#000080" size="2">&nbsp;=&nbsp;<i><b>b</b></i></font><font size="2">
+which may be used to reduce a block tridiagonal matrix (and the
+corresponding right-hand side) of the form</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="pdes_files/index0079.gif"><font size="2">,</font></center>
+</td><td width="33">(<a name="E_Block_tridiagonal_matrix">104)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+into a block diagonal matrix of the form
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0080.gif">,</center>
+</td><td width="0">(<a name="E_Block_diagonal_matrix">105)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where <img src="pdes_files/index0081.gif"> and <img src="pdes_files/index0082.gif">
+are themselves block tridiagonal matrices and <b><font color="#000080" size="2">I</font></b><font size="2">
+is an identiy matrix.. This process may be performed iteratively
+to reduce an </font><i><font color="#000080" size="2">n</font></i><font size="2">
+dimensional finite difference approximation to Laplace's equation
+to a tridiagonal system of equations with </font><i><font color="#000080" size="2">n-</font></i><font color="#000080" size="2">1</font><font size="2">
+applications. The computational cost is </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>p&nbsp;</i>log&nbsp;<i>p</i>)</font><font size="2">,
+where </font><i><font color="#000080" size="2">p</font></i><font size="2">
+is the total number of mesh points. The main drawback of this
+method is that the boundary conditions must be able to be cast
+into the block tridiagonal format.</font>
+</p><h3><a name="_Toc412300403">8</a><a name="L_3_Relaxation">.1</a><a name="S_Relaxation_Methods">.2
+Relaxation</a></h3>
+<p>
+<font size="2">An alternative to direct solution of the finite difference
+equations is an iterative numerical solution. These iterative
+methods are often referred to as relaxation methods as an initial
+<i>guess</i> at the solution is allowed to slowly relax towards
+the true solution, reducing the errors as it does so. There are
+a variety of approaches with differing complexity and speed. We
+shall introduce these methods before looking at the basic mathematics
+behind them.</font>
+</p><h4><a name="_Toc381288926"><font size="2">8</font></a><a name="L_4_Jacobi"><font size="2">.1</font></a><a name="S_Jacobi"><font size="2">.2.1
+Jacobi</font></a></h4>
+<p>
+<font size="2">The Jacobi Iteration is the simplest approach. For
+clarity we consider the special case when </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x&nbsp;=&nbsp;</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">y</font></i><font size="2">.
+To find the solution for a two-dimensional Laplace equation simply:</font>
+</p><ol>
+<li><font size="2">Initialise </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+to some initial <i>guess</i>.</font>
+</li><li><font size="2">Apply the boundary conditions.</font>
+</li><li><font size="2">For each internal mesh point set</font> 
+</li></ol>
+<p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#008000" face="Symbol" size="2">F</font><font color="#000080" size="2">*</font><i><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i+</font></sub></i><sub><font color="#008080" size="2">1</font>,j</sub><i><font color="#000080" size="2">&nbsp;+&nbsp;</font></i><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1</font>,j</sub><i><font color="#000080" size="2">&nbsp;+&nbsp;</font></i><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i,j+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">&nbsp;+&nbsp;</font></i><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i,j-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)/4</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Jacobi_iteration">106)</a></td>
+</tr>
+</tbody></table>
+</p><ol>
+<li>Replace old solution <font color="#008000" face="Symbol" size="2">F</font><font size="2">
+with new estimate </font><font color="#008000" face="Symbol" size="2">F</font><i><font color="#000080" size="2">*</font></i><font size="2">.</font>
+</li><li><font size="2">If solution does not satisfy tolerance, repeat
+from step 2.</font>
+</li></ol>
+<p>
+<font size="2">The coefficients in the expression (here all </font><font color="#000080" size="2">1/4</font><font size="2">)
+used to calculate the refined estimate is often referred to as
+the <i>stencil</i> or <i>template</i>. Higher order approximations
+may be obtained by simply employing a stencil which utilises more
+points. Other equations (<i>e.g.</i> the bi-harmonic equation,
+</font><sup><font color="#800080" size="2">4</font></sup><font color="#008000" face="Symbol" size="2">Y</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>0</font><font size="2">)
+may be solved by introducing a stencil appropriate to that equation.</font>
+</p><p>
+<font size="2">While very simple and cheap per iteration, the Jacobi
+Iteration is very slow to converge, especially for larger grids.
+Corrections to errors in the estimate </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+diffuse only slowly from the boundaries taking </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(max(<i>m</i>,<i>n</i>))</font><font size="2">
+iterations to diffuse across the entire mesh.</font>
+</p><h4><a name="_Toc381288927"><font size="2">8</font></a><a name="L_4_Gauss_Seidel"><font size="2">.1</font></a><a name="S_Gauss_Seidel"><font size="2">.2.2
+Gauss-Seidel</font></a></h4>
+<p>
+<font size="2">The Gauss-Seidel Iteration is very similar to the
+Jacobi Iteration, the only difference being that the new estimate
+</font><font color="#008000" face="Symbol" size="2">F</font><font color="#000080" size="2">*</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+is returned to the solution </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+as soon as it is completed, allowing it to be used immediately
+rather than deferring its use to the next iteration. The advantages
+of this are:</font>
+</p><ul>
+<li><font size="2">Less memory required (there is no need to store
+</font><font color="#008000" face="Symbol" size="2">F</font><font color="#000080" size="2">*</font><font size="2">).</font>
+</li><li><font size="2">Faster convergence (although still relatively
+slow).</font>
+</li></ul>
+<p>
+<font size="2">On the other hand, the method is less amenable to
+vectorisation as, for a given iteration, the new estimate of one
+mesh point is dependent on the new estimates for those already
+scanned.</font>
+</p><h4><a name="_Toc381288928"><font size="2">8</font></a><a name="L_4_Red_Black_ordering"><font size="2">.1</font></a><a name="S_Red_Black_Ordering"><font size="2">.2.3
+Red-Black ordering</font></a></h4>
+<p>
+<font size="2">A variant on the Gauss-Seidel Iteration is obtained
+by updating the solution </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+in two passes rather than one. If we consider the mesh points
+as a chess board, then the white squares would be updated on the
+first pass and the black squares on the second pass. The advantages</font>
+</p><ul>
+<li><font size="2">No interdependence of the solution updates within
+a single pass aids vectorisation.</font>
+</li><li><font size="2">Faster convergence at low wave numbers.</font>
+</li></ul>
+<h4><a name="_Toc381288929"><font size="2">8</font></a><a name="L_4_Successive_Over_Relaxation_SOR_"><font size="2">.1</font></a><a name="S_Successive_Over_Relaxation"><font size="2">.2.4
+Successive Over Relaxation (SOR)</font></a></h4>
+<p>
+<font size="2">It has been found that the errors in the solution
+obtained by any of the three preceding methods decrease only slowly
+and often decrease in a monotonic manner. Hence, rather than setting</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><font color="#008000" face="Symbol" size="2">F</font><font color="#000080" size="2">*</font><i><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>(</font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">+1,</font>j</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1,</font>j</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">,</font>j+1</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">,</font>j-1</sub><font color="#000080" size="2">)/4</font><font size="2">,</font></center>
+</td><td width="33"></td></tr>
+</tbody></table>
+</p><p>
+for each internal mesh point, we use
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#008000" face="Symbol" size="2">F</font><font color="#000080" size="2">*</font><i><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>(1-</font><font color="#008000" face="Symbol" size="2">s</font><font color="#000080" size="2">)</font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp; </i></font><font color="#008000" face="Symbol" size="2">s</font><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">+1,</font>j</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1,</font>j</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">,</font>j+1</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">+<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">,</font>j-1</sub><font color="#000080" size="2">)/4</font><font size="2">,</font></center>
+</td><td width="0">(<a name="E_SOR_iteration">107)</a></td></tr>
+</tbody></table>
+</p><p>
+for some value <font color="#008000" face="Symbol" size="2">s</font><font size="2">.
+The <i>optimal</i> value of </font><font color="#008000" face="Symbol" size="2">s</font><font size="2">
+will depend on the problem being solved and may vary as the iteration
+process converges. Typically, however, a value of around 1.2 to
+1.4 produces good results. In some special cases it is possible
+to determine an optimal value analytically.</font>
+</p><h3><a name="_Toc412300404">8</a><a name="L_3_Multigrid_">.1</a><a name="S_Multigrid">.3
+Multigrid</a><sup>*</sup> </h3>
+<p>
+<font size="2">The big problem with relaxation methods is their
+slow convergence. If </font><font color="#008000" face="Symbol" size="2">s</font><font color="#000080" size="2">&nbsp;<i>=&nbsp;</i>1</font><font size="2">
+then application of the stencil removes all the error in the solution
+at the wave length of the mesh for that point, but has little
+impact on larger wave lengths. This may be seen if we consider
+the one-dimensional equation </font><font color="#000080" size="2">d</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">/d<i>x</i></font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><font color="#000080" size="2">0</font><font size="2">
+subject to </font><font color="#008000" face="Symbol" size="2">j</font><font color="#000080" size="2">(<i>x=</i>0)<i>&nbsp;</i>=<i>&nbsp;</i>0</font><font size="2">
+and </font><font color="#008000" face="Symbol" size="2">j</font><font color="#000080" size="2">(<i>x=</i>1)<i>&nbsp;</i>=<i>&nbsp;</i>1</font><font size="2">.
+Suppose our initial guess for the iterative solution is that </font><font color="#008000" face="Symbol" size="2">F</font><i><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><font color="#000080" size="2">0</font><font size="2">
+for all internal mesh points. With the Jacobi Iteration the correction
+to the internal points diffuses only slowly along from </font><i><font color="#000080" size="2">x&nbsp;=&nbsp;</font></i><font color="#000080" size="2">1</font><font size="2">.</font>
+</p><p>
+</p><center><img src="pdes_files/index0083.gif"></center>
+<p>
+<font size="2">Multigrid methods try to improve the rate of convergence
+by considering the problem of a hierarchy of grids. The larger
+wave length errors in the solution are dissipated on a coarser
+grid while the shorter wave length errors are dissipated on a
+finer grid. for the example considered above, the solution would
+converge in one complete Jacobi multigrid iteration, compared
+with the slow asymptotic convergence above.</font>
+</p><p>
+<font size="2">For linear problems, the basic multigrid algorithm
+for one complete iteration may be described as</font>
+</p><ol>
+<li><font size="2">Select the initial finest grid resolution </font><i><font color="#000080" size="2">p=P</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+and set </font><i><b><font color="#000080" size="2">b</font></b></i><sup><font color="#800080" size="2">(</font>p)</sup><i><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><font color="#000080" size="2">0</font><font size="2">
+and make some initial guess at the solution </font><b><font color="#008000" face="Symbol" size="2">F</font></b><sup><font color="#800080" size="2">(</font>p)</sup>
+</li><li><font size="2">If at coarsest resolution (</font><i><font color="#000080" size="2">p</font></i><font color="#000080" size="2">=0</font><font size="2">)
+then solve </font><b><font color="#000080" size="2">A</font></b><sup><font color="#800080" size="2">(</font>p)</sup><b><font color="#008000" face="Symbol" size="2">F</font></b><sup><font color="#800080" size="2">(</font>p)</sup><font color="#000080" size="2">=<i><b>b</b></i></font><sup><font color="#800080" size="2">(</font>p)</sup><font size="2">
+<i>exactly</i> and jump to step 7</font>
+</li><li><font size="2">Relax the solution at the current grid resolution,
+applying boundary conditions</font>
+</li><li><font size="2">Calculate the error </font><i><b><font color="#000080" size="2">r</font></b><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><b><font color="#000080" size="2">A</font><font color="#008000" face="Symbol" size="2">F</font></b><sup><font color="#800080" size="2">(</font>p)</sup><i><font color="#000080" size="2">-<i><b>b</b></i></font></i><sup><font color="#800080" size="2">(</font>p)</sup>
+</li><li><font size="2">Coarsen the error </font><i><b><font color="#000080" size="2">b</font></b></i><sup><font color="#800080" size="2">(</font>p-1)</sup><i><b><font color="#000080" size="2">r</font></b></i><font size="2">
+to the next coarser grid and decrement </font><i><font color="#000080" size="2">p</font></i>
+</li><li><font size="2">Repeat from step 2</font>
+</li><li><font size="2">Refine the correction to the next finest grid
+</font><b><font color="#008000" face="Symbol" size="2">F</font></b><sup><font color="#800080" size="2">(</font>p+1)</sup><font color="#000080" size="2">&nbsp;=&nbsp;</font><b><font color="#008000" face="Symbol" size="2">F</font></b><sup><font color="#800080" size="2">(</font>p+1)</sup><font color="#000080" size="2">+</font><font color="#008000" face="Symbol" size="2">a<b>F</b></font><sup><font color="#800080" size="2">(</font>p)</sup><font size="2">
+and increment </font><i><font color="#000080" size="2">p</font></i>
+</li><li><font size="2">Relax the solution at the current grid resolution,
+applying boundary conditions</font>
+</li><li><font size="2">If not at current finest grid (</font><i><font color="#000080" size="2">P</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">),
+repeat from step 7</font>
+</li><li><font size="2">If not at final desired grid, increment </font><i><font color="#000080" size="2">P</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+and repeat from step 7</font>
+</li><li><font size="2">If not converged, repeat from step 2.</font>
+</li></ol>
+<p>
+<font size="2">Typically the relaxation steps will be performed
+using Successive Over Relaxtion with Red-Black ordering and some
+relaxation coefficient </font><font color="#008000" face="Symbol" size="2">s</font><font size="2">.
+The hierarchy of grids is normally chosen to differ in dimensions
+by a factor of 2 in each direction. The factor </font><font color="#008000" face="Symbol" size="2">a</font><font size="2">
+is typically less than unity and effectively damps possible instabilities
+in the convergence. The refining of the correction to a finer
+grid will be achieved by (bi-)linear or higher order interpolation,
+and the coarsening may simply be by sub-sampling or averaging
+the error vector </font><i><b><font color="#000080" size="2">r</font></b></i><font size="2">.</font>
+</p><p>
+<font size="2">It has been found that the number of iterations required
+to reach a given level of convergence is more or less independent
+of the number of mesh points. As the number of operations per
+complete iteration for </font><i><font color="#000080" size="2">n</font></i><font size="2">
+mesh points is </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i>)<i>+O</i>(<i>n</i>/2</font><i><sup><font color="#800080" size="2">d</font></sup></i><font color="#000080" size="2">)<i>+
++O</i>(<i>n</i>/2</font><sup><font color="#800080" size="2">2</font>d</sup><font color="#000080" size="2">)+&#8230;</font><font size="2">,
+where </font><i><font color="#000080" size="2">d</font></i><font size="2">
+is the number of dimensions in the problem, then it can be seen
+that the Multigrid method may often be faster than a direction
+solution (which will require </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2">)</font><font size="2">,
+</font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i></font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">)</font><font size="2">
+or </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n</i>&nbsp;log&nbsp;<i>n</i>)</font><font size="2">
+operations, depending on the method used). This is particularly
+true if </font><i><font color="#000080" size="2">n</font></i><font size="2">
+is large or there are a large number of dimensions in the problem.
+For small problems, the coefficient in front of the </font><i><font color="#000080" size="2">n</font></i><font size="2">
+for the Multigrid solution may be relatively large so that direct
+solution may be faster.</font>
+</p><p>
+<font size="2">A further advantage of Multigrid and other iterative
+methods when compared with direct solution, is that irregular
+shaped domains or complex boundary conditions are implemented
+more easily. The difficulty with this for the Multigrid method
+is that care must be taken in order to ensure consistent boundary
+conditions in the embedded problems.</font>
+</p><h3><a name="_Toc412300405">8</a><a name="L_3_The_mathematics_of_relaxation_">.1</a><a name="S_The_mathematics_of_relaxation">.4
+The mathematics of relaxation<sup>*</sup></a> </h3>
+<p>
+<font size="2">In principle, relaxation methods which are the basis
+of the Jacobi, Gauss-Seidel, Successive Over Relaxation and Multigrid
+methods may be applied to any system of linear equations to interatively
+improve an approximation to the exact solution. The basis for
+this is identical to the Direct Iteration method described in
+section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#S_Direct_Iteration">3.6 </a>. We start
+by writing the vector function</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><b><font color="#000080" size="2">f</font></b></i><font color="#000080" size="2">(<i><b>x</b></i>)<i><b> </b></i><b>=<i> </i>A<i>x</i></b><i> <b>b</b></i></font><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Root_finding_for_system_of_equations">108)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and search for the vector of roots to <i><b><font color="#000080" size="2">f</font></b></i><font color="#000080" size="2">(<i><b>x</b></i>)<i><b>
+= </b></i><b>0</b></font><font size="2"> by writing</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><i><b><font color="#000080" size="2">x</font></b><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2"> = <i><b>g</b></i>(<i><b>x</b></i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">,</font></center>
+</td><td width="33">(<a name="E_Direct_Iteration_for_system_of_equatio">109)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><b><font color="#000080" size="2">g</font></b></i><font color="#000080" size="2">(<i><b>x</b></i>)<i> </i>=<i> </i><b>D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">{[<b>A</b>+<b>D</b>]<i><b>x</b> <b>b</b></i>}</font><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Iteration_function_for_system_of_equat">110)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+with <b><font color="#000080" size="2">D</font></b><font size="2"> a
+diagonal matrix (zero for all off-diagonal elements) which may
+be chosen arbitrarily. We may analyse this system by following
+our earlier analysis for the Direct Iteration method (section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#S_Direct_Iteration">3.6 </a>).
+Let us assume the exact solution is </font><i><b><font color="#000080" size="2">x</font></b><font color="#000080" size="2">*&nbsp;=&nbsp;<i><b>g</b></i></font></i><font color="#000080" size="2">(<i><b>x</b>*</i>)</font><font size="2">,
+then</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> <b>x</b></i></font><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2"> <i><b>x</b></i>*</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">= <b>D</b></font><sup><font color="#800080" size="2">­1</font></sup><font color="#000080" size="2">{[<b>A</b>+<b>D</b>]<i><b>x</b></i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> <i><b>b</b></i></font></i><font color="#000080" size="2">} <b>D</b></font><sup><font color="#800080" size="2">­1</font></sup><font color="#000080" size="2">{[<b>A</b>+<b>D</b>]<i><b>x</b></i><b>*</b><i> <b>b</b></i>}</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<b> D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>](<i><b>x</b></i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> <i><b>x</b></i></font></i><font color="#000080" size="2">*)</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<b> D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>]</font><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2"> </font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<b> </b>{<b>D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>]}</font><i><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">+1</font></sup><font color="#000080" size="2"> </font><b><font color="#008000" face="Symbol" size="2">e</font></b><sub><font color="#008080" size="2">0</font></sub><font size="2">.</font></center>
+</td><td width="57"></td></tr>
+</tbody></table>
+</p><p>
+From this it is clear that convergence will be linear and requires
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><font color="#000080" size="2">||</font><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><font color="#000080" size="2">||<i> </i>=<i> </i>||<b>B</b></font><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">||<i> </i>&lt;<i> </i>||</font><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">||</font><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Error_term_for_Direct_Iteration_of_lin">111)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where <b><font color="#000080" size="2">B</font></b><font color="#000080" size="2">&nbsp;=&nbsp;<b>D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>]</font><font size="2">
+for some suitable norm. As any error vector </font><b><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+may be written as a linear combination of the eigen vectors of
+our matrix </font><b><font color="#000080" size="2">B</font></b><font size="2">,
+it is sufficient for us to consider the eigen value problem</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><b><font color="#000080" size="2">B</font><font color="#008000" face="Symbol" size="2">e</font></b><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> </i></font><font color="#008000" face="Symbol" size="2">l<b>e</b></font><i><sub><font color="#008080" size="2">n</font></sub></i><font size="2">,</font></center>
+</td><td width="33">(<a name="E_Eigen_value_problem_for_Direct_Iterati">112)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and require <font color="#000080" size="2">max(|</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">|)</font><font size="2">
+to be less than unity. In the asymptotic limit, the smaller the
+magnitude of this maximum eigen value the more rapid the convergence.
+The convergence remains, however, linear.</font>
+</p><p>
+<font size="2">Since we have the ability to choose the diagonal
+matrix </font><b><font color="#000080" size="2">D</font></b><font size="2">,
+and since it is the eigen values of </font><b><font color="#000080" size="2">B</font></b><font color="#000080" size="2">&nbsp;=&nbsp;<b>D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>]</font><font size="2">
+rather than </font><b><font color="#000080" size="2">A</font></b><font size="2">
+itself which are important, careful choice of </font><b><font color="#000080" size="2">D</font></b><font size="2">
+can aid the speed at which the method converges. Typically this
+means selecting </font><b><font color="#000080" size="2">D</font></b><font size="2">
+so that the diagonal of </font><b><font color="#000080" size="2">B</font></b><font size="2">
+is small.</font>
+</p><h4><a name="_Toc381288932"><font size="2">8</font></a><a name="L_4_Jacobi_and_Gauss_Seidel_for_Laplace_"><font size="2">.1</font></a><a name="S_Analysis_of_relaxation_for_Laplace_equ"><font size="2">.4.1
+Jacobi and Gauss-Seidel for Laplace equation<sup>*</sup></font></a>
+</h4>
+<p>
+<font size="2">The structure of the finite difference approximation
+to Laplace's equation lends itself to these relaxation methods.
+In one dimension,</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0084.gif"></center>
+</td><td width="0">(<a name="E_Relaxation_A_matrix_for_1D_Laplace">113)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and both Jacobi and Gauss-Seidel iterations take <b><font color="#000080" size="2">D</font></b><font size="2">
+as </font><font color="#000080" size="2">2<b>I</b></font><font size="2">
+(</font><b><font color="#000080" size="2">I</font></b><font size="2">
+is the identity matrix) on the diagonal to give </font><b><font color="#000080" size="2">B</font></b><font color="#000080" size="2">&nbsp;=&nbsp;<b>D</b></font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">[<b>A</b>+<b>D</b>]</font><font size="2">
+as</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="pdes_files/index0085.gif"></center>
+</td><td width="33">(<a name="E_Relaxation_B_matrix_for_1D_Laplace">114)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+The eigen values <font color="#008000" face="Symbol" size="2">l</font><font size="2">
+of this matrix are given by the roots of</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#000080" size="2">det(<b>B</b>­</font><font color="#008000" face="Symbol" size="2">l</font><b><font color="#000080" size="2">I</font></b><font color="#000080" size="2">) = 0</font><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Relaxation_roots_of_determinant">115)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+In this case the determinant may be obtained using the recurrence
+relation
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(</font>n)</sub><font color="#000080" size="2"> = ­</font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2"> det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(</font>n­1)</sub><font color="#000080" size="2"> ­ </font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">4</font></sub><font color="#000080" size="2"> det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(</font>n­2)</sub><font size="2"> ,</font></center>
+</td><td width="0">(<a name="E_Recurrence_relation_for_determinant">116)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where the subscript gives the size of the matrix <b><font color="#000080" size="2">B</font></b><font size="2">.
+From this we may see</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(1)</font></sub><font color="#000080" size="2"> = ­</font><font color="#008000" face="Symbol" size="2">l</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(2)</font></sub><font color="#000080" size="2"> = </font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2"> ­ ¼</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(3)</font></sub><font color="#000080" size="2"> = ­</font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2"> + ½</font><font color="#008000" face="Symbol" size="2">l</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(4)</font></sub><font color="#000080" size="2"> = </font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2"> ­ ¾ </font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2"> + (1/16)</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(5)</font></sub><font color="#000080" size="2"> = ­</font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">5</font></sup><font color="#000080" size="2"> + </font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">3</font></sup><font color="#000080" size="2"> ­ (3/16)</font><font color="#008000" face="Symbol" size="2">l</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">det(<b>B­</b></font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sub><font color="#008080" size="2">(6)</font></sub><font color="#000080" size="2"> = </font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">6</font></sup><font color="#000080" size="2"> ­ (5/4)</font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">4</font></sup><font color="#000080" size="2"> + (3/8)</font><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2"> ­ (1/64)</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">&#8230;</font></center>
+</td><td width="57">(<a name="E_Determinants_of_B">117)</a></td>
+</tr>
+<tr><td width="586"><center>which may be solved to give the eigen values</center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#008000" face="Symbol" size="2">l</font><sub><font color="#008080" size="2">(1)</font></sub><font color="#000080" size="2"> = 0</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><sub><font color="#008080" size="2">(2)</font></sub><font color="#000080" size="2"> = 1/4</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><sub><font color="#008080" size="2">(3)</font></sub><font color="#000080" size="2"> = 0, 1/2</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><sub><font color="#008080" size="2">(4)</font></sub><font color="#000080" size="2"> = (3 5)/8</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#008000" face="Symbol" size="2">l</font><sup><font color="#800080" size="2">2</font></sup><sub><font color="#008080" size="2">(5)</font></sub><font color="#000080" size="2"> = 0, 1/4, 3/4</font><font size="2"> ,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">&#8230;</font></center>
+</td><td width="57">(<a name="E_Eigen_values_of_B">118)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+It can be shown that for a system of any size following this general
+form, all the eigen values satisfy <i><font color="#000080" size="2">|</font></i><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">|&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;1</font><font size="2">,
+thus proving the relaxation method will always converge. As we
+increase the number of mesh points, the number of eigen values
+increases and gradually fills up the range </font><i><font color="#000080" size="2">|</font></i><font color="#008000" face="Symbol" size="2">l</font><i><font color="#000080" size="2">|&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;1</font><font size="2">,
+with the numerically largest eigen values becoming closer to unity.
+As a result of </font><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">1</font><font size="2">,
+the convergence of the relaxation method slows considerably for
+large problems. A similar analysis may be applied to Laplace's
+equation in two or more dimensions, although the expressions for
+the determinant and eigen values is correspondingly more complex.</font>
+</p><p>
+<font size="2">The large eigen values are responsible for decreasing
+the error over large distances (many mesh points). The multigrid
+approach enables the solution to converge using a much smaller
+system of equations and hence smaller eigen values for the larger
+distances, bypassing the slow convergence of the basic relaxation
+method.</font>
+</p><h4><a name="_Toc381288933"><font size="2">8</font></a><a name="L_4_Successive_Over_Relaxation_for_Lapla"><font size="2">.1</font></a><a name="S_SOR_for_Laplace_equation"><font size="2">.4.2
+Successive Over Relaxation for Laplace equation<sup>*</sup></font></a><font size="2">
+</font></h4>
+<p>
+<font size="2">The analysis of the Jacobi and Gauss-Seidel iterations
+may be applied equally well to Successive Over Relaxation. The
+main difference is that </font><b><font color="#000080" size="2">D</font></b><font color="#000080" size="2">&nbsp;=&nbsp;(2/</font><font color="#008000" face="Symbol" size="2">s</font><font color="#000080" size="2">)<b>I</b></font><font size="2">
+so that</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="pdes_files/index0086.gif"></center>
+</td><td width="57">(<a name="E_SOR_B_matrix_for_1D_Laplace">119)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and the corresponding eigen values are related by <font color="#000080" size="2">(1­</font><font color="#008000" face="Symbol" size="2">s</font><i><font color="#000080" size="2">­</font></i><font color="#008000" face="Symbol" size="2">l</font><font color="#000080" size="2">)</font><sup><font color="#800080" size="2">2</font></sup><font size="2">
+equal to the values tabulated above. Thus if </font><font color="#008000" face="Symbol" size="2">s</font><font size="2">
+is chosen inappropriately, the eigen values of </font><b><font color="#000080" size="2">B</font></b><font size="2">
+will exceed unity and the relaxation method will diverge. On the
+otherhand, careful choise of </font><font color="#008000" face="Symbol" size="2">s</font><font size="2">
+will allow the eigen values of </font><b><font color="#000080" size="2">B</font></b><font size="2">
+to be less than those for Jacobi and Gauss-Seidel, thus increasing
+the rate of convergence.</font>
+</p><h4><a name="_Toc381288934"><font size="2">8</font></a><a name="L_4_Other_equations_"><font size="2">.1</font></a><a name="S_Relation_of_other_equations"><font size="2">.4.3
+Other equations<sup>*</sup></font></a><font size="2"> </font></h4>
+<p>
+<font size="2">Relaxation methods may be applied to other differential
+equations or more general systems of linear equations in a similar
+manner. As a rule of thumb, the solution will converge if the
+</font><b><font color="#000080" size="2">A</font></b><font size="2">
+matrix is diagonally dominant, <i>i.e.</i> the numerically largest
+values occur on the diagonal. If this is not the case, SOR can
+still be used, but it may be necessary to choose </font><font color="#008000" face="Symbol" size="2">s</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;1</font><font size="2">
+whereas for Laplace's equation </font><font color="#008000" face="Symbol" size="2">s</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">&gt;<i>=&nbsp;</i>1</font><font size="2">
+produces a better rate of convergence.</font>
+</p><h3><a name="_Toc412300406">8</a><a name="L_3_FFT_">.1</a><a name="S_FFT">.5
+FFT</a><sup>*</sup> </h3>
+<p>
+<font size="2">One of the most common ways of solving Laplace's
+equation is to take the Fourier transform of the equation to convert
+it into wave number space and there solve the resulting algebraic
+equations. This conversion process can be very efficient if the
+Fast Fourier Transform algorithm is used, allowing a solution
+to be evaluated with </font><i><font color="#000080" size="2">O</font></i><font color="#000080" size="2">(<i>n&nbsp;</i>log&nbsp;<i>n</i>)</font><font size="2">
+operations.</font>
+</p><p>
+<font size="2">In its simplest form the FFT algorithm requires there
+to be </font><i><font color="#000080" size="2">n&nbsp;=&nbsp;</font></i><font color="#000080" size="2">2</font><i><sup><font color="#800080" size="2">p</font></sup></i><font size="2">
+mesh points in the direction(s) to be transformed. The efficiency
+of the algorithm is achieved by first calculating the transform
+of pairs of points, then of pairs of transforms, then of pairs
+of pairs and so on up to the full resolution. The idea is to <i>divide
+and conquer!</i> Details of the FFT algorithm may be found in
+any standard text.</font>
+</p><h3><a name="_Toc412300407">8</a><a name="L_3_Boundary_elements_">.1</a><a name="S_Boundary_Elements">.6
+Boundary elements</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300408">8</a><a name="L_3_Finite_elements_">.1</a><a name="S_Finite_Elements">.7
+Finite elements</a><sup>*</sup> </h3>
+<h2><a name="_Toc412300409">8</a><a name="L_2_Poisson_equation">.2</a><a name="S_Poisson_Equation">
+Poisson equation</a></h2>
+<p>
+<font size="2">The Poisson equation </font><sup><font color="#800080" size="2">2</font></sup><font color="#008000" face="Symbol" size="2">f</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;f</i>(<i><b>x</b></i>)</font><font size="2">
+may be treated using the same techniques as Laplace's equation.
+It is simply necessary to set the right-hand side to </font><i><font color="#000080" size="2">f</font></i><font size="2">,
+scaled suitably to reflect any scaling in </font><b><font color="#000080" size="2">A</font></b><font size="2">.</font>
+</p><h2><a name="_Toc412300410">8</a><a name="L_2_Diffusion_equation">.3</a><a name="S_Diffusion_Equation">
+Diffusion equation</a></h2>
+<p>
+<font size="2">Consider the two-dimensional diffusion equation,</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="586"><p>
+</p><center><img src="pdes_files/index0087.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Diffusion_equation_in_2D">120)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+subject to <i><font color="#000080" size="2">u</font></i><font color="#000080" size="2">(<i>x,y,t</i>)<i>&nbsp;</i>=&nbsp;0</font><font size="2">
+on the boundaries </font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">=0,1</font><font size="2">
+and </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">=0,1</font><font size="2">.
+Suppose the initial conditions are </font><i><font color="#000080" size="2">u</font></i><font color="#000080" size="2">(<i>x,y,t</i>=0)<i>&nbsp;</i>=&nbsp;<i>u</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">(<i>x,y</i>)</font><font size="2">
+and we wish to evaluate the solution for </font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">&gt;&nbsp;0</font><font size="2">.
+We shall explore some of the options for achieving this in the
+following sections.</font>
+</p><h3><a name="_Toc412300411">8</a><a name="L_3_Semi_discretisation">.3</a><a name="S_Semi_Discretisation">.1
+Semi-discretisation</a></h3>
+<p>
+<font size="2">One of the simplest and most useful approaches is
+to discretise the equation in space and then solve a system of
+(coupled) ordinary differential equations in time in order to
+calculate the solution. Using a square mesh of step size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x&nbsp;</font></i><font color="#000080" size="2">=&nbsp;</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">y&nbsp;</font></i><font color="#000080" size="2">=&nbsp;1/<i>m</i></font><font size="2">,
+and taking the diffusivity </font><i><font color="#000080" size="2">D&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>1</font><font size="2">,
+we may utilise our earlier approximation for the Laplacian operator
+(equation ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Finite_difference_for_Laplace_in_2D">103 </a>))
+to obtain</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><img src="pdes_files/index0088.gif"></center>
+</td><td width="33">(<a name="E_Diffusion_with_semi_discretisation">121)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+for the internal points <i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">=1,<i>m-</i>1</font><font size="2">
+and </font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">=1,<i>m-</i>1</font><font size="2">.
+On the boundaries </font><font color="#000080" size="2">(<i>i</i>=0,<i>j</i>)</font><font size="2">,
+</font><font color="#000080" size="2">(<i>i=m,j</i>)</font><font size="2">,
+</font><font color="#000080" size="2">(<i>i</i>,<i>j</i>=0)</font><font size="2">
+and </font><font color="#000080" size="2">(<i>i,j=m</i>)</font><font size="2">
+we simply have </font><i><font color="#000080" size="2">u</font><sub><font color="#008080" size="2">ij</font></sub><font color="#000080" size="2">=</font></i><font color="#000080" size="2">0</font><font size="2">.
+If </font><i><font color="#000080" size="2">U</font><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">
+represents our approximation of </font><i><font color="#000080" size="2">u</font></i><font size="2">
+at the mesh points </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">ij</font></sub></i><font size="2">,
+then we must simply solve the </font><font color="#000080" size="2">(<i>m-</i>1)</font><sup><font color="#800080" size="2">2</font></sup><font size="2">
+coupled ordinary differential equations</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0089.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Coupled_ode_system_for_diffusion_equat">122)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+In principle we may utilise any of the time stepping algorithms
+discussed in earlier lectures to solve this system. As we shall
+see, however, care needs to be taken to ensure the method chosen
+produces a stable solution.
+</p><h3><a name="_Toc412300412">8</a><a name="L_3_Euler_method">.3</a><a name="S_Euler_Method_for_Diffusion_Equation">.2
+Euler method</a></h3>
+<p>
+<font size="2">Applying the Euler method </font><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2">+</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">tf</font></i><font color="#000080" size="2">(<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">,<i>t</i></font><i><sub><font color="#008080" size="2">n</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+to our spatially discretised diffusion equation gives</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0090.gif"><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Diffusion_equation_by_Euler_method">123)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+where the Courant number
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><font color="#008000" face="Symbol" size="2">m</font><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Courant_number">124)</a></td>
+</tr>
+</tbody></table>
+</p><p>
+describes the size of the time step relative to the spatial discretisation.
+As we shall see, stability of the solution depends on <font color="#008000" face="Symbol" size="2">m</font><font size="2">
+in contrast to an ordinary differential equation where it is a
+function of the time step </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+only.</font>
+</p><h3><a name="_Toc412300413">8</a><a name="L_3_Stability">.3</a><a name="S_Stability_of_Euler_with_Diffusion_Equa">.3
+Stability</a></h3>
+<p>
+<font size="2">Stability of the Euler method solving the diffusion
+equation may be analysed in a similar way to that for ordinary
+differential equations. We start by asking the question "does
+the Euler method converge as </font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">-&gt;<i>infinity</i></font><font size="2">?"
+The exact solution will have </font><i><font color="#000080" size="2">u&nbsp;</font></i><font color="#000080" size="2">-&gt;&nbsp;0</font><font size="2">
+and the numerical solution must also do this if it is to be stable.</font>
+</p><p>
+<font size="2">We choose</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><i><font color="#000080" size="2">U</font></i><sup><font color="#800080" size="2">(0)</font></sup><i><sub><font color="#008080" size="2">i,j</font></sub><font color="#000080" size="2">=</font></i><font color="#000080" size="2">sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)</font><font size="2">,</font></center>
+</td><td width="0">(<a name="E_Initial_conditions_for_diffusion_equat">125)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+for some <font color="#008000" face="Symbol" size="2">a</font><font size="2">
+and </font><font color="#008000" face="Symbol" size="2">b</font><font size="2">
+chosen as multiples of </font><font color="#008000" face="Symbol" size="2">p</font><font color="#000080" size="2">/<i>m</i></font><font size="2">
+to satisfy </font><i><font color="#000080" size="2">u&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>0</font><font size="2">
+on the boundaries. Substituting this into ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Diffusion_equation_by_Euler_method">123 </a>)
+gives</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">U</font></i><sup><font color="#800080" size="2">(1)</font></sup><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">,</font>j</sub><i><font color="#000080" size="2">&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)<i> </i>+<i> </i></font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">{sin[</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">(<i>i</i>+1)]sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">) + sin[</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">(<i>i1)]sin(</i></font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">+ sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin[</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">(<i>j</i>+1)] + sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin[</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">(<i>j</i>­1)] 4 sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)}</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)<i> </i>+<i> </i></font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">{[sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">) + cos(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">)]sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">) + [sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">) cos(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">)]sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">+ sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)[sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">) + cos(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">)] + sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)[sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">) cos(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">)] 4 sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)}</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)<i> </i>+<i> </i>2</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">{sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">) sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">) + sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)cos(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">) 2 sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">)}</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">){1 + 2</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">[cos(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">) + cos(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">) 2]}</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">){1 4</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">[sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">/2) + sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">/2)]}</font><font size="2">.</font></center>
+</td><td width="57">(<a name="E_Fourier_mode_in_diffusion_equation">126)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Applying this at consecutive times shows the solution at time
+<i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+is</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">U</font></i><sup><font color="#800080" size="2">(</font>n)</sup><i><sub><font color="#008080" size="2">i,j</font></sub></i><font size="2"> </font><font color="#000080" size="2">=<i>&nbsp;</i>sin(</font><font color="#008000" face="Symbol" size="2">a</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)sin(</font><font color="#008000" face="Symbol" size="2">b</font><i><font color="#000080" size="2">j</font></i><font color="#000080" size="2">) {1 4</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">[sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">/2) + sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">/2)]}</font><i><sup><font color="#800080" size="2">n</font></sup></i><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Fourier_mode_at_time_tn">127)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+which then requires <font color="#000080" size="2">|1 4</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">[sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">a</font><font color="#000080" size="2">/2)
++ sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">b</font><font color="#000080" size="2">/2)]|&nbsp;&lt;&nbsp;1</font><font size="2">
+for this to converge as </font><i><font color="#000080" size="2">n</font></i><font color="#000080" size="2">­&gt;<i>infinity</i></font><font size="2">.
+For this to be satisfied for arbitrary </font><font color="#008000" face="Symbol" size="2">a</font><font size="2">
+and </font><font color="#008000" face="Symbol" size="2">b</font><font size="2">
+we require </font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">&nbsp;&lt;&nbsp;1/4</font><font size="2">.
+Thus we must ensure</font>
+</p><p>
+<table>
+<tbody><tr><td width="579"><center><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">&lt;&nbsp;</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">/4</font><font size="2">.</font></center>
+</td><td width="33">(<a name="E_Time_step_limit_for_Diffusion_equation">128)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+A doubling of the spatial resolution therefore requires a factor
+of four more time steps so overall the expense of the computation
+increases sixteen-fold.
+</p><p>
+The analysis for the diffusion equation in one or three dimensions
+may be computed in a similar manner.
+</p><h3><a name="_Toc412300414">8</a><a name="L_3_Model_for_general_initial_conditions">.3</a><a name="S_Model_for_general_initial_conditions">.4
+Model for general initial conditions</a></h3>
+<p>
+<font size="2">Our analysis of the Euler method for solving the
+diffusion equation in section <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#S_Stability_of_Euler_with_Diffusion_Equa">8.3.3 </a>assumed
+initial conditions of the form </font><font color="#000080" size="2">sin(<i>k</i></font><font color="#008000" face="Symbol" size="2">p</font><i><font color="#000080" size="2">x</font></i><font color="#000080" size="2">/<i>L</i></font><i><sub><font color="#008080" size="2">x</font></sub></i><font color="#000080" size="2">)&nbsp;sin(<i>l</i></font><font color="#008000" face="Symbol" size="2">p</font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">/<i>L</i></font><i><sub><font color="#008080" size="2">y</font></sub></i><font color="#000080" size="2">)</font><font size="2">
+where </font><i><font color="#000080" size="2">k</font></i><font color="#000080" size="2">,<i>l</i></font><font size="2">
+are integers and </font><i><font color="#000080" size="2">L</font><sub><font color="#008080" size="2">x</font></sub></i><font size="2">,
+</font><i><font color="#000080" size="2">L</font><sub><font color="#008080" size="2">y</font></sub></i><font size="2">
+are the dimensions of the domain. In addition to satisfying the
+boundary conditions, these initial conditions represent a set
+of orthogonal functions which may be used to construct any arbitrary
+initial conditions as a Fourier series. Now, since the diffusion
+equation is linear, and as our stability analysis of the previous
+section shows the conditions under which the solution for each
+Fourier mode is stable, we can see that the equation ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Time_step_limit_for_Diffusion_equation">128 </a>)
+applies equally for arbitrary initial conditions.</font>
+</p><h3><a name="_Toc412300415">8</a><a name="L_3_Crank_Nicholson_2">.3</a><a name="S_Crank_Nicholson_for_Diffusion_Equation">.5
+Crank-Nicholson</a></h3>
+<p>
+<a name="MarkHere"><font size="2">The implicit Crank-Nicholson method
+is significantly better in terms of stability than the Euler method
+for ordinary differential equations. For partial differential
+equations such as the diffusion equation we may analyse this in
+the same manner as the Euler method of section</font></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#S_Stability_of_Euler_with_Diffusion_Equa">8.3.3 </a><font size="2">.</font>
+</p><p>
+<font size="2">For simplicity, consider the one dimensional diffusion
+equation</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0091.gif"></center>
+</td><td width="0">(<a name="E_Diffusion_equation_in_1D">129)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+with <i><font color="#000080" size="2">u</font></i><font color="#000080" size="2">(<i>x=</i>0,<i>t</i>)&nbsp;=<i>&nbsp;u</i>(<i>x=</i>1,<i>t</i>)&nbsp;=&nbsp;0</font><font size="2">
+and apply the standard spatial discretisation for the curvature
+term to obtain</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0092.gif"></center>
+</td><td width="0">(<a name="E_Crank_Nicholson_linear_system_for_diff">130)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+for the <i><font color="#000080" size="2">i=</font></i><font color="#000080" size="2">1,<i>m</i></font><font size="2">
+internal points. Solution of this expression will involve the
+solution of a tridiagonal system for this one-dimensional problem.</font>
+</p><p>
+<font size="2">To test the stability we again choose a Fourier mode.
+Here we have only one spatial dimension so we use </font><i><font color="#000080" size="2">U</font></i><sup><font color="#800080" size="2">(0)</font></sup><i><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2">&nbsp;=&nbsp;</font></i><font color="#000080" size="2">sin(</font><font color="#008000" face="Symbol" size="2">q</font><i><font color="#000080" size="2">i</font></i><font color="#000080" size="2">)</font><font size="2">
+which satisfies the boundary condition if </font><font color="#008000" face="Symbol" size="2">q</font><font size="2">
+is a multiple of </font><font color="#008000" face="Symbol" size="2">p</font><font size="2">.
+Substituting this into ( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#E_Diffusion_equation_by_Crank_Nicholson">131 </a>)
+we find</font>
+</p><p>
+<table>
+<tbody><tr><td colspan="2" width="579"><p>
+</p><center><img src="pdes_files/index0093.gif"><font size="2">.</font></center>
+</td><td width="0">(<a name="E_Diffusion_equation_by_Crank_Nicholson">131)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+Since the term <font color="#000080" size="2">[1-2</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">q</font><font color="#000080" size="2">/2)]/
+[1+2</font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">sin</font><sup><font color="#800080" size="2">2</font></sup><font color="#000080" size="2">(</font><font color="#008000" face="Symbol" size="2">q</font><font color="#000080" size="2">/2)]&nbsp;&lt;&nbsp;1</font><font size="2">
+for all </font><font color="#008000" face="Symbol" size="2">m</font><font color="#000080" size="2">&nbsp;&gt;&nbsp;0</font><font size="2">,
+the Crank-Nicholson method is unconditionally stable. The step
+size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">
+may be chosen on the grounds of truncation error independently
+of </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">x</font></i><font size="2">.</font>
+</p><h3><a name="_Toc412300416">8</a><a name="L_3_ADI_">.3</a><a name="S_Alternating_Direction_Implicit_Method">.6
+ADI</a><sup>*</sup> </h3>
+<h2><a name="_Toc412300417">8</a><a name="L_2_Advection_">.4</a><a name="S__Advection_Equation">
+Advection</a><sup>*</sup> </h2>
+<h3><a name="_Toc412300418">8</a><a name="L_3_Upwind_differencing_">.4</a><a name="S_Upwind_Differencing">.1
+Upwind differencing</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300419">8</a><a name="L_3_Courant_number_">.4</a><a name="S_Courant_Number">.2
+Courant number</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300420">8</a><a name="L_3_Numerical_dispersion_">.4</a><a name="S_Numerical_Dispersion">.3
+Numerical dispersion</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300421">8</a><a name="L_3_Shocks_">.4</a><a name="S_Shocks">.4
+Shocks</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300422">8</a><a name="L_3_Lax_Wendroff_">.4</a><a name="S_Lax_Wendroff">.5
+Lax-Wendroff</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300423">8</a><a name="L_3_Conservative_schemes_">.4</a><a name="S_Conservative_Schemes">.6
+Conservative schemes</a><sup>*</sup> <br>
+</h3>
+<hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>
