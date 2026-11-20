@@ -1,0 +1,215 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Numerical Methods Lecture Notes: highode</title>
+
+
+<meta name="GENERATOR" content="Internet Assistant for Microsoft Word 2.04z"></head><body>
+<h1><center><a name="Here"><!-- This document was processed by the DLRP Macro Suite prior to conversion from Word to HTML. The DLRP Macro Suite was written by Stuart Dalziel (S.Dalziel@damtp.cam.ac.uk)--></a><a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#Z_10">Higher order ordinary differential equations </a></center>
+</h1>
+<h1><a name="L_1_Higher_order_ordinary_differential_e">Contents
+Summary</a></h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm#L_1_Title_Page"><font size="2">Title Page </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm#L_1_Contents"><font size="2">Contents </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/introduction.htm#L_1_Introduction"><font size="2">1. Introduction </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/keyidea.htm#L_1_Key_Idea"><font size="2">2. Key Idea </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#L_1_Root_finding_in_one_dimension"><font size="2">3. Root finding in one dimension </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#L_1_Linear_equations"><font size="2">4. Linear equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/integration.htm#L_1_Numerical_integration"><font size="2">5. Numerical integration </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/odes.htm#L_1_First_order_ordinary_differential_eq"><font size="2">6. First order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#L_1_Higher_order_ordinary_differential_e"><font size="2">7. Higher order ordinary differential equations </font></a>
+<br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm#L_1_Partial_differential_equations"><font size="2">8. Partial differential equations </font></a>
+<br>
+<br>
+</p><h1><a name="_Toc412300392">7</a><a name="Z_10">. </a><a name="S_Higher_Order_ODEs">Higher
+order ordinary differential equations</a></h1>
+<h2><a name="_Toc412300393">7</a><a name="L_2_Initial_value_problems">.1</a><a name="S_Initial_Value_Problems">
+Initial value problems</a></h2>
+<p>
+<font size="2">The discussion so far has been for first order ordinary
+differential equations. All the methods given may be applied to
+higher ordinary differential equations, provided it is possible
+to write an explicit expression for the highest order derivative
+and the system has a complete set of initial conditions. Consider
+some equation</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><img src="highode_files/index0072.gif"><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Higher_order_ODE">96)</a></td></tr>
+</tbody></table>
+</p><p>
+where at <i><font color="#000080" size="2">t&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;t</i></font><sub><font color="#008080" size="2">0</font></sub><font size="2">
+we know the values of </font><i><font color="#000080" size="2">y</font></i><font size="2">,
+</font><i><font color="#000080" size="2">dy</font></i><font color="#000080" size="2">/<i>dt</i></font><font size="2">,
+</font><i><font color="#000080" size="2">d</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">/<i>dt</i></font><sup><font color="#800080" size="2">2</font></sup><font size="2">,
+&#8230;, </font><i><font color="#000080" size="2">d</font><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">­1</font></sup><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">/<i>dt</i></font><i><sup><font color="#800080" size="2">n</font></sup></i><sup><font color="#800080" size="2">­1</font></sup><font size="2">.
+By writing </font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">=<i>y</i></font><font size="2">,
+</font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">=</font></i><font color="#000080" size="2">d<i>y</i>/d<i>t</i></font><font size="2">,
+</font><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">=</font></i><font color="#000080" size="2">d</font><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">/d<i>t</i></font><sup><font color="#800080" size="2">2</font></sup><font size="2">,
+&#8230;, </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">=</font></i><font color="#000080" size="2">d</font><i><sup><font color="#800080" size="2">n-</font></sup></i><sup><font color="#800080" size="2">1</font></sup><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">/d<i>t</i></font><i><sup><font color="#800080" size="2">n-</font></sup></i><sup><font color="#800080" size="2">1</font></sup><font size="2">,
+we may express this as the system of equations</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">0</font></sub><i><font color="#000080" size="2">' </font></i><font color="#000080" size="2">=<i> x</i></font><sub><font color="#008080" size="2">1</font></sub></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">' </font></i><font color="#000080" size="2">=<i> x</i></font><sub><font color="#008080" size="2">2</font></sub></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">x</font></i><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">' </font></i><font color="#000080" size="2">=<i> x</i></font><sub><font color="#008080" size="2">3</font></sub></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">.<i> </i>.<i> </i>.<i> </i>.</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">' </font></i><font color="#000080" size="2">=<i> x</i></font><i><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2">' </font></i><font color="#000080" size="2">=<i> f</i>(<i>t</i>,<i>x</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">,<i>x</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">,&#8230;,<i>x</i></font><i><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">2</font></sub><font color="#000080" size="2">)</font><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Higher_order_ODE_as_System_of_equation">97)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+and use the standard methods for updating each <i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i</font></sub></i><font size="2">
+for some </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+before proceeding to the next time step. A decision needs to be
+made as to whether the values of </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">i</font></sub></i><font size="2">
+for </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n</font></sub></i><font size="2">
+or </font><i><font color="#000080" size="2">t</font><sub><font color="#008080" size="2">n+</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font size="2">
+are to be used on the right hand side of the equation for </font><i><font color="#000080" size="2">x</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">'</font><font size="2">.
+This decision may affect the order and convergence of the method.
+Detailed analysis may be undertaken in a manner similar to that
+for the first order ordinary differential equations.</font>
+</p><h2><a name="_Toc412300394">7</a><a name="L_2_Boundary_value_problems">.2</a><a name="S_Boundary_Value_Problems">
+Boundary value problems</a></h2>
+<p>
+<font size="2">For second (and higher) order odes, two (or more)
+initial/boundary conditions are required. If these two conditions
+do not correspond to the same point in time/space, then the simple
+extension of the first order methods outlined in section <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#S_Initial_Value_Problems">7.1 </a>can
+not be applied without modification. There are two relatively
+simple approaches to solve such equations.</font>
+</p><h3><a name="_Toc412300395">7</a><a name="L_3_Shooting_method">.2</a><a name="S_Shooting_Method">.1
+Shooting method</a></h3>
+<p>
+<font size="2">Suppose we are solving a second order equation of
+the form </font><i><font color="#000080" size="2">y"&nbsp;</font></i><font color="#000080" size="2">=<i>&nbsp;f</i>(<i>t</i>,<i>y</i>,<i>y'</i>)</font><font size="2">
+subject to </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(0)&nbsp;=&nbsp;<i>c</i></font><sub><font color="#008080" size="2">0</font></sub><font size="2">
+and </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(1)&nbsp;=&nbsp;<i>c</i></font><sub><font color="#008080" size="2">1</font></sub><font size="2">.
+With the shooting method we apply the </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(0)=<i>c</i></font><sub><font color="#008080" size="2">0</font></sub><font size="2">
+boundary condition and make some <i>guess</i> that </font><i><font color="#000080" size="2">y'</font></i><font color="#000080" size="2">(0)&nbsp;=&nbsp;</font><font color="#008000" face="Symbol" size="2">a</font><sub><font color="#008080" size="2">0</font></sub><font size="2">.
+This gives us two <i>initial</i> conditions so that we may apply
+the simple time-stepping methods already discussed in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#S_Initial_Value_Problems">7.1 </a>.
+The calculation proceeds until we have a value for </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(1)</font><font size="2">.
+If this does not satisfy </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(1)&nbsp;=&nbsp;<i>c</i></font><sub><font color="#008080" size="2">1</font></sub><font size="2">
+to some acceptable tolerance, we revise our guess for </font><i><font color="#000080" size="2">y'</font></i><font color="#000080" size="2">(0)</font><font size="2">
+to some value </font><font color="#008000" face="Symbol" size="2">a</font><sub><font color="#008080" size="2">1</font></sub><font size="2">,
+say, and repeat the time integration to obtain an new value for
+</font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(1)</font><font size="2">.
+This process continues until we <i>hit</i> </font><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(1)=<i>c</i></font><sub><font color="#008080" size="2">1</font></sub><font size="2">
+to the acceptable tolerance. The number of iterations which will
+need to be made in order to achieve an acceptable tolerance will
+depend on how good the refinement algorithm for </font><font color="#008000" face="Symbol" size="2">a</font><font size="2">
+is. We may use the root finding methods discussed in section <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#S_Root_Finding">3 </a>to
+undertake this refinement.</font>
+</p><p>
+<font size="2">The same approach can be applied to higher order
+ordinary differential equations. For a system of order </font><i><font color="#000080" size="2">n</font></i><font size="2">
+with </font><i><font color="#000080" size="2">m</font></i><font size="2">
+boundary conditions at </font><i><font color="#000080" size="2">t&nbsp;=&nbsp;t</font></i><sub><font color="#008080" size="2">0</font></sub><font size="2">
+and </font><i><font color="#000080" size="2">n-m</font></i><font size="2">
+boundary conditions at </font><i><font color="#000080" size="2">t&nbsp;=&nbsp;t</font></i><sub><font color="#008080" size="2">1</font></sub><font size="2">,
+we will require guesses for </font><i><font color="#000080" size="2">n-m</font></i><font size="2">
+initial conditions. The computational cost of refining these </font><i><font color="#000080" size="2">n-m</font></i><font size="2">
+guesses will rapidly become large as the dimensions of the space
+increase.</font>
+</p><h3><a name="_Toc412300396">7</a><a name="L_3_Linear_equations">.2</a><a name="S_Linear_Equations_for_ODEs">.2
+Linear equations</a></h3>
+<p>
+<font size="2">The alternative is to rewrite the equations using
+a finite difference approximation with step size </font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t&nbsp;=&nbsp;</font></i><font color="#000080" size="2">(<i>t</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">-<i>t</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)/<i>N</i></font><font size="2">
+to produce a system of </font><i><font color="#000080" size="2">N+</font></i><font color="#000080" size="2">1</font><font size="2">
+simultaneous equations. Consider the second order linear system</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">"<i> + ay</i>'<i> + by = c</i></font><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Second_order_linear_ode">98)</a>
+</td></tr>
+</tbody></table>
+</p><p>
+with boundary conditions <i><font color="#000080" size="2">y</font></i><font color="#000080" size="2">(<i>t</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2">)&nbsp;=&nbsp;</font><font color="#008000" face="Symbol" size="2">a</font><font size="2">
+and </font><i><font color="#000080" size="2">y'</font></i><font color="#000080" size="2">(<i>t</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)&nbsp;=&nbsp;</font><font color="#008000" face="Symbol" size="2">b</font><font size="2">.
+If we use the central difference approximations</font>
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">y'</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>Y</i></font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)/2</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font size="2">,</font></center>
+</td><td width="57">(<a name="E_Central_difference_for_second_order_od">99a)</a>
+</td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">y"</font><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=~ (<i>Y</i></font><i><sub><font color="#008080" size="2">i</font></sub></i><sub><font color="#008080" size="2">+1</font></sub><i><font color="#000080" size="2"> - </font></i><font color="#000080" size="2">2<i>Y</i></font><i><sub><font color="#008080" size="2">i</font></sub><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> Y</i></font><i><sub><font color="#008080" size="2">i-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2">)/</font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="57">( <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm#E_Central_difference_for_second_order_od">99 </a>b)
+</td></tr>
+</tbody></table>
+</p><p>
+we can write the system as
+</p><p>
+<table>
+<tbody><tr><td width="586"><center><i><font color="#000080" size="2">Y</font></i><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2"> = </font><font color="#008000" face="Symbol" size="2">a</font><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">(1+</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><sub><font color="#008080" size="2">0</font></sub><font color="#000080" size="2"> + (<i>b</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">-</font></i><font color="#000080" size="2">2)<i>Y</i></font><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">+<i> </i>(1-</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2"> </font></i><font color="#000080" size="2">=<i> c</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">(1+</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2"> + (<i>b</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">-</font></i><font color="#000080" size="2">2)<i>Y</i></font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">(1-</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><sub><font color="#008080" size="2">3</font></sub><i><font color="#000080" size="2"> = c</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">&#8230;</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><font color="#000080" size="2">(1+</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><i><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2"> + (<i>b</i></font><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><i><font color="#000080" size="2">-</font></i><font color="#000080" size="2">2)<i>Y</i></font><i><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><i><font color="#000080" size="2"> + </font></i><font color="#000080" size="2">(1-</font><sup><font color="#800080" size="2">1</font></sup><font color="#000080" size="2">/</font><sub><font color="#008080" size="2">2</font></sub><i><font color="#000080" size="2">a</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><font color="#000080" size="2">)<i>Y</i></font><i><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> = c</font></i><font color="#008000" face="Symbol" size="2">D</font><i><font color="#000080" size="2">t</font></i><sup><font color="#800080" size="2">2</font></sup><font size="2">,</font></center>
+</td><td width="57"></td></tr>
+<tr><td width="586"><center><i><font color="#000080" size="2">Y</font><sub><font color="#008080" size="2">n</font></sub><font color="#000080" size="2"> - Y</font><sub><font color="#008080" size="2">n-</font></sub></i><sub><font color="#008080" size="2">1</font></sub><font color="#000080" size="2"> = </font><font color="#008000" face="Symbol" size="2">bD</font><i><font color="#000080" size="2">t</font></i></center>
+</td><td width="57">(<a name="E_Linear_system_for_second_order_ode">100)</a>
+</td></tr>
+<tr><td width="586"><center>This tridiagonal system may be readily solved using the method discussed in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#S_Tridiagonal_Matrices">4.5 </a>.</center>
+</td><td width="57"></td></tr>
+</tbody></table>
+</p><p>
+Higher order linear equations may be catered for in a similar
+manner and the matrix representing the system of equations will
+remain banded, but not as sparse as tridiagonal. The solution
+may be undertaken using the modified LU decomposition introduced
+in section<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/linear.htm#S_Banded_matrices">4.4 </a>.
+</p><p>
+Nonlinear equations may also be solved using this approach, but
+will require an iterative solution of the resulting matrix system
+<b><font color="#000080" size="2">A<i><b>x&nbsp;=&nbsp;b</b></i></font></b><font size="2">
+as the matrix </font><b><font color="#000080" size="2">A</font></b><font size="2">
+will be a function of </font><i><b><font color="#000080" size="2">x</font></b></i><font size="2">.
+In most circumstances this is most efficiently achieved through
+a Newton-Raphson algorithm, similar in principle to that introduced
+in section <a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/roots.htm#S_Newton_Raphson">3.4 </a>but where
+a system of linear equations requires solution for each iteration.</font>
+</p><h2><a name="_Toc412300397">7</a><a name="L_2_Other_considerations_">.3</a><a name="S_Other_Considerations_for_ODEs">
+Other considerations</a><sup>*</sup> </h2>
+<h3><a name="_Toc412300398">7</a><a name="L_3_Truncation_error_">.3</a><a name="S_Truncation_Error_for_ODEs">.1
+Truncation error</a><sup>*</sup> </h3>
+<h3><a name="_Toc412300399">7</a><a name="L_3_Error_and_step_control_">.3</a><a name="S_Error_and_Step_Control_for_ODEs">.2
+Error and step control</a><sup>*</sup> <br>
+</h3>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/pdes.htm"><font size="2">Goto next document (PDEs) </font></a>
+</p><hr>
+<h1>Links</h1>
+<p>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/highode.htm">Start of this section </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/index.htm">Title Page </a><br>
+<a href="http://www.damtp.cam.ac.uk/lab/people/sd103/lectures/nummeth98/contents.htm">Contents </a>
+</p><p>
+<a href="http://www.damtp.cam.ac.uk/user/fdl/people/sd/index.htm">Stuart Dalziel's home page </a>
+</p><hr>
+<address>
+<a href="mailto:s.dalziel@damtp.cam.ac.uk">Stuart Dalziel</a>,
+last page update: 17 February 1998<br>
+<br>
+</address>
+</body></html>
