@@ -1,0 +1,22 @@
+[PDF]
+Version = 2.0
+
+[Package Definition]
+Name = CSCTEDDSEngineeringLibraryAS
+Version = 12.00.0000
+Publisher = CSC (UK) Ltd.
+Language = English
+Programs = Setup
+MifFileName = CSCTEDDSEngineeringLibraryAS.mif
+MifName = CSCTEDDSEngineeringLibraryAS
+MifVersion = 12.00.0000
+MifPublisher = CSC (UK) Ltd.
+
+[Setup]
+Name = Automated Minimum Installation
+CommandLine = msiexec /m "CSCTEDDSEngineeringLibraryAS.mif" /qn /I "CSCTEDDSEngineeringLibraryAS.msi"
+SupportedClients = Win 9x, Win NT (i386)
+UserInputRequired = False
+RemoveProgram = True
+UnInstallKey = {B55C1968-726B-4F8F-8990-D4170E5B1F4E}
+

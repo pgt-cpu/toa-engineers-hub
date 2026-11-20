@@ -1,0 +1,16 @@
+This will install in Progam Files (x86) for 64 bit machines.
+
+Have successfully installed on Windows 7 x 64 with all liobraries.
+
+
+1/ Install select type of software license "Local"
+
+2/ Update from a folder: Update december2010 - may2011
+
+3/ ovwerwrite or backup, Tedds.exe in C....programs/CSC/TEDDS
+
+4/ overwrite or backup, SecurityLib2.dll in C.../common files/CSC/Common/Security
+
+   good work, goog luck and goodbye.
+
+P.S Thanks to my friends in Civil Engineering for there help.

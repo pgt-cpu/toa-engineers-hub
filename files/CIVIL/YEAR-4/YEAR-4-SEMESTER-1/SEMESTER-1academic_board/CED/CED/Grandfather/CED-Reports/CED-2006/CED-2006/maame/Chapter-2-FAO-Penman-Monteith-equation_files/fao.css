@@ -1,0 +1,30 @@
+BODY {
+	FONT-SIZE: 11pt; BACKGROUND: #ffffff; MARGIN-LEFT: 5%; MARGIN-RIGHT: 15%; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+H1 {
+	DISPLAY: block; FONT-SIZE: 16pt; COLOR: #002c57; FONT-FAMILY: Arial, helvetica, sans-serif; TEXT-ALIGN: center
+}
+H2 {
+	DISPLAY: block; FONT-SIZE: 14pt; COLOR: #004080; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+H3 {
+	DISPLAY: block; FONT-SIZE: 13pt; COLOR: #004080; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+H4 {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: #004080; MARGIN-RIGHT: 1%
+}
+H5 {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-RIGHT: 1%; TEXT-ALIGN: center
+}
+H6 {
+	MARGIN-TOP: 0px; FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; MARGIN-RIGHT: 5%; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+UL {
+	LIST-STYLE-TYPE: disc
+}
+SUP {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}

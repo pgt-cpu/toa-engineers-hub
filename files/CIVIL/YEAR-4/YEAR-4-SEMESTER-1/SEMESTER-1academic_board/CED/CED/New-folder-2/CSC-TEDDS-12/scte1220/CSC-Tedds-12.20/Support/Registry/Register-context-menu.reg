@@ -1,0 +1,37 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\.dll]
+@="dllfile"
+
+[HKEY_CLASSES_ROOT\dllfile\shell\Register\command]
+@="regsvr32 \"%1\""
+
+[HKEY_CLASSES_ROOT\dllfile\shell\Unregister\command]
+@="regsvr32 /u \"%1\""
+
+[HKEY_CLASSES_ROOT\.exe]
+@="exefile"
+
+[HKEY_CLASSES_ROOT\exefile\shell\Register\command]
+@="\"%1\" /regserver"
+
+[HKEY_CLASSES_ROOT\exefile\shell\Unregister\command]
+@="\"%1\" /unregserver"
+
+[HKEY_CLASSES_ROOT\.ocx]
+@="ocxfile"
+
+[HKEY_CLASSES_ROOT\ocxfile\shell\Register\command]
+@="regsvr32 \"%1\""
+
+[HKEY_CLASSES_ROOT\ocxfile\shell\Unregister\command]
+@="regsvr32 /u \"%1\""
+
+[HKEY_CLASSES_ROOT\.wll]
+@="wllfile"
+
+[HKEY_CLASSES_ROOT\wllfile\shell\Register\command]
+@="regsvr32 \"%1\""
+
+[HKEY_CLASSES_ROOT\wllfile\shell\Unregister\command]
+@="regsvr32 /u \"%1\""

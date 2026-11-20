@@ -1,0 +1,5 @@
+https://download.qgis.org/
+
+
+Download the latest Release.
+* If you are sure your laptop is 64 bit download the 64bit version since its faster. If you are not sure then download the 32 bit version since than can install on both the 32 and the 64 bit OS.
