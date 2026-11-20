@@ -1,0 +1,32 @@
+% Script to calculate semester weighted average for courses
+
+% Prompt the user for marks for each course
+environmental_studies_marks = input('Enter marks for Environmental Studies (Credit Hours: 2): ');
+engineering_technology_marks = input('Enter marks for Engineering Technology (Credit Hours: 2): ');
+algebra_marks = input('Enter marks for Algebra (Credit Hours: 4): ');
+basic_mechanics_marks = input('Enter marks for Basic Mechanics (Credit Hours: 3): ');
+applied_electricity_marks = input('Enter marks for Applied Electricity (Credit Hours: 3): ');
+technical_drawing_marks = input('Enter marks for Technical Drawing (Credit Hours: 2): ');
+communication_skills_marks = input('Enter marks for Communication Skills I (Credit Hours: 2): ');
+
+% Define credit hours for each course
+credit_hours = [2, 2, 4, 3, 3, 2, 2];
+
+% Calculate the total weighted marks
+total_weighted_marks = ...
+    (environmental_studies_marks * credit_hours(1)) + ...
+    (engineering_technology_marks * credit_hours(2)) + ...
+    (algebra_marks * credit_hours(3)) + ...
+    (basic_mechanics_marks * credit_hours(4)) + ...
+    (applied_electricity_marks * credit_hours(5)) + ...
+    (technical_drawing_marks * credit_hours(6)) + ...
+    (communication_skills_marks * credit_hours(7));
+
+% Calculate the total credit hours
+total_credit_hours = sum(credit_hours);
+
+% Compute the semester weighted average
+semester_weighted_average = total_weighted_marks / total_credit_hours;
+
+% Display the semester weighted average
+fprintf('The Semester Weighted Average is: %.2f\n', semester_weighted_average);

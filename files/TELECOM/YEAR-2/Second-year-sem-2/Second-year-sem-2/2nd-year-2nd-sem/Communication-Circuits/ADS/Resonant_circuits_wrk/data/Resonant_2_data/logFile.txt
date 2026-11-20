@@ -1,0 +1,17 @@
+
+hpeesofsim (*) 571.shp Nov  8 2022, MINT version 5
+    (64-bit windows built: Wed Nov 09, 2022 05:38:21 +0000)
+
+
+***** Simulation started at Tue Jul 30 22:59:12 2024
+      Running on host: "LAPTOP-CKEUSLQT"
+      In Directory: "C:\Users\Sed_eeeem\Desktop\Sedeeeem\Second Semester\Communication Circuits\ADS\Resonant_circuits_wrk\data"
+      Process ID: 13320
+
+
+SP SP1[1] <Resonant_circuits_lib:Resonant_2:schematic>   freq=(90 MHz->110 MHz)
+
+
+Resource usage:
+  Total stopwatch time     =     4.49 seconds.
+

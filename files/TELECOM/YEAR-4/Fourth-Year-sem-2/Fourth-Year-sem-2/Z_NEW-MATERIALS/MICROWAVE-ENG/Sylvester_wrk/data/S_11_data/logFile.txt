@@ -1,0 +1,17 @@
+
+hpeesofsim (*) 550.update0.1 Aug 21 2021, MINT version 5
+    (64-bit windows built: Fri Aug 20, 2021 18:45:04 +0000)
+
+
+***** Simulation started at Tue Jul  9 13:55:23 2024
+      Running on host: "DESKTOP-CRO97O8"
+      In Directory: "C:\Users\WILD\Documents\ADS\Sylvester_wrk\data"
+      Process ID: 13000
+
+
+SP SP1[1] <Sylvester_lib:S-11:schematic>   freq=(1 GHz->10 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =     4.16 seconds.
+

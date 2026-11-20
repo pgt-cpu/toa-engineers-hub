@@ -1,0 +1,4 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE Resonant_circuits_lib Resonant_circuits_lib
+ASSIGN Resonant_circuits_lib libMode shared
