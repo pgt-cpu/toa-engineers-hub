@@ -1,0 +1,96 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/19/2022  20:10:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\multiple_segment.obj TO .\Objects\multiple_segment PRINT (.\Listings\multiple_segm
+>> ent.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\multiple_segment.obj (MULTIPLE_SEGMENT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\multiple_segment (MULTIPLE_SEGMENT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MULTIPLE_SEGMENT
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     007AH     UNIT         ?PR?MAIN?MULTIPLE_SEGMENT
+            CODE    087AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\multiple_segment (MULTIPLE_SEGMENT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MULTIPLE_SEGMENT
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\multiple_segment (MULTIPLE_SEGMENT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MULTIPLE_SEGMENT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0800H         PUBLIC        main
+  D:0008H         PUBLIC        i
+  B:0090H.0       PUBLIC        seg1
+  B:0090H.1       PUBLIC        seg2
+  B:0090H.2       PUBLIC        seg3
+  B:0090H.3       PUBLIC        seg4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/19/2022  20:10:00  PAGE 2
+
+
+  -------         PROC          MAIN
+  C:0800H         LINE#         9
+  C:0800H         LINE#         10
+  C:0800H         LINE#         12
+  C:0808H         LINE#         14
+  C:0808H         LINE#         15
+  C:0808H         LINE#         17
+  C:080AH         LINE#         18
+  C:080DH         LINE#         19
+  C:0822H         LINE#         20
+  C:0824H         LINE#         23
+  C:0826H         LINE#         24
+  C:0829H         LINE#         25
+  C:083EH         LINE#         26
+  C:0840H         LINE#         29
+  C:0842H         LINE#         30
+  C:0845H         LINE#         31
+  C:085AH         LINE#         32
+  C:085CH         LINE#         35
+  C:085EH         LINE#         36
+  C:0861H         LINE#         37
+  C:0876H         LINE#         38
+  C:0878H         LINE#         40
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MULTIPLE_SEGMENT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 007AH BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=137
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

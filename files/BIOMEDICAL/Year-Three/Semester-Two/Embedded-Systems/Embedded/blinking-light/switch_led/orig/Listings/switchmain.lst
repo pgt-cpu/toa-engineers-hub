@@ -1,0 +1,74 @@
+C51 COMPILER V9.60.0.0   SWITCHMAIN                                                        07/14/2022 00:14:58 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE SWITCHMAIN
+OBJECT MODULE PLACED IN .\Objects\switchmain.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE switchmain.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\switchmain.lst) TABS(2) OBJECT(.\Objects\switchmain.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          //for the led connections.
+   4          
+   5          sbit led1=P1^0;
+   6          sbit led2=P1^1;
+   7          sbit led3=P1^2;
+   8          sbit led4=P1^3;
+   9          
+  10          //for the switches
+  11          sbit sw1 = P2^0;
+  12          sbit sw2 = P2^1;
+  13          sbit sw3 = P2^2;
+  14          sbit sw4 = P2^3;
+  15          
+  16          void main()
+  17          {
+  18   1      //for considering output you have to apply logic zeros
+  19   1      P1 = 0x00; // output configuration
+  20   1      P2=0xff; //input configuration
+  21   1      while(1)
+  22   1      {
+  23   2      if (sw1 == 0)
+  24   2      {
+  25   3      led1=1;
+  26   3      while (sw1==0);
+  27   3      
+  28   3      }
+  29   2      if (sw2 == 0)
+  30   2      {
+  31   3      led2=1;
+  32   3      while (sw2==0);
+  33   3      
+  34   3      }
+  35   2      if (sw3 == 0)
+  36   2      {
+  37   3      led3=1;
+  38   3      while (sw3==0);
+  39   3      if (sw4 == 0)
+  40   3      {
+  41   4      led4=1;
+  42   4      while (sw4==0);
+  43   4      
+  44   4      }
+  45   3      led1=led2=led3=led4=0;
+  46   3      }
+  47   2      }
+  48   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.0.0   SWITCHMAIN                                                        07/14/2022 00:14:58 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

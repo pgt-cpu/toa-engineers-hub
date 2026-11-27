@@ -1,0 +1,3 @@
+".\Objects\multiple_segment.obj" 
+TO ".\Objects\multiple_segment" 
+PRINT(".\Listings\multiple_segment.m51")

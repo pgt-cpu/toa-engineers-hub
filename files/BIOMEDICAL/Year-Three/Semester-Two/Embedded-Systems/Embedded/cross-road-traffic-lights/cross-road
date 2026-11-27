@@ -1,0 +1,46 @@
+#include<reg51.h>
+//declaration of connections
+sbit led_redr= P1^0;
+sbit led_yellowr= P1^1;
+sbit led_greenr= P1^2;
+
+sbit led_redl= P1^3;
+sbit led_yellowl= P1^4;
+sbit led_greenl= P1^5;
+	
+void main()
+{
+	unsigned int i,j;
+	led_red = led_yellow=led_green=0;
+
+	while(1)
+	{
+			
+		led_redr = 1;
+		for (i=0;i<50000;i++);
+		//for (j=0;j<60000;j++);
+			led_redr=0;
+			
+		led_redr = 1;
+		for (i=0;i<50000;i++);
+		//for (i=0;i<60000;i++);
+			led_redr=0;
+		
+		// yellow led
+		led_yellowr = 1;
+				for (i=0;i<30000;i++);
+			led_yellowr=0;
+			
+		
+		//green led
+		led_greenr = 1;
+		for (i=0;i<50000;i++);
+	//	for (j=0;j<60000;j++);
+		
+			led_greenr=0;
+			
+			
+	}
+	
+	
+}
