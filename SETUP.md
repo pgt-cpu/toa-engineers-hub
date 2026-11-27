@@ -49,6 +49,13 @@ GitHub refuses single files over 100 MB, so the uploader skips them and tells yo
 2. **Split it** into two or three PDFs (for example "Part 1" and "Part 2") with any PDF splitter, then upload the parts.
 3. **GitHub Releases** accept files up to 2 GB. On your project: Releases > Draft a new release > attach the file > Publish. Then copy the file's link into `resources.json` as the `link`. These open as a download, without in-site preview.
 
+## 2E. First-year past questions (its own folder)
+First-year past questions come only from the folder you put them in. The site never goes through your other files to find them.
+1. On GitHub, inside the `files` folder, make a folder named **First Year** (names like `First Year Past Questions`, `1st Year` and `Freshers` also work, and so does `Common`).
+2. Put your first-year files in it. Course folders inside are optional, for example `files/First Year/EMA 151 Engineering Mathematics/EMA151 2022.pdf`.
+3. Everything inside appears only under **1st-year past questions** (the big yellow tile on the Courses page and the card on Home). It does not appear inside any programme.
+4. If you list a first-year file by hand in `resources.json`, add `"firstYear": true` to its entry.
+
 ## 2D. Timetables in chunks
 There are two kinds.
 - **Timetable PDFs or pictures (class timetables, exam timetable PDFs):** put them in your folders, for example `files/Civil/Year 2/Class Timetable.pdf` or `files/Civil/Year 2/Exam Timetable.pdf`, and upload with `admin-upload.html` like everything else. Any file with "timetable" in its name or folder is filed under Timetables automatically.
