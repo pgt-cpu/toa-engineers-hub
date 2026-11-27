@@ -1,0 +1,20 @@
+.title { text-decoration:underline; }
+
+a:link {
+	color: #345789; text-decoration: none; display: block; margin-left:10px;
+}
+
+a:hover {
+	color: #d26e00; text-decoration: underline;  margin-left:10px;
+}
+
+
+li {
+	font-size: 11px; margin-top: 10px;  list-style-type: square; line-spacing: 10px;
+
+}
+
+ul {
+ margin-top: 10px;  list-style-type: square; 
+}
+

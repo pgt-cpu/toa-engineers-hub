@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cdcontent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" cdtitle="MATLAB® for Technical Computing" mainimage="mainimage.png" cddescr="MATLAB® serves as the foundation for all MathWorks products.  It includes a programming language and tools for algorithm development, data analysis, data visualization, and numeric computation.  Add-on products extend MATLAB with application-specific tools for signal processing, image processing, statistics, optimization, and data acquisition. Additional products enable you to deploy MATLAB applications and components to other environments for users who are not running MATLAB." cdcode="ltccd" omniture="?s_cid=cdLTC">
+	<allchapters>
+		<chapter>
+			<chaptername>Introduction to MATLAB®</chaptername>
+			<chapternum>1</chapternum>
+			<priority>Primary</priority>
+			<imagename>ml_main_wl_7168.gif</imagename>
+			<flashfile>introml_032007_cd.swf</flashfile>
+			<description><![CDATA[<p>Explore the MATLAB® product family and get a high-level overview of the major capabilities.  Through product demonstrations, you will see how you can perform:</p><ul><li>Programming and algorithm development</li><li>All phases of data analysis, from data acquisition to visualization</li><li>Application development and deployment</li></ul><BR />]]></description>
+			<duration>50 minutes</duration>
+			<relatedinfo>39161</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Data Analysis with MATLAB® for Excel® Users</chaptername>
+			<chapternum>2</chapternum>
+			<priority>Primary</priority>
+			<imagename></imagename>
+			<flashfile>mlxl_101807_cd.swf</flashfile>
+			<description><![CDATA[<p>Many technical professionals find that they run into limitations using Excel for their data analysis applications.  Explore how MATLAB® can supplement the capabilities of Excel by providing access to thousands of pre-built engineering and advanced analysis functions and versatile visualization tools.</P><BR />]]></description>
+			<duration>62 minutes</duration>
+			<relatedinfo>39226</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Algorithm Development with MATLAB® for C/C++ Programmers</chaptername>
+			<chapternum>3</chapternum>
+			<priority>Primary</priority>
+			<imagename></imagename>
+			<flashfile>ml_081607_cd.swf</flashfile>
+			<description><![CDATA[<p>Learn how MATLAB® can support the development and debugging of your technical C/C++ applications by visualizing your data with its prebuilt plotting functions and testing your calculations with its trusted numerics.</P><BR />]]></description>
+			<duration>61 minutes</duration>
+			<relatedinfo>39126</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Introduction to Statistics with MATLAB® Products</chaptername>
+			<chapternum>4</chapternum>
+			<priority>Primary</priority>
+			<imagename></imagename>
+			<flashfile>toolbox_071207_cd.swf</flashfile>
+			<description><![CDATA[<p>Discover the benefits of using MATLAB® and Statistics Toolbox for statistical data analysis.  Learn how the statistical functions and interactive tools can help you uncover trends, test hypotheses, understand variability, and fit models to your data.</P><BR />]]></description>
+			<duration>54 minutes</duration>
+			<relatedinfo>39275</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Introduction to Optimization with MATLAB® Products</chaptername>
+			<chapternum>5</chapternum>
+			<priority>Primary</priority>
+			<imagename></imagename>
+			<flashfile>optml_101607_cd.swf</flashfile>
+			<description><![CDATA[<p>Engineers and scientists across all major industries use optimization to find better solutions to their problems. Learn how MathWorks optimization products allow you to find global solutions to real-world problems.</P><BR />]]></description>
+			<duration>51 minutes</duration>
+			<relatedinfo>39016</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Application Deployment with MATLAB®</chaptername>
+			<chapternum>6</chapternum>
+			<priority>Primary</priority>
+			<imagename></imagename>
+			<flashfile>appdeploy_041207_cd.swf</flashfile>
+			<description><![CDATA[<p>Explore how to deploy MATLAB® applications and components to users who are not running MATLAB. Through product demonstrations, you will see how to generate stand-alone executables and C, C++, Java™, COM, and Excel® components.</P><BR />]]></description>
+			<duration>44 minutes</duration>
+			<relatedinfo>39184</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>MATLAB® for Signal Processing</chaptername>
+			<chapternum>7</chapternum>
+			<priority>Secondary</priority>
+			<imagename>mlsignalproc_12078.jpg</imagename>
+			<flashfile>mlforsp_011807_cd.swf</flashfile>
+			<description><![CDATA[<p>Learn about the signal processing capabilities of MATLAB® and related toolboxes.  Through product demonstrations, you will discover how to more effectively solve problems encountered in the analysis, design, implementation, and verification of signal processing systems.</P><BR />]]></description>
+			<duration>72 minutes</duration>
+			<relatedinfo>39100</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Image Processing Using MATLAB®</chaptername>
+			<chapternum>8</chapternum>
+			<priority>Secondary</priority>
+			<imagename></imagename>
+			<flashfile>imgml_111307_cd.swf</flashfile>
+			<description><![CDATA[<p>Discover how MATLAB® and Image Processing Toolbox provide a complete environment for image analysis, processing, visualization, and algorithm development.</P><BR />]]></description>
+			<duration>55 minutes</duration>
+			<relatedinfo>38897</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Data Acquisition with MATLAB® Products</chaptername>
+			<chapternum>9</chapternum>
+			<priority>Secondary</priority>
+			<imagename>ic_mainpage_w_7438.jpg</imagename>
+			<flashfile>tandm_051106_cd.swf</flashfile>
+			<description><![CDATA[<p>MATLAB® is used in a wide range of applications, many of which require access to live or real-world data.  Learn how MATLAB allows you to connect to external devices, such as data acquisition hardware, instruments (including function generators, oscilloscopes, and signal analyzers), serial devices, custom hardware, imaging equipment, and other devices.</P><BR />]]></description>
+			<duration>60 minutes</duration>
+			<relatedinfo>38848</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Using MATLAB® to Develop Financial Models</chaptername>
+			<chapternum>10</chapternum>
+			<priority>Secondary</priority>
+			<imagename></imagename>
+			<flashfile>finmodels_011508_cd.swf</flashfile>
+			<description><![CDATA[<p>Finance professionals worldwide use the MATLAB® product family to rapidly develop financial models and freely deploy customized algorithms to decision makers such as investment managers, actuaries, and traders.  Discover how MATLAB can help you significantly reduce the time it takes to develop and deploy your own models.</P><BR />]]></description>
+			<duration>58 minutes</duration>
+			<relatedinfo>39086</relatedinfo>
+		</chapter>
+		<chapter>
+			<chaptername>Introduction to MATLAB® for Life Scientists</chaptername>
+			<chapternum>11</chapternum>
+			<priority>Secondary</priority>
+			<imagename></imagename>
+			<flashfile>lifesci_041707_cd.swf</flashfile>
+			<description><![CDATA[<p>Explore how you can apply the MATLAB®  platform to life sciences research.  Learn how to import data and perform analysis on the data without being an expert programmer.  Results are shared through the generation of reports and stand-alone applications.</P><BR />]]></description>
+			<duration>54 minutes</duration>
+			<relatedinfo>39189</relatedinfo>
+		</chapter>
+	</allchapters>
+	<supportingdocs>
+		<supdoc docname="Bioinformatics Toolbox" link="91132v05.pdf" doctype="Products">
+			<assocchapters>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Curve Fitting Toolbox" link="9925v01.pdf" doctype="Products">
+			<assocchapters>
+				<section>2</section>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Data Acquisition Toolbox" link="9701v05.pdf" doctype="Products">
+			<assocchapters>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Spreadsheet Link™ EX" link="9077v06.pdf" doctype="Products">
+			<assocchapters>
+				<section>2</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Filter Design Toolbox" link="9860v02.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>7</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Financial Toolbox" link="8012v08.pdf" doctype="Products">
+			<assocchapters>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Fixed-Point Toolbox" link="91206v01.pdf" doctype="Products">
+			<assocchapters>
+				<section>7</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Genetic Algorithm and Direct Search Toolbox" link="91151v01.pdf" doctype="Products">
+			<assocchapters>
+				<section>5</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Image Acquisition Toolbox" link="91109v04.pdf" doctype="Products">
+			<assocchapters>
+				<section>8</section>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Image Processing Toolbox" link="9414v06.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>8</section>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Instrument Control Toolbox" link="9864v03.pdf" doctype="Products">
+			<assocchapters>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB®" link="91199v00.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>2</section>
+				<section>3</section>
+				<section>4</section>
+				<section>5</section>
+				<section>6</section>
+				<section>7</section>
+				<section>8</section>
+				<section>9</section>
+				<section>10</section>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB® Builder™ EX" link="9985v04.pdf" doctype="Products">
+			<assocchapters>
+				<section>2</section>
+				<section>6</section>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB® Builder™ JA" link="91126v02.pdf" doctype="Products">
+			<assocchapters>
+				<section>6</section>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB® Builder™ NE" link="91365v01.pdf" doctype="Products">
+			<assocchapters>
+				<section>6</section>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB® Compiler" link="9549v05.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>3</section>
+				<section>6</section>
+				<section>8</section>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Optimization Toolbox" link="8513v05.pdf" doctype="Products">
+			<assocchapters>
+				<section>5</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Signal Processing Toolbox 6" link="9317v05.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>7</section>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Statistics Toolbox" link="8079v07.pdf" doctype="Products">
+			<assocchapters>
+				<section>2</section>
+				<section>4</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Technical Computing Application Brochure" link="91256v01.pdf" doctype="Products">
+			<assocchapters>
+				<section>1</section>
+				<section>2</section>
+				<section>3</section>
+				<section>4</section>
+				<section>5</section>
+				<section>6</section>
+				<section>7</section>
+				<section>8</section>
+				<section>9</section>
+				<section>10</section>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Automotive Systems Laboratory  User Story" link="91135v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>7</section>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Beth Israel Deaconess Medical Center User Story" link="91070v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>5</section>
+				<section>8</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Camera-in-a-Capsule User Story" link="9917v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>3</section>
+				<section>8</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Canada's Institute for Biodiagnostics User Story" link="91068v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>1</section>
+				<section>8</section>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Expersoft User Story" link="91148v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Infinity Pharmaceuticals User Story" link="91212v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>2</section>
+				<section>4</section>
+				<section>11</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Intuitive Analytics User Story" link="91408v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>5</section>
+				<section>6</section>
+				<section>10</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Ford Motor Company User Story" link="91349V00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>6</section>
+				<section>7</section>
+				<section>9</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="GeoMechanics User Story" link="91702v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>4</section>
+				<section>6</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="MATLAB® User Story" link="9839v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>3</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="Toyota User Story" link="91267v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>1</section>
+				<section>2</section>
+				<section>4</section>
+			</assocchapters>
+		</supdoc>
+		<supdoc docname="U.S. Air Force and U.S. Navy User Story" link="91316v00.pdf" doctype="User Stories">
+			<assocchapters>
+				<section>1</section>
+				<section>2</section>
+				<section>7</section>
+			</assocchapters>
+		</supdoc>
+	</supportingdocs>
+</cdcontent>
