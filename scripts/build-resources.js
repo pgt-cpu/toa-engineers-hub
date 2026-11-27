@@ -9,6 +9,7 @@ const clean=s=>s.toLowerCase().replace(/&/g," and ").replace(/[_\-.()\[\]]+/g," 
 const base=s=>clean(s).replace(STOP," ").replace(/\s+/g," ").trim();
 const ALIAS={};Object.keys(PROG).forEach(p=>PROG[p].forEach(a=>ALIAS[base(a)]=p));
 const COMMON=new Set(["common","all","general","everyone","all programmes","all programs","first year","1st year","engineering common","common courses"]);
+const FYR=/\b(first|1st)\s*year\b|\bfreshers?\b|\bfirst\s*years?\b/;
 const WORDYEAR={first:1,"1st":1,second:2,"2nd":2,third:3,"3rd":3,fourth:4,"4th":4,final:4};
 function yearOf(seg){const s=clean(seg);let m;
  if(m=/^(?:year|yr|level|lvl)\s*([1-4])$/.exec(s))return+m[1];
@@ -49,10 +50,10 @@ function build(){
  const dates=gitDates(),res=[],notes=[];
  walk(FILES,[]).sort().forEach(abs=>{
   if(!OK.test(abs))return;const rel=path.relative(FILES,abs).split(path.sep),name=rel[rel.length-1],dirs=rel.slice(0,-1);
-  let prog="All",year=0,sem=0,course="",rest=[];
+  let prog="All",year=0,sem=0,course="",rest=[],fy=false;
   dirs.forEach((seg,i)=>{const b=base(seg),cl=clean(seg);
    if(i<=1&&ALIAS[b]&&prog==="All"){prog=ALIAS[b];return}
-   if(i<=1&&COMMON.has(cl)){prog="All";if(/first|1st/.test(cl))year=year||1;return}
+   if(i<=1&&(COMMON.has(cl)||FYR.test(cl))){prog="All";fy=true;year=year||1;return}
    const y=yearOf(seg);if(y&&!year){year=y;return}
    const s=semOf(seg);if(s&&!sem){sem=s;return}
    rest.push(seg)});
@@ -71,9 +72,9 @@ function build(){
   const link="files/"+rel.map(encodeURIComponent).join("/");
   const r={type,programme:prog,year:year||"All",semester:sem||"All",course,title,link,note:"",date:dates["files/"+rel.join("/")]||""};
   if(cat)r.category=cat;if(ey)r.examYear=ey;if(/important|★/.test(tags))r.important=true;if(/verified/.test(tags))r.verified=true;if(/\(new\)/.test(tags))r.date=new Date().toISOString().slice(0,10);
-  if(prog==="All"&&!COMMON.has(clean(dirs[0]||"")))r.unsorted=true;
+  if(fy){r.firstYear=true;r.programme="All";r.year=1}else if(prog==="All")r.unsorted=true;
   res.push(r);
-  const w=[];if(prog==="All"&&!COMMON.has(clean(dirs[0]||"")))w.push("no programme found: hidden from class pages until the folder is renamed");if(!year)w.push("no year found (treated as All)");if(w.length)notes.push(rel.join("/")+": "+w.join("; "))});
+  const w=[];if(prog==="All"&&!fy)w.push("no programme found: hidden from class pages until the folder is renamed");if(!year)w.push("no year found (treated as All)");if(w.length)notes.push(rel.join("/")+": "+w.join("; "))});
  return{resources:res,notes}}
 if(require.main===module){const o=build();fs.writeFileSync(path.join(ROOT,"resources.auto.json"),JSON.stringify({generated:new Date().toISOString(),count:o.resources.length,resources:o.resources},null,1));
  console.log("Hub build: "+o.resources.length+" files found in the files folder.");o.notes.slice(0,40).forEach(n=>console.log("  note: "+n))}
