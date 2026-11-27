@@ -1,0 +1,14 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "players": {
+      ".read": true,
+      ".write": true,
+      ".indexOn": ["x", "t"],
+      "$pid": {
+        ".validate": "!newData.hasChild('x') || (newData.child('x').isNumber() && newData.child('x').val() >= 0 && newData.child('x').val() <= 100000)"
+      }
+    }
+  }
+}

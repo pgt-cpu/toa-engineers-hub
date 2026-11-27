@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Community | TOA Engineers Hub</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}
+input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}.row{border:2px solid #111;border-radius:14px;padding:10px;margin:8px 0;background:#fff}.row b{display:block}.row button{margin:6px 6px 0 0;padding:8px 12px;font-size:12px}small{opacity:.7}</style></head><body><div class="w"><p><a href="admin.html">Resources</a> · <a href="admin-upload.html">Upload folder</a> · <a href="admin-timetable.html">Timetable</a> · <a href="admin-community.html">Community</a> · <a href="admin-questions.html">Practice questions</a> · <a href="admin-challenge.html">Weekly challenge</a> · <a href="index.html">Site</a></p><h1>WhatsApp community</h1><p>Add, change or switch off group links. Paste your current <b>community.json</b> first (leave empty the first time), edit, then copy the result back to GitHub.</p>
+<h2>1. Current file</h2><textarea id="cur" style="min-height:90px" placeholder="Paste community.json here, or leave empty"></textarea><button id="ld" type="button">Load groups</button>
+<h2>2. Add or edit a group</h2>
+<label for="nm">Group name</label><input id="nm" placeholder="e.g. Civil Engineering Year 2">
+<label for="ca">Category</label><select id="ca"><option>Main community</option><option>Academic discussion</option><option>Programme groups</option><option>Year groups</option><option>Announcements</option><option>Opportunities</option></select>
+<label for="au">Who is it for?</label><input id="au" placeholder="e.g. Civil engineering students, Year 2">
+<label for="de">Short description</label><input id="de" placeholder="One line about the group">
+<label for="pg">Programme (optional, helps show it first)</label><input id="pg" placeholder="e.g. Civil">
+<label for="yr">Year (optional)</label><select id="yr"><option value="">Any</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+<label for="li">WhatsApp invite link</label><input id="li" placeholder="https://chat.whatsapp.com/...">
+<label class="ck"><input type="checkbox" id="ac" checked>Link is working (untick to switch it off)</label>
+<button id="sv" type="button">Add / update group</button>
+<h2>3. Your groups</h2><div id="ls"></div>
+<h2>4. Save</h2><button id="mk" type="button">Make community.json</button><div class="out" id="o1"></div><button class="o" id="cp" type="button" style="display:none">Copy</button>
+<label for="gh">Your GitHub name and project, like username/project</label><input id="gh" placeholder="username/project"><button id="g1" class="o" type="button">Create community.json (first time)</button><button id="g2" class="o" type="button">Edit community.json</button></div><script>function $(i){return document.getElementById(i)}
+function show(o,c,t){var e=$(o);e.style.display="block";e.textContent=t;$(c).style.display="inline-block"}
+function sel(id){var r=document.createRange();r.selectNodeContents($(id));var s=getSelection();s.removeAllRanges();s.addRange(r);alert("Press and hold the selected text, then tap Copy.")}
+function copy(id,btn){var t=$(id).textContent.trim();if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){$(btn).textContent="Copied"},function(){sel(id)})}else sel(id)}
+function repo(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return""}try{localStorage.setItem("ghrepo",v)}catch(e){}return v}
+try{if($("gh"))$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
+var G=[],ed=-1;
+function okLink(u){return/^https:\/\/(chat\.whatsapp\.com\/[A-Za-z0-9]{10,}|whatsapp\.com\/(channel|catalog)\/[A-Za-z0-9_-]+|wa\.me\/[0-9]{6,})/.test(u)}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function list(){$("ls").innerHTML=G.map(function(g,i){return'<div class="row"><b>'+esc(g.name)+(g.active===false?" (switched off)":"")+'</b><small>'+esc(g.category)+" · "+esc(g.audience||"")+'</small><br><button type="button" onclick="ed_('+i+')">Edit</button><button type="button" onclick="tg_('+i+')">'+(g.active===false?"Switch on":"Switch off")+'</button><button type="button" onclick="rm_('+i+')">Remove</button></div>'}).join("")||"<p>No groups yet.</p>"}
+window.ed_=function(i){var g=G[i];ed=i;$("nm").value=g.name;$("ca").value=g.category;$("au").value=g.audience||"";$("de").value=g.description||"";$("pg").value=g.programme||"";$("yr").value=g.year||"";$("li").value=g.link||"";$("ac").checked=g.active!==false;window.scrollTo(0,0)};
+window.tg_=function(i){G[i].active=G[i].active===false;list()};
+window.rm_=function(i){if(confirm("Remove "+G[i].name+"?")){G.splice(i,1);list()}};
+$("ld").onclick=function(){var t=$("cur").value.trim();if(!t){G=[];list();return}try{G=(JSON.parse(t.replace(/,\s*([\]}])/g,"$1")).groups||[])}catch(e){alert("That is not valid: "+e.message);return}list()};
+$("sv").onclick=function(){var g={name:$("nm").value.trim(),category:$("ca").value,audience:$("au").value.trim(),description:$("de").value.trim(),link:$("li").value.trim(),active:$("ac").checked};if(!g.name){alert("Type the group name.");return}if(!okLink(g.link)){alert("This does not look like a WhatsApp invite link. It should start with https://chat.whatsapp.com/ (or a WhatsApp channel link).");return}
+ if($("pg").value.trim())g.programme=$("pg").value.trim();if($("yr").value)g.year=+$("yr").value;if(ed>-1){G[ed]=g;ed=-1}else G.push(g);["nm","au","de","pg","li"].forEach(function(i){$(i).value=""});list()};
+$("mk").onclick=function(){show("o1","cp",JSON.stringify({groups:G},null,1))};$("cp").onclick=function(){copy("o1","cp")};
+$("g1").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/new/main?filename=community.json","_blank")};$("g2").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/edit/main/community.json","_blank")};list();</script></body></html>

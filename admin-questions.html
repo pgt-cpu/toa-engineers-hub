@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Practice questions | TOA Engineers Hub</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}
+input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}.row{border:2px solid #111;border-radius:14px;padding:10px;margin:8px 0;background:#fff}.row b{display:block}.row button{margin:6px 6px 0 0;padding:8px 12px;font-size:12px}small{opacity:.7}</style></head><body><div class="w"><p><a href="admin.html">Resources</a> · <a href="admin-upload.html">Upload folder</a> · <a href="admin-timetable.html">Timetable</a> · <a href="admin-community.html">Community</a> · <a href="admin-questions.html">Practice questions</a> · <a href="admin-challenge.html">Weekly challenge</a> · <a href="index.html">Site</a></p><h1>Practice questions</h1><p>Build the question bank for Exam practice. <b>Only add answers you have checked.</b> The site never invents answers.</p>
+<h2>1. Current file</h2><textarea id="cur" style="min-height:80px" placeholder="Paste questions.json here, or leave empty"></textarea><button id="ld" type="button">Load questions</button>
+<h2>2. Add one question</h2>
+<label for="co">Course (like EMA 151)</label><input id="co"><label for="tp">Topic</label><input id="tp" placeholder="e.g. Integration">
+<label for="ty">Type</label><select id="ty"><option value="mcq">Multiple choice</option><option value="number">Number answer</option><option value="text">Short text answer</option></select>
+<label for="qq">Question</label><textarea id="qq"></textarea>
+<label for="op">Options, one per line (multiple choice only)</label><textarea id="op" style="min-height:70px"></textarea>
+<label for="an">Correct answer (for multiple choice, the option number: 1 is the first)</label><input id="an">
+<label for="ac2">Other accepted answers, separated by commas (text only)</label><input id="ac2">
+<label for="tl">Allowed difference (number only, default 0.01)</label><input id="tl">
+<label for="ex">Explanation or worked solution</label><textarea id="ex"></textarea>
+<label for="mk2">Marks</label><input id="mk2" value="1">
+<label class="ck"><input type="checkbox" id="vf">I have checked this solution and it is correct</label>
+<button id="sv" type="button">Add question</button>
+<h2>Or add many from a spreadsheet</h2><p>Columns: <b>course, topic, type, question, optionA, optionB, optionC, optionD, answer, explanation, verified</b>. For multiple choice, answer is the letter A to D. Copy cells from Excel or Sheets and paste.</p><textarea id="bulk" style="min-height:80px"></textarea><button id="bk" type="button">Import these rows</button>
+<h2>3. Your questions</h2><p id="cn"></p><div id="ls"></div>
+<h2>4. Save</h2><button id="mk" type="button">Make questions.json</button><div class="out" id="o1"></div><button class="o" id="cp" type="button" style="display:none">Copy</button>
+<label for="gh">Your GitHub name and project</label><input id="gh" placeholder="username/project"><button id="g1" class="o" type="button">Create questions.json (first time)</button><button id="g2" class="o" type="button">Edit questions.json</button></div><script>function $(i){return document.getElementById(i)}
+function show(o,c,t){var e=$(o);e.style.display="block";e.textContent=t;$(c).style.display="inline-block"}
+function sel(id){var r=document.createRange();r.selectNodeContents($(id));var s=getSelection();s.removeAllRanges();s.addRange(r);alert("Press and hold the selected text, then tap Copy.")}
+function copy(id,btn){var t=$(id).textContent.trim();if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){$(btn).textContent="Copied"},function(){sel(id)})}else sel(id)}
+function repo(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return""}try{localStorage.setItem("ghrepo",v)}catch(e){}return v}
+try{if($("gh"))$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
+var Q=[];function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function list(){$("cn").textContent=Q.length+" questions";$("ls").innerHTML=Q.slice(-40).map(function(q,i){var k=Q.length-Math.min(40,Q.length)+i;return'<div class="row"><b>'+esc(q.q.slice(0,90))+'</b><small>'+esc(q.course)+" · "+esc(q.topic||"General")+" · "+q.type+(q.solutionVerified?" · verified":"")+'</small><br><button type="button" onclick="rm_('+k+')">Remove</button></div>'}).join("")}
+window.rm_=function(i){Q.splice(i,1);list()};
+$("ld").onclick=function(){var t=$("cur").value.trim();if(!t){Q=[];list();return}try{Q=JSON.parse(t.replace(/,\s*([\]}])/g,"$1")).questions||[]}catch(e){alert("That is not valid: "+e.message);return}list()};
+function build(o){var q={id:"q"+Date.now().toString(36)+Math.floor(Math.random()*999),course:o.course.trim().toUpperCase(),topic:(o.topic||"").trim(),type:o.type,q:o.q.trim(),marks:Math.max(1,+o.marks||1)};
+ if(!q.course||!q.q)return"missing course or question";
+ if(o.type==="mcq"){q.options=o.options.map(function(x){return x.trim()}).filter(Boolean);var a=o.answer;a=/^[A-Za-z]$/.test(a)?a.toUpperCase().charCodeAt(0)-65:(+a-1);if(q.options.length<2)return"needs at least 2 options";if(!(a>=0&&a<q.options.length))return"answer must be a valid option";q.answer=a}
+ else if(o.type==="number"){q.answer=parseFloat(o.answer);if(!isFinite(q.answer))return"answer must be a number";if(o.tol!==""&&o.tol!=null)q.tolerance=Math.abs(+o.tol)}
+ else{q.answer=String(o.answer).trim();if(!q.answer)return"answer is required";var ac=(o.acc||"").split(",").map(function(x){return x.trim()}).filter(Boolean);if(ac.length)q.accepted=ac}
+ if(o.ex&&o.ex.trim())q.explanation=o.ex.trim();if(o.vf)q.solutionVerified=true;return q}
+$("sv").onclick=function(){var r=build({course:$("co").value,topic:$("tp").value,type:$("ty").value,q:$("qq").value,options:$("op").value.split("\n"),answer:$("an").value.trim(),tol:$("tl").value,acc:$("ac2").value,ex:$("ex").value,marks:$("mk2").value,vf:$("vf").checked});if(typeof r==="string"){alert("Please fix: "+r);return}Q.push(r);["qq","op","an","ac2","tl","ex"].forEach(function(i){$(i).value=""});$("vf").checked=false;list()};
+$("bk").onclick=function(){var t=$("bulk").value,d=t.indexOf("\t")>-1?"\t":",",rows=t.split(/\r?\n/).filter(function(x){return x.trim()}),n=0,bad=[];rows.forEach(function(l,i){var c=l.split(d);if(i===0&&/course/i.test(c[0]))return;var ty=(c[2]||"").trim().toLowerCase();ty=ty==="multiple choice"?"mcq":ty;var r=build({course:c[0]||"",topic:c[1],type:ty,q:c[3]||"",options:[c[4]||"",c[5]||"",c[6]||"",c[7]||""],answer:(c[8]||"").trim(),ex:c[9],vf:/^(y|yes|true|1|verified)/i.test((c[10]||"").trim()),marks:1});if(typeof r==="string")bad.push("Row "+(i+1)+": "+r);else{Q.push(r);n++}});list();alert(n+" added."+(bad.length?"\nSkipped:\n"+bad.slice(0,8).join("\n"):""))};
+$("mk").onclick=function(){show("o1","cp",JSON.stringify({questions:Q},null,1))};$("cp").onclick=function(){copy("o1","cp")};
+$("g1").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/new/main?filename=questions.json","_blank")};$("g2").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/edit/main/questions.json","_blank")};list();</script></body></html>

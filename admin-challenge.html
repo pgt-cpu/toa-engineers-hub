@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Weekly challenge | TOA Engineers Hub</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}
+input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}.row{border:2px solid #111;border-radius:14px;padding:10px;margin:8px 0;background:#fff}.row b{display:block}.row button{margin:6px 6px 0 0;padding:8px 12px;font-size:12px}small{opacity:.7}</style></head><body><div class="w"><p><a href="admin.html">Resources</a> · <a href="admin-upload.html">Upload folder</a> · <a href="admin-timetable.html">Timetable</a> · <a href="admin-community.html">Community</a> · <a href="admin-questions.html">Practice questions</a> · <a href="admin-challenge.html">Weekly challenge</a> · <a href="index.html">Site</a></p><h1>Weekly Engineer's Challenge</h1>
+<div id="lg"><p>Sign in to manage challenges. The password is set in Vercel, never in this page.</p><label for="pw">Admin password</label><input id="pw" type="password" autocomplete="current-password"><button id="li" type="button">Sign in</button></div>
+<div id="app" style="display:none">
+<p id="st"></p>
+<h2>1. Get questions drafted</h2>
+<p>Copy this request, paste it into any AI chat, then paste its reply in the box below. Nothing is published until <b>you</b> approve it.</p>
+<button id="pp" type="button" class="o">Copy the AI request</button>
+<label for="ai">Paste the AI reply here (JSON)</label><textarea id="ai" style="min-height:110px"></textarea><button id="im" type="button">Import as drafts</button>
+<h2>Or write one yourself</h2>
+<label for="ca">Category</label><select id="ca"><option>Engineering Mathematics</option><option>Logical Reasoning</option><option>Physics</option><option>Electrical and Electronic Circuits</option><option>Mechanical Engineering</option><option>Civil Engineering</option><option>Binary and Computing</option><option>Engineering Riddles</option><option>Creative Engineering Problems</option></select>
+<label for="df">Difficulty</label><select id="df"><option>easy</option><option selected>medium</option><option>hard</option></select>
+<label for="ty">Answer type</label><select id="ty"><option value="mcq">Multiple choice</option><option value="number">Number</option><option value="text">Short text</option><option value="open">Open (you mark it by hand)</option></select>
+<label for="qq">Question</label><textarea id="qq"></textarea>
+<label for="op">Options, one per line (multiple choice)</label><textarea id="op" style="min-height:60px"></textarea>
+<label for="an">Correct answer (multiple choice: option number, 1 is first)</label><input id="an">
+<label for="ex">Explanation (students see it after the challenge closes)</label><textarea id="ex"></textarea>
+<button id="sv" type="button">Save as draft</button>
+<h2>2. Review and publish</h2><div id="ls"></div>
+<h2>3. Entries</h2><div id="sb"></div>
+</div></div><script>function $(i){return document.getElementById(i)}
+function show(o,c,t){var e=$(o);e.style.display="block";e.textContent=t;$(c).style.display="inline-block"}
+function sel(id){var r=document.createRange();r.selectNodeContents($(id));var s=getSelection();s.removeAllRanges();s.addRange(r);alert("Press and hold the selected text, then tap Copy.")}
+function copy(id,btn){var t=$(id).textContent.trim();if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){$(btn).textContent="Copied"},function(){sel(id)})}else sel(id)}
+function repo(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return""}try{localStorage.setItem("ghrepo",v)}catch(e){}return v}
+try{if($("gh"))$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
+var T="",API="/api/admin";function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function call(b){b.token=T;return fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().then(function(j){if(r.status===401&&b.action!=="login"){T="";sessionStorage.removeItem("ct");location.reload()}return j})})}
+$("li").onclick=function(){fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"login",password:$("pw").value})}).then(function(r){return r.json()}).then(function(j){if(j.token){T=j.token;sessionStorage.setItem("ct",T);start()}else alert(j.err||"Could not sign in")}).catch(function(){alert("Could not reach the server. Is it set up on Vercel?")})};
+var ss=sessionStorage.getItem("ct");if(ss){T=ss;start()}
+var ITEMS=[],LIVE="";
+function start(){$("lg").style.display="none";$("app").style.display="block";load()}
+function load(){call({action:"list"}).then(function(j){if(!j.items){$("st").textContent=j.err||"Error";return}ITEMS=j.items;LIVE=j.live;$("st").textContent=(j.live?"A challenge is live.":"No challenge is live.")+" "+j.players+" students have challenge points.";paint()})}
+function paint(){$("ls").innerHTML=ITEMS.map(function(it){var a=it.type==="mcq"?it.options[it.answer]:it.type==="open"?(it.answerText||"marked by hand"):it.answer;
+ var b="";if(it.status==="draft")b='<button onclick="act(\'approve\',\''+it.id+'\')">Approve</button><button onclick="act(\'reject\',\''+it.id+'\')">Reject</button>';
+ if(it.status==="approved")b='<button onclick="pub(\''+it.id+'\')">Publish</button><button onclick="act(\'reject\',\''+it.id+'\')">Reject</button>';
+ if(it.status==="live")b='<button onclick="subs(\''+it.id+'\')">View entries</button><button onclick="fin(\''+it.id+'\')">Close and score now</button>';
+ if(it.status==="closed")b='<button onclick="subs(\''+it.id+'\')">View entries</button>';
+ if(it.status!=="live")b+='<button onclick="act(\'delete\',\''+it.id+'\')">Delete</button>';
+ return'<div class="row"><b>['+it.status.toUpperCase()+'] '+esc(it.category)+" · "+esc(it.difficulty)+(it.source==="ai"?" · AI draft":"")+"</b>"+esc(it.question)+'<br><small>Answer: '+esc(String(a))+(it.explanation?" · Explanation: "+esc(it.explanation):"")+"</small><br>"+b+"</div>"}).join("")||"<p>No questions yet.</p>"}
+window.act=function(a,id){if(a==="delete"&&!confirm("Delete this question?"))return;call({action:a,id:id}).then(function(j){if(j.err)alert(j.err);load()})};
+window.pub=function(id){var d=prompt("When should it close? Use this form: 2026-12-04 18:00 (your local time)");if(!d)return;var t=new Date(d.replace(" ","T"));if(isNaN(t)){alert("I could not read that date.");return}call({action:"publish",id:id,closesAt:t.toISOString()}).then(function(j){alert(j.err||"Published. Students can answer now.");load()})};
+window.fin=function(id){if(!confirm("Close this challenge and add everyone's points now? You cannot undo this."))return;call({action:"finalize",id:id}).then(function(j){alert(j.err||("Done. "+(j.count||0)+" entries. Winner(s): "+((j.winners||[]).map(function(w){return w.n}).join(", ")||"none")));load()})};
+window.subs=function(id){call({action:"submissions",id:id}).then(function(j){if(!j.subs){alert(j.err);return}var it=j.item;$("sb").innerHTML="<p><b>"+esc(it.question)+"</b></p>"+(j.subs.map(function(s){return'<div class="row"><b>'+esc(s.n)+"</b>Answer: "+esc(s.a)+(s.e?"<br>Explanation: "+esc(s.e):"")+'<br><small>'+(it.type==="open"?"Marked: "+(s.ok===true?"correct":s.ok===false?"wrong":"not yet"):"Auto-marked: "+(s.ok?"correct":"wrong"))+" · bonus "+(s.bonus||0)+"</small><br>"+(it.status==="closed"?"":(it.type==="open"?'<button onclick="mk(\''+id+"','"+s.pid+'\',true)">Correct</button><button onclick="mk(\''+id+"','"+s.pid+'\',false)">Wrong</button>':"")+'<button onclick="bn(\''+id+"','"+s.pid+'\')">Give bonus (0 to 3)</button>')+"</div>"}).join("")||"<p>No entries yet.</p>");window.scrollTo(0,document.body.scrollHeight)})};
+window.mk=function(id,pid,ok){call({action:"mark",id:id,pid:pid,ok:ok}).then(function(){subs(id)})};
+window.bn=function(id,pid){var v=prompt("Bonus points for a clear explanation (0 to 3)");if(v===null)return;call({action:"mark",id:id,pid:pid,bonus:+v}).then(function(j){if(j.err)alert(j.err);subs(id)})};
+$("sv").onclick=function(){var t=$("ty").value,it={category:$("ca").value,difficulty:$("df").value,type:t,question:$("qq").value,explanation:$("ex").value};if(t==="mcq"){it.options=$("op").value.split("\n");it.answer=(+$("an").value)-1}else if(t==="open")it.answerText=$("an").value;else it.answer=$("an").value;call({action:"save",item:it}).then(function(j){if(j.errs&&j.errs.length)alert(j.errs.join("\n"));else{["qq","op","an","ex"].forEach(function(i){$(i).value=""})}load()})};
+$("im").onclick=function(){call({action:"import",items:$("ai").value}).then(function(j){alert((j.err||"")+(j.errs&&j.errs.length?"\n"+j.errs.join("\n"):"")+(j.saved&&j.saved.length?"\n"+j.saved.length+" draft(s) saved. Review them below.":""));if(j.saved&&j.saved.length)$("ai").value="";load()})};
+$("pp").onclick=function(){var p='Write 3 engineering challenge questions for first and second year engineering students. Reply with ONLY a JSON array, no other text. Each item must have: category (one of: Engineering Mathematics, Logical Reasoning, Physics, Electrical and Electronic Circuits, Mechanical Engineering, Civil Engineering, Binary and Computing, Engineering Riddles, Creative Engineering Problems), difficulty (easy, medium or hard), type ("mcq" with options array and answer = index of correct option starting at 0, or "number" with answer as a number and optional tolerance, or "text" with answer and accepted array), question, explanation (clear step by step). Double-check every answer by working it out twice.';if(navigator.clipboard)navigator.clipboard.writeText(p).then(function(){$("pp").textContent="Copied"});else prompt("Copy this:",p)};</script></body></html>

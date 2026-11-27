@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Exam timetable | TOA Engineers Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;margin:12px 0 0}table{border-collapse:collapse;width:100%;font-size:12px;margin-top:10px}td,th{border:2px solid #111;padding:5px;text-align:left;vertical-align:top}.tw{overflow-x:auto}tr.ch td{background:#fff}tr.ad td{background:#d8f5d0}tr.er td{background:#ffd6d6}.warn{color:#8a4b00;font-weight:800}
+</style></head><body><div class="w">
+<p><a href="admin.html">Add a resource</a> &middot; <a href="index.html">Back to the site</a></p>
+<h1>Exam timetable</h1>
+<p>Paste the official timetable, check the preview, then publish it. Nothing goes live until you tick the box and save the file on GitHub.</p>
+
+<h2>1. Paste the timetable</h2>
+<p>In Excel or Google Sheets, use these column titles in the first row: <b>date, code, title, start, end, venue, programme, year, semester</b>. Select all the cells, copy, and paste here. Or choose a CSV file.</p>
+<p>Use <b>All</b> for programme, year or semester when an exam is for everyone. Dates can be 2027-01-12 or 12/01/2027. Times like 09:00 or 2:00pm.</p>
+<textarea id="tx" style="min-height:150px" placeholder="date&#9;code&#9;title&#9;start&#9;end&#9;venue&#9;programme&#9;year&#9;semester"></textarea>
+<input type="file" id="fi" accept=".csv,.tsv,.txt" multiple style="margin-top:8px"><p style="font-size:13px">You can choose several files at once (for example one per programme). They are joined together.</p>
+<label class="ck"><input type="checkbox" id="mg">This is only <b>part</b> of the timetable (for example one programme). Keep all the other exams already published.</label>
+<label for="ti">Timetable name (optional)</label><input id="ti" placeholder="e.g. 2026/2027 First Semester Examinations">
+<label for="nt">Note for students (optional)</label><input id="nt" placeholder="e.g. Report 30 minutes before each paper">
+
+<h2>2. Compare with the live one (optional)</h2>
+<p>To highlight what changed, paste the current <b>timetable.json</b> from GitHub here. Leave empty the first time.</p>
+<button id="lv" type="button" class="o">Load the live timetable from my site</button><textarea id="old" style="min-height:90px"></textarea>
+
+<button id="pv" type="button">Check and preview</button>
+<p id="msg" style="margin-top:10px"></p>
+<div class="tw" id="tb"></div>
+
+<h2>3. Publish</h2>
+<label class="ck"><input type="checkbox" id="ok">I have checked every row against the official timetable from the exams office.</label>
+<button id="mk" type="button" disabled>Make timetable.json</button>
+<div class="out" id="o1"></div><button class="o" id="cp" type="button" style="display:none">Copy</button>
+<div id="steps" style="display:none">
+<p style="margin-top:12px"><b>Do these in order on GitHub:</b></p>
+<p id="s0"></p>
+<p>1. Open timetable.json, paste everything over what is there, and tap <b>Commit changes</b>. The site updates in about a minute and students see an <b>UPDATED</b> label.</p>
+<p>2. Optional: paste the notice line below into <b>resources.json</b> after <b>"notices": [</b></p>
+<div class="out" id="o2"></div><button class="o" id="cp2" type="button" style="display:none">Copy notice</button>
+</div>
+<label for="gh">Your GitHub name and project, like thomas123/gesa-student-hub</label><input id="gh" placeholder="username/project">
+<button id="g1" type="button" class="o">Create timetable.json (first time)</button><button id="g2" type="button" class="o">Edit timetable.json</button><button id="g3" type="button" class="o" style="display:none">Save the old version in the archive</button>
+</div>
+<script>
+var P=["Aerospace","Agricultural","Automobile","Biomedical","Chemical","Civil","Computer","Electrical & Electronic","Geological","Geomatic","Industrial","Marine","Materials","Mechanical","Metallurgical","Petrochemical","Petroleum","Telecommunication"];
+function $(i){return document.getElementById(i)}
+var AL={date:"date",day:"date",code:"code","course code":"code",title:"title","course title":"title",course:"title",start:"start","start time":"start",end:"end","end time":"end",venue:"venue",hall:"venue",location:"venue",programme:"programme",program:"programme",year:"year",level:"year",semester:"semester",sem:"semester"};
+function csv(t){t=t.replace(/^\uFEFF/,"");var tab=(t.split(/\r?\n/)[0]||"").indexOf("\t")>-1,d=tab?"\t":",",rows=[],r=[],c="",q=false;
+ for(var i=0;i<t.length;i++){var ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"')q=true;else if(ch===d){r.push(c);c=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&t[i+1]==="\n")i++;r.push(c);c="";if(r.some(function(x){return x.trim()}))rows.push(r);r=[]}else c+=ch}
+ r.push(c);if(r.some(function(x){return x.trim()}))rows.push(r);return rows}
+function pad(n){return("0"+n).slice(-2)}
+function nd(v){v=v.trim();var m=/^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(v),y,mo,d;if(m){y=+m[1];mo=+m[2];d=+m[3]}else if(m=/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/.exec(v)){d=+m[1];mo=+m[2];y=+m[3]}else return"";var t=new Date(y,mo-1,d);if(t.getFullYear()!==y||t.getMonth()!==mo-1||t.getDate()!==d)return"";return y+"-"+pad(mo)+"-"+pad(d)}
+function nt(v){v=v.trim().toLowerCase().replace(/\s+/g,"");var m=/^(\d{1,2})[:.h](\d{2})(am|pm)?$/.exec(v)||/^(\d{1,2})()(am|pm)$/.exec(v);if(!m)return"";var h=+m[1],mi=+(m[2]||0);if(m[3]){if(h<1||h>12)return"";if(m[3]==="pm"&&h<12)h+=12;if(m[3]==="am"&&h===12)h=0}if(h>23||mi>59)return"";return pad(h)+":"+pad(mi)}
+function key(e){return[e.code,e.programme,e.year,e.semester].join("|").toLowerCase()}
+function wd(d){return new Date(d+"T00:00:00").toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"})}
+function desc(e){return wd(e.date)+", "+e.start+"-"+e.end+", "+e.venue}
+var NEWJ=null,OLD=null,ERR=0;
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function parse(){
+ var rows=csv($("tx").value);if(rows.length<2){return{err:["Paste the header row and at least one exam."]}}
+ var hd=rows[0].map(function(h){return AL[h.trim().toLowerCase()]||""}),need=["date","code","title","start","end","venue","programme","year","semester"],miss=need.filter(function(n){return hd.indexOf(n)<0});
+ if(miss.length)return{err:["Missing column titles: "+miss.join(", ")+". Use exactly: "+need.join(", ")]};
+ var out=[],errs=[],warn=[];
+ rows.slice(1).forEach(function(r,i){if(r.some(function(c){return AL[c.trim().toLowerCase()]==="date"}))return;var o={};hd.forEach(function(h,k){if(h)o[h]=(r[k]||"").trim()});var w=[],n=i+2;
+  var date=nd(o.date),st=nt(o.start),en=nt(o.end);if(!date)w.push("date not understood");if(!st)w.push("start time not understood");if(!en)w.push("end time not understood");if(st&&en&&en<=st)w.push("end must be after start");
+  if(!o.code)w.push("missing code");if(!o.title)w.push("missing title");if(!o.venue)w.push("missing venue");
+  var pr=o.programme;if(!pr||/^all/i.test(pr))pr="All";else{var hit=P.filter(function(p){return p.toLowerCase()===pr.toLowerCase()})[0];if(hit)pr=hit;else w.push('programme "'+pr+'" not recognised (use All or one of the programme names)')}
+  var yr=/^all/i.test(o.year||"All")||!o.year?"All":+o.year;if(yr!=="All"&&[1,2,3,4].indexOf(yr)<0)w.push("year must be All or 1 to 4");
+  var sm=/^all/i.test(o.semester||"All")||!o.semester?"All":+o.semester;if(sm!=="All"&&[1,2].indexOf(sm)<0)w.push("semester must be All, 1 or 2");
+  if(w.length){errs.push("Row "+n+": "+w.join("; "))}else out.push({date:date,code:o.code.toUpperCase().replace(/\s+/g," "),title:o.title,start:st,end:en,venue:o.venue,programme:pr,year:yr,semester:sm})});
+ var seen={};out.forEach(function(e){var k=key(e);if(seen[k])errs.push("Duplicate: "+e.code+" appears twice for the same programme, year and semester.");seen[k]=1});
+ out.forEach(function(a,i){out.forEach(function(b,j){if(j>i&&a.date===b.date&&a.start<b.end&&b.start<a.end&&(a.programme==="All"||b.programme==="All"||a.programme===b.programme)&&(a.year==="All"||b.year==="All"||a.year===b.year)&&(a.semester==="All"||b.semester==="All"||a.semester===b.semester))warn.push("Possible clash on "+a.date+": "+a.code+" and "+b.code)})});
+ out.sort(function(a,b){return(a.date+a.start).localeCompare(b.date+b.start)});
+ return{rows:out,err:errs,warn:warn}}
+$("pv").onclick=function(){
+ var r=parse(),m=$("msg"),tb=$("tb");tb.innerHTML="";$("mk").disabled=true;NEWJ=null;OLD=null;
+ var oldt=$("old").value.trim();if(oldt){try{OLD=JSON.parse(oldt.replace(/,\s*([\]}])/g,"$1"))}catch(e){m.className="bad";m.textContent="The old timetable.json is not valid: "+e.message;return}}
+ if(r.err.length){m.className="bad";m.textContent=r.err.join("\n");m.style.whiteSpace="pre-wrap";if(!r.rows)return}
+ var rows=r.rows,removed=[],kept=[],oldMap={};
+ if(OLD&&OLD.entries){OLD.entries.forEach(function(e){oldMap[key(e)]=e});var nk={};rows.forEach(function(e){nk[key(e)]=1});OLD.entries.forEach(function(e){if(!nk[key(e)]){if($("mg").checked)kept.push(e);else removed.push(e)}})}
+ var nch=0,nad=0,html='<table><tr><th></th><th>Date</th><th>Code</th><th>Time</th><th>Venue</th><th>Who</th></tr>';
+ rows.forEach(function(e){var o=oldMap[key(e)],tag="",cls="";
+  if(OLD){if(!o){e.changed=true;e.change="New exam added";tag="NEW";cls="ad";nad++}else if(o.date!==e.date||o.start!==e.start||o.end!==e.end||o.venue!==e.venue){e.changed=true;e.change="Was: "+desc(o);tag="CHANGED";cls="ch";nch++}}
+  html+='<tr class="'+cls+'"><td>'+tag+'</td><td>'+esc(wd(e.date))+'</td><td>'+esc(e.code)+'<br>'+esc(e.title)+'</td><td>'+e.start+'-'+e.end+(e.change&&tag==="CHANGED"?'<br><small>'+esc(e.change)+'</small>':'')+'</td><td>'+esc(e.venue)+'</td><td>'+esc(e.programme)+', Y'+e.year+', S'+e.semester+'</td></tr>'});
+ removed.forEach(function(e){html+='<tr class="er"><td>REMOVED</td><td>'+esc(wd(e.date))+'</td><td>'+esc(e.code)+'</td><td>'+e.start+'-'+e.end+'</td><td>'+esc(e.venue)+'</td><td></td></tr>'});
+ tb.innerHTML=html+'</table>';
+ if(r.err.length){m.className="bad";m.style.whiteSpace="pre-wrap";m.textContent="Fix these rows first (the table shows only the good rows):\n"+r.err.join("\n");return}
+ m.className="ok";m.style.whiteSpace="pre-wrap";m.textContent=rows.length+" exams look good."+(OLD?" "+nch+" changed, "+nad+" added, "+removed.length+" removed.":"")+(r.warn.length?"\n":"");
+ if(r.warn.length){var wl=document.createElement("span");wl.className="warn";wl.textContent=r.warn.join("\n");m.appendChild(wl)}
+ var ver=(OLD&&+OLD.version||0)+1,parts=[];if(nch)parts.push(nch+" changed");if(nad)parts.push(nad+" added");if(removed.length)parts.push(removed.length+" removed");
+ var hist=(OLD&&OLD.history||[]).slice(-9);hist.push({version:ver,updated:today(),summary:OLD?(parts.join(", ")||"Re-published with no changes"):"First timetable published"});
+ var keepFlags=OLD&&OLD.updated===today();var all=rows.concat(kept.map(function(e){var c=JSON.parse(JSON.stringify(e));if(!keepFlags){delete c.changed;delete c.change}return c})).sort(function(a,b){return(a.date+a.start).localeCompare(b.date+b.start)});if(kept.length)parts.push(kept.length+" other rows kept");hist[hist.length-1].summary=OLD?(parts.join(", ")||"Re-published with no changes"):"First timetable published";NEWJ={version:ver,published:true,updated:today(),title:$("ti").value.trim()||(OLD&&OLD.title)||"",note:$("nt").value.trim()||(OLD&&OLD.note)||"",entries:all,history:hist};NEWJ._sum=hist[hist.length-1].summary;
+ $("mk").disabled=!$("ok").checked;$("g3").style.display=OLD?"inline-block":"none"};
+function today(){var d=new Date();return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+$("ok").onchange=function(){$("mk").disabled=!(NEWJ&&$("ok").checked)};
+$("fi").onchange=function(){var fs=[].slice.call(this.files);if(!fs.length)return;Promise.all(fs.map(function(f){return new Promise(function(ok){var rd=new FileReader();rd.onload=function(){ok(String(rd.result).replace(/^\uFEFF/,""))};rd.readAsText(f)})})).then(function(a){$("tx").value=a.join("\n")})};
+$("lv").onclick=function(){fetch("timetable.json?v="+Date.now()).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(x){JSON.parse(x);$("old").value=x}).catch(function(){alert("No published timetable found yet. Leave this box empty the first time.")})};
+$("mk").onclick=function(){if(!NEWJ||!$("ok").checked)return;var sum=NEWJ._sum,j=JSON.parse(JSON.stringify(NEWJ));delete j._sum;
+ var o=$("o1");o.style.display="block";o.textContent=JSON.stringify(j,null,1);$("cp").style.display="inline-block";
+ $("steps").style.display="block";$("s0").innerHTML=OLD?"First, save a copy of the OLD file (button below), so the previous version is kept.":"This is the first version, so nothing to archive.";
+ var n=$("o2");n.style.display="block";n.textContent="  "+JSON.stringify({date:wd(today()),text:"Official exam timetable "+(OLD?"updated":"published")+": "+sum+". See Planner > Official exam timetable."})+",";$("cp2").style.display="inline-block"};
+function copy(id,btn){var t=$(id).textContent.trim();function done(){$(btn).textContent="Copied"}if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){sel(id)})}else sel(id)}
+function sel(id){var r=document.createRange();r.selectNodeContents($(id));var s=getSelection();s.removeAllRanges();s.addRange(r);alert("Press and hold the selected text, then tap Copy.")}
+$("cp").onclick=function(){copy("o1","cp")};$("cp2").onclick=function(){copy("o2","cp2")};
+try{$("gh").value=localStorage.getItem("ghrepo")||""}catch(e){}
+function repo(){var v=$("gh").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){alert("Type it like username/project");return""}try{localStorage.setItem("ghrepo",v)}catch(e){}return v}
+$("g1").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/new/main?filename=timetable.json","_blank")};
+$("g2").onclick=function(){var v=repo();if(v)window.open("https://github.com/"+v+"/edit/main/timetable.json","_blank")};
+$("g3").onclick=function(){var v=repo();if(!v)return;var t=$("old").value.trim();try{if(navigator.clipboard)navigator.clipboard.writeText(t)}catch(e){}alert("The old file is copied. On the next page, paste it, then tap Commit changes.");window.open("https://github.com/"+v+"/new/main/timetable-archive?filename=timetable-v"+(OLD&&OLD.version||0)+".json","_blank")};
+</script></body></html>

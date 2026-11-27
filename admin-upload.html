@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Upload folders | TOA Engineers Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#FFD000;color:#111;font:400 15px/1.5 Poppins,system-ui,sans-serif;padding:18px 18px 60px}
+.w{max-width:620px;margin:0 auto}h1{font-weight:800;font-size:30px;line-height:1.05;margin:6px 0 4px}h2{font-weight:800;font-size:20px;margin:30px 0 6px;border-bottom:4px solid #111;padding-bottom:6px}
+p{margin:0 0 10px}label{display:block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 5px}
+input,select,textarea{width:100%;background:transparent;border:2px solid #111;border-radius:0;padding:11px;font:600 15px Poppins,sans-serif;color:#111}
+textarea{min-height:90px}button{background:#111;color:#FFD000;border:0;padding:12px 18px;font:800 14px Poppins,sans-serif;cursor:pointer;margin:10px 8px 0 0}
+button.o{background:none;color:#111;border:2px solid #111}.out{background:#111;color:#fff;padding:14px;margin-top:12px;font:13px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;display:none}
+.ok{font-weight:800}.bad{font-weight:800;color:#C8102E}a{color:#111;font-weight:800}input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}
+input[type=checkbox]{width:auto;margin-right:8px;accent-color:#111}.ck{display:flex;align-items:center;text-transform:none;letter-spacing:0;font-size:14px;margin:10px 0 0}.row{border:2px solid #111;border-radius:14px;padding:10px;margin:8px 0;background:#fff;font-size:13px}.row b{display:block}details{margin-top:8px}</style>
+</head><body><div class="w">
+<p><a href="admin.html">Resources</a> · <a href="admin-upload.html">Upload folder</a> · <a href="admin-timetable.html">Timetable</a> · <a href="admin-community.html">Community</a> · <a href="admin-questions.html">Practice questions</a> · <a href="admin-challenge.html">Weekly challenge</a> · <a href="index.html">Site</a></p>
+<h1>Upload a folder</h1>
+<p>Pick your folder of PDFs. This page tidies the file names, works out the programme, year, semester and course from your folders, and uploads everything to GitHub in safe batches. If it stops, run it again: files already uploaded are skipped.</p>
+
+<h2>1. Connect to GitHub</h2>
+<label for="rp">Your GitHub name and project, like username/project</label><input id="rp" placeholder="username/project">
+<label for="tk">Upload key (token)</label><input id="tk" type="password" autocomplete="off" placeholder="github_pat_...">
+<label class="ck"><input type="checkbox" id="rm">Remember the key on this device (leave unticked on shared devices)</label>
+<details style="margin-top:8px"><summary><b>How do I get the key? (once)</b></summary>
+<p>1. On GitHub: your picture > Settings > Developer settings > Personal access tokens > <b>Fine-grained tokens</b> > Generate new token.<br>
+2. Name it "Hub upload". Expiry: 30 days. Repository access: <b>Only select repositories</b> and choose your Hub project.<br>
+3. Permissions > Repository permissions > <b>Contents: Read and write</b>. Generate, copy it and paste it above.<br>
+The key lives only in this page while it is open. It is never saved in your site. Delete it on GitHub when you finish.</p></details>
+<button id="ck" type="button">Check connection</button><p id="cm"></p>
+
+<h2>2. Choose the folder</h2>
+<input type="file" id="fd" webkitdirectory directory multiple>
+<p style="font-size:13px">Works on a computer (Chrome, Edge, Safari, Firefox). Phones cannot pick folders: use the next box to choose several files instead.</p>
+<details><summary><b>Phone: choose several files instead</b></summary><input type="file" id="fl" multiple accept=".pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.webp,.mp4,.txt"></details>
+<label class="ck"><input type="checkbox" id="st">The folder I chose is only a container. Remove its name from the path.</label>
+<label class="ck"><input type="checkbox" id="dd" checked>Skip a file if the exact same file is already in your <b>files</b> folder, even under a different name or folder (prevents duplicates)</label>
+<label for="dp">Files whose programme I cannot work out go to</label><select id="dp"><option value="">Leave them (shown to everyone)</option><option>Common</option></select>
+<label for="dy">Files whose year I cannot work out go to</label><select id="dy"><option value="">Leave them (shown for all years)</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+<button id="pv" type="button">Preview what will happen</button>
+<div id="pr"></div>
+
+<h2>3. Upload</h2>
+<button id="up" type="button" disabled>Upload now</button> <button id="sp" type="button" class="o" disabled>Stop</button>
+<div style="height:16px;border:2px solid #111;border-radius:99px;margin-top:12px;overflow:hidden;background:#fff"><div id="bar" style="height:100%;width:0;background:#111"></div></div>
+<p id="ps"></p><div class="out" id="lg" style="display:block;max-height:220px;overflow:auto;white-space:pre-wrap"></div>
+</div>
+<script>
+var API="https://api.github.com",QS=new URLSearchParams(location.search);if(QS.get("api"))API=QS.get("api");
+var CH_BYTES=+(QS.get("chbytes")||60*1024*1024),CH_FILES=+(QS.get("chfiles")||150),PACE=+(QS.get("pace")||800),MAXF=95*1024*1024;
+function $(i){return document.getElementById(i)}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+var S={plan:[],skipped:[],stop:false,tok:"",repo:"",busy:false};
+var PROG={"Aerospace":["aerospace"],"Agricultural":["agricultural","agric"],"Automobile":["automobile","automotive"],"Biomedical":["biomedical"],"Chemical":["chemical"],"Civil":["civil"],"Computer":["computer","computer engineering","comp"],"Electrical & Electronic":["electrical electronic","electrical electronics","electrical","electronic","eee","electrical and electronic","electrical and electronics"],"Geological":["geological"],"Geomatic":["geomatic","geomatics"],"Industrial":["industrial"],"Marine":["marine"],"Materials":["materials","material"],"Mechanical":["mechanical"],"Metallurgical":["metallurgical"],"Petrochemical":["petrochemical"],"Petroleum":["petroleum"],"Telecommunication":["telecommunication","telecommunications","telecom"]};
+var STOP=/\b(engineering|eng|department|dept|of|bsc|programme|program|the|and)\b/g;
+function clean(s){return s.toLowerCase().replace(/&/g," and ").replace(/[_\-.()\[\]]+/g," ").replace(/\s+/g," ").trim()}
+function base(s){return clean(s).replace(STOP," ").replace(/\s+/g," ").trim()}
+var ALIAS={};Object.keys(PROG).forEach(function(p){PROG[p].forEach(function(a){ALIAS[base(a)]=p})});
+var COMMON=["common","all","general","everyone","all programmes","all programs","first year","1st year","engineering common","common courses"];
+function progOf(seg){var b=base(seg);if(ALIAS[b])return ALIAS[b];if(COMMON.indexOf(clean(seg))>-1)return"Common";return""}
+function yearOf(seg){var s=clean(seg),m;if(m=/^(?:year|yr|level|lvl)\s*([1-4])$/.exec(s))return+m[1];if(m=/^([1-4])(?:st|nd|rd|th)?\s*(?:year|yr)$/.exec(s))return+m[1];if(m=/^y\s*([1-4])$/.exec(s))return+m[1];if(m=/^(?:level\s*)?([1-4])00(?:\s*level)?$/.exec(s))return+m[1];if(m=/^(first|second|third|fourth|final|1st|2nd|3rd|4th)\s*year$/.exec(s))return{first:1,"1st":1,second:2,"2nd":2,third:3,"3rd":3,fourth:4,"4th":4,final:4}[m[1]];return 0}
+var OK=/\.(pdf|pptx?|docx?|xlsx?|png|jpe?g|webp|mp4|txt)$/i,JUNK=/^(\.ds_store|thumbs\.db|desktop\.ini|~\$.*|.*\.tmp|\._.*)$/i;
+function safe(s,isFile){var ext="";if(isFile){var i=s.lastIndexOf(".");if(i>0){ext=s.slice(i).toLowerCase();s=s.slice(0,i)}}
+ s=s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/&/g," and ").replace(/\+/g," plus ").replace(/%/g," percent ").replace(/[\u2013\u2014]/g,"-").replace(/[^A-Za-z0-9 ._()\-]/g," ").replace(/\.{2,}/g,".").replace(/\s+/g," ").replace(/^[\s.\-_]+|[\s.\-_]+$/g,"");
+ if(s.length>100)s=s.slice(0,100).trim();if(!s)s=isFile?"file":"folder";return s+ext.replace(/[^a-z0-9.]/g,"")}
+function mb(n){return(n/1048576).toFixed(n>1048576*10?0:1)+" MB"}
+function log(t){var l=$("lg");l.textContent+=t+"\n";l.scrollTop=l.scrollHeight}
+$("rp").value=localStorage.getItem("ghrepo")||"";try{$("tk").value=localStorage.getItem("ghtok")||"";if($("tk").value)$("rm").checked=true}catch(e){}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+async function wait(sec){for(var i=sec;i>0&&!S.stop;i--){$("ps").textContent="Waiting "+i+" s because GitHub asked us to slow down...";await sleep(1000)}}
+async function gh(path,method,body){
+ for(var a=0;a<5;a++){var r;
+  try{r=await fetch(API+path,{method:method||"GET",headers:Object.assign({"Accept":"application/vnd.github+json","Authorization":"Bearer "+S.tok,"X-GitHub-Api-Version":"2022-11-28"},body?{"Content-Type":"application/json"}:{}),body:body?JSON.stringify(body):undefined})}catch(e){await sleep(1500*(a+1));continue}
+  if(r.status===429||(r.status===403&&r.headers.get("retry-after"))){await wait(+r.headers.get("retry-after")||60);continue}
+  if(r.status>=500){await sleep(2000*(a+1));continue}
+  var j=null;try{j=await r.json()}catch(e){}
+  if(r.status===403&&j&&/rate limit|abuse|secondary/i.test(j.message||"")){log("GitHub asked us to slow down. Waiting a minute...");await wait(60);continue}
+  if(!r.ok){var e2=new Error((j&&j.message)||("HTTP "+r.status));e2.status=r.status;throw e2}
+  return j}
+ throw new Error("Network problem. Check your connection and run again. Finished files are skipped.")}
+function creds(){var v=$("rp").value.trim().replace(/^https?:\/\/github\.com\//,"").replace(/\/+$/,"").replace(/\.git$/,"");if(!/^[\w.-]+\/[\w.-]+$/.test(v)){$("cm").textContent="Type it like username/project";return false}S.repo=v;S.tok=$("tk").value.trim();if(!S.tok){$("cm").textContent="Paste your upload key first.";return false}
+ try{localStorage.setItem("ghrepo",v);if($("rm").checked)localStorage.setItem("ghtok",S.tok);else localStorage.removeItem("ghtok")}catch(e){}return true}
+$("ck").onclick=async function(){if(!creds())return;$("cm").textContent="Checking...";try{var r=await gh("/repos/"+S.repo);S.br=r.default_branch||"main";if(r.permissions&&r.permissions.push===false)throw new Error("This key can read but not write. Give it Contents: Read and write.");$("cm").textContent="Connected to "+r.full_name+" (branch "+S.br+"). Ready."}catch(e){$("cm").textContent=e.status===401?"GitHub did not accept that key. Make a new one.":e.status===404?"Could not find that project, or the key is not allowed to use it.":e.message}};
+function files(){return[].slice.call($("fd").files).concat([].slice.call($("fl").files))}
+$("fd").onchange=$("fl").onchange=function(){var fs=files(),a=0,b=0;fs.forEach(function(f){var p=(f.webkitRelativePath||f.name).split("/");if(p.length>2){if(progOf(p[0])||yearOf(p[0]))a++;else if(progOf(p[1])||yearOf(p[1]))b++}});$("st").checked=b>0&&a===0;S.plan=[];$("up").disabled=true;$("pr").innerHTML=""};
+$("pv").onclick=function(){
+ var fs=files();if(!fs.length){$("pr").innerHTML="<p>Choose a folder first.</p>";return}
+ var plan=[],skip=[],seen={},renamed=[];
+ fs.forEach(function(f){var rel=(f.webkitRelativePath||f.name),segs=rel.split("/").filter(Boolean);
+  if(segs.some(function(x,i){return i<segs.length-1&&x[0]==="."})||JUNK.test(segs[segs.length-1])){skip.push([rel,"system file"]);return}
+  if(!OK.test(segs[segs.length-1])){skip.push([rel,"type not supported"]);return}
+  if(f.size>MAXF){skip.push([rel,"over 95 MB (GitHub's limit is 100 MB). Put a Drive link in resources.json or shrink the file."]);return}
+  if(f.size===0){skip.push([rel,"empty file"]);return}
+  var s=segs.slice();if($("st").checked&&s.length>1)s.shift();
+  var dirs=s.slice(0,-1),pr="",yr=0;dirs.forEach(function(d,i){if(!pr&&i<=1&&progOf(d))pr=progOf(d);if(!yr&&yearOf(d))yr=yearOf(d)});
+  var fixed=s.map(function(x,i){return safe(x,i===s.length-1)});fixed.forEach(function(x,i){if(x!==s[i])renamed.push([s[i],x])});
+  var d2=fixed.slice(0,-1),file=fixed[fixed.length-1],dp=$("dp").value,dy=$("dy").value;
+  if(!pr&&dp){d2.unshift(dp);pr=dp}if(!yr&&dy){d2.splice(pr?1:0,0,"Year "+dy);yr=+dy}
+  var dest="files/"+d2.concat([file]).join("/"),k=dest.toLowerCase();if(seen[k]){var i=file.lastIndexOf(".");file=file.slice(0,i)+"-"+(++seen[k])+file.slice(i);dest="files/"+d2.concat([file]).join("/")}else seen[k]=1;
+  plan.push({file:f,dest:dest,size:f.size,prog:pr||"Not found",year:yr||0,rel:rel})});
+ S.plan=plan;S.skipped=skip;
+ var g={},tot=0;plan.forEach(function(p){tot+=p.size;var a=g[p.prog]||(g[p.prog]={});a[p.year||"none"]=(a[p.year||"none"]||0)+1});
+ var h='<div class="row"><b>'+plan.length+" files ready ("+mb(tot)+")</b>"+Object.keys(g).sort().map(function(p){return esc(p==="Common"?"Common (first year, all programmes)":p)+": "+Object.keys(g[p]).sort().map(function(y){return(y==="none"?"year not found":"Year "+y)+" ("+g[p][y]+")"}).join(", ")}).join("<br>")+"</div>";
+ var nop=plan.filter(function(p){return p.prog==="Not found"}).length,noy=plan.filter(function(p){return!p.year}).length;
+ if(nop||noy)h+='<div class="row"><b>Please check</b>'+(nop?nop+" file(s) have no programme in their folder names. They will show for everyone. Use the box above to place them.<br>":"")+(noy?noy+" file(s) have no year. They will show for all years.":"")+"</div>";
+ if(renamed.length){var u={},rl=[];renamed.forEach(function(r){if(!u[r[0]]){u[r[0]]=1;rl.push(r)}});h+='<div class="row"><b>'+rl.length+" name(s) tidied so GitHub and the site accept them</b>"+rl.slice(0,25).map(function(r){return esc(r[0])+" &rarr; "+esc(r[1])}).join("<br>")+(rl.length>25?"<br>...and "+(rl.length-25)+" more":"")+"</div>"}
+ if(skip.length)h+='<div class="row"><b>'+skip.length+" skipped</b>"+skip.slice(0,15).map(function(r){return esc(r[0])+": "+esc(r[1])}).join("<br>")+(skip.length>15?"<br>...and "+(skip.length-15)+" more":"")+"</div>";
+ var ch=Math.max(1,Math.ceil(Math.max(tot/CH_BYTES,plan.length/CH_FILES)));h+='<div class="row"><b>Plan</b>About '+ch+" batch"+(ch>1?"es":"")+". GitHub allows roughly 75 files a minute, so this will take about "+Math.max(1,Math.ceil(plan.length/70))+" minute(s). Keep this page open.</div>";
+ $("pr").innerHTML=h;$("up").disabled=!plan.length};
+async function gitSha(buf){var h=new TextEncoder().encode("blob "+buf.byteLength+"\0"),all=new Uint8Array(h.length+buf.byteLength);all.set(h);all.set(new Uint8Array(buf),h.length);var d=await crypto.subtle.digest("SHA-1",all);return[].map.call(new Uint8Array(d),function(x){return("0"+x.toString(16)).slice(-2)}).join("")}
+function b64(file){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(String(r.result).split(",")[1]||"")};r.onerror=function(){rej(new Error("Could not read "+file.name))};r.readAsDataURL(file)})}
+$("sp").onclick=function(){S.stop=true;$("sp").disabled=true;log("Stopping after the current file...")};
+window.addEventListener("beforeunload",function(e){if(S.busy){e.preventDefault();e.returnValue=""}});
+$("up").onclick=async function(){
+ if(S.busy||!S.plan.length||!creds())return;S.busy=true;S.stop=false;$("up").disabled=true;$("sp").disabled=false;$("lg").textContent="";
+ var up=0,same=0,fail=[],commits=0,tagged=0,total=S.plan.length,doneN=0;
+ try{
+  var r=await gh("/repos/"+S.repo);S.br=r.default_branch||"main";
+  var ref=await gh("/repos/"+S.repo+"/git/ref/heads/"+S.br),head=ref.object.sha,hc=await gh("/repos/"+S.repo+"/git/commits/"+head),headTree=hc.tree.sha;
+  var tr=await gh("/repos/"+S.repo+"/git/trees/"+headTree+"?recursive=1"),remote={};var bySha={};(tr.tree||[]).forEach(function(t){if(t.type==="blob"&&t.path.indexOf("files/")===0){remote[t.path]=t.sha;if(!bySha[t.sha])bySha[t.sha]=t.path}});if(tr.truncated)log("Note: your project is large, so every file will be re-sent. That is fine.");
+  var chunks=[],cur=[],bytes=0;S.plan.forEach(function(p){cur.push(p);bytes+=p.size;if(bytes>=CH_BYTES||cur.length>=CH_FILES){chunks.push(cur);cur=[];bytes=0}});if(cur.length)chunks.push(cur);
+  var multi=chunks.length>1;log("Starting: "+total+" files in "+chunks.length+" batch(es).");
+  for(var c=0;c<chunks.length&&!S.stop;c++){
+   var items=[];
+   for(var i=0;i<chunks[c].length&&!S.stop;i++){var p=chunks[c][i];
+    try{var buf=await p.file.arrayBuffer(),sha=await gitSha(buf);buf=null;
+     if(remote[p.dest]===sha){same++;log("Already there: "+p.dest)}
+     else if($("dd").checked&&bySha[sha]){same++;log("Same file already on GitHub at "+bySha[sha]+" (kept there, not copied again)")}
+     else{var content=await b64(p.file),bl=await gh("/repos/"+S.repo+"/git/blobs","POST",{content:content,encoding:"base64"});items.push({path:p.dest,mode:"100644",type:"blob",sha:bl.sha});up++;log("Uploaded: "+p.dest+" ("+mb(p.size)+")");await sleep(PACE)}
+    }catch(e){fail.push([p.dest,e.message]);log("FAILED: "+p.dest+" - "+e.message)}
+    doneN++;$("bar").style.width=Math.round(doneN/total*100)+"%";$("ps").textContent=doneN+" of "+total+" checked. "+up+" uploaded, "+same+" already there"+(fail.length?", "+fail.length+" failed":"")+"."}
+   if(items.length){
+    for(var t=0;t<3;t++){try{
+      var nt=await gh("/repos/"+S.repo+"/git/trees","POST",{base_tree:headTree,tree:items}),msg="Add resources, batch "+(c+1)+" of "+chunks.length+(multi?" [skip ci]":""),nc=await gh("/repos/"+S.repo+"/git/commits","POST",{message:msg,tree:nt.sha,parents:[head]});
+      await gh("/repos/"+S.repo+"/git/refs/heads/"+S.br,"PATCH",{sha:nc.sha});head=nc.sha;headTree=nc.tree&&nc.tree.sha||nt.sha;commits++;if(multi)tagged++;log("Saved batch "+(c+1)+" to GitHub.");break}
+     catch(e){if(t===2)throw e;log("Retrying the save ("+e.message+")...");await sleep(2000);var rf=await gh("/repos/"+S.repo+"/git/ref/heads/"+S.br);head=rf.object.sha;headTree=(await gh("/repos/"+S.repo+"/git/commits/"+head)).tree.sha}}}}
+  if(tagged>0){var fc=await gh("/repos/"+S.repo+"/git/commits","POST",{message:"Resources uploaded, publish site",tree:headTree,parents:[head]});await gh("/repos/"+S.repo+"/git/refs/heads/"+S.br,"PATCH",{sha:fc.sha});log("Final save made so the site updates once.")}
+  $("ps").textContent=(S.stop?"Stopped. ":"Done. ")+up+" uploaded, "+same+" already there, "+fail.length+" failed. "+(commits?"Your site updates in about a minute.":"Nothing new to publish.")+(S.stop?" Run again to continue.":"")
+ }catch(e){log("STOPPED: "+e.message+(e.status===401?" (the key was refused)":e.status===404?" (project or branch not found)":"")+"\nRun again. Everything already uploaded will be skipped.");$("ps").textContent="Stopped: "+e.message}
+ if(fail.length){log("\nThese files failed:\n"+fail.map(function(f){return f[0]+": "+f[1]}).join("\n"))}
+ S.busy=false;$("sp").disabled=true;$("up").disabled=false};
+</script></body></html>
