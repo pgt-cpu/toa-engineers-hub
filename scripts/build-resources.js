@@ -71,8 +71,9 @@ function build(){
   const link="files/"+rel.map(encodeURIComponent).join("/");
   const r={type,programme:prog,year:year||"All",semester:sem||"All",course,title,link,note:"",date:dates["files/"+rel.join("/")]||""};
   if(cat)r.category=cat;if(ey)r.examYear=ey;if(/important|★/.test(tags))r.important=true;if(/verified/.test(tags))r.verified=true;if(/\(new\)/.test(tags))r.date=new Date().toISOString().slice(0,10);
+  if(prog==="All"&&!COMMON.has(clean(dirs[0]||"")))r.unsorted=true;
   res.push(r);
-  const w=[];if(prog==="All"&&!COMMON.has(clean(dirs[0]||"")))w.push("no programme found (treated as All)");if(!year)w.push("no year found (treated as All)");if(w.length)notes.push(rel.join("/")+": "+w.join("; "))});
+  const w=[];if(prog==="All"&&!COMMON.has(clean(dirs[0]||"")))w.push("no programme found: hidden from class pages until the folder is renamed");if(!year)w.push("no year found (treated as All)");if(w.length)notes.push(rel.join("/")+": "+w.join("; "))});
  return{resources:res,notes}}
 if(require.main===module){const o=build();fs.writeFileSync(path.join(ROOT,"resources.auto.json"),JSON.stringify({generated:new Date().toISOString(),count:o.resources.length,resources:o.resources},null,1));
  console.log("Hub build: "+o.resources.length+" files found in the files folder.");o.notes.slice(0,40).forEach(n=>console.log("  note: "+n))}
