@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>2</Version>
+  <Name>Select Metals</Name>
+  <Author>Database Team</Author>
+  <Company>Granta Design Limited</Company>
+  <Notes>Select metal based materials (including foams and MMCs) based on their properties or chemical composition</Notes>
+  <Template>MaterialUniverse\Metals.cet</Template>
+  <PassNA>false</PassNA>
+  <FailEstimatedRecords>false</FailEstimatedRecords>
+  <ResultType>0</ResultType>
+  <ResultStage>0</ResultStage>
+  <RankByType>0</RankByType>
+  <RankByStage>0</RankByStage>
+  <RankByProperty />
+  <IndexRankColumn>0</IndexRankColumn>
+  <RankOrder>-1</RankOrder>
+  <Database>
+    <Path>C:\Program Files\CES EduPack 2013\Database\L3_Standard\data.gdb</Path>
+    <Name>CES EduPack 2013 Level 3</Name>
+    <Unit>Metric</Unit>
+    <UnitType>Relative</UnitType>
+    <Currency>USD</Currency>
+    <SelectionTable>MaterialUniverse</SelectionTable>
+    <Tables>
+      <Table>
+        <TableName>MaterialUniverse</TableName>
+        <SubsetName>Metals</SubsetName>
+        <LayoutName>Metals</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <RecordColors>
+          <RecordColor>
+            <Record>1673</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1889</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1887</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1895</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1893</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1892</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1890</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2152</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2156</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2155</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2149</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2016</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2015</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2014</Record>
+            <Color>2</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>2013</Record>
+            <Color>1</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1966</Record>
+            <Color>16</Color>
+          </RecordColor>
+          <RecordColor>
+            <Record>1965</Record>
+            <Color>16</Color>
+          </RecordColor>
+        </RecordColors>
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>ProcessUniverse</TableName>
+        <SubsetName>All processes</SubsetName>
+        <LayoutName>All processes</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Producers</TableName>
+        <SubsetName>Producers</SubsetName>
+        <LayoutName>Producers</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Reference</TableName>
+        <SubsetName>All references</SubsetName>
+        <LayoutName>All references</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Shape</TableName>
+        <SubsetName>Shape class</SubsetName>
+        <LayoutName>Shape class</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Structural Sections</TableName>
+        <SubsetName>All structural sections</SubsetName>
+        <LayoutName>All structural sections</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <CompareRecords />
+        <UserRecords />
+      </Table>
+    </Tables>
+    <ParameterValues>
+      <ParameterValue>
+        <Name>Temperature</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Stress Ratio</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Number of Cycles</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Length</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Load Factor</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Capital Write-off Time</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Overhead Rate</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Batch Size</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Mass</Name>
+        <Value>0</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Material Cost</Name>
+        <Value>0</Value>
+      </ParameterValue>
+    </ParameterValues>
+  </Database>
+  <Stages>
+    <Stage xsi:type="BubbleStageMemento">
+      <Name />
+      <Notes />
+      <Windowplacement>0,1,-1,-1,-1,-1,0,66,948,570</Windowplacement>
+      <ZOrder>1</ZOrder>
+      <SelectWholeRecords>false</SelectWholeRecords>
+      <Enabled>true</Enabled>
+      <PassNA>false</PassNA>
+      <HideFailedRecords>true</HideFailedRecords>
+      <ResultIntersection>true</ResultIntersection>
+      <ShowBlackAndWhite>false</ShowBlackAndWhite>
+      <ShowFavourites>false</ShowFavourites>
+      <ShowVirtualRecords>false</ShowVirtualRecords>
+      <ShowUserRecords>false</ShowUserRecords>
+      <ShowReferenceMaterial>false</ShowReferenceMaterial>
+      <FailEstimates>false</FailEstimates>
+      <xAxis>
+        <Name>Electrical resistivity (µohm.cm)</Name>
+        <FunctionObjective />
+        <Expression>[Electrical resistivity]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>1.1</Low>
+        <High>45</High>
+      </xAxis>
+      <yAxis>
+        <Name>Yield strength (elastic limit) (MPa)</Name>
+        <FunctionObjective />
+        <Expression>[Yield strength (elastic limit)]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>30</Low>
+        <High>3000</High>
+      </yAxis>
+      <Labels>
+        <Label>
+          <Text>Phosphorus de-oxidized, h.c. copper, soft, wrought (UNS C12200)</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2.2477220862274216</XPos>
+          <YPos>42.548936033205131</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1946</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Copper alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>true</Border>
+          <BorderColor>#FFff0000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>180</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>1.6109206770147364</XPos>
+          <YPos>3129.3700902009718</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Electrolytic 
+h.c. copper, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>1.6217297729775675</XPos>
+          <YPos>37.313047856303932</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1965</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Electrolytic 
+h.c. copper, hard </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>1.6109206770147364</XPos>
+          <YPos>446.26193823806807</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1966</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Copper-2-beryllium (whp) </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4.3342661952926358</XPos>
+          <YPos>1695.2937188832939</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1928</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Copper-2-beryllium (wp) </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2.7322254857339461</XPos>
+          <YPos>1034.0889009682837</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1926</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>80/20 copper-nickel, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>32.226694774635178</XPos>
+          <YPos>1247.78271643044</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2016</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>90/10 copper-nickel, hard </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>21.005759699945251</XPos>
+          <YPos>909.36709832142321</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2014</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>95/5 Al-bronze, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>5.55106019515637</XPos>
+          <YPos>527.93864478307432</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1889</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text> 70/30 brass, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4.9215049436899712</XPos>
+          <YPos>335.02046972170007</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2156</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>93/7 Al-bronze, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>21.288597988059166</XPos>
+          <YPos>256.53127642755345</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1895</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Basis brass, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4.6340308442299616</XPos>
+          <YPos>210.50649086178348</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2149</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>92/8 Al-bronze, hard</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>14.157373503550188</XPos>
+          <YPos>724.40790689700952</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1892</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>70/30 brass, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3.6669689438711295</XPos>
+          <YPos>75.286372688678455</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2155</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Al- brass, soft</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>5.0549313452843787</XPos>
+          <YPos>59.973627545953754</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2152</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>90/10 copper-nickel, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>24.82828613154263</XPos>
+          <YPos>55.412837066106484</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2013</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>80/20 copper-nickel, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>31.376061674925097</XPos>
+          <YPos>79.101565893553044</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>2015</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>95/5 Al-bronze, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>7.5504928132910187</XPos>
+          <YPos>46.839988541758949</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1887</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>92/8 Al-bronze, soft </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>13.969279985687752</XPos>
+          <YPos>38.058196856597846</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1890</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>93/7 Al-bronze, soft</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>98</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>24.82828613154263</XPos>
+          <YPos>169.35701020399569</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>1893</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+      </Labels>
+      <ShowEnvelopes>false</ShowEnvelopes>
+    </Stage>
+    <Stage xsi:type="TreeStageMemento">
+      <Name />
+      <Notes />
+      <Windowplacement>0,1,-1,-1,-8,-30,88,0,675,570</Windowplacement>
+      <ZOrder>0</ZOrder>
+      <SelectWholeRecords>false</SelectWholeRecords>
+      <Enabled>true</Enabled>
+      <PassNA>false</PassNA>
+      <Expression>[MaterialUniverse:\Metals and alloys\Non-ferrous\Copper]</Expression>
+    </Stage>
+  </Stages>
+</Project>

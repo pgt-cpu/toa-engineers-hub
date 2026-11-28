@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>7b79ae0c-5e2e-4c32-b466-02d569816b2a</ID>
+  <Version>4</Version>
+  <Name>Select Materials</Name>
+  <Author>Database Team</Author>
+  <Company>Granta Design Limited</Company>
+  <Notes>Select BioMaterials based on their properties (Edu Level 2)</Notes>
+  <Template />
+  <PassNA>false</PassNA>
+  <FailEstimatedRecords>false</FailEstimatedRecords>
+  <ResultType>0</ResultType>
+  <ResultStage>-1</ResultStage>
+  <RankByType>0</RankByType>
+  <RankByStage>-1</RankByStage>
+  <RankByProperty />
+  <IndexRankColumn>0</IndexRankColumn>
+  <RankOrder>1</RankOrder>
+  <Database>
+    <Path>C:\Program Files (x86)\CES EduPack 2017\Database\English Level 2\data.gdb</Path>
+    <Name>Level 2</Name>
+    <Unit>Metric</Unit>
+    <UnitType>Relative</UnitType>
+    <Currency>USD</Currency>
+    <SelectionTable>MaterialUniverse</SelectionTable>
+    <Tables>
+      <Table>
+        <TableName>MaterialUniverse</TableName>
+        <SubsetName>All materials</SubsetName>
+        <LayoutName>All properties</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Reference</TableName>
+        <SubsetName>Materials References</SubsetName>
+        <LayoutName>All Details</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>ProcessUniverse</TableName>
+        <SubsetName>All Processes</SubsetName>
+        <LayoutName>All Processes</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Producers</TableName>
+        <SubsetName>Producers</SubsetName>
+        <LayoutName>Producers</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+    </Tables>
+    <ParameterValues>
+      <ParameterValue>
+        <Name>Material Cost</Name>
+        <Value>8.0950841903686523</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Mass</Name>
+        <Value>1</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Batch Size</Name>
+        <Value>1000</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Overhead Rate</Name>
+        <Value>89.142295837402344</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Capital Write-off Time</Name>
+        <Value>5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Load Factor</Name>
+        <Value>0.5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Discount Rate</Name>
+        <Value>5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Length</Name>
+        <Value>1</Value>
+      </ParameterValue>
+    </ParameterValues>
+  </Database>
+  <Stages>
+    <Stage xsi:type="BubbleStageMemento">
+      <Name />
+      <Notes />
+      <Windowplacement>0,1,-1,-1,-1,-1,0,66,825,595</Windowplacement>
+      <ZOrder>1</ZOrder>
+      <SelectWholeRecords>false</SelectWholeRecords>
+      <Enabled>true</Enabled>
+      <PassNA>false</PassNA>
+      <HideFailedRecords>true</HideFailedRecords>
+      <ResultIntersection>true</ResultIntersection>
+      <ShowFavourites>false</ShowFavourites>
+      <ShowVirtualRecords>false</ShowVirtualRecords>
+      <ShowUserRecords>false</ShowUserRecords>
+      <ShowReferenceMaterial>false</ShowReferenceMaterial>
+      <FailEstimates>false</FailEstimates>
+      <xAxis>
+        <Name>Tensile strength (MPa)</Name>
+        <FunctionObjective />
+        <Expression>[Tensile strength]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>0.0363772</Low>
+        <High>19792.6</High>
+      </xAxis>
+      <yAxis>
+        <Name>Young's modulus (GPa)</Name>
+        <FunctionObjective />
+        <Expression>[Young's modulus]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>5.66532E-05</Low>
+        <High>3088.97</High>
+      </yAxis>
+      <Selections />
+      <Labels>
+        <Label>
+          <Text>Modulus vs Tensile strength</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>true</Border>
+          <BorderColor>#FFff0000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>143</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>0.67923491317276807</XPos>
+          <YPos>867.7484509736239</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Elastomers</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>188.30006199727671</XPos>
+          <YPos>0.022040793738070927</YPos>
+          <InitialXPos>53.196005324145808</InitialXPos>
+          <InitialYPos>0.017218110435185657</InitialYPos>
+          <RecordGruid>EDU04-4083</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Polymers</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>209.31344106888682</XPos>
+          <YPos>0.27929760935821679</YPos>
+          <InitialXPos>116.97914204382694</InitialXPos>
+          <InitialYPos>1.1826732606471972</InitialYPos>
+          <RecordGruid>Xe6316629-83a2-40e1-82d0-201426288240</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Composites</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>496.624486364965</XPos>
+          <YPos>4.2899841767917621</YPos>
+          <InitialXPos>422.35068464774173</InitialXPos>
+          <InitialYPos>22.287107386247577</InitialYPos>
+          <RecordGruid>EDU04-4329</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Metals and alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>2605.3078543867232</XPos>
+          <YPos>17.139761511282188</YPos>
+          <InitialXPos>1636.8171527042507</InitialXPos>
+          <InitialYPos>142.11410875128451</InitialYPos>
+          <RecordGruid>EDU04-1590</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Technical ceramics</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>59.854256396758821</XPos>
+          <YPos>1376.924756848779</YPos>
+          <InitialXPos>276.12138115005189</InitialXPos>
+          <InitialYPos>500.20351156867076</InitialYPos>
+          <RecordGruid>EDU04-232</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Foams</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>0.22763440614322314</XPos>
+          <YPos>3.8223161021170742</YPos>
+          <InitialXPos>0.47043817319126363</InitialXPos>
+          <InitialYPos>0.8337897888507716</InitialYPos>
+          <RecordGruid>EDU04-7014</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Non-technical ceramics</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Tahoma</FaceName>
+          <PointSize>140</PointSize>
+          <Italic>false</Italic>
+          <Weight>400</Weight>
+          <XPos>8.0187856578546413</XPos>
+          <YPos>234.56551082395822</YPos>
+          <InitialXPos>4.153746878642135</InitialXPos>
+          <InitialYPos>36.356761698361233</InitialYPos>
+          <RecordGruid>X41353558-58e7-4c1a-b852-55fbd6d4a4b2</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+      </Labels>
+      <Curves />
+      <ShowEnvelopes>true</ShowEnvelopes>
+    </Stage>
+  </Stages>
+</Project>

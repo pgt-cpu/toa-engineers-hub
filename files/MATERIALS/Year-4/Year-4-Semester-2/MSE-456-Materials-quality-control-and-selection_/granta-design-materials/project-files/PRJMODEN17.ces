@@ -1,0 +1,1070 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>8574d3e4-d2e6-4f0f-8bd5-545e72d1d1bf</ID>
+  <Version>4</Version>
+  <Name>Select Materials</Name>
+  <Author>Database Team</Author>
+  <Company>Granta Design Limited</Company>
+  <Notes>Select Materials based on their properties (Edu Level 2)</Notes>
+  <Template />
+  <PassNA>false</PassNA>
+  <FailEstimatedRecords>false</FailEstimatedRecords>
+  <ResultType>0</ResultType>
+  <ResultStage>-1</ResultStage>
+  <RankByType>0</RankByType>
+  <RankByStage>-1</RankByStage>
+  <RankByProperty />
+  <IndexRankColumn>0</IndexRankColumn>
+  <RankOrder>1</RankOrder>
+  <Database>
+    <Path>C:\Program Files (x86)\CES EduPack 2017\Database\English Level 2\data.gdb</Path>
+    <Name>Level 2</Name>
+    <Unit>Metric</Unit>
+    <UnitType>Relative</UnitType>
+    <Currency>USD</Currency>
+    <SelectionTable>MaterialUniverse</SelectionTable>
+    <Tables>
+      <Table>
+        <TableName>MaterialUniverse</TableName>
+        <SubsetName>All materials</SubsetName>
+        <LayoutName>All properties</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Reference</TableName>
+        <SubsetName>Materials References</SubsetName>
+        <LayoutName>All Details</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>ProcessUniverse</TableName>
+        <SubsetName>All Processes</SubsetName>
+        <LayoutName>Surface Treatment</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+      <Table>
+        <TableName>Producers</TableName>
+        <SubsetName>Producers</SubsetName>
+        <LayoutName>Producers</LayoutName>
+        <CompareTable>
+          <Windowplacement />
+          <ZOrder>-1</ZOrder>
+          <ShowProjectData>false</ShowProjectData>
+          <ShowRanges>true</ShowRanges>
+          <ShowValues>true</ShowValues>
+          <PercentError>10</PercentError>
+        </CompareTable>
+        <UserDefinedNearnessSettings />
+        <CompareRecords />
+        <RecordCustomLabels />
+        <UserRecords />
+      </Table>
+    </Tables>
+    <ParameterValues>
+      <ParameterValue>
+        <Name>Material Cost</Name>
+        <Value>9.7049999237060547</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Mass</Name>
+        <Value>1</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Batch Size</Name>
+        <Value>1000</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Overhead Rate</Name>
+        <Value>116.89999389648438</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Capital Write-off Time</Name>
+        <Value>5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Load Factor</Name>
+        <Value>0.5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Discount Rate</Name>
+        <Value>5</Value>
+      </ParameterValue>
+      <ParameterValue>
+        <Name>Component Length</Name>
+        <Value>1</Value>
+      </ParameterValue>
+    </ParameterValues>
+  </Database>
+  <Stages>
+    <Stage xsi:type="BubbleStageMemento">
+      <Name />
+      <Notes />
+      <Windowplacement>0,1,-1,-1,-1,-1,0,66,825,595</Windowplacement>
+      <ZOrder>1</ZOrder>
+      <SelectWholeRecords>false</SelectWholeRecords>
+      <Enabled>true</Enabled>
+      <PassNA>false</PassNA>
+      <HideFailedRecords>false</HideFailedRecords>
+      <ResultIntersection>false</ResultIntersection>
+      <ShowFavourites>false</ShowFavourites>
+      <ShowVirtualRecords>false</ShowVirtualRecords>
+      <ShowUserRecords>false</ShowUserRecords>
+      <ShowReferenceMaterial>false</ShowReferenceMaterial>
+      <FailEstimates>false</FailEstimates>
+      <xAxis>
+        <Name>Density (kg/m^3)</Name>
+        <FunctionObjective />
+        <Expression>[Density]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>8.600407976780895</Low>
+        <High>68194.645516118515</High>
+      </xAxis>
+      <yAxis>
+        <Name>Young's modulus (GPa)</Name>
+        <FunctionObjective />
+        <Expression>[Young's modulus]</Expression>
+        <ExpressionType>1</ExpressionType>
+        <AbsoluteValues>true</AbsoluteValues>
+        <LogAxis>true</LogAxis>
+        <Low>5.3560032458096177E-05</Low>
+        <High>10807.309092650145</High>
+      </yAxis>
+      <Selections />
+      <Labels>
+        <Label>
+          <Text>Modulus / Density</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>true</Border>
+          <BorderColor>#FFff0000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>143</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>34.054368286826104</XPos>
+          <YPos>3073.2507426707189</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Cork</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>193.53681065066436</XPos>
+          <YPos>0.0018112784291388702</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-7177</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Rigid Polymer &#xD;
+     Foams</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>21.0339</XPos>
+          <YPos>0.254647</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4208</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Metal foam</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>52.955747335537517</XPos>
+          <YPos>2.2073007702511354</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6127</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Silicone elastomers</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>5935.78</XPos>
+          <YPos>0.00673293</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4118</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>EVA</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2029.1616479960219</XPos>
+          <YPos>0.040556091686690769</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-7191</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Leather</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>1759.8066092695703</XPos>
+          <YPos>0.082536058658631423</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-3551</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>PTFE</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2148.1140009207088</XPos>
+          <YPos>0.16067363878690241</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-13554</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>ABS</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3586.9345240013945</XPos>
+          <YPos>0.34183693524961939</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-7256</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Epoxies</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3690.5729079243488</XPos>
+          <YPos>0.72726609780607065</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4576</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Polyester</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4019.8033693350371</XPos>
+          <YPos>1.4157750224559864</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU06-6139</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>PVC</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3066.8079337516842</XPos>
+          <YPos>2.7561011303248422</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-9820</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>SMC</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3155.4181428116349</XPos>
+          <YPos>4.6960841627387042</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6130</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Concrete </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4583.782155911671</XPos>
+          <YPos>10.330576532075943</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-176</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Lead </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>9066.7119307988942</XPos>
+          <YPos>4.3854252708508294</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6123</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Tungsten &#xD;
+alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>40383.352052136826</XPos>
+          <YPos>455.26969205689426</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-3415</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Copper</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>39085.795956525762</XPos>
+          <YPos>160.00497848277038</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6106</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Bronze</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>27311.670953028366</XPos>
+          <YPos>42.6614364612996</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6102</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Brass</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>25240.13956290346</XPos>
+          <YPos>22.221394639613759</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6104</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Zn alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>5666.88</XPos>
+          <YPos>22.2063</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6119</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Carbon steels</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4137.9962470057</XPos>
+          <YPos>4820.2754728185237</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-2395</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Stainless steel</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>9313.86299809618</XPos>
+          <YPos>2812.0597322652525</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-2650</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Softwood</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>135.5608638143996</XPos>
+          <YPos>6.1299401309560091</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6134</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Plywood</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>216.89270276281064</XPos>
+          <YPos>14.900154457512663</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6135</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>GFRP</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>309.65221646557563</XPos>
+          <YPos>29.006255860571983</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-13172</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Mg alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>488.42696905358594</XPos>
+          <YPos>51.667699240292173</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6117</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Al alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>593.291</XPos>
+          <YPos>91.5855</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6110</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>CFRP</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>632.702</XPos>
+          <YPos>155.716</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-13171</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Silicon nitride</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>969.873</XPos>
+          <YPos>570.581</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-352</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Boron carbide</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>1312.4</XPos>
+          <YPos>1133.05</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-278</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Cast irons</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2795.43</XPos>
+          <YPos>2107.71</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6129</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>PP</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>728.469</XPos>
+          <YPos>1.24761</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-7267</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>PE</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>711.777</XPos>
+          <YPos>0.633679</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-9775</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Titanium alloys</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>994.629</XPos>
+          <YPos>278.097</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU05-6126</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Flexible &#xD;
+Polymer Foams </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>135.5608638143996</XPos>
+          <YPos>0.00023485281973813186</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4203</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Neoprene</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>1069.0154727442352</XPos>
+          <YPos>0.00015063590817339113</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4092</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Isoprene</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>3463.29</XPos>
+          <YPos>0.00241241</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4095</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Polyurethane </Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4569.78</XPos>
+          <YPos>0.0179262</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-16092</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Butyl Rubber</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>false</Fill>
+          <FillColor>#FF000000</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>531.99880475466568</XPos>
+          <YPos>0.00036615338007896296</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU04-4087</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Gold</Text>
+          <TextColor>#FF000000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>90</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>30684.453195829963</XPos>
+          <YPos>86.114644655802948</YPos>
+          <InitialXPos>0</InitialXPos>
+          <InitialYPos>0</InitialYPos>
+          <RecordGruid>EDU12-6183</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Ceramics</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>27623.923901742586</XPos>
+          <YPos>3694.7798098892617</YPos>
+          <InitialXPos>9929.939378728317</InitialXPos>
+          <InitialYPos>646.44472393715682</InitialYPos>
+          <RecordGruid>EDU04-232</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Metals</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>23029.887132246546</XPos>
+          <YPos>6.0695705839962644</YPos>
+          <InitialXPos>14125.265465972998</InitialXPos>
+          <InitialYPos>16.574032946536207</InitialYPos>
+          <RecordGruid>EDU04-1590</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Composites</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>8663.66054416464</XPos>
+          <YPos>1.9749760122384983</YPos>
+          <InitialXPos>2317.3846277702273</InitialXPos>
+          <InitialYPos>12.334269228375145</InitialYPos>
+          <RecordGruid>EDU04-4329</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Polymers</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>4583.782155911671</XPos>
+          <YPos>0.15108567577990748</YPos>
+          <InitialXPos>2214.3676691730439</InitialXPos>
+          <InitialYPos>0.34554503616070364</InitialYPos>
+          <RecordGruid>Xe6316629-83a2-40e1-82d0-201426288240</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Elastomers</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>2811.4397356200311</XPos>
+          <YPos>0.00069806265530075176</YPos>
+          <InitialXPos>1539.0850266497746</InitialXPos>
+          <InitialYPos>0.0012237493537774363</InitialYPos>
+          <RecordGruid>EDU04-4083</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Natural&#xD;
+ materials</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>397.87624888958663</XPos>
+          <YPos>0.0046249704088275421</YPos>
+          <InitialXPos>430.83174612343441</InitialXPos>
+          <InitialYPos>0.023487685081317326</InitialYPos>
+          <RecordGruid>EDU04-7004</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+        <Label>
+          <Text>Foams</Text>
+          <TextColor>#FFff0000</TextColor>
+          <Border>false</Border>
+          <BorderColor>#FF000000</BorderColor>
+          <Fill>true</Fill>
+          <FillColor>#FFffffff</FillColor>
+          <RoundedCorners>false</RoundedCorners>
+          <FaceName>Arial</FaceName>
+          <PointSize>120</PointSize>
+          <Italic>false</Italic>
+          <Weight>700</Weight>
+          <XPos>13.752041220958496</XPos>
+          <YPos>0.02419199548293538</YPos>
+          <InitialXPos>20.472250015713506</InitialXPos>
+          <InitialYPos>0.0072041230037650913</InitialYPos>
+          <RecordGruid>EDU04-7014</RecordGruid>
+          <Bar xsi:nil="true" />
+        </Label>
+      </Labels>
+      <Curves />
+      <ShowEnvelopes>true</ShowEnvelopes>
+    </Stage>
+  </Stages>
+</Project>
