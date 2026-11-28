@@ -1,6 +1,7 @@
 {
   "_help": "Add a resource by pasting a line right after the line that says \"resources\": [ . Use the Add a resource page (admin.html) to make the line for you. Types allowed: Timetables, Past questions, Study materials, Opportunities, News.",
   "resources": [
+    {"type":"Study materials","programme":"Geological","year":2,"semester":2,"course":"FLUID MECHANICS 2","title":"R K Bansal A Textbook of Fluid Mechanics and Hydraulic Machines","link":"files/GEOLOGICAL/YEAR-2/Semester-2/FLUID-MECHANICS-2/SLIDES-FM2/R_K_Bansal_A_Textbook_of_Fluid_Mechanics_and_Hydraulic_Machines.pdf","note":"51.8 MB","date":"2026-11-28"},
     {"type":"Study materials","programme":"Geological","year":1,"semester":2,"course":"FC 182","title":"FC 182 French","link":"files/GEOLOGICAL/YEAR-1/SEMESTER-2/FRENCH-2/SLIDES-F2/FC-182-French.pdf","note":"30.7 MB","date":"2026-11-28"},
     {"type":"Study materials","programme":"Geological","year":2,"semester":2,"course":"GED 258","title":"GED 258 Optic Mineralogy","link":"files/GEOLOGICAL/YEAR-2/Semester-2/OPTICAL-MINERALOGY/SLIDES-OM/GED-258_Optic-Mineralogy.pptx","note":"38.3 MB","date":"2026-11-28"},
     {"type":"Study materials","programme":"Geological","year":3,"semester":2,"course":"STRUCTURAL GEOLOGY","title":"Structural Geology","link":"files/GEOLOGICAL/YEAR-3/Second-Semester/STRUCTURAL-GEOLOGY/SLIDES-SG/Structural-Geology.pptx","note":"38.7 MB","date":"2026-11-28"},
